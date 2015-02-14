@@ -1,0 +1,84 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('panel')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Panel</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <p>To lazyly render the panel content and show on postback, you can make sure the <code>open</code> attribute is true after the postback
+        or add <code>success="TW('mypanel').show()</code> to the <code>commandButton</code> or <code>commandLink</code>.</p>
+
+        <ui:include src="panel.xhtml"/>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="Example">
+<pre class="line-numbers"><code class="language-markup">
+&lt;div class="grid-block">
+    &lt;a class="button" onclick="TW('topPanel').toggle()">Top Panel&lt;/a>
+    &lt;a class="button" onclick="TW('rightPanel').toggle()">Right Panel&lt;/a>
+    &lt;a class="button" onclick="TW('bottomPanel').toggle()">Bottom Panel&lt;/a>
+    &lt;a class="button" onclick="TW('leftPanel').toggle()">Left Panel&lt;/a>
+&lt;/div>
+
+&lt;t:panel position="top" widgetVar="topPanel">
+    &lt;h2>Top panel&lt;/h2>
+    &lt;p>This is some content inside the top panel.&lt;/p>
+&lt;/t:panel>
+
+&lt;t:panel position="right" widgetVar="rightPanel">
+    &lt;h2>Right panel&lt;/h2>
+    &lt;p>This is some content inside the right panel.&lt;/p>
+&lt;/t:panel>
+
+&lt;t:panel position="bottom" widgetVar="bottomPanel">
+    &lt;h2>Bottom panel&lt;/h2>
+    &lt;p>This is some content inside the bottom panel.&lt;/p>
+&lt;/t:panel>
+
+&lt;t:panel position="left" widgetVar="leftPanel">
+    &lt;h2>Left panel&lt;/h2>
+    &lt;p>This is some content inside the left panel.&lt;/p>
+&lt;/t:panel>
+</code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.Panel</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>open</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Shows the panel</td>
+                    </tr>
+                    <tr>
+                        <td>close</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Closes the panel</td>
+                    </tr>
+                    <tr>
+                        <td>toggle</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Open or close the panel based on current state</td>
+                    </tr>
+                </table>
+            </t:tab>
+
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>

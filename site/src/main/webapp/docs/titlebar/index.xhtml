@@ -1,0 +1,57 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('titleBar')}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>TitleBar</h1>
+
+        <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
+
+        <p>Title bars can have left-, right-, and center-aligned sections. You can use one, two, or all three of them in any combination.
+        The sections are added with facets named <code>left</code>, <code>right</code> and <code>title</code>. The title itself can instead be set as the <code>title</code> property of the title for convenience.</p>
+        <hr/>
+
+        <ui:include src="titlebar.xhtml"/>
+        <br/>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="titlebar.xhtml">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:titleBar>
+    &lt;f:facet name="left">Left Site Name&lt;/f:facet>
+    &lt;f:facet name="right">&lt;a href="#">Right link&lt;/a>&lt;/f:facet>
+&lt;/t:titleBar>
+
+&lt;t:titleBar title="Title positioned left" titlePosition="left">
+    &lt;f:facet name="right">&lt;a href="#">Right link&lt;/a>&lt;/f:facet>
+&lt;/t:titleBar>
+
+&lt;t:titleBar color="primary" title="Title">
+    &lt;f:facet name="left">Left&lt;/f:facet>
+    &lt;f:facet name="right">&lt;a href="#">Right link&lt;/a>&lt;/f:facet>
+&lt;/t:titleBar>
+
+&lt;t:titleBar color="dark">
+    &lt;f:facet name="left">Left&lt;/f:facet>
+    &lt;f:facet name="title">&lt;span>Title with markup&lt;/span>&lt;/f:facet>
+    &lt;f:facet name="right">&lt;a href="#">Right link&lt;/a>&lt;/f:facet>
+&lt;/t:titleBar></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+
+                <br/>
+
+                <p>Additional styling is available by setting the <code>styleClass</code> property. Refer to the <a
+                        href="http://foundation.zurb.com/apps/docs/#!/title-bar">Foundation For Apps Documentation</a> for further information and examples.
+                </p>
+            </t:tab>
+
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,29 @@
+<div class="grid-content" xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <div class="grid-block">
+        <a class="button" onclick="TW('topPanel').toggle()">Top Panel</a>
+        <a class="button" onclick="TW('rightPanel').toggle()">Right Panel</a>
+        <a class="button" onclick="TW('bottomPanel').toggle()">Bottom Panel</a>
+        <a class="button" onclick="TW('leftPanel').toggle()">Left Panel</a>
+    </div>
+
+    <t:panel position="top" widgetVar="topPanel">
+        <h2>Top panel</h2>
+        <p>This is some content inside the top panel.</p>
+    </t:panel>
+
+    <t:panel position="right" widgetVar="rightPanel">
+        <h2>Right panel</h2>
+        <p>This is some content inside the right panel.</p>
+    </t:panel>
+
+    <t:panel position="bottom" widgetVar="bottomPanel">
+        <h2>Bottom panel</h2>
+        <p>This is some content inside the bottom panel.</p>
+    </t:panel>
+
+    <t:panel position="left" widgetVar="leftPanel">
+        <h2>Left panel</h2>
+        <p>This is some content inside the left panel.</p>
+    </t:panel>
+</div>

@@ -1,0 +1,11 @@
+<div class="grid-content" xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:inputText pt:placeholder="Search">
+        <t:filterFor widget="movies"/>
+    </h:inputText>
+
+    <t:list title="Movies" value="#{docsController.movies}" widgetVar="movies">
+        <t:li chevron="true" link="#movie#{it.id}">#{it.title}</t:li>
+    </t:list>
+
+</div>

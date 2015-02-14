@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:t="http://tornadofaces.io/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Fun With Uncle Eddies Accordion and TabView</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <h:outputScript library="js" name="prefixfree.min.js"/>
+    <h:outputScript library="js" name="fastclick.min.js"/>
+    <script>
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body);
+            }, false);
+        }
+    </script>
+</h:head>
+
+<h:body>
+    <t:notification id="msg" widgetVar="msg"/>
+
+    <t:accordion id="acc" dynamic="false" collapsible="true" autoOpen="true">
+        <t:tab title="Forms">
+            <h:panelGroup id="nameContainer">
+                <h2>#{index.name}</h2>
+            </h:panelGroup>
+            <h:form id="myform">
+
+                <div class="grid-block">
+                    <t:form-element label="Prefix/postfix" medium="6" layout="grid-content">
+                        <span class="form-label">www.</span>
+                        <h:inputText/>
+                        <span class="form-label">.com</span>
+                    </t:form-element>
+
+                    <t:form-element label="Name" medium="6">
+                        <h:inputText value="#{index.name}"/>
+                    </t:form-element>
+                </div>
+
+                <div class="grid-block">
+                    <t:form-element label="Search" medium="6" large="6">
+                        <h:inputText/>
+                        <t:commandLink value="Search"/>
+                    </t:form-element>
+
+                    <t:form-element label="Progress 2" id="progress2" medium="6">
+                        <br/>
+                        <t:progress priority="low" value="#{index.progress}"/>
+                    </t:form-element>
+                </div>
+
+                <div class="grid-block">
+                    <t:form-element label="My slider" medium="6">
+                        <t:slider id="myslider" lower="#{index.progress}"
+                                  min="0" max="100"
+                                  connect="lower"
+                                  step="1"/>
+                    </t:form-element>
+                    <t:form-element label="My switch" medium="3">
+                        <t:switch id="myswitch" value="#{index.mybool}" size="small"/>
+                    </t:form-element>
+                    <t:form-element label="My checkbox" medium="3">
+                        <h:outputLabel for="cb">Check me</h:outputLabel>
+                        <h:selectBooleanCheckbox id="cb" value="true" />
+                    </t:form-element>
+                </div>
+
+                <div>
+                    <t:form-element label="Pick a date" medium="6">
+                        <t:datepicker editable="true" value="#{index.mydate}" id="mydate" widgetVar="mydate" format="dd.mm.yyyy">
+                            <f:convertDateTime pattern="dd.MM.yyyy"/>
+                        </t:datepicker>
+                    </t:form-element>
+                </div>
+
+                <t:commandButton color="success" id="saveFormBtn" value="Save" action="#{index.save}" execute="@form"
+                                 render=":msg :acc:nameContainer progress2"/>
+            </h:form>
+        </t:tab>
+        <t:tab title="Tabs">
+            <t:tabView id="mytabs" widgetVar="mytabs" dynamic="false">
+                <t:tab title="Tab 1">This is the content of tab 1</t:tab>
+                <t:tab title="Tab 2">This is the content of tab 2</t:tab>
+                <t:tab title="Tab 3">This is the content of tab 3</t:tab>
+            </t:tabView>
+        </t:tab>
+        <t:tab title="List">
+            <t:list title="My people" value="#{index.people}" var="person" varStatus="s">
+                <t:li chevron="true">
+                    <a href="#">#{person.name}</a>
+                </t:li>
+            </t:list>
+        </t:tab>
+        <t:tab title="Menu bar">
+            <t:ul color="dark" menuBar="true">
+                <li><a href="#">Menu Item 1</a></li>
+                <li><a href="#">Menu Item 2</a></li>
+                <li><a href="#">Menu Item 3</a></li>
+            </t:ul>
+        </t:tab>
+        <t:tab title="Title bar">
+            <t:titleBar color="primary" title="Hello world">
+                <f:facet name="left">I'm left</f:facet>
+                <f:facet name="right">I'm right</f:facet>
+            </t:titleBar>
+        </t:tab>
+        <t:tab title="Card">
+            <div class="grid-block">
+                <div class="grid-block padding">
+                    <t:card title="Hello card!" color="primary">
+                        <f:facet name="top">
+                            <img src="http://placekitten.com/g/400/200"/>
+                        </f:facet>
+                        I have a blue card with a kitten
+                    </t:card>
+                </div>
+                <div class="grid-block padding">
+                    <t:card title="Hello card!" color="warning">
+                        <f:facet name="top">
+                            <img src="http://placekitten.com/g/400/200"/>
+                        </f:facet>
+                        I have a orange card with a kitten
+                    </t:card>
+                </div>
+            </div>
+        </t:tab>
+        <t:tab title="Modal">
+            <h:form>
+                <t:commandButton value="Show modal" render="mymodal" onsuccess="TW('mymodal').show()"
+                                 action="#{index.setName('Eddie')}"/>
+
+                <t:modal title="This is my modal!" widgetVar="mymodal" id="mymodal">
+                    <h1>This is the name: #{index.name}</h1>
+
+                    <p>Here is some name: #{index.name}</p>
+                    <a class="button warning close">Cancel</a>
+                    <f:facet name="left"><a href="#" class="close">Close</a></f:facet>
+                    <f:facet name="right">Righty</f:facet>
+                </t:modal>
+            </h:form>
+
+        </t:tab>
+        <t:tab title="Panel">
+            <a href="#" class="button" onclick="TW('mypanel').show()">Show my panel</a>
+            <t:panel id="mypanel" widgetVar="mypanel" position="top" offcanvas="true" style="padding: 1rem">
+                <h2>This is the top panel!!</h2>
+            </t:panel>
+        </t:tab>
+        <t:tab title="Action Sheet">
+            <div class="text-center">
+                <t:actionsheet title="Click for options" description="My choices here" timeout="0" position="top">
+                    <h:link value="Twitter"/>
+                    <h:link value="Facebook"/>
+                    <h:link value="Mail"/>
+                </t:actionsheet>
+            </div>
+        </t:tab>
+        <t:tab title="Notification">
+            <h:form>
+                <t:commandButton value="Show notification" action="#{index.showNotification}" render=":msg"/>
+            </h:form>
+        </t:tab>
+    </t:accordion>
+</h:body>
+</html>

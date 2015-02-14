@@ -1,0 +1,62 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('list')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Datadriven Block List</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <ui:include src="list.xhtml"/>
+
+        <p>The list can be client side filtered via a call to <code>widgetVar.filter(query)</code>. The helper tag <code>filterFor</code> can be used to add filtering capabilities to any text input.</p>
+
+        <p>The <code>li</code> tag takes an optional <code>chrevron</code> attribute to render a chrevron to the right of the element, and also a <code>link</code> attribute that will wrap the children of the li in an anchor with href to the attribute value.</p>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="list.xhtml">
+<pre class="line-numbers"><code class="language-markup">
+&lt;h:inputText pt:placeholder="Search">
+    &lt;t:filterFor widget="movies"/>
+&lt;/h:inputText>
+    
+&lt;t:list title="Movies" value="#{docsController.expr('controller.movies')}" widgetVar="movies">
+    &lt;t:li chevron="true" link="#">#{docsController.expr('it.title')}&lt;/t:li>
+&lt;/t:list></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.List</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>setFilterFn(filterFn)</td>
+                        <td>filterFn: Function that will be called to filter then list via <code>filter()</code></td>
+                        <td>function</td>
+                        <td>Override the default filter function used for client side filtering. The method will be called with the parameters <code>(item, query, index)</code> and should return true or false to indicate that the given item should be rendered.</td>
+                    </tr>
+                    <tr>
+                        <td>filter(query)</td>
+                        <td>query: The query string to filter the list by</td>
+                        <td>String</td>
+                        <td>The default <code>filterFn</code> looks for the query text somewhere within each item. A custom filterFn can be provided via <code>setFilterFn</code> for finer grained control.</td>
+                    </tr>
+                </table>
+
+                <h5>Advanced usage</h5>
+                <p>The markup for the list is very basic, and you can easily replicate the markup with a standard repeater component if necessary. Please refer to the <a href="http://foundation.zurb.com/apps/docs/#!/block-list">Foundation For Apps Documentation</a> for more information.</p>
+            </t:tab>
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>

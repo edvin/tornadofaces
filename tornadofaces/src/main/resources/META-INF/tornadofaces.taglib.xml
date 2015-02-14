@@ -1,0 +1,672 @@
+<facelet-taglib version="2.2"
+                xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
+    <namespace>http://tornadofaces.io/ui</namespace>
+    <tag>
+        <description>Tab for Accordion and TabView</description>
+        <tag-name>tab</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Tab</component-type>
+            <renderer-type>io.tornadofaces.component.AccordionRenderer</renderer-type>
+        </component>
+    </tag>
+    <tag>
+        <description>Form Element</description>
+        <tag-name>form-element</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.FormElement</component-type>
+            <renderer-type>io.tornadofaces.component.FormElementRenderer</renderer-type>
+        </component>
+    </tag>
+    <tag>
+        <description>The configure tag lets a Java method configure any UIComponent.</description>
+        <tag-name>configure</tag-name>
+        <handler-class>io.tornadofaces.component.util.Configure</handler-class>
+        <attribute>
+            <description>The method expression representing the method that will be passed the parent UIComponent as it's only argument. The method must accept the exact UIComponent type.</description>
+            <name>with</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description><![CDATA[Data is a Client Side JSON prefetcher, that makes it easy to provide JSON data that is available at render time. The data can also be loaded via <code>Widget.load()</code> at a later time. There is optionally also a callback available on load.]]></description>
+        <tag-name>data</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Data</component-type>
+            <renderer-type>io.tornadofaces.component.DataRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>The value expression that will be rendered as a JavaScript object</description>
+            <name>value</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <description><![CDATA[The client side variable name of the resulting object. Can be left blank if you intend to access the data via <code>Widget.val()</code> only.]]></description>
+            <name>var</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The value will be rendered as a JSON object. Default true.</description>
+            <name>json</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description><![CDATA[A lazy Data object can be retrieved via a call to <code>Widget.load()</code>.]]></description>
+            <name>lazy</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Client callback that will be called when the data is available or reloaded. The first argument is the data itself, the other is a boolean indicating wether this was the initial load or not.</description>
+            <name>success</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description><![CDATA[Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar. Use this to <code>load()</code> the data or get the data via <code>val()</code>. Note that the Data component must be wrapped in a Form for the load() function to work.]]></description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Date Picker</description>
+        <tag-name>datepicker</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Datepicker</component-type>
+            <renderer-type>io.tornadofaces.component.DatePickerRenderer</renderer-type>
+        </component>
+    </tag>
+    <tag>
+        <description>Range Slider</description>
+        <tag-name>slider</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Slider</component-type>
+            <renderer-type>io.tornadofaces.component.SliderRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Arbitrary data you can connect to your component, for example for retrieval by the configure tag or other custom business logic</description>
+            <name>data</name>
+            <required>false</required>
+            <type>Object</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Switch Boolean Checkbox</description>
+        <tag-name>switch</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Switch</component-type>
+            <renderer-type>io.tornadofaces.component.SwitchRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>The initial value</description>
+            <name>value</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <description>The size of the button: valid options are small, large. No value means default/medium.</description>
+            <name>size</name>
+            <required>false</required>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Progress Bar</description>
+        <tag-name>progress</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Progress</component-type>
+            <renderer-type>io.tornadofaces.component.ProgressRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>The value of the progress bar</description>
+            <name>value</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <description>Max</description>
+            <name>max</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <description>Priority. Represent different colors. high, medium, low</description>
+            <name>priority</name>
+            <required>false</required>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Accordion presents contents in vertical tabs.</description>
+        <tag-name>accordion</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Accordion</component-type>
+            <renderer-type>io.tornadofaces.component.AccordionRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Arbitrary data you can connect to your component, for example for retrieval by the configure tag or other custom business logic</description>
+            <name>data</name>
+            <required>false</required>
+            <type>Object</type>
+        </attribute>
+        <attribute>
+            <description>Multi open support. If true, items will toggle open/close status when clicked, and
+            other items are not closed when you open a new item.</description>
+            <name>multi</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Controls if it is possible to close an item without opening any other item.</description>
+            <name>collapsible</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Index to open by default. If multi=true, activeIndex can be a comma separated list of indexes to open. Default 0.</description>
+            <name>activeIndex</name>
+            <required>false</required>
+            <type>Integer or String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback to be executed when a user opens an item.</description>
+            <name>onItemChange</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar.</description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>If tab items are lazy loaded, cache=true will make sure each item content is only retrieved once. cache=false will retrieve and refresh the content every time the item is shown. Default true.</description>
+            <name>cache</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>AutoOpen will open the items denoted in activeIndex when the component is rendered. Default true.</description>
+            <name>autoOpen</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Dynamic items will have it's contents lazy loaded when the item is actived. Default false.</description>
+            <name>dynamic</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the accordion div.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>A datadriven list component that can accommodate a variety of styles and controls.</description>
+        <tag-name>list</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.List</component-type>
+            <renderer-type>io.tornadofaces.component.ListRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Styles to apply to the list section.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>A title to be displayed as the list header.</description>
+            <name>title</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>A JavaScript function to filter the list when widget.filter() is called. The function is called with each item in the list</description>
+            <name>filterFn</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The List of elements, as a value expression.</description>
+            <name>value</name>
+            <required>true</required>
+            <type>java.util.List</type>
+        </attribute>
+        <attribute>
+            <description>Highlight text in filtered elements. Default true.</description>
+            <name>highlightFilter</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>The variable that will refer to each element in the list. Defaults to "it"</description>
+            <name>var</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Add this to an input field and it will call the JavaScript filter method of the target widget onkeyup.</description>
+        <tag-name>filterFor</tag-name>
+        <handler-class>io.tornadofaces.component.input.FilterFor</handler-class>
+        <attribute>
+            <description>The widgetVar that will have it's filter() method called with the input text as argument.</description>
+            <name>widget</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description><![CDATA[Unordered List is a non-datadriven list wrapper that can optionally be turned into a menu by setting <code>menuBar</code> to true.]]></description>
+        <tag-name>ul</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Ul</component-type>
+            <renderer-type>io.tornadofaces.component.UlRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Should this list behave and look like a menu bar. Default false.</description>
+            <name>menuBar</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>The orientation decides if the list items are laid out horizontally or vertically. Valid options a horizontal and vertical. Default horizontal.</description>
+            <name>orientation</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Orientation</type>
+        </attribute>
+        <attribute>
+            <description>Icons, if added, are by default positioned above the text. However, this can be changed by setting this property to left, right or bottom. Default top.</description>
+            <name>iconPosition</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Position</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the ul element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the ul element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The menu bar can be recolored to be dark, or match your primary color. Valid options are dark, primary. Default none.</description>
+            <name>color</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Color</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>A navigational component which can display the current screen the user is on, along with additional controls or menu items.</description>
+        <tag-name>titleBar</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.TitleBar</component-type>
+            <renderer-type>io.tornadofaces.component.TitleBarRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Styles to apply to the title bar div.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The title. Can optionally be set via the title facet.</description>
+            <name>title</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the title bar div.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Position of the title element. Valid options are left, right, center. Default center.</description>
+            <name>titlePosition</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Position</type>
+        </attribute>
+        <attribute>
+            <description>Color of the title bar. Valid options are dark, primary. Default none.</description>
+            <name>color</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The card title is rendered in a divider.</description>
+            <name>title</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>List Element used by ul and list components.</description>
+        <tag-name>li</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Li</component-type>
+            <renderer-type>io.tornadofaces.component.LiRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Styles to apply to the list section.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Will wrap the contents of this li in an anchor with href set to the this property value.</description>
+            <name>link</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>If the li is inside a list, chevron=true will render a chevron to the right of the list entry, indicating that it is clickable and has a navigation target. Default false.</description>
+            <name>chevron</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Panels are frames that slide in from the top, left, bottom, or right of the screen and appear over the interface.</description>
+        <tag-name>panel</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Panel</component-type>
+            <renderer-type>io.tornadofaces.component.PanelRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar.</description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the panel div.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the panel div.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Set open true if you want the panel to open immediately.</description>
+            <name>open</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Non closable panels cannot be closed once the are opened. Default true.</description>
+            <name>closable</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Position of the window. Valid values are "top", "right", "left" and "right". Default "top".</description>
+            <name>position</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Position</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>A card is a rectangular container that holds your content, makes it easy to digest, and separates it from other similar content.</description>
+        <tag-name>card</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Card</component-type>
+            <renderer-type>io.tornadofaces.component.CardRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Customize your card with colors. Valid options are dark, primary, success, warning, alert.</description>
+            <name>color</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The card title is rendered in a divider.</description>
+            <name>title</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the card div</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>An alert that pins to the corner of the screen when triggered by JavaScript. It can be set to disappear after a certain period of time, or to stay put until the user clicks on it.</description>
+        <tag-name>notification</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Notification</component-type>
+            <renderer-type>io.tornadofaces.component.NotificationRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>The timeout in milliseconds for the notification to stay visible. Set to 0 for a sticky notification.</description>
+            <name>timeout</name>
+            <required>true</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>The position of the notification. Valid values are "top-right", "bottom-right", "bottom-left" and "top-left". Default "top-right".</description>
+            <name>position</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Non closable notifications cannot be closed by the user once the are visible, but will dissapear when the timeout is reached, or never if timeout is 0. Default true.</description>
+            <name>closable</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar.</description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Action sheets can be triggered in your app view to providing contextual actions on a component. They act as slide up menus on small devices and drop downs on larger screens.</description>
+        <tag-name>actionsheet</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.ActionSheet</component-type>
+            <renderer-type>io.tornadofaces.component.ActionSheetRenderer</renderer-type>
+        </component>
+    </tag>
+    <tag>
+        <description>Modal dialogs, or pop-up windows, are handy for prototyping and production. It focuses the user on the modal content. You can add images, links, and even a grid inside.</description>
+        <tag-name>modal</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Modal</component-type>
+            <renderer-type>io.tornadofaces.component.ModalRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar.</description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The title of the modal window.</description>
+            <name>title</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the modal div.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the modal div.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Set open true if you want the modal to open immediately.</description>
+            <name>open</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Color of the modal. Valid values are "primary", "dark" and none. Default "primary".</description>
+            <name>color</name>
+            <type>io.tornadofaces.component.button.CommandLink.Color</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>The TabView presents contents in vertical or horizontal tabs.</description>
+        <tag-name>tabView</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.TabView</component-type>
+            <renderer-type>io.tornadofaces.component.TabViewRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Orientation for the tab view. Possible values are "horizontal" (default) and "vertical"</description>
+            <name>orientation</name>
+            <type>io.tornadofaces.component.tab.TabView.Orientation</type>
+        </attribute>
+        <attribute>
+            <description>Index to open by default. If multi=true, activeIndex can be a comma separated list of indexes to open. Default 0.</description>
+            <name>activeIndex</name>
+            <required>false</required>
+            <type>Integer or String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback to be executed when a user opens an item.</description>
+            <name>onItemChange</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar.</description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>If tab items are lazy loaded, cache=true will make sure each item content is only retrieved once. cache=false will retrieve and refresh the content every time the item is shown. Default true.</description>
+            <name>cache</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>AutoOpen will open the items denoted in activeIndex when the component is rendered. Default true.</description>
+            <name>autoOpen</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Dynamic items will have it's contents lazy loaded when the item is actived. Default false.</description>
+            <name>dynamic</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the tab view div.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the content div.</description>
+            <name>contentsStyleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>
+            Render an HTML "a" anchor element that acts like a form submit button when clicked.
+        </description>
+        <tag-name>commandLink</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.CommandLink</component-type>
+        </component>
+        <attribute>
+            <description>Size of the button. Valid values are "tiny", "small", "large"</description>
+            <name>size</name>
+            <type>io.tornadofaces.component.button.CommandLink.Size</type>
+        </attribute>
+        <attribute>
+            <description>Boolean indicating if this button should perform an ajax request. See update and process for more information.</description>
+            <name>ajax</name>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Space separated list of components to render after ajax.</description>
+            <name>render</name>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Space separated list of components to execute on ajax.</description>
+            <name>execute</name>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Corners of the button. Valid values are "square" (adds no class), "radius", "round"</description>
+            <name>corners</name>
+            <type>io.tornadofaces.component.button.CommandLink.Corners</type>
+        </attribute>
+        <attribute>
+            <description>Color of the button. Valid values are "success", "secondary", "alert", "info"</description>
+            <name>color</name>
+            <type>io.tornadofaces.component.button.CommandLink.Color</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Command Button</description>
+        <tag-name>commandButton</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.CommandButton</component-type>
+        </component>
+        <attribute>
+            <description>Size of the button. Valid values are "tiny", "small", "large"</description>
+            <name>size</name>
+            <type>io.tornadofaces.component.button.CommandLink.Size</type>
+        </attribute>
+        <attribute>
+            <description>Boolean indicating if this button should perform an ajax request. See update and process for more information.</description>
+            <name>ajax</name>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Space separated list of components to render after ajax.</description>
+            <name>update</name>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Space separated list of components to render after ajax.</description>
+            <name>render</name>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Space separated list of components to execute on ajax.</description>
+            <name>execute</name>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Corners of the button. Valid values are "square" (adds no class), "radius", "round"</description>
+            <name>corners</name>
+            <type>io.tornadofaces.component.button.CommandLink.Corners</type>
+        </attribute>
+        <attribute>
+            <description>Color of the button. Valid values are "success", "secondary", "alert", "info"</description>
+            <name>color</name>
+            <type>io.tornadofaces.component.button.CommandLink.Color</type>
+        </attribute>
+    </tag>
+</facelet-taglib>

@@ -1,0 +1,44 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('ul')}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>UL and MenuBar</h1>
+
+        <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
+
+        <p>The ul expects <code>li</code> elements with nested <code>a</code> anchors as children. You can use a normal <code>li</code> tag or the TornadoFaces <code>&lt;t:li&gt;</code> tag for additional functionality, including automatically creating the wrapped <code>a</code> via the <code>link</code> attribute.</p>
+        <p>For a data driven alternative, see <a href="../list">List</a>.</p>
+        <hr/>
+
+        <ui:include src="menubar.xhtml"/>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="menubar.xhtml">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:ul menuBar="true" color="primary">
+    &lt;t:li link="#">Email&lt;/t:li>
+    &lt;t:li link="#">Apps&lt;/t:li>
+    &lt;t:li link="#">Messages&lt;/t:li>
+    &lt;t:li link="#">Friends&lt;/t:li>
+&lt;/t:ul>
+</code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+
+                <br/>
+
+                <p>Additional styling is available by setting the <code>styleClass</code> property. Refer to the <a
+                        href="http://foundation.zurb.com/apps/docs/#!/menu-bar">Foundation For Apps Documentation</a> for further information and examples.
+                </p>
+            </t:tab>
+
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>

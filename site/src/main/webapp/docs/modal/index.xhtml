@@ -1,0 +1,73 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('modal')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Modal</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <p>You can also manipulate the modal from JavaScript via the <code>widgetVar</code> name to open and close the modal.</p>
+
+        <p>Any button with <code>class=close</code> will close the modal when triggered.</p>
+
+        <hr/>
+        <ui:include src="modal.xhtml"/>
+
+        <br/>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="modal.xhtml">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:modal title="Modal window" widgetVar="mymodal" id="mymodal">
+    &lt;p>Enter your name: &lt;h:inputText value="#{docsController.expr('modalController.name')}"/>&lt;/p>
+    &lt;a class="button success close">Save&lt;/a>
+    &lt;f:facet name="left">&lt;a href="#" class="close">Close&lt;/a>&lt;/f:facet>
+    &lt;f:facet name="right">Right&lt;/f:facet>
+&lt;/t:modal>
+
+&lt;!-- Show modal with JavaScript by refering to the widgetVar -->
+&lt;a class="button" href="#" onclick="TW('mymodal').show()">Show modal&lt;/a>
+
+&lt;!-- Call server method to prepare data and show modal when AJAX call returns -->
+&lt;h:form>
+    &lt;t:commandButton
+        onsuccess="TW('mymodal').show()"
+        value="Server callback first"
+        action="#{docsController.expr('modalController.prepareData')}"
+        render=":mymodal"/>
+&lt;/h:form></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.Modal</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>show()</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Show the modal dialog</td>
+                    </tr>
+                    <tr>
+                        <td>hide()</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Hide the modal dialog</td>
+                    </tr>
+                </table>
+            </t:tab>
+
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>

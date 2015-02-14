@@ -1,0 +1,111 @@
+.menu-group-left h1 {
+    color: #999999;
+    padding-left: 0.8em;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#left-menu-container {
+    background: #f9f9f9;
+    border-right: 1px solid #e7e7e7;
+}
+
+#left-menu {
+    background: #f9f9f9;
+}
+
+#main-container {
+    padding-left: 3em;
+}
+
+pre {
+    font-size: 14px !important;
+}
+
+pre code {
+    background-color: inherit;
+    border: none;
+}
+
+.tabs.documentation {
+    border-bottom: 1px solid #cecece;
+    position: relative;
+}
+
+.tabs.documentation .tab-item.is-active:after {
+    content: '';
+    height: 1px;
+    background: inherit;
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.tabs.documentation .tab-item {
+    position: relative;
+    border-top: 1px solid #cecece;
+    border-left: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-left: 8px;
+}
+
+.tabs.documentation .tab-item.doctab {
+    position: absolute;
+    right: 8px;
+}
+
+.tabs.documentation .tab-item.is-active, .tabs.documentation .tab-item.is-active:hover {
+    background: #fff;
+}
+
+.documentation-contents {
+    min-height: 300px;
+}
+
+table.attributes th, table.api-info th {
+    background-color: #e7e7e7;
+    text-align: left;
+}
+
+table.attributes, table.tag-info, table.api-info {
+    border-collapse: collapse;
+    width: 100%
+}
+
+table.attributes, table.tag-info, table.tag-info td, table.api-info td, table.attributes td, table.tag-info th, table.api-info th, table.attributes th {
+    border: 1px solid #cecece;
+    vertical-align: text-top;
+    padding: 8px !important;
+}
+
+table.tag-info th {
+    font-weight: bold;
+    text-align: left;
+}
+
+.documentation-contents h5 {
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+#footer {
+    background-color: #323232;
+    min-height: 200px;
+    color: #cecece;
+    margin: 0;
+    padding: 0;
+}
+
+#footer h3 {
+    color: #e7e7e7;
+}
+
+body {
+    /*overflow: hidden;*/
+    max-height: 100vh;
+}

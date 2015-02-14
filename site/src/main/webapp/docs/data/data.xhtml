@@ -1,0 +1,27 @@
+<div class="grid-content" xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui"
+     xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <script>
+        function renderMovies(movies) {
+            for (var i = 0; i &lt; movies.length; i++) {
+                var movie = movies[i];
+                var li = document.createElement('li');
+                li.appendChild(document.createTextNode(movie.title));
+                document.getElementById('movieList').appendChild(li);
+            }
+        }
+    </script>
+
+    <p><strong>The list elements below are rendered with JavaScript using preloaded data:</strong></p>
+
+    <ul id="movieList"></ul>
+
+    <div class="grid-block">
+        <h:form>
+            <t:data value="#{docsController.movies}" var="movies" success="renderMovies" widgetVar="movieLoader"/>
+            <t:commandButton value="Load by re-rendering Widget"/>
+        </h:form>
+
+        <a href="#" class="button" onclick="TW('movieLoader').load()">Load via Widget Call</a>
+    </div>
+</div>

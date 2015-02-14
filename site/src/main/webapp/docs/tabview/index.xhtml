@@ -1,0 +1,121 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('tabView')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>TabView</h1>
+
+        <p>#{docsController.tag.description} The markup and default CSS is
+        minimal, making it easy to style and adapt to your spesific need.</p>
+        <hr/>
+        <h4>Basic</h4>
+        <ui:include src="basic.xhtml"/>
+
+        <br/>
+        <h4>AJAX Loading, Custom CSS</h4>
+        <ui:include src="advanced.xhtml"/>
+
+        <br/>
+        <p>Infact, the documentation TabView below is another example of CSS styling.</p>
+        <hr/>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="accordion.xhtml">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:tabView>
+    &lt;t:tab title="Star Wars: Episode I - The Phantom Menace">
+        Two Jedi Knights escape a hostile blockade...
+    &lt;/t:tab>
+    &lt;t:tab title="Star Wars: Episode II - Attack of the Clones">
+        Ten years after initially meeting...
+    &lt;/t:tab>
+    &lt;t:tab title="Star Wars: Episode III - Revenge of the Sith">
+        As the Clone Wars near an end...
+    &lt;/t:tab>
+&lt;/t:tabView></code></pre>
+            </t:tab>
+            <t:tab title="advanced.xhtml">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:tabView dynamic="true" styleClass="advancedTabView" contentsStyleClass="advancedTabViewContent">
+    &lt;t:tab title="Star Wars: Episode I - The Phantom Menace">
+        Two Jedi Knights escape a hostile blockade...
+    &lt;/t:tab>
+    &lt;t:tab title="Star Wars: Episode II - Attack of the Clones">
+        Ten years after initially meeting...
+    &lt;/t:tab>
+    &lt;t:tab title="Star Wars: Episode III - Revenge of the Sith">
+        As the Clone Wars near an end...
+    &lt;/t:tab>
+&lt;/t:tabView></code></pre>
+            </t:tab>
+            <t:tab title="styles.css">
+<pre class="line-numbers"><code class="language-css">
+.tabs.advancedTabView .tab-item {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.tabs.advancedTabView .tab-item {
+    background-color: #00558b;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.tabs.advancedTabView .tab-item.is-active, .tabs.advancedTabView .tab-item:hover, .tabs.advancedTabView .tab-item.is-active:hover {
+    background-color: #0065a5;
+    color: #fff;
+}
+
+.advancedTabViewContent {
+    min-height: 200px;
+    background-color: #0065a5;
+    color: #cecece;
+}</code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+                <h5>Client Side Callbacks</h5>
+                <p><code>onItemChange</code> is called as a tab is activated and the content is loaded.
+                    The callback receives the item element representing the activated item.
+                </p>
+                <pre><code class="language-javascript">function itemChanged(item) {
+    // item is the new active element
+}</code></pre>
+
+                <h5>Ajax Behavior Events</h5>
+                <p><code>itemChange</code> will be called when an item is toggled.
+                </p>
+                <pre><code class="language-markup">&lt;t:tabView>
+    &lt;f:ajax event="itemChange" listener="#{docsController.expr('controller.onChange')}">
+&lt;/t:accordion></code></pre>
+                <pre><code class="language-java">public void onChange(ItemChangeEvent event) {
+    TabView tabView = event.getTabView();
+    Tab activeTab = event.getTab();
+}</code></pre>
+                <p>The listener will be called with an instance of <code>io.tornadofaces.component.tab.ItemChangeEvent</code> that contains a reference to the new active item and the tab view.</p>
+
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.TabView</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>select(index)</td>
+                        <td>index: Index of the tab item to select</td>
+                        <td>void</td>
+                        <td>Activate or toggle the selected tab item</td>
+                    </tr>
+                </table>
+            </t:tab>
+
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,47 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('configure')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Configure</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <p>This approach keeps your markup and your business logic separate, which often becomes a concern
+            with JSF components that have a large feature set and many configuration options.</p>
+
+        <t:slider min="0" max="100" step="1" lower="20" connect="lower" title="My product"/>
+        <br/>
+
+        <p>The example shows how you can configure a fictive product slider with values from the product itself
+        without cluttering the markup, while making it easy to perform advanced logic to determine the configuration
+        of the slider in a typesafe, familiar manner.</p>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="Markup and Java Code">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:slider data=#{docsController.expr('product')}>
+    &lt;t:configure with="#{docsController.expr('controller.configureSlider')}">"/>
+&lt;/t:slider></code></pre>
+
+<p>The controller can then extract the product via the <code>data</code> property of the slider and then use the product values.</p>
+
+<pre class="line-numbers"><code class="language-java">
+public void configureSlider(Slider slider) {
+    Product product = slider.getData();
+    slider.setMin(0);
+    slider.setMax(product.getMaxValue());
+    slider.setStep(product.getStep());
+    slider.setLower(product.getDefaultValue());
+}</code></pre>
+            <p>Notice that you can use the same <code>configureSlider</code> method to configure dozens of sliders by differentiating on the provided data object.</p>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+            </t:tab>
+        </t:tabView>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,48 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('card')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Card</h1>
+
+        <p>#{docsController.tag.description}</p>
+        <hr/>
+        <ui:include src="card.xhtml"/>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="card.xhtml">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:card title="Look ma, I'm a card with a kitten!" color="dark">
+    &lt;f:facet name="top">
+        &lt;img src="http://placekitten.com/g/300/150"/>
+    &lt;/f:facet>
+    The image is added in the top facet and this text is a child of the card element.
+&lt;/t:card>
+
+&lt;t:card>
+    &lt;h3>Clean cut&lt;/h3>
+    This card has no title and no top facet. That makes for a nice well.
+&lt;/t:card>
+    
+&lt;t:card color="primary" title="Primary colors">
+    This card has a title but no top facet and has the color attribute set to primary.
+    Foundation for Apps markup and CSS is great!
+&lt;/t:card></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+                <h5>Usage</h5>
+
+                <p>If you add the <code>title</code> attribute to the card, the title is displayed in a divider, dividing the content placed in the <code>top</code> facet from content added as a child to the card element. The child elements are added inside a <code>card-section</code> div, below the divider.</p>
+
+                <p>You can create the card with any combination of title, top facet content and child content to create different looking cards.</p>
+
+                <p>To fully understand the markup of the Card, please consult the <a href="http://foundation.zurb.com/apps/docs/#!/card">Foundation for Apps Documentation</a>.</p>
+            </t:tab>
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>

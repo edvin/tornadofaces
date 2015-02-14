@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<div class="grid-block padding">
+    <div class="grid-block">
+        <t:card title="Look ma, I'm a card with a kitten!" color="dark" style="width: 300px">
+            <f:facet name="top">
+                <img src="http://placekitten.com/g/300/150"/>
+            </f:facet>
+            The image is added in the top facet and this text is a child of the card element.
+        </t:card>
+    </div>
+
+    <div class="grid-block">
+        <div>
+            <t:card style="width: 300px">
+                <h3>Clean cut</h3>
+                This card has no title and no top facet. That makes for a nice well.
+            </t:card>
+            <t:card style="width: 300px" color="primary" title="Primary colors">
+                This card has a title but no top facet and has the color attribute set to primary.
+                Foundation for Apps markup and CSS is great!
+            </t:card>
+        </div>
+    </div>
+</div>
+</html>

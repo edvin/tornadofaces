@@ -1,0 +1,78 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('data')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Client Data Preloader and Lazyloader</h1>
+
+        <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
+
+        <ui:include src="data.xhtml"/>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="data.xhtml">
+<pre class="line-numbers"><code class="language-markup">
+&lt;!-- JavaScript method that can render movie titles as li tags -->
+&lt;script>
+    function renderMovies(movies) {
+        for (var i = 0; i &lt; movies.length; i++) {
+            var movie = movies[i];
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(movie.title));
+            document.getElementById('movieList').appendChild(li);
+        }
+    }
+&lt;/script>
+
+&lt;!-- Preload movie data and render via JS method, avoids AJAX-call -->
+&lt;t:data value="#{docsController.expr('controller.movies')}" var="movies" success="renderMovies" />
+
+&lt;!-- Lazy load data to be called by an action later -->
+&lt;t:data value="#{docsController.expr('controller.movies')}" var="movies" id="movies" success="renderMovies" lazy="true" />
+
+&lt;!-- Button to trigger lazy loading and rendering -->
+&lt;a href="#" class="button" onclick="TW('movieLoader').load()">Load via Widget Call&lt;/a>
+
+&lt;!-- Load data by re-rendering, JSF-style -->
+&lt;t:commandButton value="Load by re-rendering Widget" render=":movies"/></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.Data</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>load()</td>
+                        <td></td>
+                        <td>function</td>
+                        <td>Load or reload the data. If a success callback is configured, it will be called when the data is available.</td>
+                    </tr>
+                    <tr>
+                        <td>isDataAvailable()</td>
+                        <td></td>
+                        <td>boolean</td>
+                        <td>Checks if data is available. Typically, this will return false if lazy is true and load() has not been called yet.</td>
+                    </tr>
+                    <tr>
+                        <td>val()</td>
+                        <td></td>
+                        <td>object</td>
+                        <td>Retrieves the data. Also available via the var attribute name.</td>
+                    </tr>
+                </table>
+            </t:tab>
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<style>
+    .tabs.advancedTabView .tab-item {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .tabs.advancedTabView .tab-item {
+        background-color: #00558b;
+        color: #fff;
+        margin-left: 10px;
+    }
+
+    .tabs.advancedTabView .tab-item.is-active, .tabs.advancedTabView .tab-item:hover, .tabs.advancedTabView .tab-item.is-active:hover {
+        background-color: #0065a5;
+        color: #fff;
+    }
+
+    .advancedTabViewContent {
+        min-height: 200px;
+        background-color: #0065a5;
+        color: #cecece;
+    }
+</style>
+<t:tabView dynamic="true" styleClass="advancedTabView" contentsStyleClass="advancedTabViewContent">
+    <t:tab title="Star Wars: Episode I">
+        <div class="grid-block">
+            <div class="grid-content medium-2">
+                <h:graphicImage library="img" name="starwars1.jpg"/>
+            </div>
+            <div class="grid-content">
+                Two Jedi Knights escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to reclaim their old glory.
+            </div>
+        </div>
+    </t:tab>
+    <t:tab title="Star Wars: Episode II">
+        <div class="grid-block">
+            <div class="grid-content medium-2">
+                <h:graphicImage library="img" name="starwars2.jpg"/>
+            </div>
+            <div class="grid-content">
+                Ten years after initially meeting, Anakin Skywalker shares a forbidden romance with Padmé, while Obi-Wan investigates an assassination attempt on the Senator and discovers a secret clone army crafted for the Jedi.
+            </div>
+        </div>
+    </t:tab>
+    <t:tab title="Star Wars: Episode III">
+        <div class="grid-block">
+            <div class="grid-content medium-2">
+                <h:graphicImage library="img" name="starwars3.jpg"/>
+            </div>
+            <div class="grid-content">
+                As the Clone Wars near an end, the Sith Lord Darth Sidious steps out of the shadows, at which time Anakin succumbs to his emotions, becoming Darth Vader and putting his relationships with Obi-Wan and Padme at risk.
+            </div>
+        </div>
+    </t:tab>
+</t:tabView>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+<f:view transient="true">
+    <h:head>
+        <title>TornadoFaces Docs</title>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputScript library="js" name="prefixfree.min.js"/>
+        <h:outputScript library="js" name="fastclick.min.js"/>
+        <h:outputScript library="js" name="prism.js"/>
+        <h:outputStylesheet library="css" name="prism.css"/>
+        <h:outputStylesheet library="css" name="docs.css"/>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body);
+            }, false);
+        </script>
+    </h:head>
+    <h:body>
+        <div class="menu-group dark">
+            <div class="menu-group-left">
+                <h1>TornadoFaces</h1>
+            </div>
+            <div class="menu-group-right">
+                <t:ul menuBar="true">
+                    <li><a href="#{request.contextPath}/docs/">Components</a></li>
+                    <li class="is-active"><a href="#{request.contextPath}/docs/">Docs</a></li>
+                    <li><a href="#{request.contextPath}/docs/">Getting started</a></li>
+                </t:ul>
+            </div>
+        </div>
+        <div class="grid-frame">
+            <div id="left-menu-container" class="grid-block medium-3">
+                <div class="grid-content">
+                    <br/>
+                    <input type="text" placeholder="Search"/>
+                    <t:ul menuBar="true" orientation="vertical" id="left-menu">
+                        <li class="#{view.viewId.startsWith('/docs/accordion/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/accordion/">Accordion</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/tabview/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/tabview/">TabView</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/forms/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/forms/">Forms</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/list/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/list/">List</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/data/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/data/">Client Data</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/docs/menubar/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/menubar/">Menu bar</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/docs/titlebar/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/titlebar/">Title bar</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/card/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/card/">Card</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/modal/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/modal/">Modal</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/docs/panel/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/panel/">Panel</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/actionsheet/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/actionsheet/">Action Sheet</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/configure/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/configure/">Configure with</a></li>
+                        <li class="#{view.viewId.startsWith('/docs/notification/') ? 'is-active' : ''}"><a href="#{request.contextPath}/docs/notification/">Notification</a></li>
+                    </t:ul>
+                </div>
+            </div>
+            <div id="main-container" class="grid-content medium-9">
+                <ui:insert name="content"/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </h:body>
+</f:view>
+</html>
