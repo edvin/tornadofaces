@@ -1,0 +1,33 @@
+<div class="grid-content">
+    <h:form xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+        <div class="grid-block">
+            <div>
+                <h4>Command Buttons</h4>
+
+                <t:commandButton value="Save" color="success"/>
+                <t:commandButton value="Launch" color="warning"/>
+                <t:commandButton value="Delete" color="alert"/>
+                <t:commandButton value="Tiny" size="tiny"/>
+                <t:commandButton value="Hollow" hollow="true"/>
+                <t:commandButton value="Expand" expand="true"/>
+
+                <h4>Command Link in button group</h4>
+
+                <ul class="button-group">
+                    <li><t:commandLink value="One" color="success"/></li>
+                    <li><t:commandLink value="Two" color="success"/></li>
+                    <li><t:commandLink value="Three" color="success"/></li>
+                </ul>
+
+                <h4>Command Link in segmented button group</h4>
+
+                <ul class="segmented button-group">
+                    <li class="is-active"><t:commandLink value="One" color="success"/></li>
+                    <li><t:commandLink value="Two" color="success"/></li>
+                    <li><t:commandLink value="Three" color="success"/></li>
+                </ul>
+            </div>
+        </div>
+
+    </h:form>
+</div>

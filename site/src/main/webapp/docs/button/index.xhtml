@@ -1,0 +1,52 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('commandButton')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Button</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <p><code>commandButton</code> and <code>commandLink</code> share the same functionality.</p>
+        
+        <ui:include src="button.xhtml"/>
+        <br/>
+        
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="Example">
+<pre class="line-numbers"><code class="language-markup">
+&lt;h4>Command Buttons&lt;/h4>
+
+&lt;t:commandButton value="Save" color="success"/>
+&lt;t:commandButton value="Launch" color="warning"/>
+&lt;t:commandButton value="Delete" color="alert"/>
+&lt;t:commandButton value="Tiny" size="tiny"/>
+&lt;t:commandButton value="Hollow" hollow="true"/>
+&lt;t:commandButton value="Expand" expand="true"/>
+
+&lt;h4>Command Link in button group&lt;/h4>
+
+&lt;ul class="button-group">
+    &lt;li>&lt;t:commandLink value="One" color="success"/>&lt;/li>
+    &lt;li>&lt;t:commandLink value="Two" color="success"/>&lt;/li>
+    &lt;li>&lt;t:commandLink value="Three" color="success"/>&lt;/li>
+&lt;/ul>
+
+&lt;h4>Command Link in segmented button group&lt;/h4>
+
+&lt;ul class="segmented button-group">
+    &lt;li class="is-active">&lt;t:commandLink value="One" color="success"/>&lt;/li>
+    &lt;li>&lt;t:commandLink value="Two" color="success"/>&lt;/li>
+    &lt;li>&lt;t:commandLink value="Three" color="success"/>&lt;/li>
+&lt;/ul></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+                <p>For more advanced styling please consult the <a href="http://foundation.zurb.com/apps/button/#!/card">Foundation for Apps Documentation</a>.</p>
+            </t:tab>
+        </t:tabView>
+    </ui:define>
+</ui:composition>

@@ -41,7 +41,9 @@ public class FormElementRenderer extends Renderer {
 
 		writer.startElement("label", component);
 		StyleClass.of(elem.getStyleClass()).write(writer);
-		writer.write(elem.getLabel());
+		String label = elem.getLabel();
+		if (label != null)
+			writer.write(label);
 
 		if (!elem.getLabelWrapsInput())
 			writer.endElement("label");

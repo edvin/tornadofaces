@@ -524,7 +524,7 @@
         <attribute>
             <description>Color of the modal. Valid values are "primary", "dark" and none. Default "primary".</description>
             <name>color</name>
-            <type>io.tornadofaces.component.button.CommandLink.Color</type>
+            <type>io.tornadofaces.component.common.Color</type>
         </attribute>
     </tag>
     <tag>
@@ -590,7 +590,7 @@
     </tag>
     <tag>
         <description>
-            Render an HTML "a" anchor element that acts like a form submit button when clicked.
+            Command Link has some convenient improvements over the default JSF commandLink, including AJAX by default, automatic spinner, double submission protection, AJAX event callbacks and attributes for render and execute.
         </description>
         <tag-name>commandLink</tag-name>
         <component>
@@ -602,9 +602,14 @@
             <type>io.tornadofaces.component.button.CommandLink.Size</type>
         </attribute>
         <attribute>
-            <description>Boolean indicating if this button should perform an ajax request. See update and process for more information.</description>
+            <description>Boolean indicating if this button should perform an ajax request. See render and execute for more information.</description>
             <name>ajax</name>
             <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Hollow buttons have outline and no background color. Default false.</description>
+            <name>hollow</name>
+            <type>Boolean</type>
         </attribute>
         <attribute>
             <description>Space separated list of components to render after ajax.</description>
@@ -617,18 +622,37 @@
             <type>java.lang.String</type>
         </attribute>
         <attribute>
-            <description>Corners of the button. Valid values are "square" (adds no class), "radius", "round"</description>
-            <name>corners</name>
-            <type>io.tornadofaces.component.button.CommandLink.Corners</type>
-        </attribute>
-        <attribute>
             <description>Color of the button. Valid values are "success", "secondary", "alert", "info"</description>
             <name>color</name>
             <type>io.tornadofaces.component.button.CommandLink.Color</type>
         </attribute>
+        <attribute>
+            <description>JavaScript callback triggered before the AJAX request is sent</description>
+            <name>oncomplete</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered after AJAX response has arrived</description>
+            <name>oncomplete</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered after DOM update based on AJAX request</description>
+            <name>onsuccess</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>render</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
-        <description>Command Button</description>
+        <description>Command Button has some convenient improvements over the default JSF commandButton, including AJAX by default, automatic spinner, double submission protection, AJAX event callbacks and attributes for render and execute.</description>
         <tag-name>commandButton</tag-name>
         <component>
             <component-type>io.tornadofaces.component.CommandButton</component-type>
@@ -644,29 +668,48 @@
             <type>java.lang.Boolean</type>
         </attribute>
         <attribute>
-            <description>Space separated list of components to render after ajax.</description>
-            <name>update</name>
-            <type>java.lang.String</type>
+            <description>Hollow buttons have outline and no background color. Default false.</description>
+            <name>hollow</name>
+            <type>Boolean</type>
         </attribute>
         <attribute>
-            <description>Space separated list of components to render after ajax.</description>
+            <description>Space separated list of components to render after ajax. Default "@form".</description>
             <name>render</name>
             <type>java.lang.String</type>
         </attribute>
         <attribute>
-            <description>Space separated list of components to execute on ajax.</description>
+            <description>Space separated list of components to execute on ajax. Default "@form".</description>
             <name>execute</name>
             <type>java.lang.String</type>
         </attribute>
         <attribute>
-            <description>Corners of the button. Valid values are "square" (adds no class), "radius", "round"</description>
-            <name>corners</name>
-            <type>io.tornadofaces.component.button.CommandLink.Corners</type>
-        </attribute>
-        <attribute>
             <description>Color of the button. Valid values are "success", "secondary", "alert", "info"</description>
             <name>color</name>
-            <type>io.tornadofaces.component.button.CommandLink.Color</type>
+            <type>io.tornadofaces.component.common.Color</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered before the AJAX request is sent</description>
+            <name>oncomplete</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered after AJAX response has arrived</description>
+            <name>oncomplete</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered after DOM update based on AJAX request</description>
+            <name>onsuccess</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>render</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
     </tag>
 </facelet-taglib>
