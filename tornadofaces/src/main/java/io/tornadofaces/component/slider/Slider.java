@@ -121,7 +121,6 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 	public JSONObject getSettings() {
 		JSONObject settings = new JSONObject();
 
-		try {
 			// start
 			JSONArray start = new JSONArray();
 			start.put(getLower());
@@ -162,55 +161,23 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 			}
 			rangeObject.put("max", getMax());
 			settings.put("range", rangeObject);
+			settings.put("step", getStep());
+			settings.put("snap", getSnap());
+			settings.put("behaviour", getBehaviour());
+			settings.put("format", getFormat());
+			settings.put("limit", getLimit());
+			settings.put("margin", getMargin());
 
-			// step
-			T step = getStep();
-			if (step != null)
-				settings.put("step", step);
-
-			// snap
-			Boolean snap = getSnap();
-			if (snap != null)
-				settings.put("snap", snap);
-
-			// behaviour
-			String behaviour = getBehaviour();
-			if (behaviour != null)
-				settings.put("behaviour", behaviour);
-
-			// format
-			String format = getFormat();
-			if (format != null)
-				settings.put("format", format);
-
-			// limit
-			T limit = getLimit();
-			if (limit != null)
-				settings.put("limit", limit);
-
-			// margin
-			T margin = getMargin();
-			if (margin != null)
-				settings.put("margin", margin);
-
-			// orientation
 			Orientation orientation = getOrientation();
 			if (orientation != null)
 				settings.put("orientation", orientation.toString());
 
-			// direction
 			Direction direction = getDirection();
 			if (direction != null)
 				settings.put("direction", direction.toString());
 
-			// animate
-			Boolean animate = getAnimate();
-			if (animate != null)
-				settings.put("animate", animate);
+			settings.put("animate", getAnimate());
 
-		} catch (JSONException ex) {
-			throw new RuntimeException(ex);
-		}
 
 		return settings;
 	}

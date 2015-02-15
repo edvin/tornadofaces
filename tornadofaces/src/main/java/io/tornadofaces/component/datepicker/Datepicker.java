@@ -50,32 +50,12 @@ public class Datepicker extends HtmlInputText implements Widget {
 
 	public JSONObject getSettings() {
 		JSONObject settings = new JSONObject();
-		try {
-			settings.put("format", getFormat());
-
-			String position = getPosition();
-			if (position != null)
-				settings.put("position", position);
-
-			String container = getContainer();
-			if (container != null)
-				settings.put("container", container);
-
-			String onSelect = getOnselect();
-			if (onSelect != null)
-				settings.put("onSelect", onSelect);
-
-			Boolean reposition = getReposition();
-			if (reposition != null)
-				settings.put("repoisition", reposition);
-
-			String trigger = getTrigger();
-			if (trigger != null)
-				settings.put("trigger", trigger);
-			
-		} catch (JSONException e) {
-			throw new RuntimeException(e);
-		}
+		settings.put("format", getFormat());
+		settings.put("position", getPosition());
+		settings.put("container", getContainer());
+		settings.put("onSelect", getOnselect());
+		settings.put("repoisition", getReposition());
+		settings.put("trigger", getTrigger());
 		return settings;
 	}
 }

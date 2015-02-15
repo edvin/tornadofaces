@@ -5,7 +5,7 @@ package io.tornadofaces.json;
  * @author JSON.org
  * @version 2008-09-18
  */
-public class JSONException extends Exception {
+public class JSONException extends RuntimeException {
     private Throwable cause;
 
     /**

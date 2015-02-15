@@ -92,20 +92,7 @@ table.tag-info th {
     margin-top: 25px;
     font-weight: bold;
 }
-
-#footer {
-    background-color: #323232;
-    min-height: 200px;
-    color: #cecece;
-    margin: 0;
-    padding: 0;
-}
-
-#footer h3 {
-    color: #e7e7e7;
-}
-
 body {
     /*overflow: hidden;*/
-    max-height: 100vh;
+    /*max-height: 100vh;*/
 }
