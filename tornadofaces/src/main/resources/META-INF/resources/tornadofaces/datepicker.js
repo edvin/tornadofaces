@@ -4,19 +4,8 @@ TornadoFaces.declareWidget('Datepicker', function() {
     this.init = function() {
         widget = this;
 
-        widget.picker = widget.elem.pickadate(widget.conf.settings).pickadate('picker');
-        this.bindEvents();
-    };
-
-    this.bindEvents = function() {
-        widget.elem.click(function(event) {
-            widget.picker.open();
-            event.preventDefault();
-            return false;
-        });
-        widget.picker.on('set', function() {
-            this.close(true);
-        });
+        widget.conf.settings.field = widget.elem[0];
+        widget.picker = new Pikaday(widget.conf.settings);
     };
 
     this.open = function() {

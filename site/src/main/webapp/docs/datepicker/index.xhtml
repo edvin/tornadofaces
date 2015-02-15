@@ -1,0 +1,33 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('datepicker')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Date Picker</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <p>Pickaday uses <a href="http://momentjs.com/">moment.js</a> for client side date formatting. Be aware that client and server side formats may differ.</p>
+        
+        <ui:include src="datepicker.xhtml"/>
+        
+        <br/>
+        
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="Example">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:datepicker id="mypicker" format="YYYY-MM-DD" value="#{docsController.expr('controller.date')}">
+    &lt;f:convertDateTime pattern="yyyy-MM-dd"/>
+&lt;/t:datepicker></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+                <br/>
+                <p>More properties are available, see <a href="https://github.com/dbushell/Pikaday">pickaday.js site</a>.</p>
+            </t:tab>
+        </t:tabView>
+    </ui:define>
+</ui:composition>

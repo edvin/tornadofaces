@@ -74,15 +74,63 @@
         </attribute>
     </tag>
     <tag>
-        <description>Date Picker</description>
+        <description>Date Picker based on pickaday.js</description>
         <tag-name>datepicker</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Datepicker</component-type>
-            <renderer-type>io.tornadofaces.component.DatePickerRenderer</renderer-type>
+            <renderer-type>io.tornadofaces.component.DatepickerRenderer</renderer-type>
         </component>
+        <attribute>
+            <description><![CDATA[Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar.]]></description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Client side format. Server side format is set via the converter.</description>
+            <name>format</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Preferred position of the datepicker relative to the form field, e.g.: top right, bottom, right. Note: automatic adjustment may occur to avoid datepicker from being displayed outside the viewport, see positions example (default to 'bottom left')</description>
+            <name>position</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>can be set to false to not reposition datepicker within the viewport, forcing it to take the configured position (default: true)</description>
+            <name>reposition</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>DOM node to render calendar into, see container example (default: undefined)</description>
+            <name>container</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>First day of the week (0: Sunday, 1: Monday, etc)</description>
+            <name>firstDay</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Callback function for when a date is selected</description>
+            <name>onSelect</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Use a different element to trigger opening the datepicker, see trigger example (default to field)</description>
+            <name>trigger</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
     </tag>
     <tag>
-        <description>Range Slider</description>
+        <description><![CDATA[Range Slider based on <a href="http://refreshless.com/nouislider/">noUiSlider</a> with support for two slider values and lots of options. Can be programatially configured via the <a href="http://tornadofaces.io/docs/configure/">TornadoFaces configure tag</a> to keep your markup free for business logic.]]></description>
         <tag-name>slider</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Slider</component-type>
@@ -94,16 +142,82 @@
             <required>false</required>
             <type>Object</type>
         </attribute>
+        <attribute>
+            <description>Alias for lower</description>
+            <name>value</name>
+            <required>false</required>
+            <type>Number</type>
+        </attribute>
+        <attribute>
+            <description>The position of the lower (or only) slider</description>
+            <name>lower</name>
+            <required>true</required>
+            <type>Number</type>
+        </attribute>
+        <attribute>
+            <description>The position of the upper (the optional, second) slider</description>
+            <name>upper</name>
+            <required>false</required>
+            <type>Number</type>
+        </attribute>
+        <attribute>
+            <description>Configuration for non-linear stepping. Must be set programmatically, prefereably via the configure tag.</description>
+            <name>range</name>
+            <required>false</required>
+            <type>List&lt;SliderRangeValue&gt;</type>
+        </attribute>
+        <attribute>
+            <description>The connect setting can be used to control the bar between the handles, or the edges of the slider. Use "lower" to connect to the lower side, or "upper" to connect to the upper side. Setting true sets the bar between the handles.</description>
+            <name>connect</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>When using two handles, the minimum distance between the handles can be set using the margin option. The margin value is relative to the value set in 'range'. This option is only available on standard linear sliders.</description>
+            <name>margin</name>
+            <required>false</required>
+            <type>Number</type>
+        </attribute>
+        <attribute>
+            <description>The limit option is the oposite of the margin option, limiting the maximum distance between two handles. As with the margin option, the limit option can only be used on linear sliders.</description>
+            <name>limit</name>
+            <required>false</required>
+            <type>Number</type>
+        </attribute>
+        <attribute>
+            <description>By default, the slider slides fluently. In order to make the handles jump between intervals, you can use this option. The step option is relative to the values provided to range.</description>
+            <name>step</name>
+            <required>false</required>
+            <type>Number</type>
+        </attribute>
+        <attribute>
+            <description>The orientation setting can be used to set the slider to "vertical" or "horizontal". Set dimensions! Vertical sliders don't assume a default height, so you'll need to set one. You can use any unit you want, including % or px.</description>
+            <name>orientation</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>By default the sliders are top-to-bottom and left-to-right, but you can change this using the direction option, which decides where the upper side of the slider is.</description>
+            <name>direction</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Set the animate option to false to prevent the slider from animating to a new value with when calling .val().</description>
+            <name>animate</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
-        <description>Switch Boolean Checkbox</description>
+        <description>Switches are toggle element that switch between an Off and On state on tap or click. A switch is backed by a checkbox input.</description>
         <tag-name>switch</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Switch</component-type>
             <renderer-type>io.tornadofaces.component.SwitchRenderer</renderer-type>
         </component>
         <attribute>
-            <description>The initial value</description>
+            <description>The value</description>
             <name>value</name>
             <required>false</required>
         </attribute>
@@ -454,13 +568,13 @@
         <attribute>
             <description>The timeout in milliseconds for the notification to stay visible. Set to 0 for a sticky notification.</description>
             <name>timeout</name>
-            <required>true</required>
+            <required>false</required>
             <type>Integer</type>
         </attribute>
         <attribute>
             <description>The position of the notification. Valid values are "top-right", "bottom-right", "bottom-left" and "top-left". Default "top-right".</description>
             <name>position</name>
-            <required>true</required>
+            <required>false</required>
             <type>String</type>
         </attribute>
         <attribute>
@@ -650,6 +764,18 @@
             <required>false</required>
             <type>Boolean</type>
         </attribute>
+        <attribute>
+            <description>Prevents double submission by disabling the button while the AJAX call is active. Default true.</description>
+            <name>preventDoubleSubmission</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Expand to fill horizontal space</description>
+            <name>expand</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>Command Button has some convenient improvements over the default JSF commandButton, including AJAX by default, automatic spinner, double submission protection, AJAX event callbacks and attributes for render and execute.</description>
@@ -708,6 +834,18 @@
         <attribute>
             <description>Should this component be rendered?</description>
             <name>render</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Prevents double submission by disabling the button while the AJAX call is active. Default true.</description>
+            <name>preventDoubleSubmission</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Expand to fill horizontal space</description>
+            <name>expand</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>

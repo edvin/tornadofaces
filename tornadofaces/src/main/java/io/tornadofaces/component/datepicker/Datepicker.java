@@ -15,10 +15,9 @@ import javax.faces.component.html.HtmlInputText;
 	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.js"),
 	@ResourceDependency(library = "tornadofaces", name = "foundation.css"),
 	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.css"),
-	@ResourceDependency(library = "tornadofaces", name = "pickadate/picker.js"),
-	@ResourceDependency(library = "tornadofaces", name = "pickadate/picker.date.js"),
-	@ResourceDependency(library = "tornadofaces", name = "pickadate/default.css"),
-	@ResourceDependency(library = "tornadofaces", name = "pickadate/default.date.css"),
+	@ResourceDependency(library = "tornadofaces", name = "moment.min.js"),
+	@ResourceDependency(library = "tornadofaces", name = "pickaday.js"),
+	@ResourceDependency(library = "tornadofaces", name = "pickaday.css"),
 	@ResourceDependency(library = "tornadofaces", name = "datepicker.js")
 })
 @FacesComponent(value = Datepicker.COMPONENT_TYPE, createTag = true, tagName = "datepicker", namespace = "http://tornadofaces.io/ui")
@@ -36,21 +35,44 @@ public class Datepicker extends HtmlInputText implements Widget {
 
 	public String getFormat() { return (String) getStateHelper().eval("format"); }
 	public void setFormat(String format) { getStateHelper().put("format", format); }
-	public Boolean getEditable() { return (Boolean) getStateHelper().eval("editable"); }
-	public void setEditable(Boolean editable) { getStateHelper().put("editable", editable); }
-	public String getFormatSubmit() { return (String) getStateHelper().eval("formatSubmit"); }
-	public void setFormatSubmit(String formatSubmit) { getStateHelper().put("formatSubmit", formatSubmit); }
+	public String getPosition() { return (String) getStateHelper().eval("position"); }
+	public void setPosition(String position) { getStateHelper().put("position", position); }
+	public String getContainer() { return (String) getStateHelper().eval("container"); }
+	public void setContainer(String container) { getStateHelper().put("container", container); }
+	public String getTrigger() { return (String) getStateHelper().eval("trigger"); }
+	public void setTrigger(String trigger) { getStateHelper().put("trigger", trigger); }
+	public String getOnSelect() { return (String) getStateHelper().eval("onSelect"); }
+	public void setOnSelect(String onSelect) { getStateHelper().put("onSelect", onSelect); }
+	public Boolean getReposition() { return (Boolean) getStateHelper().eval("reposition"); }
+	public void setReposition(Boolean reposition) { getStateHelper().put("reposition", reposition); }
 	public String getWidgetVar() { return (String) getStateHelper().eval("widgetVar", null); }
 	public void setWidgetVar(String widgetVar) { getStateHelper().put("widgetVar", widgetVar); }
 
 	public JSONObject getSettings() {
 		JSONObject settings = new JSONObject();
 		try {
-			Boolean editable = getEditable();
-			if (editable != null)
-				settings.put("editable", editable);
 			settings.put("format", getFormat());
-			settings.put("formatSubmit", getFormatSubmit());
+
+			String position = getPosition();
+			if (position != null)
+				settings.put("position", position);
+
+			String container = getContainer();
+			if (container != null)
+				settings.put("container", container);
+
+			String onSelect = getOnselect();
+			if (onSelect != null)
+				settings.put("onSelect", onSelect);
+
+			Boolean reposition = getReposition();
+			if (reposition != null)
+				settings.put("repoisition", reposition);
+
+			String trigger = getTrigger();
+			if (trigger != null)
+				settings.put("trigger", trigger);
+			
 		} catch (JSONException e) {
 			throw new RuntimeException(e);
 		}

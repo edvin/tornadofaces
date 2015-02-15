@@ -1,0 +1,55 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('slider')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Slider</h1>
+
+        <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
+
+        <ui:include src="slider.xhtml"/>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="list.xhtml">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:slider min="0" max="100" step="1" lower="#{docsController.expr('controller.numberValue')}" connect="lower" />
+
+&lt;t:slider min="0" max="100" step="10" lower="#{docsController.expr('controller.min')}" upper="#{docsController.expr('controller.max')}" connect="true" /></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.List</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>setFilterFn(filterFn)</td>
+                        <td>filterFn: Function that will be called to filter then list via <code>filter()</code></td>
+                        <td>function</td>
+                        <td>Override the default filter function used for client side filtering. The method will be called with the parameters <code>(item, query, index)</code> and should return true or false to indicate that the given item should be rendered.</td>
+                    </tr>
+                    <tr>
+                        <td>filter(query)</td>
+                        <td>query: The query string to filter the list by</td>
+                        <td>String</td>
+                        <td>The default <code>filterFn</code> looks for the query text somewhere within each item. A custom filterFn can be provided via <code>setFilterFn</code> for finer grained control.</td>
+                    </tr>
+                </table>
+
+                <h5>Advanced usage</h5>
+                <p>The markup for the list is very basic, and you can easily replicate the markup with a standard repeater component if necessary. Please refer to the <a href="http://foundation.zurb.com/apps/docs/#!/block-list">Foundation For Apps Documentation</a> for more information.</p>
+            </t:tab>
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>
