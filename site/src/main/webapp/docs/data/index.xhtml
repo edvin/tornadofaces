@@ -32,7 +32,7 @@
 &lt;t:data value="#{docsController.expr('controller.movies')}" var="movies" success="renderMovies" />
 
 &lt;!-- Lazy load data to be called by an action later -->
-&lt;t:data value="#{docsController.expr('controller.movies')}" var="movies" id="movies" success="renderMovies" lazy="true" />
+&lt;t:data value="#{docsController.expr('controller.movies')}" var="movies" id="movies" success="renderMovies" lazy="true" widgetVar="movieLoader" />
 
 &lt;!-- Button to trigger lazy loading and rendering -->
 &lt;a href="#" class="button" onclick="TW('movieLoader').load()">Load via Widget Call&lt;/a>
