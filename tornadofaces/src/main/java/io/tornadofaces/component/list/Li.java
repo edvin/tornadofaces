@@ -24,6 +24,19 @@ public class Li extends UIColumn {
 	public void setChevron(boolean chevron) { getStateHelper().put("chevron", chevron); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
+	public String getActiveClass() { return (String) getStateHelper().eval("activeClass", "is-active"); }
+	public void setActiveClass(String activeClass) { getStateHelper().put("activeClass", activeClass); }
+
+	public Boolean getActive() {
+		Boolean active = (Boolean) getStateHelper().eval("active");
+		if (active == null) {
+			String link = getLink();
+			active = link != null && FacesContext.getCurrentInstance().getViewRoot().getViewId().startsWith(link);
+		}
+		return active;
+	}
+	
+	public void setActive(Boolean active) { getStateHelper().put("active", active); }
 	public String getLink() { return (String) getStateHelper().eval("link"); }
 	public void setLink(String link) { getStateHelper().put("link", link); }
 }

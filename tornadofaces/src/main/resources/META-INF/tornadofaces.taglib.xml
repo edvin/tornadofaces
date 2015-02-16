@@ -463,7 +463,7 @@
         </attribute>
     </tag>
     <tag>
-        <description>List Element used by ul and list components.</description>
+        <description>List Element used by ul and list components. Supports automatic link wrapping and conditional active state with configurable active class.</description>
         <tag-name>li</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Li</component-type>
@@ -474,6 +474,18 @@
             <name>styleClass</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Style class for active items</description>
+            <name>activeClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Active state. If true, activeClass will be added to the li. If link is set but no active attribute is given, active will return true if the viewId starts with the link attribute value.</description>
+            <name>active</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
         <attribute>
             <description>Will wrap the contents of this li in an anchor with href set to the this property value.</description>

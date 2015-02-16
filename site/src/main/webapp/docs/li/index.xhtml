@@ -1,0 +1,33 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('li')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>List Item</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <p>When you specify the <code>link</code> attribute, the active state will be set on the item if the current <code>viewId</code> starts with the given link value. This is a neat trick that
+        makes it very easy to create menu links that activate automatically.</p>
+        
+        <p>The example below shows the markup for rendering the component menu on this page.</p>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="list.xhtml">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:ul menuBar="true" orientation="vertical">
+    &lt;t:li link="/docs/accordion/">Accordion&lt;/t:li>
+    &lt;t:li link="/docs/tabview/">TabView&lt;/t:li>
+    &lt;t:li link="/docs/button/">Button&lt;/t:li>
+&lt;/t:ul></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+            </t:tab>
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>
