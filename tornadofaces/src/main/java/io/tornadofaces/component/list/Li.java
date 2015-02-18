@@ -20,10 +20,12 @@ public class Li extends UIColumn {
 		return ComponentUtils.COMPONENT_FAMILY;
 	}
 
-	public boolean getChevron() { return (boolean) getStateHelper().eval("chevron", true); }
+	public boolean getChevron() { return (boolean) getStateHelper().eval("chevron", false); }
 	public void setChevron(boolean chevron) { getStateHelper().put("chevron", chevron); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
+	public String getIcon() { return (String) getStateHelper().eval("icon"); }
+	public void setIcon(String icon) { getStateHelper().put("icon", icon); }
 	public String getActiveClass() { return (String) getStateHelper().eval("activeClass", "is-active"); }
 	public void setActiveClass(String activeClass) { getStateHelper().put("activeClass", activeClass); }
 

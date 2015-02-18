@@ -34,6 +34,22 @@ TornadoFaces.declareWidget('Slider', function() {
 
             if (hasOnSlide)
                 widget.conf.onSlide(widget.elem, val);
+            
+            if (widget.conf.behaviors && widget.conf.behaviors.change) {
+                var behaviors = widget.conf.behaviors.change;
+                for (var i = 0; i < behaviors.length; i++) {
+                    var b = behaviors[i];
+                    var props = { 'javax.faces.behavior.event': 'change'};
+                    
+                    if (b.render)
+                        props.render = b.render;
+                    
+                    if (b.execute)
+                        props.execute = b.execute;
+                    
+                    jsf.ajax.request(widget.elem.attr('id'), null, props);
+                }
+            }
         });
     };
 });

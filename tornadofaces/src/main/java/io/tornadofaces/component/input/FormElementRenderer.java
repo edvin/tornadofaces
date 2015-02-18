@@ -3,12 +3,15 @@ package io.tornadofaces.component.input;
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.StyleClass;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
 import javax.faces.render.Renderer;
 import java.io.IOException;
+import java.util.List;
 
 @FacesRenderer(rendererType = FormElementRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
 public class FormElementRenderer extends Renderer {
@@ -39,14 +42,15 @@ public class FormElementRenderer extends Renderer {
 			styleClass.write(writer);
 		}
 
-		writer.startElement("label", component);
-		StyleClass.of(elem.getStyleClass()).write(writer);
 		String label = elem.getLabel();
-		if (label != null)
-			writer.write(label);
 
-		if (!elem.getLabelWrapsInput())
-			writer.endElement("label");
+		if (label != null) {
+			writer.startElement("label", component);
+			StyleClass.of(elem.getStyleClass()).write(writer);
+			writer.write(label);
+			if (!elem.getLabelWrapsInput())
+				writer.endElement("label");
+		}
 
 		if (elem.shouldRenderInlineLabelSpan()) {
 			writer.startElement("span", component);
@@ -60,11 +64,23 @@ public class FormElementRenderer extends Renderer {
 		FormElement elem = (FormElement) component;
 		ResponseWriter writer = context.getResponseWriter();
 
-		if (elem.getLabelWrapsInput())
+		if (elem.getLabel() != null && elem.getLabelWrapsInput())
 			writer.endElement("label");
 
 		if (elem.shouldRenderInlineLabelSpan())
 			writer.endElement("span");
+
+		UIInput input = ComponentUtils.getFirstInputChild(component);
+
+		if (input != null) {
+			List<FacesMessage> messages = context.getMessageList(input.getClientId(context));
+			if (!messages.isEmpty()) {
+				writer.startElement("span", component);
+				writer.writeAttribute("class", "field-error-message", null);
+				writer.write(messages.get(0).getSummary());
+				writer.endElement("span");
+			}
+		}
 
 		if ("grid-content".equals(elem.getLayout()))
 			writer.endElement("div");

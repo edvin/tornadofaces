@@ -14,8 +14,11 @@ import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.NamingContainer;
 import javax.faces.component.UIPanel;
+import javax.faces.component.behavior.ClientBehavior;
+import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.component.html.HtmlInputHidden;
 import javax.faces.context.FacesContext;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +33,7 @@ import java.util.Map;
 	@ResourceDependency(library = "tornadofaces", name = "slider.js")
 })
 @FacesComponent(value = Slider.COMPONENT_TYPE, createTag = true, tagName = "slider", namespace = "http://tornadofaces.io/ui")
-public class Slider<T extends Integer> extends UIPanel implements Widget, NamingContainer {
+public class Slider<T extends Integer> extends UIPanel implements Widget, NamingContainer, ClientBehaviorHolder {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Slider";
 	private HtmlInputHidden lower;
 	private HtmlInputHidden upper;
@@ -60,6 +63,15 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 			if (upperEx != null)
 				upperEx.setValue(context.getELContext(), newValue);
 		}
+		
+		String eventName = params.get("javax.faces.behavior.event");
+		if ("change".equals(eventName)) {
+			List<ClientBehavior> listeners = getClientBehaviors().get("change");
+			if (listeners != null)
+				for (ClientBehavior behavior : listeners)
+					behavior.decode(context, this);
+		}
+			
 	}
 
 	public <X> X getData() { return (X) getStateHelper().eval("data"); }
@@ -180,5 +192,13 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 
 
 		return settings;
+	}
+
+	public String getDefaultEventName() {
+		return "change";
+	}
+
+	public Collection<String> getEventNames() {
+		return Collections.singletonList("change");
 	}
 }

@@ -31,6 +31,13 @@ public class LiRenderer extends Renderer {
 			writer.startElement("a", li);
 			writer.writeAttribute("href", link, null);
 		}
+
+		String icon = li.getIcon();
+		if (icon != null) {
+			writer.startElement("i", li);
+			writer.writeAttribute("class", icon, null);
+			writer.endElement("i");
+		}
 	}
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {

@@ -8,7 +8,6 @@
         <title>TornadoFaces Docs</title>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <h:outputScript library="js" name="prefixfree.min.js"/>
         <h:outputScript library="js" name="fastclick.min.js"/>
         <h:outputScript library="js" name="prism.js"/>
         <h:outputStylesheet library="css" name="prism.css"/>
@@ -16,6 +15,10 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 FastClick.attach(document.body);
+                $('.menu-toggle').click(function() {
+                    var futureState = !$('#left-menu-container').hasClass('is-active');
+                    TornadoFaces.animate($('#left-menu-container'), futureState, 'slideInRight', 'slideOutLeft');
+                });
             }, false);
 
             var filterFn = function(item, query) {
@@ -41,48 +44,52 @@
     <h:body>
         <t:notification id="msgs"/>
 
-        <div class="menu-group dark">
-            <div class="menu-group-left">
-                <h1>TornadoFaces</h1>
-            </div>
-            <div class="menu-group-right">
-                <t:ul menuBar="true">
-                    <li><a href="#{request.contextPath}/docs/">Components</a></li>
-                    <li class="is-active"><a href="#{request.contextPath}/docs/">Docs</a></li>
-                    <li><a href="#{request.contextPath}/docs/">Getting started</a></li>
-                </t:ul>
-            </div>
-        </div>
-        <div class="grid-frame">
-            <div id="left-menu-container" class="grid-block medium-3">
-                <div class="grid-content">
-                    <br/>
-                    <input type="text" placeholder="Search" onkeyup="searchComponents(this)"/>
-                    <ui:param name="path" value="#{view.viewId}"/>
-                    <t:ul menuBar="true" orientation="vertical" id="left-menu">
-                        <t:li link="/docs/accordion/">Accordion</t:li>
-                        <t:li link="/docs/tabview/">TabView</t:li>
-                        <t:li link="/docs/button/">Button</t:li>
-                        <t:li link="/docs/form-element/">Form Element</t:li>
-                        <t:li link="/docs/list/">List</t:li>
-                        <t:li link="/docs/li/">List Item</t:li>
-                        <t:li link="/docs/slider/">Slider</t:li>
-                        <t:li link="/docs/datepicker/">Date Picker</t:li>
-                        <t:li link="/docs/switch/">Switch</t:li>
-                        <t:li link="/docs/data/">Data</t:li>
-                        <t:li link="/docs/menubar/">Menu Bar</t:li>
-                        <t:li link="/docs/titlebar/">Title Bar</t:li>
-                        <t:li link="/docs/card/">Card</t:li>
-                        <t:li link="/docs/modal/">Modal</t:li>
-                        <t:li link="/docs/panel/">Panel</t:li>
-                        <t:li link="/docs/actionsheet/">Action Sheet</t:li>
-                        <t:li link="/docs/configure/">Configure</t:li>
-                        <t:li link="/docs/notification/">Notification</t:li>
+        <div class="grid-frame vertical">
+            <div class="menu-group dark">
+                <div class="menu-group-left grid-block">
+                    <img class="menu-toggle hide-for-medium grid-content" style="flex: 0 0 auto; padding-right: 0" src="/resources/img/ic_menu_24px.svg"/>
+                    <h1 class="grid-block">TornadoFaces</h1>
+                </div>
+                <div class="menu-group-right">
+                    <t:ul menuBar="true">
+                        <li><a href="#{request.contextPath}/docs/">Components</a></li>
+                        <li class="is-active"><a href="#{request.contextPath}/docs/">Docs</a></li>
+                        <li><a href="#{request.contextPath}/docs/">Getting started</a></li>
                     </t:ul>
                 </div>
             </div>
-            <div id="main-container" class="grid-content medium-9">
-                <ui:insert name="content"/>
+            <div class="grid-block">
+                <div id="left-menu-container" class="medium-grid-block panel panel-left medium-3 bounceInOut">
+                    <a class="menu-toggle close-button hide-for-medium">x</a>
+                    <div class="grid-content" style="padding-top: 1.2rem">
+                        <h4 class="hide-for-medium">Menu</h4>
+                        <input class="show-for-medium" type="text" placeholder="Search" onkeyup="searchComponents(this)"/>
+                        <ui:param name="path" value="#{view.viewId}"/>
+                        <t:ul menuBar="true" orientation="vertical" id="left-menu">
+                            <t:li link="/docs/accordion/">Accordion</t:li>
+                            <t:li link="/docs/tabview/">TabView</t:li>
+                            <t:li link="/docs/button/">Button</t:li>
+                            <t:li link="/docs/form-element/">Form Element</t:li>
+                            <t:li link="/docs/list/">List</t:li>
+                            <t:li link="/docs/li/">List Item</t:li>
+                            <t:li link="/docs/slider/">Slider</t:li>
+                            <t:li link="/docs/datepicker/">Date Picker</t:li>
+                            <t:li link="/docs/switch/">Switch</t:li>
+                            <t:li link="/docs/data/">Data</t:li>
+                            <t:li link="/docs/menubar/">Menu Bar</t:li>
+                            <t:li link="/docs/titlebar/">Title Bar</t:li>
+                            <t:li link="/docs/card/">Card</t:li>
+                            <t:li link="/docs/modal/">Modal</t:li>
+                            <t:li link="/docs/panel/">Panel</t:li>
+                            <t:li link="/docs/actionsheet/">Action Sheet</t:li>
+                            <t:li link="/docs/configure/">Configure</t:li>
+                            <t:li link="/docs/notification/">Notification</t:li>
+                        </t:ul>
+                    </div>
+                </div>
+                <div id="main-container" class="grid-content">
+                    <ui:insert name="content"/>
+                </div>
             </div>
         </div>
     </h:body>

@@ -5,6 +5,7 @@ import sun.misc.MessageUtils;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIForm;
+import javax.faces.component.UIInput;
 import javax.faces.component.UIViewRoot;
 import javax.faces.component.visit.VisitCallback;
 import javax.faces.component.visit.VisitContext;
@@ -13,6 +14,7 @@ import javax.faces.component.visit.VisitResult;
 import javax.faces.context.FacesContext;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public class ComponentUtils {
@@ -87,6 +89,11 @@ public class ComponentUtils {
 
 	private static boolean isForm(UIComponent component) {
 		return (component instanceof UIForm || (component.getFamily() != null && component.getFamily().endsWith("Form")));
+	}
+
+	public static UIInput getFirstInputChild(UIComponent component) {
+		Optional<UIComponent> x = component.getChildren().stream().filter(c -> c instanceof UIInput).findFirst();
+		return (UIInput) x.orElse(null);
 	}
 
 }
