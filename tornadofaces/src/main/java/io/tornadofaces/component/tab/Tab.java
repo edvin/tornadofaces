@@ -50,6 +50,8 @@ public class Tab extends UIPanel {
 	public void setStyleClass(String styleClass) { getStateHelper().put(PropertyKeys.styleClass, styleClass); }
 	public String getTitle() { return (String) getStateHelper().eval(PropertyKeys.title); }
 	public void setTitle(String title) { getStateHelper().put(PropertyKeys.title, title); }
+	public String getIcon() { return (String) getStateHelper().eval("icon"); }
+	public void setIcon(String icon) { getStateHelper().put("icon", icon); }
 
 	public TabParent getTabParent() {
 		return (TabParent) getParent();

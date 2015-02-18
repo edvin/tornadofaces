@@ -10,6 +10,24 @@
             <component-type>io.tornadofaces.component.Tab</component-type>
             <renderer-type>io.tornadofaces.component.AccordionRenderer</renderer-type>
         </component>
+        <attribute>
+            <description>The title of the tab window.</description>
+            <name>title</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the tab div.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Icon will be added as an i with the supplied icon value as a class attribute</description>
+            <name>icon</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
     </tag>
     <tag>
         <description>Form Element</description>
@@ -670,7 +688,7 @@
             <type>Integer</type>
         </attribute>
         <attribute>
-            <description>Non closable notifications cannot be closed by the user once the are visible, but will dissapear when the timeout is reached, or never if timeout is 0. Default true.</description>
+            <description>Non closable notifications cannot be closed by the user once the are visible, but will dissapear when the timeout is reached, or never if timeout is 0. Defaults to false.</description>
             <name>closable</name>
             <required>false</required>
             <type>Boolean</type>

@@ -31,6 +31,14 @@ public class TabViewRenderer extends Renderer {
 				Tab tab = (Tab) child;
 				writer.startElement("div", tab);
 				StyleClass.of("tab-item").add("is-active", tab.isActive()).add(tab.getStyleClass()).write(writer);
+
+				String icon = tab.getIcon();
+				if (icon != null) {
+					writer.startElement("i", tab);
+					writer.writeAttribute("class", icon, null);
+					writer.endElement("i");
+				}
+
 				writer.writeText(tab.getTitle(), null);
 				writer.endElement("div");
 			}

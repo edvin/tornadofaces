@@ -47,6 +47,14 @@ public class AccordionRenderer extends Renderer {
 
 		writer.startElement("div", child);
 		writer.writeAttribute("class", "accordion-title", null);
+
+		String icon = tab.getIcon();
+		if (icon != null) {
+			writer.startElement("i", tab);
+			writer.writeAttribute("class", icon, null);
+			writer.endElement("i");
+		}
+
 		writer.write(tab.getTitle());
 		writer.endElement("div");
 
