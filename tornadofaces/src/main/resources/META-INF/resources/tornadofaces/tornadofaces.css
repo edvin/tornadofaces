@@ -9,3 +9,14 @@ span.highlight {
     -ms-user-select: none;
     user-select: none;
 }
+
+.messages {
+    position: relative;
+}
+
+.messages .close-button {
+    top: 3px;
+    color: #fff;
+    
+    
+}

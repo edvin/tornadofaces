@@ -19,10 +19,10 @@
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
             <t:tab title="list.xhtml">
 <pre class="line-numbers"><code class="language-markup">
-&lt;h:inputText pt:placeholder="Search">
-    &lt;t:filterFor widget="movies"/>
-&lt;/h:inputText>
-    
+&lt;h:inputText pt:placeholder="Search" id=search/>
+
+&lt;t:filterFor widget="movies" target="search"/>
+
 &lt;t:list title="Movies" value="#{docsController.expr('controller.movies')}" widgetVar="movies">
     &lt;t:li chevron="true" link="#">#{docsController.expr('it.title')}&lt;/t:li>
 &lt;/t:list></code></pre>

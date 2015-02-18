@@ -1,4 +1,4 @@
-TornadoFaces.declareWidget('Notification', function() {
+TornadoFaces.declareWidget('Message', function() {
     var widget;
 
     this.init = function() {
@@ -16,14 +16,6 @@ TornadoFaces.declareWidget('Notification', function() {
     this.getTimeout = function() {
         return widget.conf.timeout;
     };
-
-    this.template =
-        '<div class="notification">' +
-        '   <div class="notification-content">' +
-        '      <h1 class="notification-summary"></h1>' +
-        '       <p><span class="notification-detail"></span></p>' +
-        '   </div>' +
-        '</div>';
 
     this.destroyNotification = function(elem) {
         TornadoFaces.animate(elem, false, 'fadeIn', 'fadeOut', function() { elem.remove() });
@@ -47,10 +39,11 @@ TornadoFaces.declareWidget('Notification', function() {
             message = arguments[0];
         }
 
-        var e = $(widget.template).clone();
-        e.find('.notification-summary').html(message.summary);
-        e.find('.notification-detail').html(message.detail);
+        var e = $('<div class="label grid-block">' + message.summary + '</div>');
 
+        if (message.detail && message.detail != message.summary)
+            e.append(' <span class="detail">' + message.detail + '</span>');
+        
         if (message.image)
             e.prepend('<img src="' + message.image + '" style="padding-right: 10px"/>');
 
@@ -78,8 +71,6 @@ TornadoFaces.declareWidget('Notification', function() {
             default:
                 e.addClass('success');
         }
-
-        e.addClass(widget.conf.position);
 
         widget.elem.append(e);
         TornadoFaces.animate(e, true, 'fadeIn', 'fadeOut');

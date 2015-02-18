@@ -1,0 +1,13 @@
+<div xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <t:message id="msgs" widgetVar="msgs" closable="true"/>
+
+    <div class="grid-block padding">
+        <a href="#" class="button alert" onclick="TW('msgs').show('Ouch!', 'An error occured', 'ERROR')">Show error message</a>
+
+        <a href="#" class="button warning" onclick="TW('msgs').show('Danger!', 'Be warned', 'WARN')">Show warning message</a>
+
+        <h:form>
+            <t:commandButton value="Server side success" action="#{notificationController.successMessage}" render=":msgs"/>
+        </h:form>
+    </div>
+</div>

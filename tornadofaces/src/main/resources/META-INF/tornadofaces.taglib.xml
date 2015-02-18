@@ -400,12 +400,18 @@
         </attribute>
     </tag>
     <tag>
-        <description>Add this to an input field and it will call the JavaScript filter method of the target widget onkeyup.</description>
+        <description>FilterFor adds a filtering capabilities for the given widget to the given target component, like an input field..</description>
         <tag-name>filterFor</tag-name>
         <handler-class>io.tornadofaces.component.input.FilterFor</handler-class>
         <attribute>
             <description>The widgetVar that will have it's filter() method called with the input text as argument.</description>
             <name>widget</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The target component id</description>
+            <name>target</name>
             <required>true</required>
             <type>String</type>
         </attribute>
@@ -630,6 +636,38 @@
             <name>position</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Non closable notifications cannot be closed by the user once the are visible, but will dissapear when the timeout is reached, or never if timeout is 0. Default true.</description>
+            <name>closable</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar.</description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Messages that can be shown from either server or client. It can be set to disappear after a certain period of time, or to stay put until the user closes it.</description>
+        <tag-name>message</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Message</component-type>
+            <renderer-type>io.tornadofaces.component.MessageRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Styles to apply to the message div.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The timeout in milliseconds for the message to stay visible. Defaults to 0 for a sticky message.</description>
+            <name>timeout</name>
+            <required>false</required>
+            <type>Integer</type>
         </attribute>
         <attribute>
             <description>Non closable notifications cannot be closed by the user once the are visible, but will dissapear when the timeout is reached, or never if timeout is 0. Default true.</description>
@@ -903,5 +941,12 @@
             <required>false</required>
             <type>Boolean</type>
         </attribute>
+    </tag>
+    <tag>
+        <tag-name>script</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Script</component-type>
+            <renderer-type>io.tornadofaces.component.ScriptRenderer</renderer-type>
+        </component>
     </tag>
 </facelet-taglib>

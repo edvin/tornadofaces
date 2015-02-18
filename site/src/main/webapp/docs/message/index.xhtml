@@ -1,0 +1,90 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('message')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Message</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <p>It works as a replacement for the <code>&lt;h:messages</code> tag, but can also be used to show arbitrary messages generated client side via the Widget API.</p>
+
+        <ui:include src="message.xhtml"/>
+
+        <p>Message also support an optional icon to be displayed with the message. To support this server side, TornadoFaces
+            comes with a <code>NotificationMessage</code> class that extends FacesMessage.</p>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="Markup">
+<pre class="line-numbers"><code class="language-markup">
+&lt;t:message id="msgs" widgetVar="msgs" closable="true"/>
+
+&lt;a href="#" class="button alert" onclick="TW('msgs').show('Ouch!', 'An error occured', 'ERROR')">Show error message&lt;/a>
+
+&lt;a href="#" class="button warning" onclick="TW('msgs').show('Danger!', 'Be warned', 'WARN')">Show warning message&lt;/a>
+
+&lt;h:form>
+    &lt;t:commandButton value="Server side success" action="#{docsController.expr('controller.alert')}" render=":msgs"/>
+&lt;/h:form></code></pre>
+            </t:tab>
+            <t:tab title="Controller">
+<pre class="line-numbers"><code class="language-java">
+public class alert() {
+    FacesContext.getCurrentInstance().addMessage(null, new NotificationMessage(
+        "Success!",
+        "A successfull server generated message",
+        "http://url/to/image.png"));
+}
+</code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.Message</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>show(summary)</td>
+                        <td>summary: The title of the message</td>
+                        <td>void</td>
+                        <td>Show a message with just a title</td>
+                    </tr>
+                    <tr>
+                        <td>show(summary, detail)</td>
+                        <td>summary: The title, detail: The body of the message</td>
+                        <td>void</td>
+                        <td>Show a message with a title and body</td>
+                    </tr>
+                    <tr>
+                        <td>show(summary, detail, severity)</td>
+                        <td>summary: The title, detail: The body, severity: The severity of the message</td>
+                        <td>void</td>
+                        <td>Show a message with a title, body and the given severity. Valid severity levels are INFO, WARN, ERROR.</td>
+                    </tr>
+                    <tr>
+                        <td>show(summary, detail, severity, image)</td>
+                        <td>summary: The title, detail: The body, severity: The severity, image: The icon of the messge</td>
+                        <td>void</td>
+                        <td>Show a message with a title, body, severity and the given image.</td>
+                    </tr>
+                    <tr>
+                        <td>show(message)</td>
+                        <td>message: A configuration object containing one or more of summary, detail and severity</td>
+                        <td>void</td>
+                        <td>Show a message with the given configuration.</td>
+                    </tr>
+                </table>
+            </t:tab>
+
+        </t:tabView>
+
+    </ui:define>
+</ui:composition>
