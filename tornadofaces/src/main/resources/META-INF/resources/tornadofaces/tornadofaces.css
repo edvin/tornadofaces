@@ -15,8 +15,12 @@ span.highlight {
 }
 
 .messages .close-button {
-    top: 3px;
+    top: 6px;
+    right: 8px;
     color: #fff;
-    
-    
+}
+
+.messages .label {
+    margin: 0;
+    padding: 10px;
 }

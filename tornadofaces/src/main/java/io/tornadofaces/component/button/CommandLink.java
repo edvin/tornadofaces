@@ -105,7 +105,7 @@ public class CommandLink extends HtmlCommandLink implements SystemEventListener 
 				.add(PropertyKeys.hollow, isHollow())
 				.add(HtmlCommandLink.PropertyKeys.disabled, isDisabled())
 				.add(PropertyKeys.expand, isExpand())
-				.add(BUTTON_CSS)
+				.add(BUTTON_CSS, isButton())
 				.toString());
 	}
 
@@ -115,7 +115,10 @@ public class CommandLink extends HtmlCommandLink implements SystemEventListener 
 	public Boolean isExpand() { return (Boolean) this.getStateHelper().eval(PropertyKeys.expand, null); }
 	public void setExpand(Boolean expand) { this.getStateHelper().put(PropertyKeys.expand, expand); }
 
-	public Boolean isPreventDoubleSubmission() { return (Boolean) this.getStateHelper().eval(PropertyKeys.preventDoubleSubmission, true); }
+	public Boolean isButton() { return (Boolean) this.getStateHelper().eval("button", false); }
+	public void setButton(Boolean button) { this.getStateHelper().put("button", button); }
+
+	public Boolean isPreventDoubleSubmission() { return (Boolean) this.getStateHelper().eval(PropertyKeys.preventDoubleSubmission, false); }
 	public void setPreventDoubleSubmission(Boolean preventDoubleSubmission) { this.getStateHelper().put(PropertyKeys.preventDoubleSubmission, preventDoubleSubmission); }
 
 	public void setColor(Color color) { this.getStateHelper().put(PropertyKeys.color, color); }

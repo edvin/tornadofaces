@@ -826,6 +826,12 @@
             <type>io.tornadofaces.component.button.CommandLink.Size</type>
         </attribute>
         <attribute>
+            <description>Should this link render as a button? Defaults to false.</description>
+            <name>button</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Boolean indicating if this button should perform an ajax request. See render and execute for more information.</description>
             <name>ajax</name>
             <type>java.lang.Boolean</type>

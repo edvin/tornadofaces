@@ -22,12 +22,12 @@
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:message id="msgs" widgetVar="msgs" closable="true"/>
 
-&lt;a href="#" class="button alert" onclick="TW('msgs').show('Ouch!', 'An error occured', 'ERROR')">Show error message&lt;/a>
-
-&lt;a href="#" class="button warning" onclick="TW('msgs').show('Danger!', 'Be warned', 'WARN')">Show warning message&lt;/a>
+&lt;a href="#" class="button alert" onclick="TW('msgs').show('Ouch!', 'An error occured', 'ERROR')">Error message&lt;/a>
+&lt;a href="#" class="button warning" onclick="TW('msgs').show('Danger!', 'Be warned', 'WARN')">Warning message&lt;/a>
+&lt;a href="#" class="button success" onclick="TW('msgs').show('Success!', 'Victory!', 'SUCCESS')">Success message&lt;/a>
 
 &lt;h:form>
-    &lt;t:commandButton value="Server side success" action="#{docsController.expr('controller.alert')}" render=":msgs"/>
+    &lt;t:commandButton value="Server info" action="#{docsController.expr('controller.alert')}" render=":msgs"/>
 &lt;/h:form></code></pre>
             </t:tab>
             <t:tab title="Controller">

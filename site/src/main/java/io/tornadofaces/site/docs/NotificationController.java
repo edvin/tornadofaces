@@ -8,8 +8,8 @@ import javax.faces.context.FacesContext;
 @Model
 public class NotificationController {
 
-	public void successMessage() {
+	public void infoMessage() {
 		FacesContext.getCurrentInstance().addMessage(null,
-			new NotificationMessage("Success!", "A successfull server generated message", "http://alyssa.no/resources/logo.png"));
+			new NotificationMessage("Information!", "An information server generated message", "http://alyssa.no/resources/logo.png"));
 	}
 }
