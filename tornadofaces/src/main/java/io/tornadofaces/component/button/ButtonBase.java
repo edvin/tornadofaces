@@ -63,7 +63,7 @@ public abstract class ButtonBase extends UICommand implements Widget, ClientBeha
 	}
 
 	public String getSpinnerStyle() {
-		String style = (String) getStateHelper().eval("spinnerStyle", "expand-right");
+		String style = (String) getStateHelper().eval("spinnerStyle", "slide-left");
 		return "none".equals("style") ? null : style;
 	}
 	public void setSpinnerStyle(String spinnerStyle) { getStateHelper().put("spinnerStyle", spinnerStyle); }

@@ -1,0 +1,39 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('gid')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Truly Global Ids</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <p>This tag handler aims to solve the problem where a deeply nested component needs to refer to another component which is deeply nested within another parent naming container.
+        There are multiple workarounds for this issue, but most are not elegant or even easy to reason about, hence the <code>gid</code> tag handler.</p>
+        
+        <p>Nest a <code>&lt;t:gid value="myUniqueId"/&gt;</code> tag inside any component, and then refer to this component in a <code>render</code> or <code>execute</code> statement as <code>#myUniqueId</code>.
+        The actual id of the component will be resolved when needed. <strong>Important: </strong> Make sure the parent component of this tag actually emits an id, or set one explicitly.</p>
+        
+        <ui:include src="gid.xhtml"/>
+        <br/>
+        
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="Example">
+<pre class="line-numbers"><code class="language-markup">
+&lt;h:panelGroup id="theActualId">
+    &lt;t:gid value="myUniqueId"/>
+    The time is #{docsController.expr('controller.now')}.
+&lt;/h:panelGroup>
+
+&lt;h:form>
+    &lt;t:commandButton value="Update the time" render="#myUniqueId" />
+&lt;/h:form></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+            </t:tab>
+        </t:tabView>
+    </ui:define>
+</ui:composition>

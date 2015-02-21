@@ -7,29 +7,49 @@ TornadoFaces.declareWidget('Button', function() {
         widget.bindEvents();
     };
     
+    this.initLadda = function() {
+        if (!widget.conf.laddaInitialized && widget.conf.spinnerStyle) {
+            widget.elem.addClass('ladda-button');
+            
+            widget.elem.attr('data-style', widget.conf.spinnerStyle);
+
+            if (widget.conf.spinnerColor)
+                widget.elem.attr('data-spinner-color', widget.conf.spinnerColor);
+
+            if (widget.conf.spinnerSize)
+                widget.elem.attr('data-spinner-size', widget.conf.spinnerSize);
+
+            widget.elem.html('<span class="ladda-label">' + widget.elem.html() + '</span>');
+
+            widget.laddaInitialized = true;
+        }
+
+        if (widget.ladda) {
+            widget.ladda.remove();
+            widget.ladda = null;
+        }
+    };
+    
     this.bindEvents = function() {
         widget.elem.click(function(event) {
-            widget.elem.removeClass('wiggle');
-
-            if (widget.elem.attr('disabled')) {
+            if (widget.elem.attr('disabled') === 'disabled') {
                 widget.elem.addClass('wiggle');
+                setTimeout(function() { widget.elem.removeClass('wiggle')}, 1000);
                 event.preventDefault();
                 return false;
             }
-            
-            if (widget.ladda)
-                widget.ladda.remove();
 
+            widget.initLadda();
+            
             var options = {
                 execute: widget.conf.execute,
                 render: widget.conf.render
             };
 
-            if (widget.elem.data('style'))
+            if (widget.laddaInitialized) {
                 widget.ladda = Ladda.create(widget.elem[0]);
-
-            if (widget.ladda)
                 widget.ladda.start();
+            }
 
             options.onevent = function(event) {
                 if (event.status == 'begin') {
@@ -52,6 +72,8 @@ TornadoFaces.declareWidget('Button', function() {
             };
 
             jsf.ajax.request(widget.elem[0], event, options);
+            event.preventDefault();
+            return false;
         });
     }
 });

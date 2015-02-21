@@ -2,6 +2,7 @@ package io.tornadofaces.component.button;
 
 import io.tornadofaces.component.CoreRenderer;
 import io.tornadofaces.component.util.ComponentUtils;
+import io.tornadofaces.component.util.GlobalId;
 import io.tornadofaces.component.util.StyleClass;
 import io.tornadofaces.util.WidgetBuilder;
 
@@ -23,44 +24,24 @@ public class ButtonRenderer extends CoreRenderer {
 		writer.startElement(button.getTagName(), button);
 		writer.writeAttribute("id", button.getClientId(context), null);
 
-		if (button instanceof CommandButton) {
+		if (button instanceof CommandButton)
 			writer.writeAttribute("type", "submit", null);
-		} else if (button instanceof CommandLink) {
+		else if (button instanceof CommandLink)
 			writer.writeAttribute("href", "#", null);
-		}
 
 		Boolean disabled = button.isDisabled();
 		if (disabled)
 			writer.writeAttribute("disabled", "disabled", null);
 
-		String spinnerStyle = button.getSpinnerStyle();
-
 		Boolean treatAsButton = !(button instanceof CommandLink) || ((CommandLink) button).isButton();
-		
+
 		StyleClass.of(button.getStyleClass())
 			.add(button.getSize())
 			.add(button.getColor())
 			.add("hollow", button.isHollow())
-			.add("disabled", button.isDisabled())
 			.add("expand", button.isExpand())
 			.add("button", treatAsButton)
-			.add("ladda-button", treatAsButton && spinnerStyle != null)
 			.write(writer);
-		
-		if (spinnerStyle != null) {
-			writer.writeAttribute("data-style", spinnerStyle, null);
-
-			String spinnerColor = button.getSpinnerColor();
-			if (spinnerColor != null)
-				writer.writeAttribute("data-spinner-color", spinnerColor, null);
-			
-			Integer spinnerSize = button.getSpinnerSize();
-			if (spinnerSize != null)
-				writer.writeAttribute("data-spinner-size", spinnerSize, null);
-
-			writer.startElement("span", button);
-			writer.writeAttribute("class", "ladda-label", null);
-		}
 	}
 
 	public boolean getRendersChildren() {
@@ -90,28 +71,31 @@ public class ButtonRenderer extends CoreRenderer {
 		String spinnerStyle = button.getSpinnerStyle();
 		if (spinnerStyle != null)
 			writer.endElement("span");
-		
+
 		writer.endElement(button.getTagName());
 
 		new WidgetBuilder(context, button)
 			.init()
-			.attr("render", button.getRender())
-			.attr("execute", button.getExecute())
+			.attr("render", GlobalId.resolveIdString(context, button.getRender()))
+			.attr("execute", GlobalId.resolveIdString(context, button.getExecute()))
 			.nativeAttr("onsuccess", button.getOnsuccess())
 			.nativeAttr("oncomplete", button.getOncomplete())
 			.nativeAttr("onstart", button.getOnstart())
+			.attr("spinnerStyle", spinnerStyle)
+			.attr("spinnerColor", button.getSpinnerColor())
+			.attr("spinnerSize", button.getSpinnerSize())
 			.finish();
 	}
 
 	public void decode(FacesContext context, UIComponent component) {
 		ButtonBase button = (ButtonBase) component;
-		if(button.isDisabled())
+		if (button.isDisabled())
 			return;
 
 		String clientId = component.getClientId();
 		String source = context.getExternalContext().getRequestParameterMap().get("javax.faces.source");
 
-		if(clientId.equals(source))
+		if (clientId.equals(source))
 			component.queueEvent(new ActionEvent(component));
 
 		decodeBehaviors(context, component);

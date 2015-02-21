@@ -30,6 +30,17 @@
         </attribute>
     </tag>
     <tag>
+        <description>GID gives any componant a unique id that can be referred to from render and execute statements without having to deal with the component hierarchy.</description>
+        <tag-name>gid</tag-name>
+        <handler-class>io.tornadofaces.component.util.GlobalId</handler-class>
+        <attribute>
+            <description>The value of the globally unique component. Can be refered to as #value from render and execute statements of all TornadoFaces components, like CommandButton and CommandLink.</description>
+            <name>value</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>Form Element</description>
         <tag-name>form-element</tag-name>
         <component>
@@ -827,7 +838,7 @@
             <type>io.tornadofaces.component.button.CommandLink.Size</type>
         </attribute>
         <attribute>
-            <description>Determines the spinner animation style. Valid options are "expand-left", "expand-right", "expand-up", "expand-down", "contract", "contract-overlay", "zoom-in", "zoom-out", "slide-left", "slide-right", "slide-up", "slide-down". Defaults to "expand-right".</description>
+            <description>Determines the spinner animation style. Valid options are "expand-left", "expand-right", "expand-up", "expand-down", "contract", "contract-overlay", "zoom-in", "zoom-out", "slide-left", "slide-right", "slide-up", "slide-down". Defaults to "slide-left".</description>
             <name>spinnerStyle</name>
             <required>false</required>
             <type>String</type>

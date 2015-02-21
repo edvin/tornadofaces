@@ -1,0 +1,13 @@
+<div class="grid-content" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:panelGroup id="theActualId">
+        <t:gid value="myUniqueId"/>
+        The time is #{docsController.now}.
+    </h:panelGroup>
+    
+    <br/>
+    <br/>
+    
+    <h:form>
+        <t:commandButton value="Update the time" render="#myUniqueId" />
+    </h:form>
+</div>

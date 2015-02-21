@@ -7,6 +7,7 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -33,5 +34,9 @@ public class DocsController {
 
 	public String expr(String expr) {
 		return "#{" + expr + "}";
+	}
+
+	public String getNow() {
+		return new Date().toString();
 	}
 }
