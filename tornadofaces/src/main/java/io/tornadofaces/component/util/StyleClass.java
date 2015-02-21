@@ -32,21 +32,21 @@ public class StyleClass {
 	}
 
 	public StyleClass add(String styleClass, Boolean condition) {
-		if (condition)
+		if (Boolean.TRUE.equals(condition))
 			add(styleClass);
 
 		return this;
 	}
 
 	public StyleClass add(Object styleClass, Boolean condition) {
-		if (styleClass != null && condition != null && condition)
+		if (styleClass != null && Boolean.TRUE.equals(condition))
 			add(styleClass);
 
 		return this;
 	}
 
 	public StyleClass remove(String styleClass, Boolean condition) {
-		if (condition)
+		if (Boolean.TRUE.equals(condition))
 			remove(styleClass);
 
 		return this;

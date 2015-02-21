@@ -76,6 +76,9 @@ TornadoFaces.declareWidget('Accordion', function() {
                     widget.setActiveState(item);
                 } else {
                     // We need to load content
+                    var spinner = $('<div class="spinner float-right"></div>');
+                    spinner.appendTo(item.find('.accordion-title'));
+
                     var accId = widget.elem.attr('id');
                     var stateholderId = accId + ':stateholder';
 
@@ -92,8 +95,10 @@ TornadoFaces.declareWidget('Accordion', function() {
                                 widget.cachedContent.push(itemIndex);
                         }
 
-                        if (event.status == 'success')
+                        if (event.status == 'success') {
                             widget.setActiveState(item);
+                            spinner.remove();
+                        }
                     };
 
                     jsf.ajax.request(stateholderId, null, props);

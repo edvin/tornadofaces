@@ -75,10 +75,16 @@ public class FormElementRenderer extends Renderer {
 		if (input != null) {
 			List<FacesMessage> messages = context.getMessageList(input.getClientId(context));
 			if (!messages.isEmpty()) {
-				writer.startElement("span", component);
-				writer.writeAttribute("class", "field-error-message", null);
-				writer.write(messages.get(0).getSummary());
-				writer.endElement("span");
+				for (FacesMessage m : messages) {
+					writer.startElement("span", component);
+					String type = m.getSeverity().toString().toLowerCase();
+					if (type.contains(" "))
+						type = type.substring(0, type.indexOf(" "));
+					
+					writer.writeAttribute("class", "field-" + type + "-message", null);
+					writer.write(m.getSummary());
+					writer.endElement("span");
+				}
 			}
 		}
 

@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Model
 public class DocsController {
@@ -22,6 +23,10 @@ public class DocsController {
 			new Movie(3, "Star Wars: Episode III - Revenge of the Sith"));
 	}
 
+	public void takeTwo() throws InterruptedException {
+		TimeUnit.SECONDS.sleep(2);
+	}
+	
 	public void loadTag(String tagName) throws IOException {
 		this.tag = cache.getTag(tagName);
 	}

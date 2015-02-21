@@ -819,6 +819,7 @@
         <tag-name>commandLink</tag-name>
         <component>
             <component-type>io.tornadofaces.component.CommandLink</component-type>
+            <renderer-type>io.tornadofaces.component.ButtonRenderer</renderer-type>
         </component>
         <attribute>
             <description>Size of the button. Valid values are "tiny", "small", "large"</description>
@@ -826,15 +827,28 @@
             <type>io.tornadofaces.component.button.CommandLink.Size</type>
         </attribute>
         <attribute>
+            <description>Determines the spinner animation style. Valid options are "expand-left", "expand-right", "expand-up", "expand-down", "contract", "contract-overlay", "zoom-in", "zoom-out", "slide-left", "slide-right", "slide-up", "slide-down". Defaults to "expand-right".</description>
+            <name>spinnerStyle</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Determines the color of the spinner. Valid options are any hex code or named CSS color.</description>
+            <name>spinnerColor</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>pixel dimensions of spinner, defaults to dynamic size based on the button height.</description>
+            <name>spinnerSize</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
             <description>Should this link render as a button? Defaults to false.</description>
             <name>button</name>
             <required>false</required>
             <type>Boolean</type>
-        </attribute>
-        <attribute>
-            <description>Boolean indicating if this button should perform an ajax request. See render and execute for more information.</description>
-            <name>ajax</name>
-            <type>java.lang.Boolean</type>
         </attribute>
         <attribute>
             <description>Hollow buttons have outline and no background color. Default false.</description>
@@ -848,79 +862,6 @@
         </attribute>
         <attribute>
             <description>Space separated list of components to execute on ajax.</description>
-            <name>execute</name>
-            <type>java.lang.String</type>
-        </attribute>
-        <attribute>
-            <description>Color of the button. Valid values are "success", "secondary", "alert", "info"</description>
-            <name>color</name>
-            <type>io.tornadofaces.component.button.CommandLink.Color</type>
-        </attribute>
-        <attribute>
-            <description>JavaScript callback triggered before the AJAX request is sent</description>
-            <name>oncomplete</name>
-            <required>false</required>
-            <type>String</type>
-        </attribute>
-        <attribute>
-            <description>JavaScript callback triggered after AJAX response has arrived</description>
-            <name>oncomplete</name>
-            <required>false</required>
-            <type>String</type>
-        </attribute>
-        <attribute>
-            <description>JavaScript callback triggered after DOM update based on AJAX request</description>
-            <name>onsuccess</name>
-            <required>false</required>
-            <type>String</type>
-        </attribute>
-        <attribute>
-            <description>Should this component be rendered?</description>
-            <name>render</name>
-            <required>false</required>
-            <type>Boolean</type>
-        </attribute>
-        <attribute>
-            <description>Prevents double submission by disabling the button while the AJAX call is active. Default true.</description>
-            <name>preventDoubleSubmission</name>
-            <required>false</required>
-            <type>Boolean</type>
-        </attribute>
-        <attribute>
-            <description>Expand to fill horizontal space</description>
-            <name>expand</name>
-            <required>false</required>
-            <type>Boolean</type>
-        </attribute>
-    </tag>
-    <tag>
-        <description>Command Button has some convenient improvements over the default JSF commandButton, including AJAX by default, automatic spinner, double submission protection, AJAX event callbacks and attributes for render and execute.</description>
-        <tag-name>commandButton</tag-name>
-        <component>
-            <component-type>io.tornadofaces.component.CommandButton</component-type>
-        </component>
-        <attribute>
-            <description>Size of the button. Valid values are "tiny", "small", "large"</description>
-            <name>size</name>
-            <type>io.tornadofaces.component.button.CommandLink.Size</type>
-        </attribute>
-        <attribute>
-            <description>Boolean indicating if this button should perform an ajax request. See update and process for more information.</description>
-            <name>ajax</name>
-            <type>java.lang.Boolean</type>
-        </attribute>
-        <attribute>
-            <description>Hollow buttons have outline and no background color. Default false.</description>
-            <name>hollow</name>
-            <type>Boolean</type>
-        </attribute>
-        <attribute>
-            <description>Space separated list of components to render after ajax. Default "@form".</description>
-            <name>render</name>
-            <type>java.lang.String</type>
-        </attribute>
-        <attribute>
-            <description>Space separated list of components to execute on ajax. Default "@form".</description>
             <name>execute</name>
             <type>java.lang.String</type>
         </attribute>
@@ -954,8 +895,94 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
-            <description>Prevents double submission by disabling the button while the AJAX call is active. Default true.</description>
-            <name>preventDoubleSubmission</name>
+            <description>Expand to fill horizontal space</description>
+            <name>expand</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Command Button has some convenient improvements over the default JSF commandButton, including AJAX by default, automatic spinner, double submission protection, AJAX event callbacks and attributes for render and execute.</description>
+        <tag-name>commandButton</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.CommandButton</component-type>
+            <renderer-type>io.tornadofaces.component.ButtonRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Size of the button. Valid values are "tiny", "small", "large"</description>
+            <name>size</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.button.CommandLink.Size</type>
+        </attribute>
+        <attribute>
+            <description>Determines the spinner animation style. Valid options are "expand-left", "expand-right", "expand-up", "expand-down", "contract", "contract-overlay", "zoom-in", "zoom-out", "slide-left", "slide-right", "slide-up", "slide-down". Defaults to "expand-right".</description>
+            <name>spinnerStyle</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Determines the color of the spinner. Valid options are any hex code or named CSS color.</description>
+            <name>spinnerColor</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>pixel dimensions of spinner, defaults to dynamic size based on the button height.</description>
+            <name>spinnerSize</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Hollow buttons have outline and no background color. Default false.</description>
+            <name>hollow</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Should this button render as input type="submit" or button type="submit". Defaults to false, which renders a button element.</description>
+            <name>input</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Space separated list of components to render after ajax. Default "@form".</description>
+            <name>render</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Space separated list of components to execute on ajax. Default "@form".</description>
+            <name>execute</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Color of the button. Valid values are "success", "secondary", "alert", "info"</description>
+            <name>color</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Color</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered before the AJAX request is sent</description>
+            <name>oncomplete</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered after AJAX response has arrived</description>
+            <name>oncomplete</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered after DOM update based on AJAX request</description>
+            <name>onsuccess</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>render</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>
