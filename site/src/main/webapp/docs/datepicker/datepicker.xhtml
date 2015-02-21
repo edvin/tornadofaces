@@ -1,11 +1,12 @@
 <div xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html"
      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <t:notification id="msgs"/>
     <h:form>
         <t:form-element label="Pick a day" medium="4">
             <t:datepicker id="mypicker" format="YYYY-MM-DD" value="#{datepickerController.date}">
                 <f:convertDateTime pattern="yyyy-MM-dd"/>
             </t:datepicker>
-            <t:commandLink value="Save the date" color="success" action="#{datepickerController.save}" render=":msgs"/>
+            <t:commandLink button="true" value="Save the date" color="success" action="#{datepickerController.save}" render="msgs"/>
         </t:form-element>
     </h:form>
 </div>

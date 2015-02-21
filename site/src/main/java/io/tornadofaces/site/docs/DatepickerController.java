@@ -22,7 +22,7 @@ public class DatepickerController {
 	}
 	
 	public void save() {
-		FacesContext.getCurrentInstance().addMessage(null, 
+		FacesContext.getCurrentInstance().addMessage(null,
 			new FacesMessage(new SimpleDateFormat("yyyy-MM-dd").format(date), "Date saved"));
 	}
 }

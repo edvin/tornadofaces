@@ -30,7 +30,7 @@
         </attribute>
     </tag>
     <tag>
-        <description>GID gives any componant a unique id that can be referred to from render and execute statements without having to deal with the component hierarchy.</description>
+        <description>GID gives any component a unique id that can be referred to from render and execute statements without having to deal with the component hierarchy.</description>
         <tag-name>gid</tag-name>
         <handler-class>io.tornadofaces.component.util.GlobalId</handler-class>
         <attribute>
