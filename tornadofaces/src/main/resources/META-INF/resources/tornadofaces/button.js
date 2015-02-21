@@ -54,7 +54,7 @@ TornadoFaces.declareWidget('Button', function() {
             options.onevent = function(event) {
                 if (event.status == 'begin') {
                     if (widget.conf.onbegin)
-                        widget.conf.onbegin();
+                        eval(widget.conf.onbegin);
                 }
 
                 if (event.status == 'complete') {
@@ -62,12 +62,12 @@ TornadoFaces.declareWidget('Button', function() {
                         widget.ladda.stop();
                     
                     if (widget.conf.oncomplete)
-                        widget.conf.oncomplete();
+                        eval(widget.conf.oncomplete);
                 }
 
                 if (event.status == 'success') {
                     if (widget.conf.onsuccess)
-                        widget.conf.onsuccess();
+                        eval(widget.conf.onsuccess);
                 }
             };
 

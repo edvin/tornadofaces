@@ -1,6 +1,5 @@
 package io.tornadofaces.component.modal;
 
-import io.tornadofaces.component.actionsheet.ActionSheetRenderer;
 import io.tornadofaces.component.api.Widget;
 import io.tornadofaces.component.common.Color;
 import io.tornadofaces.component.util.ComponentUtils;
