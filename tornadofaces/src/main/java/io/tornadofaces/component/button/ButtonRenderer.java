@@ -33,14 +33,12 @@ public class ButtonRenderer extends CoreRenderer {
 		if (disabled)
 			writer.writeAttribute("disabled", "disabled", null);
 
-		Boolean treatAsButton = !(button instanceof CommandLink) || ((CommandLink) button).isButton();
-
 		StyleClass.of(button.getStyleClass())
 			.add(button.getSize())
 			.add(button.getColor())
 			.add("hollow", button.isHollow())
 			.add("expand", button.isExpand())
-			.add("button", treatAsButton)
+			.add("button", button.getTreatAsButton())
 			.write(writer);
 	}
 
@@ -68,23 +66,23 @@ public class ButtonRenderer extends CoreRenderer {
 		ButtonBase button = (ButtonBase) component;
 		ResponseWriter writer = context.getResponseWriter();
 
-		String spinnerStyle = button.getSpinnerStyle();
-		if (spinnerStyle != null)
-			writer.endElement("span");
-
 		writer.endElement(button.getTagName());
 
-		new WidgetBuilder(context, button)
+		WidgetBuilder builder = new WidgetBuilder(context, button)
 			.init()
 			.attr("render", GlobalId.resolveIdString(context, button.getRender()))
 			.attr("execute", GlobalId.resolveIdString(context, button.getExecute()))
 			.attr("onsuccess", button.getOnsuccess())
 			.attr("oncomplete", button.getOncomplete())
-			.attr("onstart", button.getOnstart())
-			.attr("spinnerStyle", spinnerStyle)
-			.attr("spinnerColor", button.getSpinnerColor())
-			.attr("spinnerSize", button.getSpinnerSize())
-			.finish();
+			.attr("onstart", button.getOnstart());
+
+		if (button.getTreatAsButton())
+			builder
+				.attr("spinnerStyle", button.getSpinnerStyle())
+				.attr("spinnerColor", button.getSpinnerColor())
+				.attr("spinnerSize", button.getSpinnerSize());
+
+		builder.finish();
 	}
 
 	public void decode(FacesContext context, UIComponent component) {

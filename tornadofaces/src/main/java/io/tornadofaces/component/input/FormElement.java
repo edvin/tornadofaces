@@ -2,7 +2,6 @@ package io.tornadofaces.component.input;
 
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.StyleClass;
-import org.w3c.dom.html.HTMLLabelElement;
 
 import javax.faces.component.*;
 import javax.faces.component.html.HtmlOutputLabel;
@@ -26,7 +25,7 @@ public class FormElement extends UIPanel implements SystemEventListener {
 		if (event instanceof PostAddToViewEvent) {
 			for (UIComponent child : getChildren()) {
 				// Add form-label class to span children
-				if (child instanceof HTMLLabelElement) {
+				if (child instanceof HtmlOutputLabel) {
 					HtmlOutputLabel label = (HtmlOutputLabel) child;
 					label.setStyleClass(StyleClass.of("form-label").add(label.getStyleClass()).toString());
 				}

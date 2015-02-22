@@ -4,12 +4,15 @@ import io.tornadofaces.component.util.ComponentUtils;
 
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIColumn;
+import javax.faces.component.ValueHolder;
 import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
 import javax.faces.render.Renderer;
 
 @FacesComponent(value = Li.COMPONENT_TYPE, createTag = true, tagName = "li", namespace = "http://tornadofaces.io/ui")
-public class Li extends UIColumn {
+public class Li extends UIColumn implements ValueHolder {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Li";
+	private Converter converter;
 
 	public Li() {
 		super();
@@ -28,7 +31,7 @@ public class Li extends UIColumn {
 	public void setIcon(String icon) { getStateHelper().put("icon", icon); }
 	public String getActiveClass() { return (String) getStateHelper().eval("activeClass", "is-active"); }
 	public void setActiveClass(String activeClass) { getStateHelper().put("activeClass", activeClass); }
-
+	
 	public Boolean getActive() {
 		Boolean active = (Boolean) getStateHelper().eval("active");
 		if (active == null) {
@@ -41,4 +44,26 @@ public class Li extends UIColumn {
 	public void setActive(Boolean active) { getStateHelper().put("active", active); }
 	public String getLink() { return (String) getStateHelper().eval("link"); }
 	public void setLink(String link) { getStateHelper().put("link", link); }
+
+	public Object getLocalValue() {
+		return getStateHelper().get("value");
+	}
+
+	public Object getValue() {
+		return getStateHelper().eval("value");
+	}
+
+	public void setValue(Object value) {
+		getStateHelper().put("value", value);
+	}
+
+	public Converter getConverter() {
+		if (this.converter != null)
+			return (this.converter);
+		
+		return (Converter) getStateHelper().eval("converter");	}
+
+	public void setConverter(Converter converter) {
+		this.converter = converter;
+	}
 }

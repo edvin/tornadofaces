@@ -55,6 +55,8 @@ public class GlobalId extends TagHandler {
 	 * @return The component that was resolved, or null if no match was found
 	 */
 	public static UIComponent resolve(FacesContext context, String gid) {
+		if (gid == null || !gid.contains("#"))
+			return null;
 		return getGlobalIds(context).get(gid);
 	}
 

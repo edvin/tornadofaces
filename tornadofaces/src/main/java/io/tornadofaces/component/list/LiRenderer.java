@@ -40,6 +40,18 @@ public class LiRenderer extends Renderer {
 		}
 	}
 
+	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
+		Object value = ((Li) component).getValue();
+		if (value != null)
+			context.getResponseWriter().writeText(value, component, "value");
+		
+		super.encodeChildren(context, component);
+	}
+
+	public boolean getRendersChildren() {
+		return true;
+	}
+
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		Li li = (Li) component;
