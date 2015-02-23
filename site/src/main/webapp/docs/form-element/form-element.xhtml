@@ -4,8 +4,18 @@
             <t:form-element medium="6" label="Name">
                 <h:inputText pt:placeholder="Name" id="name"/>
             </t:form-element>
+            
             <t:form-element label="Age" medium="6">
                 <t:slider min="0" max="100" lower="20" connect="lower"/>
+            </t:form-element>
+            
+            <t:form-element label="URL" prefix="www." suffix=".com" medium="6">
+                <h:inputText value="" pt:placeholder="Address"/>
+            </t:form-element>
+
+            <t:form-element label="Search" medium="6">
+                <h:inputText value="" pt:placeholder="Query"/>
+                <t:commandButton value="Search"/>
             </t:form-element>
         </t:grid-block>
     </h:form>

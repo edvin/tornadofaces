@@ -9,18 +9,16 @@
     <ui:define name="content">
         <h1>Form Element</h1>
 
-        <p>To lay out form components we recommend you use the pattern supported by the Foundation For Apps <a href="http://foundation.zurb.com/apps/docs/#!/forms">Forms documentation</a>.
-        Foundation for Apps has a great grid, and lots of sensible defaults for inputs.</p>
+        <p>Form elements include a label, optional prefix and suffix elements and will automatically render a message field after the input when there are validation errors or other messages for the input element.</p>
 
-        <p>However, to reduce noise and keep your code DRY, the <code>form-element</code> tag is intended to be a helper.</p>
-
-        <span class="warning label" style="padding: 10px; border-radius: 10px">Form Element is a work in progress, for now we recommend laying out forms
-        the vanilla Foundation for Apps way!</span>
-
-        <hr/>
-        
         <ui:include src="form-element.xhtml"/>
 
+        <p>You can add grid size hints to the wrapper by setting one or more of the <code>small</code>, <code>medium</code> and <code>large</code> attributes to a value between 1 and 12.</p>
+        
+        <p>To add inline labels, use the <code>prefix</code> or <code>suffix</code> attributes, or simply add your own markup before or after the input field.</p>
+        
+        <p>You can also render inline buttons, see the Search example below. Please refer to the Foundation For Apps <a href="http://foundation.zurb.com/apps/docs/#!/forms">Forms documentation</a> for further options.</p>
+        
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
             <t:tab title="Markup">
 <pre class="line-numbers"><code class="language-markup">
@@ -29,12 +27,21 @@
         &lt;t:form-element medium="6">
             &lt;h:inputText pt:placeholder="Name"/>
         &lt;/t:form-element>
+
         &lt;t:form-element label="Age" medium="6">
             &lt;t:slider min="0" max="100" lower="20" connect="lower"/>
         &lt;/t:form-element>
+
+        &lt;t:form-element label="URL" prefix="www." suffix=".com">
+            &lt;h:inputText value="" pt:placeholder="Address"/>
+        &lt;/t:form-element>
+
+        &lt;t:form-element label="Search" medium="6">
+            &lt;h:inputText value="" pt:placeholder="Query"/>
+            &lt;t:commandButton value="Search"/>
+        &lt;/t:form-element>
     &lt;/t:grid-block>
-&lt;/h:form>
-</code></pre>
+&lt;/h:form></code></pre>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

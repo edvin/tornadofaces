@@ -61,11 +61,27 @@ public class FormElementRenderer extends Renderer {
 				writer.writeAttribute("id", elem.getClientId(context), null);
 			writer.writeAttribute("class", "inline-label", null);
 		}
+
+		String prefix = elem.getPrefix();
+		if (prefix != null) {
+			writer.startElement("span", elem);
+			writer.writeAttribute("class", "form-label", null);
+			writer.writeText(prefix, "prefix");
+			writer.endElement("span");
+		}
 	}
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		FormElement elem = (FormElement) component;
 		ResponseWriter writer = context.getResponseWriter();
+
+		String suffix = elem.getSuffix();
+		if (suffix != null) {
+			writer.startElement("span", elem);
+			writer.writeAttribute("class", "form-label", null);
+			writer.writeText(suffix, "suffix");
+			writer.endElement("span");
+		}
 
 		if (elem.shouldRenderInlineLabelSpan())
 			writer.endElement("span");

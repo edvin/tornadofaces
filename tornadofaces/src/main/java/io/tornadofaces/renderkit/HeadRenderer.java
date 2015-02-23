@@ -15,19 +15,20 @@ import java.util.ListIterator;
 
 /**
  * Code copied from PrimeFaces and modified
+ *
  * Renders head content based on the following order
  * - First Facet
  * - Theme CSS
  * - JSF Ajax
  * - JQuery
  * - TornadoFaces JS
+ * - PrimeFaces JS (for compatibility in projects that have both libs) 
  * - Registered Resources
  * - Head Content
  * - Last Facet
  */
 public class HeadRenderer extends Renderer {
 
-	@Override
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		writer.startElement("head", component);
@@ -38,6 +39,7 @@ public class HeadRenderer extends Renderer {
 		}
 
 		appendTornadoFacesResources(context);
+		appendPrimeFacesTheme(context);
 
 		UIComponent middle = component.getFacet("middle");
 		if (middle != null)
@@ -48,35 +50,57 @@ public class HeadRenderer extends Renderer {
 			resource.encodeAll(context);
 	}
 
-	private void appendTornadoFacesResources(FacesContext context) throws IOException {
+	private void appendPrimeFacesTheme(FacesContext context) throws IOException {
+		String theme = getConfigValue(context, "primefaces.THEME", "none");
+		if (!theme.equals("none"))
+			encodeCSS(context, "primefaces-" + theme, "theme.css");
+	}
+
+	/**
+	 * Get a config value by first looking at ViewRoot attributes, and then for init parameters.
+	 * 
+	 * If a value is found, it is resolved as an EL expression
+	 * * 
+	 * @param context The current FacesContext
+	 * @param key The key to lookup
+	 * @return The resolved value or null if not found
+	 */
+	private String getConfigValue(FacesContext context, String key, String defaultValue) {
 		UIViewRoot viewRoot = context.getViewRoot();
-		String theme = (String) viewRoot.getAttributes().get("tornadofaces.THEME");
+		Object value = viewRoot.getAttributes().get(key);
 
-		if (theme == null) {
-			String themeParamValue = context.getExternalContext().getInitParameter("tornadofaces.THEME");
+		if (value == null)
+			value = context.getExternalContext().getInitParameter(key);
+	
+		if (value != null) {
+			ELContext elContext = context.getELContext();
+			ExpressionFactory expressionFactory = context.getApplication().getExpressionFactory();
+			ValueExpression ve = expressionFactory.createValueExpression(elContext, value.toString(), String.class);
 
-			if (themeParamValue != null) {
-				ELContext elContext = context.getELContext();
-				ExpressionFactory expressionFactory = context.getApplication().getExpressionFactory();
-				ValueExpression ve = expressionFactory.createValueExpression(elContext, themeParamValue, String.class);
-
-				theme = (String) ve.getValue(elContext);
-			} else {
-				theme = "tornado";
-			}
+			return (String) ve.getValue(elContext);
 		}
 
-		if (theme != null && !theme.equals("none"))
+		return defaultValue;
+	}
+
+	private void appendTornadoFacesResources(FacesContext context) throws IOException {
+		if ("true".equals(getConfigValue(context, "tornadofaces.DISABLE", "false")))
+			return;
+
+		String theme = getConfigValue(context, "tornadofaces.THEME", "tornado"); 
+
+		if (!theme.equals("none"))
 			encodeCSS(context, "tornadofaces-" + theme, "theme.css");
 
 		if (!hasResourceBeenInstalled(context, "javax.faces", "jsf.js"))
 			encodeJS(context, "javax.faces", "jsf.js");
 
-		encodeJS(context, "tornadofaces", "jquery.min.js");
+		if (!"true".equals(getConfigValue(context, "tornadofaces.SKIP_JQUERY", "false")))
+			encodeJS(context, "tornadofaces", "jquery.min.js");
+
 		encodeJS(context, "tornadofaces", "tornadofaces.js");
 	}
 
-	@Override
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 

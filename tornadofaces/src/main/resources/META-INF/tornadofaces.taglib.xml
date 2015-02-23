@@ -136,6 +136,24 @@
             <renderer-type>io.tornadofaces.component.FormElementRenderer</renderer-type>
         </component>
         <attribute>
+            <description>Label for the form element</description>
+            <name>label</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Prefix label that will be added as a span with class form-label before the input element</description>
+            <name>prefix</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Suffix label that will be added as a span with class form-label after the input element</description>
+            <name>suffix</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Styles to apply to the wrapper</description>
             <name>styleClass</name>
             <required>false</required>

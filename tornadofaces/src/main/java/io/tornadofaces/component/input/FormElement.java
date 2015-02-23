@@ -52,13 +52,17 @@ public class FormElement extends UIPanel implements SystemEventListener {
 	}
 
 	public Boolean shouldRenderInlineLabelSpan() {
-		return getChildCount() > 1;
+		return getChildCount() > 1 || getPrefix() != null || getSuffix() != null;
 	}
 
 	public String getLayout() { return (String) getStateHelper().eval("layout", "grid-content"); }
 	public void setLayout(String layout) { getStateHelper().put("layout", layout); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
+	public String getPrefix() { return (String) getStateHelper().eval("prefix"); }
+	public void setPrefix(String prefix) { getStateHelper().put("prefix", prefix); }
+	public String getSuffix() { return (String) getStateHelper().eval("suffix"); }
+	public void setSuffix(String suffix) { getStateHelper().put("suffix", suffix); }
 	public String getLabel() { return (String) getStateHelper().eval("label"); }
 	public void setLabel(String label) { getStateHelper().put("label", label); }
 	public Integer getSmall() { return (Integer) getStateHelper().eval("small", null); }
