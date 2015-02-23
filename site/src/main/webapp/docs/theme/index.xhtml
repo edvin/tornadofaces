@@ -1,0 +1,43 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('switch')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Themes</h1>
+        
+        <h3>Disable or change theme</h3>
+        <p>To disable or change the TornadoFaces theme you can use one of the following constructs:</p>
+
+        <h4>Add an attribute to the current view</h4>
+        <pre><code class="language-markup">&lt;f:attribute name="tornadofaces.THEME" value="none"/></code></pre>
+
+        <h4>Configure in web.xml</h4>
+        <pre><code class="language-markup">&lt;context-param>
+    &lt;param-name>tornadofaces.THEME&lt;/param-name>
+    &lt;param-value>none&lt;/param-value>
+&lt;/context-param></code></pre>
+
+        <h4>Configure in a bean</h4>
+        <p>Define an EL expression in web.xml that should resolve the wanted theme:</p>
+
+        <pre><code class="language-markup">&lt;context-param>
+    &lt;param-name>#{docsController.expr('themeController.theme')}&lt;/param-name>
+    &lt;param-value>none&lt;/param-value>
+&lt;/context-param></code></pre>
+
+<pre><code class="language-java">
+    
+@RequestScoped
+@Named            
+public class ThemeController {
+    public String getTheme() {
+        return "dynamically-resolved-theme-name";
+    }
+}</code></pre>
+        
+        <p>The bean can have any scope.</p>
+    </ui:define>
+</ui:composition>
