@@ -1,12 +1,12 @@
 <h:panelGroup xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
     <h:form id="form">
-        <div class="grid-block">
+        <t:grid-block>
             <t:form-element medium="6" label="Name">
                 <h:inputText pt:placeholder="Name" id="name"/>
             </t:form-element>
             <t:form-element label="Age" medium="6">
                 <t:slider min="0" max="100" lower="20" connect="lower"/>
             </t:form-element>
-        </div>
+        </t:grid-block>
     </h:form>
 </h:panelGroup>

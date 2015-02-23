@@ -4,6 +4,94 @@
                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
     <namespace>http://tornadofaces.io/ui</namespace>
     <tag>
+        <description>Grid Block</description>
+        <tag-name>grid-block</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.GridBlock</component-type>
+            <renderer-type>io.tornadofaces.component.GridComponentRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Width in the 12 based grid for small devices</description>
+            <name>small</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Width in the 12 based grid for medium devices</description>
+            <name>medium</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Width in the 12 based grid for large devices</description>
+            <name>large</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the ul element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the ul element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Grid Component</description>
+        <tag-name>grid-content</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.GridContent</component-type>
+            <renderer-type>io.tornadofaces.component.GridComponentRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Width in the 12 based grid for small devices</description>
+            <name>small</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Width in the 12 based grid for medium devices</description>
+            <name>medium</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Width in the 12 based grid for large devices</description>
+            <name>large</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the ul element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the ul element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>Tab for Accordion and TabView</description>
         <tag-name>tab</tag-name>
         <component>
@@ -52,12 +140,6 @@
             <name>styleClass</name>
             <required>false</required>
             <type>String</type>
-        </attribute>
-        <attribute>
-            <description>Should the label wrap the input element? Defaults to true.</description>
-            <name>labelWrapsInput</name>
-            <required>false</required>
-            <type>Boolean</type>
         </attribute>
         <attribute>
             <description>Width in the 12 based grid for small devices</description>
