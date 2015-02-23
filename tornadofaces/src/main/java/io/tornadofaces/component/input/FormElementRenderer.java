@@ -46,10 +46,13 @@ public class FormElementRenderer extends Renderer {
 
 		if (label != null) {
 			writer.startElement("label", component);
+			UIInput input = ComponentUtils.getFirstInputChild(component);
+			if (input != null)
+				writer.writeAttribute("for", input.getClientId(), null);
+			
 			StyleClass.of(elem.getStyleClass()).write(writer);
 			writer.write(label);
-			if (!elem.getLabelWrapsInput())
-				writer.endElement("label");
+			writer.endElement("label");
 		}
 
 		if (elem.shouldRenderInlineLabelSpan()) {
@@ -63,9 +66,6 @@ public class FormElementRenderer extends Renderer {
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		FormElement elem = (FormElement) component;
 		ResponseWriter writer = context.getResponseWriter();
-
-		if (elem.getLabel() != null && elem.getLabelWrapsInput())
-			writer.endElement("label");
 
 		if (elem.shouldRenderInlineLabelSpan())
 			writer.endElement("span");

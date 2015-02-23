@@ -6,7 +6,6 @@ import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.Constants;
 import io.tornadofaces.event.TabChangeEvent;
 
-import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponent;
@@ -18,19 +17,12 @@ import java.util.Map;
 
 import static io.tornadofaces.component.util.ComponentUtils.isRequestSource;
 
-@ResourceDependencies({
-	@ResourceDependency(library = "javax.faces", name = "jsf.js"),
-	@ResourceDependency(library = "tornadofaces", name = "jquery.min.js"),
-	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.js"),
-	@ResourceDependency(library = "tornadofaces", name = "foundation.css"),
-	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.css"),
-	@ResourceDependency(library = "tornadofaces", name = "accordion.js")
-})
+@ResourceDependency(library = "tornadofaces", name = "accordion.js")
 @FacesComponent(value = Accordion.COMPONENT_TYPE, createTag = true, tagName = "accordion", namespace = "http://tornadofaces.io/ui")
 public class Accordion extends TabParent {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Accordion";
 
-	public enum PropertyKeys { multi, collapsible }
+	public enum PropertyKeys {multi, collapsible}
 
 	public Accordion() {
 		super();
@@ -48,13 +40,13 @@ public class Accordion extends TabParent {
 	public void queueEvent(FacesEvent event) {
 		FacesContext context = getFacesContext();
 
-		if(isRequestSource(context, this) && event instanceof AjaxBehaviorEvent) {
-			Map<String,String> params = context.getExternalContext().getRequestParameterMap();
+		if (isRequestSource(context, this) && event instanceof AjaxBehaviorEvent) {
+			Map<String, String> params = context.getExternalContext().getRequestParameterMap();
 			String eventName = params.get(Constants.RequestParams.PARTIAL_BEHAVIOR_EVENT_PARAM);
 			String clientId = this.getClientId(context);
 			AjaxBehaviorEvent behaviorEvent = (AjaxBehaviorEvent) event;
 
-			if(eventName.equals("tabChange")) {
+			if (eventName.equals("tabChange")) {
 				String tabClientId = params.get(clientId + "_newTab");
 				TabChangeEvent changeEvent = new TabChangeEvent(this, behaviorEvent.getBehavior(), findTab(tabClientId));
 				changeEvent.setPhaseId(behaviorEvent.getPhaseId());
@@ -66,8 +58,8 @@ public class Accordion extends TabParent {
 	}
 
 	public Tab findTab(String tabClientId) {
-		for(UIComponent component : getChildren()) {
-			if(component.getClientId().equals(tabClientId))
+		for (UIComponent component : getChildren()) {
+			if (component.getClientId().equals(tabClientId))
 				return (Tab) component;
 		}
 
@@ -77,6 +69,7 @@ public class Accordion extends TabParent {
 	public Boolean isMulti() {
 		return (Boolean) getStateHelper().eval(PropertyKeys.multi, false);
 	}
+
 	public void setMulti(Boolean multi) {
 		getStateHelper().put(PropertyKeys.multi, multi);
 	}
@@ -84,6 +77,7 @@ public class Accordion extends TabParent {
 	public Boolean isCollapsible() {
 		return (Boolean) getStateHelper().eval(PropertyKeys.collapsible, isMulti());
 	}
+
 	public void setCollapsible(Boolean collapsible) {
 		getStateHelper().put(PropertyKeys.collapsible, collapsible);
 	}

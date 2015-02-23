@@ -3,14 +3,9 @@ package io.tornadofaces.component.list;
 import io.tornadofaces.component.api.Widget;
 import io.tornadofaces.component.util.ComponentUtils;
 
-import javax.faces.application.ResourceDependencies;
-import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.html.HtmlDataTable;
 
-@ResourceDependencies({
-	@ResourceDependency(library = "tornadofaces", name = "foundation.css"),
-})
 @FacesComponent(value = List.COMPONENT_TYPE, createTag = true, tagName = "list", namespace = "http://tornadofaces.io/ui")
 public class List extends HtmlDataTable implements Widget {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.List";

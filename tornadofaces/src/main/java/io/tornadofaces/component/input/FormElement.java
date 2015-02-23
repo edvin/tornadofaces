@@ -55,8 +55,6 @@ public class FormElement extends UIPanel implements SystemEventListener {
 		return getChildCount() > 1;
 	}
 
-	public Boolean getLabelWrapsInput() { return (Boolean) getStateHelper().eval("labelWrapsInput", true); }
-	public void setLabelWrapsInput(Boolean labelWrapsInput) { getStateHelper().put("labelWrapsInput", labelWrapsInput); }
 	public String getLayout() { return (String) getStateHelper().eval("layout", "grid-content"); }
 	public void setLayout(String layout) { getStateHelper().put("layout", layout); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }

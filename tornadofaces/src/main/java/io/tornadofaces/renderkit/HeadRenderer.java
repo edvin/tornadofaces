@@ -1,0 +1,162 @@
+package io.tornadofaces.renderkit;
+
+import javax.el.ELContext;
+import javax.el.ExpressionFactory;
+import javax.el.ValueExpression;
+import javax.faces.FacesException;
+import javax.faces.application.ProjectStage;
+import javax.faces.application.Resource;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIViewRoot;
+import javax.faces.context.FacesContext;
+import javax.faces.context.ResponseWriter;
+import javax.faces.render.Renderer;
+import java.io.IOException;
+import java.util.ListIterator;
+
+/**
+ * Code copied from PrimeFaces and modified
+ * Renders head content based on the following order
+ * - First Facet
+ * - Theme CSS
+ * - JSF Ajax
+ * - JQuery
+ * - TornadoFaces JS
+ * - Registered Resources
+ * - Head Content
+ * - Last Facet
+ */
+public class HeadRenderer extends Renderer {
+
+    @Override
+    public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
+        ResponseWriter writer = context.getResponseWriter();
+        writer.startElement("head", component);
+        
+        //First facet
+        UIComponent first = component.getFacet("first");
+        if (first != null) {
+            first.encodeAll(context);
+        }
+        
+        //Theme
+        String theme;
+        String themeParamValue = FacesContext.getCurrentInstance().getExternalContext().getInitParameter("tornadofaces.THEME");
+
+        if (themeParamValue != null) {
+            ELContext elContext = context.getELContext();
+            ExpressionFactory expressionFactory = context.getApplication().getExpressionFactory();
+            ValueExpression ve = expressionFactory.createValueExpression(elContext, themeParamValue, String.class);
+
+            theme = (String) ve.getValue(elContext);
+        } 
+        else {
+            theme = "tornado";
+        }
+
+        if (theme != null && !theme.equals("none"))
+            encodeCSS(context, "tornadofaces-" + theme, "theme.css");
+
+	    if (!hasResourceBeenInstalled(context, "javax.faces", "jsf.js"))
+		    encodeJS(context, "javax.faces", "jsf.js");
+	    
+	    encodeJS(context, "tornadofaces", "jquery.min.js");
+	    encodeJS(context, "tornadofaces", "tornadofaces.js");
+
+        //Middle facet
+        UIComponent middle = component.getFacet("middle");
+        if (middle != null)
+            middle.encodeAll(context);
+
+        //Registered Resources
+        UIViewRoot viewRoot = context.getViewRoot();
+        for (UIComponent resource : viewRoot.getComponentResources(context, "head"))
+            resource.encodeAll(context);
+    }
+
+    @Override
+    public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
+        ResponseWriter writer = context.getResponseWriter();
+        
+        //Last facet
+        UIComponent last = component.getFacet("last");
+        if (last != null) {
+            last.encodeAll(context);
+        }
+        
+        writer.endElement("head");
+    }
+
+    protected void encodeCSS(FacesContext context, String library, String resource) throws IOException {
+        ResponseWriter writer = context.getResponseWriter();
+
+        Resource cssResource = context.getApplication().getResourceHandler().createResource(resource, library);
+        
+	    if (cssResource == null)
+            throw new FacesException("Error loading css, cannot find \"" + resource + "\" resource of \"" + library + "\" library");
+        
+        else {
+            writer.startElement("link", null);
+            writer.writeAttribute("type", "text/css", null);
+            writer.writeAttribute("rel", "stylesheet", null);
+            writer.writeAttribute("href", cssResource.getRequestPath(), null);
+            writer.endElement("link");
+        }
+    }
+
+    protected void encodeJS(FacesContext context, String library, String resource) throws IOException {
+        ResponseWriter writer = context.getResponseWriter();
+
+        Resource jsResource = context.getApplication().getResourceHandler().createResource(resource, library);
+        
+	    if (jsResource == null)
+            throw new FacesException("Error loading js, cannot find \"" + resource + "\" resource of \"" + library + "\" library");
+        
+        else {
+            writer.startElement("script", null);
+            writer.writeAttribute("src", jsResource.getRequestPath(), null);
+            writer.endElement("script");
+        }
+    }
+
+	public static boolean hasResourceBeenInstalled(FacesContext ctx,
+	                                               String name,
+	                                               String library) {
+
+		UIViewRoot viewRoot = ctx.getViewRoot();
+		ListIterator iter = (viewRoot.getComponentResources(ctx, "head")).listIterator();
+		while (iter.hasNext()) {
+			UIComponent resource = (UIComponent)iter.next();
+			String rname = (String)resource.getAttributes().get("name");
+			String rlibrary = (String)resource.getAttributes().get("library");
+			if (name.equals(rname) && library.equals(rlibrary)) {
+				// Set the context to record script as included
+				return true;
+			}
+		}
+		iter = (viewRoot.getComponentResources(ctx, "body")).listIterator();
+		while (iter.hasNext()) {
+			UIComponent resource = (UIComponent)iter.next();
+			String rname = (String)resource.getAttributes().get("name");
+			String rlibrary = (String)resource.getAttributes().get("library");
+			if (name.equals(rname) && library.equals(rlibrary)) {
+				// Set the context to record script as included
+				return true;
+			}
+		}
+		iter = (viewRoot.getComponentResources(ctx, "form")).listIterator();
+		while (iter.hasNext()) {
+			UIComponent resource = (UIComponent)iter.next();
+			String rname = (String)resource.getAttributes().get("name");
+			String rlibrary = (String)resource.getAttributes().get("library");
+			if (name.equals(rname) && library.equals(rlibrary)) {
+				// Set the context to record script as included
+				return true;
+			}
+		}
+
+		return false;
+
+	}
+
+}

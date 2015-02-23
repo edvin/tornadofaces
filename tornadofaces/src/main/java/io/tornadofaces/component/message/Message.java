@@ -1,21 +1,13 @@
 package io.tornadofaces.component.message;
 
 import io.tornadofaces.component.api.Widget;
-import io.tornadofaces.component.notification.NotificationRenderer;
 import io.tornadofaces.component.util.ComponentUtils;
 
-import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIMessages;
 
-@ResourceDependencies({
-	@ResourceDependency(library = "tornadofaces", name = "jquery.min.js"),
-	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.js"),
-	@ResourceDependency(library = "tornadofaces", name = "foundation.css"),
-	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.css"),
-	@ResourceDependency(library = "tornadofaces", name = "message.js")
-})
+@ResourceDependency(library = "tornadofaces", name = "message.js")
 @FacesComponent(value = Message.COMPONENT_TYPE, createTag = true, tagName = "notification", namespace = "http://tornadofaces.io/ui")
 public class Message extends UIMessages implements Widget {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Message";

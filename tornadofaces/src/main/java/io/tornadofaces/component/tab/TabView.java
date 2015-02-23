@@ -3,19 +3,11 @@ package io.tornadofaces.component.tab;
 import io.tornadofaces.component.common.Orientation;
 import io.tornadofaces.component.util.ComponentUtils;
 
-import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIForm;
 
-@ResourceDependencies({
-	@ResourceDependency(library = "javax.faces", name = "jsf.js"),
-	@ResourceDependency(library = "tornadofaces", name = "jquery.min.js"),
-	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.js"),
-	@ResourceDependency(library = "tornadofaces", name = "foundation.css"),
-	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.css"),
-	@ResourceDependency(library = "tornadofaces", name = "tabview.js")
-})
+@ResourceDependency(library = "tornadofaces", name = "tabview.js")
 @FacesComponent(value = TabView.COMPONENT_TYPE, createTag = true, tagName = "tabView", namespace = "http://tornadofaces.io/ui")
 public class TabView extends TabParent {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.TabView";

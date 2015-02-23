@@ -2,7 +2,6 @@ package io.tornadofaces.component.datepicker;
 
 import io.tornadofaces.component.api.Widget;
 import io.tornadofaces.component.util.ComponentUtils;
-import io.tornadofaces.json.JSONException;
 import io.tornadofaces.json.JSONObject;
 
 import javax.faces.application.ResourceDependencies;
@@ -11,13 +10,8 @@ import javax.faces.component.FacesComponent;
 import javax.faces.component.html.HtmlInputText;
 
 @ResourceDependencies({
-	@ResourceDependency(library = "tornadofaces", name = "jquery.min.js"),
-	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.js"),
-	@ResourceDependency(library = "tornadofaces", name = "foundation.css"),
-	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.css"),
 	@ResourceDependency(library = "tornadofaces", name = "moment.min.js"),
 	@ResourceDependency(library = "tornadofaces", name = "pickaday.js"),
-	@ResourceDependency(library = "tornadofaces", name = "pickaday.css"),
 	@ResourceDependency(library = "tornadofaces", name = "datepicker.js")
 })
 @FacesComponent(value = Datepicker.COMPONENT_TYPE, createTag = true, tagName = "datepicker", namespace = "http://tornadofaces.io/ui")

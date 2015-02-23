@@ -4,7 +4,6 @@ import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.StyleClass;
 import io.tornadofaces.util.WidgetBuilder;
 
-import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -13,14 +12,7 @@ import javax.faces.render.FacesRenderer;
 import javax.faces.render.Renderer;
 import java.io.IOException;
 
-@ResourceDependencies({
-	@ResourceDependency(library = "javax.faces", name = "jsf.js"),
-	@ResourceDependency(library = "tornadofaces", name = "jquery.min.js"),
-	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.js"),
-	@ResourceDependency(library = "tornadofaces", name = "foundation.css"),
-	@ResourceDependency(library = "tornadofaces", name = "tornadofaces.css"),
-	@ResourceDependency(library = "tornadofaces", name = "list.js")
-})
+@ResourceDependency(library = "tornadofaces", name = "list.js")
 @FacesRenderer(rendererType = ListRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
 public class ListRenderer extends Renderer {
 	public static final String RENDERER_TYPE = "io.tornadofaces.component.ListRenderer";
