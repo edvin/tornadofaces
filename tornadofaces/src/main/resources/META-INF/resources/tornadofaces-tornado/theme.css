@@ -5285,15 +5285,15 @@ meter {
 
 .accordion-title {
   padding: 1rem;
-  background: #3fa2d8;
-  color: #fff;
+  background: #f3f3f3;
+  color: #000;
   line-height: 1;
   cursor: pointer; }
   .accordion-title:hover {
-    background: #49a7da; }
+    background: #e7e7e7; }
   .is-active > .accordion-title {
-    background: #65b5e0;
-    color: #fff; }
+    background: #ececec;
+    color: #000; }
 
 .accordion-content {
   padding: 1rem;
@@ -6603,4 +6603,4 @@ form label {
 
 
 
-/*# sourceMappingURL=theme.css.map */
+/*# sourceMappingURL=theme.css.map?ln=tornadofaces */
