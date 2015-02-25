@@ -29,6 +29,7 @@ public class UlRenderer extends Renderer {
 
 		StyleClass
 			.of("menu-bar", ul.isMenuBar())
+			.add("breadcrumb", ul.isBreadcrumb())
 			.add(ul.getStyleClass())
 			.add(ul.getColor())
 			.add(ul.getOrientation())

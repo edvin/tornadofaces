@@ -546,7 +546,7 @@
         </attribute>
     </tag>
     <tag>
-        <description><![CDATA[Unordered List is a non-datadriven list wrapper that can optionally be turned into a menu by setting <code>menuBar</code> to true.]]></description>
+        <description><![CDATA[Unordered List is a list wrapper that optionally can act as a menu or a breadcrumb bar.]]></description>
         <tag-name>ul</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Ul</component-type>
@@ -555,6 +555,12 @@
         <attribute>
             <description>Should this list behave and look like a menu bar. Default false.</description>
             <name>menuBar</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Should this list behave and look like a breadcrumb bar. Default false.</description>
+            <name>breadcrumb</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>

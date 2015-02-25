@@ -42,12 +42,12 @@ META-INF/resources/tornadofaces-mytheme/theme.css</code></pre>
 
         <h4>Configure in a bean</h4>
 
-        <p>Define an EL expression in web.xml that should resolve the wanted theme:</p>
+        <p>Define an EL expression in the theme argument web.xml:</p>
 
         <pre><code class="language-markup">
 &lt;context-param>
-    &lt;param-name>#{docsController.expr('themeController.theme')}&lt;/param-name>
-    &lt;param-value>none&lt;/param-value>
+    &lt;param-name>tornadofaces.THEME&lt;/param-name>
+    &lt;param-value>#{docsController.expr('themeController.theme')}&lt;/param-value>
 &lt;/context-param></code></pre>
 
 <pre><code class="language-java">

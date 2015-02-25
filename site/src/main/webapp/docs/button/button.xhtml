@@ -13,7 +13,7 @@
                 <t:commandButton value="Delete" color="alert" spinnerStyle="expand-left" action="#{docsController.takeTwo}" render="none"/>
                 <t:commandButton value="Tiny" size="tiny" spinnerStyle="expand-up" action="#{docsController.takeTwo}" render="none"/>
                 <t:commandButton value="Hollow" hollow="true" spinnerStyle="expand-down" spinnerColor="#888888" action="#{docsController.takeTwo}" render="none"/>
-                <t:commandButton value="Expand" expand="true" spinnerStyle="slide-right" action="#{docsController.takeTwo}" render="none"/>
+                <t:commandButton value="Expand" expand="true" spinnerStyle="expand-right" action="#{docsController.takeTwo}" render="none"/>
 
                 <h4>Command link as button</h4>
                 <t:commandLink button="true" value="Go" spinnerStyle="slide-up" action="#{docsController.takeTwo}" />
@@ -24,9 +24,9 @@
 
                 <ul class="button-group">
                     <li><t:commandLink color="success" spinnerStyle="zoom-in" action="#{docsController.takeTwo}" render="none">One</t:commandLink></li>
-                    <li><t:commandLink value="Two" color="success" spinnerStyle="zoom-out" action="#{docsController.takeTwo}" render="none"/></li>
-                    <li><t:commandLink value="Three" color="success" spinnerStyle="zoom-in" action="#{docsController.takeTwo}"/></li>
-                    <li><t:commandLink button="true" value="Four" color="success" spinnerStyle="zoome-out" action="#{docsController.takeTwo}"/></li>
+                    <li><t:commandLink value="Two" color="success" action="#{docsController.takeTwo}" render="none"/></li>
+                    <li><t:commandLink value="Three" color="success" action="#{docsController.takeTwo}"/></li>
+                    <li><t:commandLink button="true" value="Four" action="#{docsController.takeTwo}"/></li>
                 </ul>
 
                 <h4>Command Link in segmented button group</h4>
