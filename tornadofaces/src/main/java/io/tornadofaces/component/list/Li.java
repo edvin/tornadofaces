@@ -23,8 +23,10 @@ public class Li extends UIColumn implements ValueHolder {
 		return ComponentUtils.COMPONENT_FAMILY;
 	}
 
-	public boolean getChevron() { return (boolean) getStateHelper().eval("chevron", false); }
+	public boolean isChevron() { return (boolean) getStateHelper().eval("chevron", false); }
 	public void setChevron(boolean chevron) { getStateHelper().put("chevron", chevron); }
+	public boolean isTitle() { return (boolean) getStateHelper().eval("title", false); }
+	public void setTitle(boolean title) { getStateHelper().put("title", title); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 	public String getIcon() { return (String) getStateHelper().eval("icon"); }

@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<html xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view transient="true">
-    <h1>TornadoFaces</h1>
-    
-    <p><a href="/docs/accordion">Docs</a></p>
-    
+    <f:metadata>
+        <f:viewAction action="#{request.getRequestDispatcher('/docs/index.xhtml').forward(request, facesContext.externalContext.response)}"/>
+    </f:metadata>
 </f:view>
 </html>

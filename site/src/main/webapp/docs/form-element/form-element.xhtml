@@ -1,20 +1,20 @@
 <h:panelGroup xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
     <h:form id="form">
         <t:grid-block>
-            <t:form-element medium="6" label="Name">
+            <t:form-element label="Name" small="12" medium="6">
                 <h:inputText pt:placeholder="Name" id="name"/>
             </t:form-element>
             
-            <t:form-element label="Age" medium="6">
+            <t:form-element label="Age" small="12" medium="6">
                 <t:slider min="0" max="100" lower="20" connect="lower"/>
             </t:form-element>
             
-            <t:form-element label="URL" prefix="www." suffix=".com" medium="6">
-                <h:inputText value="" pt:placeholder="Address"/>
+            <t:form-element label="URL" prefix="www." suffix=".com" small="12" medium="6">
+                <h:inputText pt:placeholder="Address"/>
             </t:form-element>
 
-            <t:form-element label="Search" medium="6">
-                <h:inputText value="" pt:placeholder="Query"/>
+            <t:form-element label="Search" small="12" medium="6">
+                <h:inputText pt:placeholder="Query"/>
                 <t:commandButton value="Search"/>
             </t:form-element>
         </t:grid-block>

@@ -23,6 +23,7 @@ public class NotificationRenderer extends Renderer {
 		ResponseWriter writer = context.getResponseWriter();
 		writer.startElement("notifications", component);
 		writer.writeAttribute("id", component.getClientId(), null);
+		writer.writeAttribute("class", "notification-container", null);
 		writer.endElement("notifications");
 
 		Notification notification = (Notification) component;

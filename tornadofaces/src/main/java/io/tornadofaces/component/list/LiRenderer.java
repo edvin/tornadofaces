@@ -22,7 +22,8 @@ public class LiRenderer extends Renderer {
 		Li li = (Li) component;
 		writer.startElement("li", li);
 		writer.writeAttribute("id", li.getClientId(), null);
-		StyleClass.of("with-chevron", li.getChevron())
+		StyleClass.of("with-chevron", li.isChevron())
+			.add("title", li.isTitle())
 			.add(li.getActiveClass(), li.getActive())
 			.add(li.getStyleClass()).write(writer);
 

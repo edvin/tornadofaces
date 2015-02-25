@@ -671,6 +671,12 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Title list elements display as a header for subsequent list items.</description>
+            <name>title</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Will wrap the contents of this li in an anchor with href set to the this property value.</description>
             <name>link</name>
             <required>false</required>
