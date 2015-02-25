@@ -17,6 +17,11 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
+    <mime-mapping>
+        <extension>map</extension>
+        <mime-type>application/octet-stream</mime-type>
+    </mime-mapping>
+    
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
