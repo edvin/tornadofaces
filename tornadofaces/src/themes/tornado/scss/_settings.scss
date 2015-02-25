@@ -243,11 +243,15 @@ $primary-color: #3fa2d8;
 
 // $accordion-border: 1px solid $gray-dark;
 
-$accordion-title-background: $primary-color;
+// $accordion-title-background: $primary-color;
+$accordion-title-background: transparent;
 // $accordion-title-background-hover: smartscale($accordion-title-background, 5%);
-$accordion-title-background-active: smartscale($accordion-title-background, 20%);
+$accordion-title-background-hover: $accordion-title-background;
+// $accordion-title-background-active: smartscale($accordion-title-background, 20%);
 // $accordion-title-color: isitlight($accordion-title-background);
+$accordion-title-color: inherit;
 // $accordion-title-color-active: isitlight($accordion-title-background);
+$accordion-title-color-active: inherit;
 
 // $accordion-title-padding: $global-padding;
 // $accordion-content-padding: $global-padding; 
