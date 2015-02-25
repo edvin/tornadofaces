@@ -2,49 +2,71 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
     <f:metadata>
-        <f:viewAction action="#{docsController.loadTag('switch')}" />
+        <f:viewAction action="#{docsController.loadTag('switch')}"/>
     </f:metadata>
 
     <ui:define name="content">
         <h1>Themes</h1>
 
-        <p>TornadoFaces uses Foundation for Apps markup and styling, with a small <a href="">override stylesheet</a>.</p>
-        <h3>Disable or change theme</h3>
-        <p>To disable or change the TornadoFaces theme you can use one of the following constructs:</p>
+        <p>TornadoFaces uses Foundation for Apps markup and styling, with a small <a
+                href="https://github.com/edvin/tornadofaces/blob/master/tornadofaces/src/themes/tornado/scss/tornadofaces.scss">override stylesheet</a>.
+        </p>
+
+        <h3>Create a custom theme</h3>
+        
+        <p>Check out the default theme called <i>Tornado</i> from GitHub and use that as a base. TornadoFaces comes with a <a href="https://github.com/edvin/tornadofaces/tree/master/tornadofaces/src/themes/tornado">build system</a> written in Gulp, so make your changes to <a href="https://github.com/edvin/tornadofaces/blob/master/tornadofaces/src/themes/tornado/scss/_settings.scss">settings.scss</a> and run <code>gulp</code> to get your custom <i>theme.css</i>.</p>
+        
+        <p>You can either manually include your new theme as a css resource in your page template and disable the default theme (see below), or you can package your theme as a jar-file and configure your app to use it in <code>web.xml</code>.</p>
+
+        <h3>Package your theme</h3>
+        
+        <p>To create a reusable, pluggable theme for TornadoFaces, jar up the following directory structure, optionally adding in any image or other static resources relative to <code>theme.css</code>.</p>
+<pre><code class="language-markup">
+META-INF/resources/tornadofaces-mytheme/theme.css</code></pre>
+        
+        <p>In this example the theme name <code>mytheme</code> was chosen. Include the jar in your project and change the theme as documented below.</p>
+        
+        <h3>Change theme</h3>
+
+        <p>Custom themese can be configured in a number of ways:</p>
 
         <h4>Add an attribute to the current view</h4>
-        <pre><code class="language-markup">&lt;f:attribute name="tornadofaces.THEME" value="none"/></code></pre>
+        <pre><code class="language-markup">&lt;f:attribute name="tornadofaces.THEME" value="mytheme"/></code></pre>
 
         <h4>Configure in web.xml</h4>
-        <pre><code class="language-markup">&lt;context-param>
+        <pre><code class="language-markup">
+&lt;context-param>
     &lt;param-name>tornadofaces.THEME&lt;/param-name>
-    &lt;param-value>none&lt;/param-value>
+    &lt;param-value>mytheme&lt;/param-value>
 &lt;/context-param></code></pre>
 
         <h4>Configure in a bean</h4>
+
         <p>Define an EL expression in web.xml that should resolve the wanted theme:</p>
 
-        <pre><code class="language-markup">&lt;context-param>
+        <pre><code class="language-markup">
+&lt;context-param>
     &lt;param-name>#{docsController.expr('themeController.theme')}&lt;/param-name>
     &lt;param-value>none&lt;/param-value>
 &lt;/context-param></code></pre>
 
 <pre><code class="language-java">
-    
-@RequestScoped
-@Named            
+&#64;Named
+&#64;RequestScoped
 public class ThemeController {
     public String getTheme() {
         return "dynamically-resolved-theme-name";
     }
 }</code></pre>
-        
-        <p>The bean can have any scope.</p>
-        
-        <h2>Disable JQuery and/or TornadoFaces default resources</h2>
-        
-        <p>You can disable the supplied JQuery version by setting <code>tornadofaces.SKIP_JQUERY</code> as either a view param or a web.xml init param.</p>
-        
-        <p>You can disable all default TornadoFaces resources by setting <code>tornadofaces.DISABLE</code> as either a view param or a web.xml init param.</p>
+
+        <p>The bean can have any scope. To disable theming completely, use the theme name <code>none</code>.</p>
+
+        <h2 id="disable-resources">Disable default resources</h2>
+
+        <p>You can disable the supplied JQuery version by setting
+            <code>tornadofaces.SKIP_JQUERY</code> as either a view param or a web.xml init param.</p>
+
+        <p>You can disable all default TornadoFaces resources by setting
+            <code>tornadofaces.DISABLE</code> as either a view param or a web.xml init param.</p>
     </ui:define>
 </ui:composition>

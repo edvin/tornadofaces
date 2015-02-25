@@ -17,13 +17,16 @@
 
                 <h4>Command link as button</h4>
                 <t:commandLink button="true" value="Go" spinnerStyle="slide-up" action="#{docsController.takeTwo}" />
+                <t:commandLink button="true" value="Contract" spinnerStyle="contract" action="#{docsController.takeTwo}" />
+                <t:commandLink button="true" value="Contract overlay" spinnerStyle="contract-overlay" action="#{docsController.takeTwo}" />
 
                 <h4>Command Link in button group</h4>
 
                 <ul class="button-group">
                     <li><t:commandLink color="success" spinnerStyle="zoom-in" action="#{docsController.takeTwo}" render="none">One</t:commandLink></li>
                     <li><t:commandLink value="Two" color="success" spinnerStyle="zoom-out" action="#{docsController.takeTwo}" render="none"/></li>
-                    <li><t:commandLink value="Three" color="success"/></li>
+                    <li><t:commandLink value="Three" color="success" spinnerStyle="zoom-in" action="#{docsController.takeTwo}"/></li>
+                    <li><t:commandLink button="true" value="Four" color="success" spinnerStyle="zoome-out" action="#{docsController.takeTwo}"/></li>
                 </ul>
 
                 <h4>Command Link in segmented button group</h4>
