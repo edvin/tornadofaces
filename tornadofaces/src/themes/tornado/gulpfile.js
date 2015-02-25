@@ -3,6 +3,7 @@ var gulp           = require('gulp'),
     autoprefixer   = require('gulp-autoprefixer'),
     minifyCSS      = require('gulp-minify-css'),
     sourcemaps     = require('gulp-sourcemaps'),
+    replace        = require('gulp-replace'),
     sass           = require('gulp-ruby-sass');
 
 var build = '../../main/resources/META-INF/resources/tornadofaces-tornado/';
@@ -13,6 +14,7 @@ gulp.task('sass', function() {
     .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie 10']}))
     //.pipe(minifyCSS({}))
     .pipe(sourcemaps.write('.', { includeContent: false, sourceRoot: 'scss/theme.scss'}))
+    .pipe(replace('theme.css.map', 'theme.css.map?ln=tornadofaces'))
     .pipe(gulp.dest(build));
 });
 
