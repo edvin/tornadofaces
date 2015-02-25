@@ -1,5 +1,13 @@
+#left-menu-container {
+  min-width: 220px;
+  max-width: 300px;
+}
+#main-container {
+  padding: 1rem 2rem;
+}
+
 span.highlight {
-  background-color: yellow;
+  background-color: orange;
 }
 
 form label {
