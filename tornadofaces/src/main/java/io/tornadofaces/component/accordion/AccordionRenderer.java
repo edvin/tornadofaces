@@ -20,7 +20,10 @@ public class AccordionRenderer extends Renderer {
 		ResponseWriter writer = context.getResponseWriter();
 		Accordion accordion = (Accordion) component;
 		writer.startElement("div", component);
-		StyleClass.of("accordion").add(accordion.getStyleClass()).write(writer);
+		StyleClass.of("accordion")
+			.add(accordion.getStyleClass())
+			.add("item-spacing", accordion.isItemSpacing())
+			.write(writer);
 		writer.writeAttribute("id", component.getClientId(context), null);
 	}
 

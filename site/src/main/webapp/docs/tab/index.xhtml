@@ -1,0 +1,28 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('tab')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <h1>Tab</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <p>The tab typically describes the icon, title and styles of each tab item header.</p>
+        
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            <t:tab title="Example"><pre><code class="language-markup">
+&lt;t:tabView>
+    &lt;t:tab title="Star Wars: Episode I" icon="icon-episode-1/>
+    &lt;t:tab title="Star Wars: Episode II" icon="icon-episode-2"/>
+    &lt;t:tab title="Star Wars: Episode III" icon="icon-episode-3"/>
+&lt;/t:tabView></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+            </t:tab>
+        </t:tabView>
+    </ui:define>
+</ui:composition>

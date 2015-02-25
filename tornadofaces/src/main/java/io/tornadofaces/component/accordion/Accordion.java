@@ -77,8 +77,13 @@ public class Accordion extends TabParent {
 	public Boolean isCollapsible() {
 		return (Boolean) getStateHelper().eval(PropertyKeys.collapsible, isMulti());
 	}
-
 	public void setCollapsible(Boolean collapsible) {
 		getStateHelper().put(PropertyKeys.collapsible, collapsible);
+	}
+	public Boolean isItemSpacing() {
+		return (Boolean) getStateHelper().eval("itemSpacing", true);
+	}
+	public void setItemSpacing(Boolean itemSpacing) {
+		getStateHelper().put("itemSpacing", itemSpacing);
 	}
 }
