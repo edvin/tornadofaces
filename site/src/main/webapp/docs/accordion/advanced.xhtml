@@ -1,6 +1,10 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <t:accordion dynamic="true" autoOpen="false" multi="true">
-    <t:tab title="Star Wars: Episode I - The Phantom Menace">
+    <t:tab>
+        <f:facet name="title">
+            Star Wars: Episode I<span class="show-for-medium"> - The Phantom Menace</span>
+        </f:facet>
         <div class="grid-block">
             <div class="grid-content medium-2">
                 <h:graphicImage library="img" name="starwars1.jpg"/>
@@ -10,7 +14,10 @@
             </div>
         </div>
     </t:tab>
-    <t:tab title="Star Wars: Episode II - Attack of the Clones">
+    <t:tab>
+        <f:facet name="title">
+            Star Wars: Episode II<span class="show-for-medium"> - Attack of the Clones</span>
+        </f:facet>
         <div class="grid-block">
             <div class="grid-content medium-2">
                 <h:graphicImage library="img" name="starwars2.jpg"/>
@@ -20,7 +27,10 @@
             </div>
         </div>
     </t:tab>
-    <t:tab title="Star Wars: Episode III - Revenge of the Sith">
+    <t:tab>
+        <f:facet name="title">
+            Star Wars: Episode III<span class="show-for-medium"> - Revenge of the Sith</span>
+        </f:facet>
         <div class="grid-block">
             <div class="grid-content medium-2">
                 <h:graphicImage library="img" name="starwars3.jpg"/>

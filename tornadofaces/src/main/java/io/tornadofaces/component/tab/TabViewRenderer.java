@@ -39,7 +39,13 @@ public class TabViewRenderer extends Renderer {
 					writer.endElement("i");
 				}
 
-				writer.writeText(tab.getTitle(), null);
+				UIComponent titleFacet = tab.getFacet("title");
+
+				if (titleFacet != null)
+					titleFacet.encodeAll(context);
+				else
+					writer.writeText(tab.getTitle(), null);
+				
 				writer.endElement("div");
 			}
 		}

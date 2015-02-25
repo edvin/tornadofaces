@@ -99,9 +99,9 @@
             <renderer-type>io.tornadofaces.component.AccordionRenderer</renderer-type>
         </component>
         <attribute>
-            <description>The title of the tab window.</description>
+            <description>The title of the tab window. Required unless the title facet is specified.</description>
             <name>title</name>
-            <required>true</required>
+            <required>false</required>
             <type>String</type>
         </attribute>
         <attribute>

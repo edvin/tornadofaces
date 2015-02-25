@@ -14,13 +14,13 @@
         <ui:include src="basic.xhtml"/>
 
         <br/>
-        <h4>AJAX Loading, No Auto-Open, Multiple</h4>
+        <h4>AJAX Loading, No Auto-Open, Multiple, Media queries</h4>
         <ui:include src="advanced.xhtml"/>
 
         <p>See <a href="../tab">Tab</a> for documentation of item attributes.</p>
         
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
-            <t:tab title="basic.xhtml">
+            <t:tab title="Basic">
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:accordion>
     &lt;t:tab title="Star Wars: Episode I - The Phantom Menace">
@@ -34,16 +34,25 @@
     &lt;/t:tab>
 &lt;/t:accordion></code></pre>
             </t:tab>
-            <t:tab title="advanced.xhtml">
+            <t:tab title="Advanced">
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:accordion dynamic="true" autoOpen="false" multi="true">
-    &lt;t:tab title="Star Wars: Episode I - The Phantom Menace">
+    &lt;t:tab>
+        &lt;f:facet name="title">
+            Star Wars: Episode I&lt;span class="show-for-medium"> - The Phantom Menace&lt;/span>
+        &lt;/f:facet>
         Two Jedi Knights escape a hostile blockade...
     &lt;/t:tab>
-    &lt;t:tab title="Star Wars: Episode II - Attack of the Clones">
+    &lt;t:tab>
+        &lt;f:facet name="title">
+            Star Wars: Episode II&lt;span class="show-for-medium"> - Attack of the Clones&lt;/span>
+        &lt;/f:facet>
         Ten years after initially meeting...
     &lt;/t:tab>
-    &lt;t:tab title="Star Wars: Episode III - Revenge of the Sith">
+    &lt;t:tab>
+        &lt;f:facet name="title">
+            Star Wars: Episode III&lt;span class="show-for-medium"> - Revenge of the Sith&lt;/span>
+        &lt;/f:facet>
         As the Clone Wars near an end...
     &lt;/t:tab>
 &lt;/t:accordion></code></pre>
