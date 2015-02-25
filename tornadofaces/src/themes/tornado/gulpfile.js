@@ -14,7 +14,7 @@ gulp.task('sass', function() {
     .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie 10']}))
     //.pipe(minifyCSS({}))
     .pipe(sourcemaps.write('.', { includeContent: false, sourceRoot: 'scss/theme.scss'}))
-    .pipe(replace('theme.css.map', 'theme.css.map?ln=tornadofaces'))
+    .pipe(replace('theme.css.map', 'theme.css.map.xhtml?ln=tornadofaces-tornado'))
     .pipe(gulp.dest(build));
 });
 
