@@ -5,14 +5,9 @@ import io.tornadofaces.component.common.IconPosition;
 import io.tornadofaces.component.common.Orientation;
 import io.tornadofaces.component.util.ComponentUtils;
 
-import javax.faces.application.ResourceDependencies;
-import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIColumn;
 
-@ResourceDependencies({
-	@ResourceDependency(library = "tornadofaces", name = "foundation.css"),
-})
 @FacesComponent(value = Ul.COMPONENT_TYPE, createTag = true, tagName = "ul", namespace = "http://tornadofaces.io/ui")
 public class Ul extends UIColumn {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Ul";
