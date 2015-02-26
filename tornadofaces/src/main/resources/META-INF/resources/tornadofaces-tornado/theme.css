@@ -6991,56 +6991,81 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .close-button {
   z-index: 9; }
 
-.accordion {
+.boxed, .breadcrumb, .accordion, .accordion.item-spacing .accordion-item {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
-  border: 1px solid #CBCBCB; }
-  .accordion.item-spacing {
-    box-shadow: none;
-    border: none; }
-    .accordion.item-spacing .accordion-item {
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
-      border: 1px solid #CBCBCB;
-      margin-bottom: 0.4rem; }
-  .accordion .accordion-item .accordion-title {
-    position: relative;
-    border-bottom: 1px solid #F4F4F1;
-    padding: 1.4rem 2.4rem 1.4rem 1rem;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none; }
-    .accordion .accordion-item .accordion-title i {
-      font-size: 2rem;
-      margin-right: 1rem;
-      color: #3fa2d8; }
-    .accordion .accordion-item .accordion-title:after {
-      content: "\e62e";
-      font-family: icomoon;
-      color: #3fa2d8;
-      position: absolute;
-      top: 50%;
-      right: 8px;
-      display: block;
-      width: 32px;
-      height: 32px;
-      line-height: 32px;
-      text-align: center;
-      font-size: 2rem;
-      border-radius: 50%;
-      transition: all 0.3s;
-      margin-top: -16px; }
-    .accordion .accordion-item .accordion-title:hover:after {
-      background-color: #3fa2d8;
-      color: #fff; }
-  .accordion .accordion-item.is-active .accordion-title:after {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg); }
+  border: 1px solid #cbcbcb; }
+
+.breadcrumb {
+  list-style: none;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  background: #fff;
+  margin: 0 0 2rem 0;
+  padding: 1rem 1.6rem;
+  font-size: 14px; }
+  .breadcrumb.vertical {
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+  .breadcrumb li + li:before {
+    content: "/\00a0";
+    color: #cccccc;
+    padding: 0 5px; }
+  .breadcrumb a {
+    color: #3fa2d8; }
+    .breadcrumb a:hover {
+      color: #154b69;
+      text-decoration: underline; }
+
+.accordion.item-spacing {
+  box-shadow: none;
+  border: none; }
+  .accordion.item-spacing .accordion-item {
+    margin-bottom: 0.4rem; }
+.accordion .accordion-item .accordion-title {
+  position: relative;
+  border-bottom: 1px solid #F4F4F1;
+  padding: 1.4rem 2.4rem 1.4rem 1rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+  .accordion .accordion-item .accordion-title i {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: #3fa2d8; }
+  .accordion .accordion-item .accordion-title:after {
+    content: "\e62e";
+    font-family: icomoon;
+    color: #3fa2d8;
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    transition: all 0.3s;
+    margin-top: -16px; }
+  .accordion .accordion-item .accordion-title:hover:after {
+    background-color: #3fa2d8;
+    color: #fff; }
+.accordion .accordion-item.is-active .accordion-title:after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
 
 #main-container {
   padding: 1rem !important; }
