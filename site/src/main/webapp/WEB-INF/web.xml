@@ -21,6 +21,11 @@
         <extension>map</extension>
         <mime-type>application/octet-stream</mime-type>
     </mime-mapping>
+
+    <mime-mapping>
+        <extension>woff</extension>
+        <mime-type>application/octet-stream</mime-type>
+    </mime-mapping>
     
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
