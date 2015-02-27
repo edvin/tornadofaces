@@ -1,3 +1,13 @@
+body {
+    overflow: hidden;
+    max-height: 100vh;
+}
+
+#header,
+#header .menu-bar {
+    background: #8E9A9A;
+}
+
 .menu-group-left h1 a {
     color: #fff;
     padding-left: 0.8em;
@@ -10,22 +20,33 @@
 }
 
 #left-menu-container {
-    background: #f9f9f9;
+    /*background: #f9f9f9;*/
+    background: #353E3E;
     border-right: 1px solid #e7e7e7;
+    color: #fff;
+}
+#left-menu .title {
+    border-bottom: 1px solid rgba(255,255,255, 0.2);
+    margin-top: 1rem;
 }
 
 #left-menu {
-    background: #f9f9f9;
+    /*background: #f9f9f9;*/
+    padding-bottom: 2rem;
 }
 
-#main-container {
-    padding-left: 3em;
+@media only screen and (min-width: 40em) {
+    #main-container {
+        padding: 2rem !important;
+    }
+}
+@media only screen and (min-width: 75em) {
+    #main-container {
+        padding: 2rem 3rem !important;
+    }
 }
 
-pre {
-    font-size: 14px !important;
-}
-
+pre { font-size: 14px !important; }
 pre code {
     background-color: inherit;
     border: none;
@@ -95,8 +116,4 @@ table.tag-info th {
 .documentation-contents h5 {
     margin-top: 25px;
     font-weight: bold;
-}
-body {
-    overflow: hidden;
-    max-height: 100vh;
 }

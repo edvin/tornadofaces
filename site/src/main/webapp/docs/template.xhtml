@@ -12,6 +12,7 @@
         <h:outputScript library="js" name="prism.js"/>
         <h:outputStylesheet library="css" name="prism.css"/>
         <h:outputStylesheet library="css" name="docs.css"/>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,600" type="text/css" media="all" />
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 FastClick.attach(document.body);
@@ -43,7 +44,7 @@
     </h:head>
     <h:body>
         <div class="grid-frame vertical">
-            <div class="menu-group dark">
+            <div id="header" class="menu-group dark">
                 <div class="menu-group-left grid-block">
                     <i class="menu-toggle icon-navigation hide-for-medium"></i>
                     <h1 class="grid-block"><a href="/">TornadoFaces</a></h1>
@@ -61,7 +62,7 @@
                     <div class="grid-content" style="padding-top: 1.2rem">
                         <input class="show-for-medium" type="text" placeholder="Search" onkeyup="searchComponents(this)"/>
                         <ui:param name="path" value="#{view.viewId}"/>
-                        <t:ul menuBar="true" orientation="vertical" id="left-menu">
+                        <t:ul menuBar="true" orientation="vertical" id="left-menu" color="dark">
                             <t:li title="true">General</t:li>
                             <t:li link="/docs/index.xhtml">Introduction</t:li>
                             <t:li link="/docs/theme/">Themes</t:li>
@@ -80,6 +81,7 @@
                             <t:li link="/docs/breadcrumb/">Breadcrumb Bar</t:li>
                             <t:li link="/docs/titlebar/">Title Bar</t:li>
                             <t:li link="/docs/card/">Card</t:li>
+                            <t:li link="/docs/flip-panel/">Flip-panel</t:li>
                             <t:li link="/docs/modal/">Modal</t:li>
                             <t:li link="/docs/panel/">Panel</t:li>
                             <t:li link="/docs/actionsheet/">Action Sheet</t:li>

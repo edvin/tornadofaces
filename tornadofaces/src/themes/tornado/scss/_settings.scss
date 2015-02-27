@@ -68,19 +68,23 @@ $include-css: (
 // 2. Global Styles
 // - - - - - - - - - - - - - - -
 
-// This sets 1rem to be 16px
-// $rem-base: 16px;
-
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
 
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-// $base-font-size: 100%;
+$base-font-size: 16px;
+
+// This sets 1rem to be 16px
+// $rem-base: 16px;
+$rem-base: $base-font-size;
+
+// This makes 14px
+$font-base: 0.875rem;
 
 // $base-line-height is 24px while $base-font-size is 16px
-// $base-line-height: 1.5;
+$base-line-height: 1.42857143;
 
 // Text selector helpers
 // $headers: "h1,h2,h3,h4,h5,h6";
@@ -90,9 +94,9 @@ $include-css: (
 // $font-weight-bold: bold;
 
 // We use these to control various global styles
-// $body-background: #fff;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-background: #F4F4F1;
+$body-font-color: #333;
+$body-font-family: "Open Sans","Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 // $body-antialiased: true;
@@ -104,10 +108,10 @@ $primary-color: #3fa2d8;
 // $info-color: #A0D3E8;
 // $success-color: #43AC6A;
 // $warning-color: #F08A24;
-// $dark-color: #232323;
-// $gray: #dfdfdf;
-// $gray-dark: darken($gray, 8);
-// $gray-light: lighten($gray, 8);
+$dark-color: #353e3e;
+$gray: #cbcbcb;
+$gray-dark: darken($gray, 10);
+$gray-light: lighten($gray, 10);
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 4px;
@@ -208,6 +212,7 @@ $primary-color: #3fa2d8;
 // We use these to style lists
 // $list-font-family: $paragraph-font-family;
 // $list-font-size: $paragraph-font-size;
+$list-font-size: $font-base;
 // $list-line-height: $paragraph-line-height;
 // $list-margin-bottom: $paragraph-margin-bottom;
 // $list-style-position: outside;
@@ -252,6 +257,7 @@ $accordion-title-background-hover: $accordion-title-background;
 $accordion-title-color: inherit;
 // $accordion-title-color-active: isitlight($accordion-title-background);
 $accordion-title-color-active: inherit;
+$accordion-item-background: #fff;
 
 // $accordion-title-padding: $global-padding;
 // $accordion-content-padding: $global-padding; 
@@ -430,6 +436,7 @@ $input-border-focus: 1px solid $primary-color;
 // - - - - - - - - - - - - - - -
 
 // $menubar-fontsize: 1rem;
+$menubar-fontsize: $font-base;
 // $menubar-background: #fff;
 // $menubar-background-hover: smartscale($menubar-background, 7%);
 // $menubar-background-active: $menubar-background-hover;
@@ -550,12 +557,12 @@ $input-border-focus: 1px solid $primary-color;
 // $panel-size-vertical: 300px;
 // $panel-padding: 0;
 
-// $panel-background: #fff;
+$panel-background: $dark-color;
 // $panel-shadow: 3px 0 10px rgba(black, 0.25);
 // $panel-animation-speed: 0.25s; 
 
 // 22. Popup
-// - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - -
 
 // $popup-width: rem-calc(300);
 // $popup-background: #fff;

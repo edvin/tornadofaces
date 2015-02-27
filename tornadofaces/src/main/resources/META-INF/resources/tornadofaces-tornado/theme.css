@@ -364,7 +364,7 @@ th {
 */
 html, body {
   height: 100%;
-  font-size: 100%; }
+  font-size: 16px; }
 
 html {
   box-sizing: border-box; }
@@ -373,11 +373,11 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #fff;
-  color: #222;
+  background: #F4F4F1;
+  color: #333;
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1628,7 +1628,7 @@ meter {
     Basic styles
   */
   padding: 0;
-  background: #fff; }
+  background: #353e3e; }
 
 .panel-top {
   /*
@@ -3444,7 +3444,7 @@ meter {
           -ms-flex-align: center;
               align-items: center;
       padding: 1rem;
-      font-size: 1rem;
+      font-size: 0.875rem;
       line-height: 1; }
 
 /*
@@ -5250,7 +5250,7 @@ meter {
         -ms-flex-flow: column nowrap;
             flex-flow: column nowrap; }
   .tabs .tab-item {
-    background: #f3f3f3;
+    background: #e5e5e5;
     padding: 1rem;
     line-height: 1;
     margin: 0;
@@ -5260,12 +5260,12 @@ meter {
     cursor: pointer;
     color: #000; }
     .tabs .tab-item.is-active {
-      background: #ececec;
+      background: #dedede;
       color: #000; }
       .tabs .tab-item.is-active:hover {
-        background: #e7e7e7; }
+        background: #d9d9d9; }
     .tabs .tab-item:hover {
-      background: #e7e7e7; }
+      background: #d9d9d9; }
 
 .tab-contents {
   padding: 1rem; }
@@ -5281,7 +5281,7 @@ meter {
   The trusy accordion allows you to create a series of vertical tabs.
 */
 .accordion {
-  border: 1px solid #cbcbcb; }
+  border: 1px solid #b2b2b2; }
 
 .accordion-title {
   padding: 1rem;
@@ -5369,7 +5369,7 @@ p {
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #222;
@@ -5444,7 +5444,7 @@ code {
 ul,
 ol,
 dl {
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.6;
   margin-bottom: 1.25rem;
   list-style-position: outside;
@@ -5477,7 +5477,7 @@ abbr,
 acronym {
   text-transform: uppercase;
   font-size: 90%;
-  color: #222;
+  color: #333;
   border-bottom: 1px dotted #ddd;
   cursor: help; }
 
@@ -6960,13 +6960,29 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .pika-button:hover {
   color: #fff !important;
-  background: #cbcbcb !important;
+  background: #b2b2b2 !important;
   box-shadow: none !important; }
 
 /* styling for abbr */
 .pika-table abbr {
   border-bottom: none;
   cursor: help; }
+
+.boxed, .box, .breadcrumb, .accordion, .accordion.item-spacing .accordion-item {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
+  border: 1px solid #cbcbcb; }
+
+.box {
+  background: #fff;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
 
 #left-menu-container {
   min-width: 220px;
@@ -6991,9 +7007,40 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .close-button {
   z-index: 9; }
 
-.boxed, .breadcrumb, .accordion, .accordion.item-spacing .accordion-item {
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
-  border: 1px solid #cbcbcb; }
+.accordion-item {
+  background: #fff; }
+
+.flip-panel {
+  -webkit-perspective: 1000;
+          perspective: 1000;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+  .flip-panel .flip-wrapper {
+    transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    position: relative; }
+  .flip-panel.flipped .flip-wrapper {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg); }
+  .flip-panel .front, .flip-panel .back {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    width: 100%; }
+  .flip-panel .front {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    z-index: 2; }
+  .flip-panel .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+    transition: all 350ms cubic-bezier(0.485, 0.125, 0.83, 0.95); }
 
 .breadcrumb {
   list-style: none;
