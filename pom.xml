@@ -13,14 +13,6 @@
 		<module>site</module>
 	</modules>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>tornado-nexus-snapshots</id>
-            <name>Tornado Nexus Snapshots</name>
-            <url>http://tornado.no:1080/nexus/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
