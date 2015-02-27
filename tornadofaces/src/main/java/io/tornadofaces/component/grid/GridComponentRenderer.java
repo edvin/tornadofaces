@@ -37,6 +37,11 @@ public class GridComponentRenderer extends CoreRenderer {
 		if (large != null)
 			sc.add("large-" + large);
 		
+		if (gridComponent instanceof GridBlock) {
+			GridBlock gridblock = (GridBlock) gridComponent;
+			sc.add(gridblock.getOrientation());
+		}
+		
 		sc.write(writer);
 	}
 

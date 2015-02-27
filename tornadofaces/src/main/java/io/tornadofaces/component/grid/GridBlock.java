@@ -1,5 +1,7 @@
 package io.tornadofaces.component.grid;
 
+import io.tornadofaces.component.common.Orientation;
+
 import javax.faces.component.FacesComponent;
 
 @FacesComponent(value = GridBlock.COMPONENT_TYPE, createTag = true, tagName = "grid-block", namespace = "http://tornadofaces.io/ui")
@@ -8,4 +10,7 @@ public class GridBlock extends GridComponent {
 	public String getComponentStyleClass() {
 		return "grid-block";
 	}
+
+	public Orientation getOrientation() { return (Orientation) this.getStateHelper().eval("orientation", null); }
+	public void setOrientation(Orientation orientation) { this.getStateHelper().put("orientation", orientation); }
 }

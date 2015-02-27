@@ -3,11 +3,11 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
     <f:metadata>
-        <f:viewAction action="#{docsController.loadTag('ul')}"/>
+        <f:viewAction action="#{docsController.loadTag('flip-panel')}"/>
     </f:metadata>
 
     <ui:define name="content">
-        <h1>Flip-panel</h1>
+        <h1>Flip Panel</h1>
 
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
@@ -16,21 +16,54 @@
         <ui:include src="flip-panel.xhtml"/>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
-            <t:tab title="flip-panel.xhtml">
+            <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">
-    &lt;div class="flip-panel">
-        &lt;div class="front">Objects&lt;/div>
-        &lt;div class="back">An Object&lt;/div>
-    &lt;t:li>A Property&lt;/t:li>
-    &lt;/div></code></pre>
+&lt;t:flip-panel widgetVar="myPanel">
+    &lt;f:facet name="front">
+        &lt;p>front&lt;/p>
+    &lt;/f:facet>
+    &lt;f:facet name="back">
+        &lt;p>back&lt;/p>
+    &lt;/f:facet>
+&lt;/t:flip-panel>
+
+&lt;button class="button" onclick="TW('myPanel').flip()">Flip&lt;/button></code></pre>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
-                <br/>
-                <p>Additional styling is available by setting the <code>styleClass</code> property. Refer to the <a
-                        href="http://foundation.zurb.com/apps/docs/#!/menu-bar">Foundation For Apps Documentation</a> for further information and examples.
+                <h5>Client Side Callbacks</h5>
+                <p><code>onFlip</code> is called as a tab is flipped.</p>
+                <pre><code class="language-javascript">function onFlip(panel) {
+                    //
+                    }</code></pre>
+
+                <h5>Ajax Behavior Events</h5>
+                <p><code>flip</code> will be called when a card is flipped
                 </p>
-            </t:tab>
+                <pre><code class="language-markup">&lt;t:accordion>
+                    &lt;f:ajax event="flip" listener="#{docsController.expr('controller.flipped')}">
+                    &lt;/t:accordion></code></pre>
+                <pre><code class="language-java">public void onFlip(FlipPanelEvent event) {
+                    FlipPanel panel = event.getFlipPanel();
+                    }</code></pre>
+                <p>The listener will be called with an instance of <code>io.tornadofaces.component.flippanel.FlipPanelEvent</code> that contains a reference to the flip panel.</p>
+
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.FlipPanel</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>flip()</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Flip the panel.</td>
+                    </tr>
+                </table>            </t:tab>
         </t:tabView>
     </ui:define>
 </ui:composition>
