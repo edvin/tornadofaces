@@ -19,7 +19,9 @@ public class GridComponentRenderer extends CoreRenderer {
 		writer.startElement("div", component);
 		GridComponent gridComponent = (GridComponent) component;
 
-		writer.writeAttribute("id", component.getClientId(), null);
+		String id = component.getId();
+		if (!id.startsWith("j_idt"))
+			writer.writeAttribute("id", component.getClientId(), null);
 		
 		Integer small = gridComponent.getSmall();
 		Integer medium = gridComponent.getMedium();

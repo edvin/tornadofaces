@@ -43,6 +43,12 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Should the panel render the back side?</description>
+            <name>flipped</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>
                 <![CDATA[Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar. Use this to <code>load()</code> the data or get the data via <code>val()</code>. Note that the Data component must be wrapped in a Form for the load() function to work.]]></description>
             <name>widgetVar</name>
@@ -61,6 +67,50 @@
         <tag-name>grid-block</tag-name>
         <component>
             <component-type>io.tornadofaces.component.GridBlock</component-type>
+            <renderer-type>io.tornadofaces.component.GridComponentRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Width in the 12 based grid for small devices</description>
+            <name>small</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Width in the 12 based grid for medium devices</description>
+            <name>medium</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Width in the 12 based grid for large devices</description>
+            <name>large</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the ul element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the ul element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Grid Frame</description>
+        <tag-name>grid-frame</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.GridFrame</component-type>
             <renderer-type>io.tornadofaces.component.GridComponentRenderer</renderer-type>
         </component>
         <attribute>
@@ -215,6 +265,73 @@
         <attribute>
             <description>Styles to apply to the wrapper</description>
             <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Width in the 12 based grid for small devices</description>
+            <name>small</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Width in the 12 based grid for medium devices</description>
+            <name>medium</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Width in the 12 based grid for large devices</description>
+            <name>large</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>EXPERIMENTAL/WORK IN PROGRESS! Input tag handler that that will create an input element wrapped in a Form Element</description>
+        <tag-name>input</tag-name>
+        <handler-class>io.tornadofaces.component.input.Input</handler-class>
+        <attribute>
+            <description>Label for the form element</description>
+            <name>label</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Placeholder for the input element</description>
+            <name>placeholder</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Type of input element. Valid values are "text", "textarea", "password". Defaults to "text".</description>
+            <name>type</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Prefix label that will be added as a span with class form-label before the input element
+            </description>
+            <name>prefix</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Suffix label that will be added as a span with class form-label after the input element
+            </description>
+            <name>suffix</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the wrapper</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the input</description>
+            <name>inputStyleClass</name>
             <required>false</required>
             <type>String</type>
         </attribute>
@@ -643,10 +760,13 @@
     </tag>
     <tag>
         <description>FilterFor adds a filtering capabilities for the given widget to the given target component, like an
-            input field..
+            input field.
         </description>
         <tag-name>filterFor</tag-name>
-        <handler-class>io.tornadofaces.component.input.FilterFor</handler-class>
+        <component>
+            <component-type>io.tornadofaces.component.FilterFor</component-type>
+            <renderer-type>io.tornadofaces.component.FilterForRenderer</renderer-type>
+        </component>
         <attribute>
             <description>The widgetVar that will have it's filter() method called with the input text as argument.
             </description>

@@ -3,16 +3,19 @@
 
 <t:grid-block>
     <t:grid-container>
-        <t:flip-panel widgetVar="myPanel">
+        <t:flip-panel widgetVar="myPanel" styleClass="padding">
+            <f:ajax listener="#{docsController.onFlip}" render="status"/>
             <f:facet name="front">
-                <p>front</p>
+                <h1>front</h1>
             </f:facet>
             <f:facet name="back">
-                <p>back</p>
+                <h1>back</h1>
             </f:facet>
         </t:flip-panel>
     </t:grid-container>
 </t:grid-block>
+
+<t:notification id="status"/>
 
 <button class="button" onclick="TW('myPanel').flip()">Flip</button>
 

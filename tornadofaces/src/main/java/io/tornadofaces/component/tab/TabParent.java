@@ -91,14 +91,14 @@ public abstract class TabParent extends UIPanel implements Widget, ClientBehavio
 //	}
 
 
-	public Integer getTabContentRequestIndex(FacesContext context) {
-		String v = getRequestParam(context, getClientId(context) + "_active");
-		return v == null ? null : Integer.valueOf(v);
-	}
-
-	public Boolean isTabContentRequest(FacesContext context) {
-		return getTabContentRequestIndex(context) != null;
-	}
+//	public Integer getTabContentRequestIndex(FacesContext context) {
+//		String v = getRequestParam(context, getClientId(context) + "_active");
+//		return v == null ? null : Integer.valueOf(v);
+//	}
+//
+//	public Boolean isTabContentRequest(FacesContext context) {
+//		return getTabContentRequestIndex(context) != null;
+//	}
 
 //	public String getContainerClientId(FacesContext context) {
 //		if(this.isRepeating()) {

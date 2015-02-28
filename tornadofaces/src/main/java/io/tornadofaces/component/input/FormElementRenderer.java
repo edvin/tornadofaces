@@ -21,26 +21,24 @@ public class FormElementRenderer extends Renderer {
 		FormElement elem = (FormElement) component;
 		ResponseWriter writer = context.getResponseWriter();
 
-		boolean idWritten = false;
-		if ("grid-content".equals(elem.getLayout())) {
-			writer.startElement("div", elem);
+		writer.startElement("div", elem);
+		String id = elem.getId();
+		if (!id.startsWith("j_idt"))
 			writer.writeAttribute("id", elem.getClientId(context), null);
-			idWritten = true;
 
-			StyleClass styleClass = StyleClass.of("grid-content");
+		StyleClass styleClass = StyleClass.of(elem.getLayout()).add(elem.getStyleClass());
 
-			Integer small = elem.getSmall();
-			if (small != null)
-				styleClass.add("small-" + small);
-			Integer medium = elem.getMedium();
-			if (medium != null)
-				styleClass.add("medium-" + medium);
-			Integer large = elem.getLarge();
-			if (large != null)
-				styleClass.add("large-" + large);
+		Integer small = elem.getSmall();
+		if (small != null)
+			styleClass.add("small-" + small);
+		Integer medium = elem.getMedium();
+		if (medium != null)
+			styleClass.add("medium-" + medium);
+		Integer large = elem.getLarge();
+		if (large != null)
+			styleClass.add("large-" + large);
 
-			styleClass.write(writer);
-		}
+		styleClass.write(writer);
 
 		String label = elem.getLabel();
 
@@ -50,15 +48,12 @@ public class FormElementRenderer extends Renderer {
 			if (input != null)
 				writer.writeAttribute("for", input.getClientId(), null);
 			
-			StyleClass.of(elem.getStyleClass()).write(writer);
 			writer.write(label);
 			writer.endElement("label");
 		}
 
 		if (elem.shouldRenderInlineLabelSpan()) {
 			writer.startElement("span", component);
-			if (!idWritten)
-				writer.writeAttribute("id", elem.getClientId(context), null);
 			writer.writeAttribute("class", "inline-label", null);
 		}
 
@@ -104,8 +99,7 @@ public class FormElementRenderer extends Renderer {
 			}
 		}
 
-		if ("grid-content".equals(elem.getLayout()))
-			writer.endElement("div");
+		writer.endElement("div");
 	}
 
 }

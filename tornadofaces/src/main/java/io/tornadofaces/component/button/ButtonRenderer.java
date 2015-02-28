@@ -12,6 +12,7 @@ import javax.faces.context.ResponseWriter;
 import javax.faces.event.ActionEvent;
 import javax.faces.render.FacesRenderer;
 import java.io.IOException;
+import java.util.Arrays;
 
 @FacesRenderer(rendererType = ButtonRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
 public class ButtonRenderer extends CoreRenderer {
@@ -70,8 +71,8 @@ public class ButtonRenderer extends CoreRenderer {
 
 		WidgetBuilder builder = new WidgetBuilder(context, button)
 			.init()
-			.attr("render", GlobalId.resolveIdString(context, button.getRender()))
-			.attr("execute", GlobalId.resolveIdString(context, button.getExecute()))
+			.attr("render", ComponentUtils.resolveIds(context, button, Arrays.asList(button.getRender().split(" "))))
+			.attr("execute", ComponentUtils.resolveIds(context, button, Arrays.asList(button.getExecute().split(" "))))
 			.attr("onsuccess", button.getOnsuccess())
 			.attr("oncomplete", button.getOncomplete())
 			.attr("onstart", button.getOnstart());

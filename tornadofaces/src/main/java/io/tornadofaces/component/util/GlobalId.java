@@ -29,10 +29,20 @@ public class GlobalId extends TagHandler {
 	 * @throws IOException
 	 */
 	public void apply(FaceletContext ctx, UIComponent parent) throws IOException {
-		Map<String, UIComponent> gids = getGlobalIds(ctx.getFacesContext());
-		gids.put(tag.getAttributes().get("value").getValue(), parent);
+		register(ctx.getFacesContext(), parent, tag.getAttributes().get("value").getValue());
 	}
 
+	/**
+	 * Register a component with the given global id
+	 * @param context The current FacesContext
+	 * @param component The target component
+	 * @param gid The global id
+	 */
+	public static void register(FacesContext context, UIComponent component, String gid) {
+		Map<String, UIComponent> gids = getGlobalIds(context);
+		gids.put(gid, component);
+		
+	}
 	/**
 	 * Get the map of Global ids for the current UIViewRoot in the supplied FacesContext 
 	 * @param context The current FacesContext
@@ -49,43 +59,44 @@ public class GlobalId extends TagHandler {
 	}
 
 	/**
-	 * Resulve a component from the given FacesContext's UIViewRoot 
+	 * Resulve a component from the given FacesContext's UIViewRoot
 	 * @param context The current FacesContext
 	 * @param gid The global id to resolve
 	 * @return The component that was resolved, or null if no match was found
 	 */
 	public static UIComponent resolve(FacesContext context, String gid) {
-		if (gid == null || !gid.contains("#"))
+		if (gid == null || gid.charAt(0) != '#')
 			return null;
+		
 		return getGlobalIds(context).get(gid);
 	}
 
-	/**
-	 * Resolve any global ids in a space separated string of ids, typically
-	 * like the one from render and execute attributes. Global ids are any 
-	 * ids prepended with the hash character.
-	 * * 
-	 * @param context The current FacesContext
-	 * @param ids The id string to resolve global ids in
-	 * @return The agumented id string with the fully qualified ids
-	 */
-	public static String resolveIdString(FacesContext context, String ids) {
-		if (ids == null || !ids.contains("#"))
-			return ids;
-
-		Matcher matcher = GlobalIdPattern.matcher(ids);
-		StringBuffer sb = new StringBuffer();
-		Map<String, UIComponent> globalIds = getGlobalIds(context);
-		while (matcher.find()) {
-			String gid = matcher.group(1);
-			UIComponent component = globalIds.get(gid);
-			if (component == null)
-				throw new RuntimeException(
-					String.format("Unable to locate component with global id %s from string %s", gid, ids));
-
-			matcher.appendReplacement(sb, component.getClientId(context));
-		}
-
-		return sb.toString();
-	}
+//	/**
+//	 * Resolve any global ids in a space separated string of ids, typically
+//	 * like the one from render and execute attributes. Global ids are any
+//	 * ids prepended with the hash character.
+//	 * *
+//	 * @param context The current FacesContext
+//	 * @param ids The id string to resolve global ids in
+//	 * @return The agumented id string with the fully qualified ids
+//	 */
+//	public static String resolveIdString(FacesContext context, String ids) {
+//		if (ids == null || !ids.contains("#"))
+//			return ids;
+//
+//		Matcher matcher = GlobalIdPattern.matcher(ids);
+//		StringBuffer sb = new StringBuffer();
+//		Map<String, UIComponent> globalIds = getGlobalIds(context);
+//		while (matcher.find()) {
+//			String gid = matcher.group(1);
+//			UIComponent component = globalIds.get(gid);
+//			if (component == null)
+//				throw new RuntimeException(
+//					String.format("Unable to locate component with global id %s from string %s", gid, ids));
+//
+//			matcher.appendReplacement(sb, component.getClientId(context));
+//		}
+//
+//		return sb.toString();
+//	}
 }

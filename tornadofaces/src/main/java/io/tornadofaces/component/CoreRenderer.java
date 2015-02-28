@@ -1,6 +1,7 @@
 package io.tornadofaces.component;
 
 import javax.faces.component.UIComponent;
+import javax.faces.component.UINamingContainer;
 import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
@@ -21,7 +22,7 @@ public abstract class CoreRenderer extends Renderer {
 		Map<String, String> params = context.getExternalContext().getRequestParameterMap();
 		String behaviorEvent = params.get("javax.faces.behavior.event");
 
-		if (null != behaviorEvent) {
+		if (behaviorEvent != null) {
 			List<ClientBehavior> behaviorsForEvent = behaviors.get(behaviorEvent);
 
 			if (behaviorsForEvent != null && !behaviorsForEvent.isEmpty()) {
@@ -35,4 +36,5 @@ public abstract class CoreRenderer extends Renderer {
 			}
 		}
 	}
+
 }

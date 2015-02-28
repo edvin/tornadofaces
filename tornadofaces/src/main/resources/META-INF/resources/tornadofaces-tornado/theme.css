@@ -581,15 +581,15 @@ meta.foundation-mq {
           bottom: -12px;
           border-top-color: rgba(0, 0, 0, 0.15); } }
   .action-sheet.primary {
-    background: orange;
+    background: #3fa2d8;
     color: #fff;
     border: 0; }
     .action-sheet.primary::before {
       display: none; }
     .action-sheet.primary::before, .action-sheet.primary::after {
-      border-top-color: orange; }
+      border-top-color: #3fa2d8; }
     .action-sheet.primary.top::before, .action-sheet.primary.top::after {
-      border-bottom-color: orange; }
+      border-bottom-color: #3fa2d8; }
     .action-sheet.primary ul {
       margin: -1rem;
       margin-top: 0;
@@ -607,10 +607,10 @@ meta.foundation-mq {
         padding: 0.8rem;
         line-height: 1;
         color: #fff;
-        border-top: 1px solid #ffae1a; }
+        border-top: 1px solid #52abdc; }
         .action-sheet.primary ul a:hover {
           color: #fff;
-          background: #ffaa0d; }
+          background: #49a7da; }
       .action-sheet.primary ul .alert > a {
         color: #F04124; }
       .action-sheet.primary ul .disabled > a {
@@ -756,7 +756,7 @@ meta.foundation-mq {
       background-size: 100% 100%;
       width: 1.5em;
       height: 1.5em;
-      color: orange;
+      color: #3fa2d8;
       float: right;
       pointer-events: none;
       margin-top: -0.25em; }
@@ -872,10 +872,10 @@ meta.foundation-mq {
   font-size: 0.9rem;
   display: inline-block;
   margin: 0 1rem 1rem 0;
-  background: orange;
+  background: #3fa2d8;
   color: #fff; }
   .button:hover, button:hover, .button:focus, button:focus {
-    background: #d98c00;
+    background: #288ec5;
     color: #fff; }
   .button[data-popup-toggle]::after, button[data-popup-toggle]::after {
     border-top-color: #fff; }
@@ -938,15 +938,15 @@ meta.foundation-mq {
     .button.dark[data-popup-toggle]::after, button.dark[data-popup-toggle]::after {
       border-top-color: #fff; }
   .button.hollow, button.hollow {
-    border: 1px solid orange;
+    border: 1px solid #3fa2d8;
     background: transparent;
-    color: orange; }
+    color: #3fa2d8; }
     .button.hollow:hover, button.hollow:hover, .button.hollow:focus, button.hollow:focus {
-      border-color: #ffbc40;
+      border-color: #6fb9e2;
       background: transparent;
-      color: #ffbc40; }
+      color: #6fb9e2; }
     .button.hollow[data-popup-toggle]::after, button.hollow[data-popup-toggle]::after {
-      border-top-color: orange; }
+      border-top-color: #3fa2d8; }
     .button.hollow.secondary, button.hollow.secondary {
       border: 1px solid #f1f1f1;
       background: transparent;
@@ -1034,10 +1034,10 @@ meta.foundation-mq {
     .button-group > li > input + label {
       margin-left: 0; }
     .button-group > li:not(:last-child) > a, .button-group > li:not(:last-child) > label, .button-group > li:not(:last-child) > button {
-      border-right: 1px solid #bf7c00; }
+      border-right: 1px solid #237dae; }
 
 .button-group.segmented, .button-group.segmented.secondary, .button-group.segmented.success, .button-group.segmented.warning, .button-group.segmented.alert {
-  border: 1px solid orange;
+  border: 1px solid #3fa2d8;
   transition-property: background color; }
   .button-group.segmented > li > input[type="radio"] {
     position: absolute;
@@ -1056,16 +1056,16 @@ meta.foundation-mq {
         -ms-flex: 0 0 auto;
             flex: 0 0 auto; }
   .button-group > li > a, .button-group > li > label, .button-group > li > button {
-    background: orange;
+    background: #3fa2d8;
     color: #fff;
-    border-color: #d98c00; }
+    border-color: #288ec5; }
     .button-group > li > a:hover, .button-group > li > a:focus, .button-group > li > label:hover, .button-group > li > label:focus, .button-group > li > button:hover, .button-group > li > button:focus {
-      background: #d98c00;
+      background: #288ec5;
       color: #fff; }
     .button-group > li > a[data-popup-toggle]::after, .button-group > li > label[data-popup-toggle]::after, .button-group > li > button[data-popup-toggle]::after {
       border-top-color: #fff; }
   .button-group > li.is-active > a, .button-group > li.is-active > label, .button-group > li.is-active > button {
-    background: #d98c00; }
+    background: #288ec5; }
   .button-group.secondary > li > a, .button-group.secondary > li > label, .button-group.secondary > li > button {
     background: #f1f1f1;
     color: #fff;
@@ -1155,17 +1155,17 @@ meta.foundation-mq {
     .button-group > li.alert > a:hover, .button-group > li.alert > a:focus, .button-group > li.alert > label:hover, .button-group > li.alert > label:focus, .button-group > li.alert > button:hover, .button-group > li.alert > button:focus {
       border-color: #c2270d; }
   .button-group.segmented {
-    border-color: orange; }
+    border-color: #3fa2d8; }
     .button-group.segmented > li > a, .button-group.segmented > li > label, .button-group.segmented > li > button {
-      border-color: orange;
-      color: orange; }
+      border-color: #3fa2d8;
+      color: #3fa2d8; }
       .button-group.segmented > li > a:hover, .button-group.segmented > li > label:hover, .button-group.segmented > li > button:hover {
-        background: rgba(255, 165, 0, 0.25);
-        color: orange; }
+        background: rgba(63, 162, 216, 0.25);
+        color: #3fa2d8; }
     .button-group.segmented > li.is-active > a, .button-group.segmented > li.is-active > a:hover,
     .button-group.segmented > li > input:checked + label,
     .button-group.segmented > li > input:checked + label:hover {
-      background: orange;
+      background: #3fa2d8;
       color: #fff; }
     .button-group.segmented.secondary {
       border-color: #f1f1f1; }
@@ -1265,7 +1265,7 @@ meta.foundation-mq {
   .card.primary {
     border: 0;
     margin-bottom: 0.5rem;
-    background: orange;
+    background: #3fa2d8;
     color: #fff;
     border-radius: 4px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -1275,7 +1275,7 @@ meta.foundation-mq {
     .card.primary ul {
       margin-bottom: 0; }
     .card.primary .card-divider {
-      background: #ffab12;
+      background: #4ca9db;
       padding: 1rem; }
   .card.success {
     border: 0;
@@ -1402,7 +1402,7 @@ ul.thumbnails > li {
     color: #000; }
   [type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="color"]:focus, textarea:focus {
     outline: 0;
-    border: 1px solid orange;
+    border: 1px solid #3fa2d8;
     background: #fff;
     color: #000; }
   label > [type="text"], label > input[type="password"], label > input[type="date"], label > input[type="datetime"], label > input[type="datetime-local"], label > input[type="month"], label > input[type="week"], label > input[type="email"], label > input[type="number"], label > input[type="search"], label > input[type="tel"], label > input[type="time"], label > input[type="url"], label > input[type="color"], label > textarea {
@@ -1521,7 +1521,7 @@ input[type="range"] {
     outline: 0; }
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: orange;
+    background: #3fa2d8;
     width: 1.5rem;
     height: 1.5rem; }
   input[type="range"]::-moz-range-track {
@@ -1532,7 +1532,7 @@ input[type="range"] {
     cursor: pointer; }
   input[type="range"]::-moz-range-thumb {
     -moz-appearance: none;
-    background: orange;
+    background: #3fa2d8;
     width: 1.5rem;
     height: 1.5rem; }
   input[type="range"]::-ms-track {
@@ -1541,7 +1541,7 @@ input[type="range"] {
     background: #ccc;
     cursor: pointer; }
   input[type="range"]::-ms-thumb {
-    background: orange;
+    background: #3fa2d8;
     width: 1.5rem;
     height: 1.5rem; }
 
@@ -1552,7 +1552,7 @@ output {
 
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  background: orange; }
+  background: #3fa2d8; }
 
 progress, meter {
   -webkit-appearance: none;
@@ -1567,9 +1567,9 @@ progress, meter {
 progress::-webkit-progress-bar {
   background: #ccc; }
 progress::-webkit-progress-value {
-  background: orange; }
+  background: #3fa2d8; }
 progress::-moz-progress-bar {
-  background: orange; }
+  background: #3fa2d8; }
 progress.high::-webkit-progress-value {
   background: #43AC6A; }
 progress.high::-moz-progress-bar {
@@ -1594,7 +1594,7 @@ meter {
   meter::-webkit-meter-even-less-good-value {
     background: #F04124; }
   meter::-moz-meter-bar {
-    background: orange; }
+    background: #3fa2d8; }
   meter:-moz-meter-optimum::-moz-meter-bar {
     background: #43AC6A; }
   meter:-moz-meter-sub-optimum::-moz-meter-bar {
@@ -3300,7 +3300,7 @@ meter {
   padding: 1rem;
   border-bottom: 1px solid #ccc; }
   .title-bar.primary {
-    background: orange;
+    background: #3fa2d8;
     color: #fff;
     padding: 1rem;
     border-bottom: 1px solid #ccc; }
@@ -3330,11 +3330,11 @@ meter {
 .label {
   font-size: 0.8rem;
   padding: 0.33333rem 0.5rem;
-  background: orange;
+  background: #3fa2d8;
   border-radius: 0;
   color: #fff; }
   .label.primary {
-    background: orange;
+    background: #3fa2d8;
     border-radius: 0;
     color: #fff; }
   .label.success {
@@ -3373,13 +3373,13 @@ meter {
   font-size: 0.8em;
   width: 1.5rem;
   height: 1.5rem;
-  background: orange;
+  background: #3fa2d8;
   color: #fff; }
   .badge.secondary {
     background: #f1f1f1;
     color: #000; }
   .badge.primary {
-    background: orange;
+    background: #3fa2d8;
     color: #fff; }
   .badge.success {
     background: #43AC6A;
@@ -3918,14 +3918,14 @@ meter {
     right: 1rem;
     top: 1rem; }
   .menu-bar.primary {
-    background: orange; }
+    background: #3fa2d8; }
     .menu-bar.primary > li > a {
       color: #fff; }
       .menu-bar.primary > li > a:hover {
-        background: #ffab12;
+        background: #4ca9db;
         color: #fff; }
     .menu-bar.primary .is-active > a {
-      background: #ffab12;
+      background: #4ca9db;
       color: #fff; }
   .menu-bar.dark {
     background: #353e3e; }
@@ -3990,16 +3990,16 @@ meter {
           -ms-flex: 0 0 auto;
               flex: 0 0 auto; }
   .menu-group.primary {
-    background-color: orange; }
+    background-color: #3fa2d8; }
     .menu-group.primary .menu-bar {
-      background: orange; }
+      background: #3fa2d8; }
       .menu-group.primary .menu-bar > li > a {
         color: #fff; }
         .menu-group.primary .menu-bar > li > a:hover {
-          background: #ffab12;
+          background: #4ca9db;
           color: #fff; }
       .menu-group.primary .menu-bar .is-active > a {
-        background: #ffab12;
+        background: #4ca9db;
         color: #fff; }
   .menu-group.dark {
     background-color: #353e3e; }
@@ -4777,7 +4777,7 @@ meter {
   CSS Output
 */
 .notification {
-  background: orange;
+  background: #3fa2d8;
   padding: 1rem;
   border-radius: 4px; }
   .notification, .notification h1, .notification h2, .notification h3, .notification h4, .notification h5, .notification h6 {
@@ -4808,7 +4808,7 @@ meter {
       color: #fff; }
 
 .static-notification {
-  background: orange;
+  background: #3fa2d8;
   padding: 1rem;
   border-radius: 4px;
   position: fixed !important; }
@@ -5112,7 +5112,7 @@ meter {
       z-index: 1;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); }
   .off-canvas.primary {
-    background: orange;
+    background: #3fa2d8;
     color: #fff; }
   .off-canvas.dark {
     background: #353e3e;
@@ -5147,7 +5147,7 @@ meter {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     border: 0; }
   .popup.primary {
-    background: orange;
+    background: #3fa2d8;
     border-radius: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     border: 0; }
@@ -5202,10 +5202,10 @@ meter {
       transition: left 0.15s ease-out;
       border: 4px solid #ccc; }
   .switch input:checked + label {
-    background: orange;
+    background: #3fa2d8;
     margin: 0; }
     .switch input:checked + label::after {
-      border-color: orange; }
+      border-color: #3fa2d8; }
   .switch.small {
     width: 2.5rem;
     height: 1.625rem; }
@@ -5341,13 +5341,13 @@ td {
 
 /* Default Link Styles */
 a {
-  color: orange;
+  color: #3fa2d8;
   text-decoration: none;
   line-height: inherit; }
   a[ui-sref] {
     cursor: pointer; }
   a:hover, a:focus {
-    color: #db8e00; }
+    color: #298fc7; }
   a img {
     border: none; }
 
@@ -5433,7 +5433,7 @@ small {
 code {
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: normal;
-  color: gray;
+  color: #8c8c8c;
   background-color: #fbfbfb;
   border-width: 1px;
   border-style: solid;
@@ -6283,7 +6283,7 @@ blockquote p {
   box-shadow: inset 0 1px 1px #f0f0f0; }
 
 .noUi-connect {
-  background: orange;
+  background: #3fa2d8;
   box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45);
   transition: background 450ms; }
 
@@ -6943,14 +6943,14 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   color: #999; }
 
 .is-today .pika-button {
-  color: orange;
+  color: #3fa2d8;
   font-weight: bold; }
 
 .is-selected .pika-button {
   color: #fff;
   font-weight: bold;
-  background: orange;
-  box-shadow: inset 0 1px 3px #cc8400; }
+  background: #3fa2d8;
+  box-shadow: inset 0 1px 3px #2688be; }
 
 .is-disabled .pika-button {
   pointer-events: none;
@@ -7063,9 +7063,9 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     color: #cccccc;
     padding: 0 5px; }
   .breadcrumb a {
-    color: orange; }
+    color: #3fa2d8; }
     .breadcrumb a:hover {
-      color: #664200;
+      color: #154b69;
       text-decoration: underline; }
 
 .accordion.item-spacing {
@@ -7090,11 +7090,11 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   .accordion .accordion-item .accordion-title i {
     font-size: 2rem;
     margin-right: 1rem;
-    color: orange; }
+    color: #3fa2d8; }
   .accordion .accordion-item .accordion-title:after {
     content: "\e62e";
     font-family: icomoon;
-    color: orange;
+    color: #3fa2d8;
     position: absolute;
     top: 50%;
     right: 8px;
@@ -7108,7 +7108,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     transition: all 0.3s;
     margin-top: -16px; }
   .accordion .accordion-item .accordion-title:hover:after {
-    background-color: orange;
+    background-color: #3fa2d8;
     color: #fff; }
 .accordion .accordion-item.is-active .accordion-title:after {
   -webkit-transform: rotate(180deg);

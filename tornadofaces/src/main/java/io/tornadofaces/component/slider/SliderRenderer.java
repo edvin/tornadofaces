@@ -7,15 +7,13 @@ import io.tornadofaces.json.JSONObject;
 import io.tornadofaces.util.WidgetBuilder;
 
 import javax.faces.component.UIComponent;
-import javax.faces.component.behavior.AjaxBehavior;
-import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
 import javax.faces.render.Renderer;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+
+import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
 
 @FacesRenderer(rendererType = SliderRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
 public class SliderRenderer extends Renderer {
@@ -42,24 +40,11 @@ public class SliderRenderer extends Renderer {
 			.nativeAttr("settings", slider.getSettings().toString())
 			.nativeAttr("onSlide", slider.getOnSlide());
 
-		List<ClientBehavior> behaviors = slider.getClientBehaviors().get("change");
-		if (behaviors != null && !behaviors.isEmpty()) {
-			JSONObject behaviors_o = new JSONObject();
-			JSONArray array = new JSONArray();
-			for (ClientBehavior behavior : behaviors) {
-				if (behavior instanceof AjaxBehavior) {
-					AjaxBehavior ab = (AjaxBehavior) behavior;
-					JSONObject o = new JSONObject();
-					if (ab.getExecute() != null)
-						o.put("execute", String.join(" ", ab.getExecute()));
-
-					if (ab.getRender() != null)
-						o.put("render", String.join(" ", ab.getRender()));
-					array.put(o);
-				}
-			}
-			behaviors_o.put("change", array);
-			builder.nativeAttr("behaviors", behaviors_o.toString());
+		JSONArray flipBehaviors = encodeAjaxBehaviors(context, "change", slider);
+		if (flipBehaviors != null) {
+			JSONObject behaviors = new JSONObject();
+			behaviors.put("change", flipBehaviors);
+			builder.nativeAttr("behaviors", behaviors.toString());
 		}
 
 		builder.finish();

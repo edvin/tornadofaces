@@ -48,15 +48,19 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 		Map<String, String> params = context.getExternalContext().getRequestParameterMap();
 
 		if (params.containsKey(lower.getClientId())) {
-			Object newValue = params.get(lower.getClientId());
-			getValueExpression("lower").setValue(context.getELContext(), newValue);
+			ValueExpression ve = getValueExpression("lower");
+			if (ve != null) {
+				Object newValue = params.get(lower.getClientId());
+				ve.setValue(context.getELContext(), newValue);
+			}
 		}
 
 		if (params.containsKey(upper.getClientId())) {
-			Object newValue = params.get(upper.getClientId());
 			ValueExpression upperEx = getValueExpression("upper");
-			if (upperEx != null)
+			if (upperEx != null) {
+				Object newValue = params.get(upper.getClientId());
 				upperEx.setValue(context.getELContext(), newValue);
+			}
 		}
 
 		String eventName = params.get("javax.faces.behavior.event");

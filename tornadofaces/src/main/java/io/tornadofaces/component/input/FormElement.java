@@ -55,7 +55,7 @@ public class FormElement extends UIPanel implements SystemEventListener {
 		return getChildCount() > 1 || getPrefix() != null || getSuffix() != null;
 	}
 
-	public String getLayout() { return (String) getStateHelper().eval("layout", "grid-content"); }
+	public String getLayout() { return (String) getStateHelper().eval("layout", null); }
 	public void setLayout(String layout) { getStateHelper().put("layout", layout); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
