@@ -1,10 +1,22 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:panelGroup xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui"
+              xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-    <t:slider min="0" max="100" step="1" lower="20" connect="lower" />
-    <br/>
-    <br/>
-    <t:slider min="0" max="100" step="10" lower="20" upper="80" connect="true" />
-    <br/>
-    <br/>
+    <h:form>
+            <t:form-element medium="8" label="Slider">
+                <t:slider min="0" max="100" step="1" lower="#{docsController.lower}" connect="lower"
+                          lowerTarget="lowerValue"/>
+            </t:form-element>
 
-</div>
+            <t:form-element medium="1">
+                <h:inputText id="lowerValue"/>
+            </t:form-element>
+        <br/>
+        <br/>
+
+        <t:form-element medium="8" label="Upper and lower track">
+            <t:slider min="0" max="100" step="10" lower="20" upper="80" connect="true"/>
+        </t:form-element>
+        <br/>
+        <t:commandButton value="Send"/>
+    </h:form>
+</h:panelGroup>

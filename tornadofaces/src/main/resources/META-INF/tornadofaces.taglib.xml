@@ -503,6 +503,18 @@
             <type>Number</type>
         </attribute>
         <attribute>
+            <description>Client id of input element that will be kept in sync with the lower track value</description>
+            <name>lowerTarget</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Client id of input element that will be kept in sync with the upper track value</description>
+            <name>upperTarget</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>The position of the lower (or only) slider</description>
             <name>lower</name>
             <required>true</required>

@@ -26,7 +26,8 @@ public class DocsController {
 	@Inject DocumentationCache cache;
 	@Getter private Tag tag;
 	@Getter private List<Movie> movies;
-
+	@Getter @Setter Integer lower = 15;
+	
 	public void onFlip(AjaxBehaviorEvent e) {
 		FlipPanelEvent event = (FlipPanelEvent) e;
 		Boolean isFlipped = event.getFlipPanel().isFlipped();

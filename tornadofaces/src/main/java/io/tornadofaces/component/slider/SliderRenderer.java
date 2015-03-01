@@ -14,6 +14,7 @@ import javax.faces.render.Renderer;
 import java.io.IOException;
 
 import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
+import static io.tornadofaces.component.util.ComponentUtils.findComponent;
 
 @FacesRenderer(rendererType = SliderRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
 public class SliderRenderer extends Renderer {
@@ -24,6 +25,27 @@ public class SliderRenderer extends Renderer {
 		Slider slider = (Slider) component;
 		writer.startElement("div", component);
 		writer.writeAttribute("id", slider.getClientId(), null);
+
+		writer.startElement("input", component);
+		writer.writeAttribute("type", "hidden", null);
+		String lowerId = slider.getLowerClientId(context);
+		writer.writeAttribute("id", lowerId, null);
+		writer.writeAttribute("name", lowerId, null);
+		Integer lowerValue = slider.getLower();
+		if (lowerValue != null)
+			writer.writeAttribute("value", lowerValue.toString(), "lower");
+		writer.endElement("input");
+
+		writer.startElement("input", component);
+		writer.writeAttribute("type", "hidden", null);
+		String upperId = slider.getUpperClientId(context);
+		writer.writeAttribute("id", upperId, null);
+		writer.writeAttribute("name", upperId, null);
+		Integer upperValue = slider.getUpper();
+		if (upperValue != null)
+			writer.writeAttribute("value", upperValue.toString(), "upper");
+		writer.endElement("input");
+
 		StyleClass.of("slider").add(slider.getStyleClass()).write(writer);
 	}
 
@@ -34,11 +56,19 @@ public class SliderRenderer extends Renderer {
 		writer.endElement("div");
 
 		WidgetBuilder builder = new WidgetBuilder(context, slider)
-			.init()
-			.attr("lowerId", slider.getChildren().get(0).getClientId())
-			.attr("upperId", slider.getChildren().get(1).getClientId())
+			.initWithDomReady()
+			.attr("lowerId", slider.getLowerClientId(context))
+			.attr("upperId", slider.getUpperClientId(context))
 			.nativeAttr("settings", slider.getSettings().toString())
 			.nativeAttr("onSlide", slider.getOnSlide());
+
+		String lowerTarget = slider.getLowerTarget();
+		if (lowerTarget != null)
+			builder.attr("lowerTarget", slider.getParent().findComponent(lowerTarget).getClientId());
+		
+		String upperTarget = slider.getUpperTarget();
+		if (upperTarget != null)
+			builder.attr("upperTarget", slider.getParent().findComponent(upperTarget).getClientId());
 
 		JSONArray flipBehaviors = encodeAjaxBehaviors(context, "change", slider);
 		if (flipBehaviors != null) {

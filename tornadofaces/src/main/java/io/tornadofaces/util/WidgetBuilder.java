@@ -28,6 +28,7 @@ import java.io.IOException;
 @SuppressWarnings("UnusedDeclaration")
 public class WidgetBuilder {
     private Boolean endFunction = false;
+    private Boolean scriptBlockRendered = false;
     private FacesContext context;
     private ResponseWriter output;
     private Widget widget;
@@ -79,9 +80,12 @@ public class WidgetBuilder {
     }
 
     private void renderScriptBlock() throws IOException {
-        output.startElement("script", null);
-        String id = ((UIComponent) widget).getClientId();
-        output.writeAttribute("id", id + "_s", null);
+	    if (!scriptBlockRendered) {
+		    output.startElement("script", null);
+		    String id = ((UIComponent) widget).getClientId();
+		    output.writeAttribute("id", id + "_s", null);
+		    scriptBlockRendered = true;
+	    }
     }
 
     public WidgetBuilder attr(String name, String value) throws IOException {

@@ -5,7 +5,6 @@ import io.tornadofaces.component.common.Direction;
 import io.tornadofaces.component.common.Orientation;
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.json.JSONArray;
-import io.tornadofaces.json.JSONException;
 import io.tornadofaces.json.JSONObject;
 
 import javax.el.ValueExpression;
@@ -16,7 +15,6 @@ import javax.faces.component.NamingContainer;
 import javax.faces.component.UIPanel;
 import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.component.behavior.ClientBehaviorHolder;
-import javax.faces.component.html.HtmlInputHidden;
 import javax.faces.context.FacesContext;
 import java.util.Collection;
 import java.util.Collections;
@@ -30,35 +28,37 @@ import java.util.Map;
 @FacesComponent(value = Slider.COMPONENT_TYPE, createTag = true, tagName = "slider", namespace = "http://tornadofaces.io/ui")
 public class Slider<T extends Integer> extends UIPanel implements Widget, NamingContainer, ClientBehaviorHolder {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Slider";
-	private HtmlInputHidden lower;
-	private HtmlInputHidden upper;
 
 	public Slider() {
 		super();
 		setRendererType(SliderRenderer.RENDERER_TYPE);
-		lower = new HtmlInputHidden();
-		lower.setId("lower");
-		upper = new HtmlInputHidden();
-		upper.setId("upper");
-		getChildren().add(lower);
-		getChildren().add(upper);
 	}
 
+	public String getLowerClientId(FacesContext context) {
+		return getClientId(context) + "_lower";
+	}
+
+	public String getUpperClientId(FacesContext context) {
+		return getClientId(context) + "_upper";
+	}
+	
 	public void decode(FacesContext context) {
 		Map<String, String> params = context.getExternalContext().getRequestParameterMap();
 
-		if (params.containsKey(lower.getClientId())) {
+		String lowerId = getLowerClientId(context);
+		if (params.containsKey(lowerId)) {
 			ValueExpression ve = getValueExpression("lower");
 			if (ve != null) {
-				Object newValue = params.get(lower.getClientId());
+				Object newValue = params.get(lowerId);
 				ve.setValue(context.getELContext(), newValue);
 			}
 		}
 
-		if (params.containsKey(upper.getClientId())) {
+		String upperId = getUpperClientId(context);
+		if (params.containsKey(upperId)) {
 			ValueExpression upperEx = getValueExpression("upper");
 			if (upperEx != null) {
-				Object newValue = params.get(upper.getClientId());
+				Object newValue = params.get(upperId);
 				upperEx.setValue(context.getELContext(), newValue);
 			}
 		}
@@ -237,14 +237,11 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 		getStateHelper().put("widgetVar", widgetVar);
 	}
 
-	public void setValueExpression(String name, ValueExpression binding) {
-		super.setValueExpression(name, binding);
-		if ("lower".equals(name))
-			lower.setValueExpression("value", binding);
-		else if ("upper".equals(name))
-			upper.setValueExpression("value", binding);
-	}
-
+	public String getLowerTarget() { return (String) getStateHelper().eval("lowerTarget", null); }
+	public void setLowerTarget(String lowerTarget) { getStateHelper().put("lowerTarget", lowerTarget); }
+	public String getUpperTarget() { return (String) getStateHelper().eval("upperTarget", null); }
+	public void setUpperTarget(String upperTarget) { getStateHelper().put("upperTarget", upperTarget); }
+	
 	public JSONObject getSettings() {
 		JSONObject settings = new JSONObject();
 
