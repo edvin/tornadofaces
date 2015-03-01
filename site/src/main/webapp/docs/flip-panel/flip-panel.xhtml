@@ -1,22 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<t:grid-block>
-    <t:grid-container>
-        <t:flip-panel widgetVar="myPanel" styleClass="padding">
+        <t:flip-panel widgetVar="myPanel" styleClass="padding" style="max-width: 200px">
             <f:ajax listener="#{docsController.onFlip}" render="status"/>
             <f:facet name="front">
                 <h1>front</h1>
+                <button class="button" onclick="TW('myPanel').flip()">Flip</button>
             </f:facet>
             <f:facet name="back">
                 <h1>back</h1>
+                <button class="button" onclick="TW('myPanel').flip()">Back</button>
             </f:facet>
         </t:flip-panel>
-    </t:grid-container>
-</t:grid-block>
 
 <t:notification id="status"/>
 
-<button class="button" onclick="TW('myPanel').flip()">Flip</button>
 
 </html>

@@ -24,7 +24,7 @@ TornadoFaces.declareWidget('FlipPanel', function() {
             var props = { 
                 'javax.faces.behavior.event': 'flip', 
                 render: render, 
-                execute: execute,
+                execute: execute
             };
             
             props[widget.elem.attr('id') + '_flipped'] = widget.elem.hasClass('flipped');
@@ -33,7 +33,7 @@ TornadoFaces.declareWidget('FlipPanel', function() {
         }
 
         if (widget.conf.onFlip)
-            widget.conf.onFlip();
+            widget.conf.onFlip(widget);
     };
     
     this.isFlipped = function() {

@@ -59,10 +59,6 @@ public class FlipPanel extends UIPanel implements Widget, ClientBehaviorHolder {
 	public String getOnFlip() { return (String) getStateHelper().eval("onFlip"); }
 	public void setOnFlip(String onFlip) { getStateHelper().put("onFlip", onFlip); }
 
-	public void addClientBehavior(String eventName, ClientBehavior behavior) {
-		super.addClientBehavior(eventName, behavior);
-	}
-
 	public void queueEvent(FacesEvent event) {
 		FacesContext context = getFacesContext();
 

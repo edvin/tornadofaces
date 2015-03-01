@@ -608,6 +608,19 @@
             <name>size</name>
             <required>false</required>
         </attribute>
+        <attribute>
+            <description>JavaScript callback when switch is flipped</description>
+            <name>onChange</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar.
+            </description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
     </tag>
     <tag>
         <description>Progress Bar</description>

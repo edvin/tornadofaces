@@ -10,20 +10,58 @@
 
         <p>#{docsController.tag.description}</p>
 
+        <p>There is a client side Widget API as well as AJAX server callbacks available.</p>
+        
         <ui:include src="switch.xhtml"/>
-        
+
         <br/>
-        
+
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
             <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">
 &lt;h:form>
-    &lt;t:switch value="#{docsController.expr('bean.booleanValue')}"/>
+    &lt;t:switch value="#{docsController.expr('bean.booleanValue')}">
+        &lt;f:ajax listener="#{docsController.expr('controller.onSwitch')}" render="msgs"/>
+    &lt;/t:switch>
 &lt;/h:form>
-</code></pre>
+
+&lt;button onclick="TW('myswitch').toggle()">Toggle with Widget API&lt;/button></code></pre>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
+                <h5>Client Side Callbacks</h5>
+                <p><code>onChange</code> is called as the switch is flipped.</p>
+                <pre><code class="language-javascript">function onChange(switch) {
+    //
+}</code></pre>
+
+                <h5>Ajax Behavior Events</h5>
+                <p><code>change</code> will be called when a switch is flipped
+                </p>
+                <pre><code class="language-markup">&lt;t:switch>
+    &lt;f:ajax event="change" listener="#{docsController.expr('controller.onChange')}">
+&lt;/t:switch></code></pre>
+                <pre><code class="language-java">public void onChange(SwitchEvent event) {
+    Switch _switch = event.getSwitch();
+}</code></pre>
+                <p>The listener will be called with an instance of <code>io.tornadofaces.event.SwitchEvent</code> that contains a reference to the switch.</p>
+
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.Switch</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>toggle()</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Toggle the checked state.</td>
+                    </tr>
+                </table>
             </t:tab>
         </t:tabView>
     </ui:define>

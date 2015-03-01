@@ -34,19 +34,19 @@
                 <h5>Client Side Callbacks</h5>
                 <p><code>onFlip</code> is called as a tab is flipped.</p>
                 <pre><code class="language-javascript">function onFlip(panel) {
-                    //
-                    }</code></pre>
+    //
+ }</code></pre>
 
                 <h5>Ajax Behavior Events</h5>
                 <p><code>flip</code> will be called when a card is flipped
                 </p>
-                <pre><code class="language-markup">&lt;t:accordion>
-                    &lt;f:ajax event="flip" listener="#{docsController.expr('controller.flipped')}">
-                    &lt;/t:accordion></code></pre>
+                <pre><code class="language-markup">&lt;t:flip-panel>
+    &lt;f:ajax event="flip" listener="#{docsController.expr('controller.flipped')}">
+&lt;/t:flip-panel></code></pre>
                 <pre><code class="language-java">public void onFlip(FlipPanelEvent event) {
-                    FlipPanel panel = event.getFlipPanel();
-                    }</code></pre>
-                <p>The listener will be called with an instance of <code>io.tornadofaces.component.flippanel.FlipPanelEvent</code> that contains a reference to the flip panel.</p>
+    FlipPanel panel = event.getFlipPanel();
+}</code></pre>
+                <p>The listener will be called with an instance of <code>io.tornadofaces.event.FlipPanelEvent</code> that contains a reference to the flip panel.</p>
 
                 <h5>Client Side API</h5>
                 <p>Widget: <code>TornadoFaces.widget.FlipPanel</code></p>
@@ -63,7 +63,8 @@
                         <td>void</td>
                         <td>Flip the panel.</td>
                     </tr>
-                </table>            </t:tab>
+                </table>            
+            </t:tab>
         </t:tabView>
     </ui:define>
 </ui:composition>

@@ -1,6 +1,7 @@
 package io.tornadofaces.site.docs;
 
 import io.tornadofaces.event.FlipPanelEvent;
+import io.tornadofaces.event.SwitchEvent;
 import io.tornadofaces.site.taglib.Tag;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,6 +32,13 @@ public class DocsController {
 		Boolean isFlipped = event.getFlipPanel().isFlipped();
 		Severity severity = isFlipped ? SEVERITY_INFO : SEVERITY_WARN;
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, "Flip status", isFlipped + ""));
+	}
+
+	public void onSwitch(AjaxBehaviorEvent e) {
+		SwitchEvent event = (SwitchEvent) e;
+		Boolean isChecked = event.getSwitch().isChecked();
+		Severity severity = isChecked ? SEVERITY_INFO : SEVERITY_WARN;
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, "Switch status", isChecked + ""));
 	}
 	
 	public DocsController() {
