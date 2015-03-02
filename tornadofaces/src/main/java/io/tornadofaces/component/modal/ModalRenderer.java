@@ -56,8 +56,7 @@ public class ModalRenderer extends Renderer {
 		writer.endElement("div");
 
 		writer.startElement("div", modal);
-		writer.writeAttribute("class", "grid-content padding", null);
-		StyleClass.of(modal.getStyleClass()).add("padding-top: 1rem").write(writer);
+		StyleClass.of("grid-content padding").add(modal.getStyleClass()).add("padding-top: 1rem").write(writer);
 	}
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
