@@ -52,6 +52,7 @@ TornadoFaces.declareWidget('Button', function() {
             }
 
             options.onevent = function(event) {
+
                 if (event.status == 'begin') {
                     if (widget.conf.onbegin)
                         eval(widget.conf.onbegin);
@@ -61,8 +62,10 @@ TornadoFaces.declareWidget('Button', function() {
                     if (widget.ladda)
                         widget.ladda.stop();
                     
-                    if (widget.conf.oncomplete)
+                    if (widget.conf.oncomplete) {
+                        var args = JSON.parse(event.responseXML.getElementById("tornadofaces").firstChild.nodeValue);
                         eval(widget.conf.oncomplete);
+                    }
                 }
 
                 if (event.status == 'success') {

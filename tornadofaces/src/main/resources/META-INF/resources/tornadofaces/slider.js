@@ -15,11 +15,23 @@ TornadoFaces.declareWidget('Slider', function() {
         this.lowerElem = this.elem.find(TornadoFaces.escapeClientId(this.conf.lowerId));
         this.upperElem = this.elem.find(TornadoFaces.escapeClientId(this.conf.upperId));
 
-        if (this.conf.lowerTarget)
+        if (this.conf.lowerTarget) {
             lowerTarget = $(TornadoFaces.escapeClientId(this.conf.lowerTarget));
-
-        if (this.conf.upperTarget)
+            lowerTarget.on('keyup', function() {
+                var v = lowerTarget.val();
+                widget.lowerElem.val(v);
+                widget.slider.val([v, null]);
+            });
+        }
+        
+        if (this.conf.upperTarget) {
             upperTarget = $(TornadoFaces.escapeClientId(this.conf.upperTarget));
+            upperTarget.on('keyup', function() {
+                var v = upperTarget.val();
+                widget.upperElem.val(v);
+                widget.slider.val([null, v]);
+            });
+        }
 
         var settings = this.conf.settings;
 
@@ -30,7 +42,7 @@ TornadoFaces.declareWidget('Slider', function() {
             }
         }
 
-        widget.elem.noUiSlider(settings);
+        widget.slider = widget.elem.noUiSlider(settings);
 
         var hasOnSlide = widget.conf.onSlide != undefined;
 

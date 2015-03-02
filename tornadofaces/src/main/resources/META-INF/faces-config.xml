@@ -12,4 +12,7 @@
         </renderer>
     </render-kit>
 
+    <factory>
+        <partial-view-context-factory>io.tornadofaces.renderkit.TFViewContextFactory</partial-view-context-factory>
+    </factory>
 </faces-config>
