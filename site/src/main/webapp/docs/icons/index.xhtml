@@ -1,0 +1,57 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:t="http://tornadofaces.io/ui">
+
+    <ui:define name="content">
+        <script>
+            var input, icons;
+            $(function() {
+                input = $('#search');
+                icons = $('div.icons').children();
+            });
+
+            function filter() {
+                var q = input.val().toLowerCase();
+                var l = icons.length;
+                for (var i = 0; i &lt; l; i++) {
+                    var icon = $(icons[i]);
+                    if (icon.text().indexOf(q) == -1)
+                        icon.hide();
+                    else
+                        icon.show();
+                }
+            }
+        </script>
+        <h1>Icons</h1>
+
+        <p>TornadoFaces comes with a large selection of icomoon font icons. You can use these by creating an <code>i</code> tag with the specified icon class, or via the
+            <code>icon</code> attribute for many components, like for example <a href="../accordion/">Accordion</a>, <a href="../list/">List</a> and <a href="../button/">Button</a>.</p>
+
+        <input id="search" placeholder="Search" class="float-right" onkeyup="filter()"/>
+        
+        <p>Here is a complete list of the supplied icons.</p>
+
+        <style>
+            .icons span {
+                margin-left: 10px;
+                line-height: 27px;
+            }
+
+            .icons i {
+                font-size: 30px;
+                color: black;
+                margin-left: 0;
+            }
+        </style>
+        
+        <div class="box" style="padding-left: 3rem">
+            <div class="grid-block padding icons">
+                <ui:repeat value="#{iconDescriptor.icons}" var="icon">
+                    <t:grid-block styleClass="padding small-2 large-4">
+                        <i class="#{icon}"></i> <span>#{icon}</span>
+                    </t:grid-block>
+                </ui:repeat>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
