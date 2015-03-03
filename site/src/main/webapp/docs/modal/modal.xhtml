@@ -1,22 +1,15 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:panelGroup xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui"
+              xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-<t:modal title="Modal window" widgetVar="mymodal" id="mymodal">
-    <br/>
-    <p>Enter your name: <h:inputText value="#{modalController.name}"/></p>
-    <a class="button success close">Save</a>
-    <f:facet name="left"><a href="#" class="close">Close</a></f:facet>
-    <f:facet name="right">Right</f:facet>
-</t:modal>
-
-<div class="grid-block padding">
-    <div>
-        <a class="button" href="#" onclick="TW('mymodal').show()">Show modal</a>
+    <div class="grid-block padding">
+        <div>
+            <a class="button" href="#" onclick="TW('mymodal').show()">Show modal</a>
+        </div>
+        <div>
+            <h:form>
+                <t:commandButton onsuccess="TW('mymodal').show()" value="Server callback first"
+                                 action="#{modalController.prepareData}" render=":mymodal"/>
+            </h:form>
+        </div>
     </div>
-    <div>
-        <h:form>
-            <t:commandButton onsuccess="TW('mymodal').show()" value="Server callback first" action="#{modalController.prepareData}" render="mymodal"/>
-        </h:form>
-    </div>
-</div>
-</html>
+</h:panelGroup>

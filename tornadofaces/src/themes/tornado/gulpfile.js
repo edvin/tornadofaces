@@ -2,7 +2,7 @@ var gulp           = require('gulp'),
     runSequence    = require('run-sequence'),
     autoprefixer   = require('gulp-autoprefixer'),
     minifyCSS      = require('gulp-minify-css'),
-    sourcemaps     = require('gulp-sourcFemaps'),
+    sourcemaps     = require('gulp-sourcemaps'),
     replace        = require('gulp-replace'),
     sass           = require('gulp-ruby-sass');
 

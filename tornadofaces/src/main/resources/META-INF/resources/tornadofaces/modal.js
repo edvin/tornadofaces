@@ -29,7 +29,7 @@ TornadoFaces.declareWidget('Modal', function() {
     };
 
     this.hide = function() {
-        TornadoFaces.animate(widget.elem, false, 'fadeIn', 'fadeOut');
-        TornadoFaces.animate(widget.modalContent, false, 'fadeIn', 'fadeOut');
+        widget.elem.removeClass('is-active');
+        widget.modalContent.removeClass('is-active');
     }
 });

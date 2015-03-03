@@ -7186,6 +7186,9 @@ form label {
   display: block;
   margin-bottom: 1rem; }
 
+.noUi-target {
+  margin-top: 1.2rem; }
+
 @-webkit-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
