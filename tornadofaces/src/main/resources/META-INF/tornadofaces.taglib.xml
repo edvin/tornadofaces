@@ -76,6 +76,14 @@
             <type>Integer</type>
         </attribute>
         <attribute>
+            <description>The orientation decides if the list items are laid out horizontally or vertically. Valid
+                options a horizontal and vertical. Default horizontal.
+            </description>
+            <name>orientation</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Orientation</type>
+        </attribute>
+        <attribute>
             <description>Width in the 12 based grid for medium devices</description>
             <name>medium</name>
             <required>false</required>
@@ -247,6 +255,12 @@
             <name>label</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Add padding. Defaults to false.</description>
+            <name>padding</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
         <attribute>
             <description>Prefix label that will be added as a span with class form-label before the input element

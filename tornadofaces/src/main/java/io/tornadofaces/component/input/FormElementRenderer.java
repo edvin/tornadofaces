@@ -26,7 +26,10 @@ public class FormElementRenderer extends Renderer {
 		if (!id.startsWith("j_idt"))
 			writer.writeAttribute("id", elem.getClientId(context), null);
 
-		StyleClass styleClass = StyleClass.of(elem.getLayout()).add(elem.getStyleClass());
+		StyleClass styleClass = StyleClass
+			.of(elem.getLayout())
+			.add("padding", elem.isPadding())
+			.add(elem.getStyleClass());
 
 		Integer small = elem.getSmall();
 		if (small != null)

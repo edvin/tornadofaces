@@ -26,4 +26,6 @@ public abstract class GridComponent extends UIPanel {
 	public void setMedium(Integer medium) { getStateHelper().put("medium", medium); }
 	public Integer getLarge() { return (Integer) getStateHelper().eval("large", null); }
 	public void setLarge(Integer large) { getStateHelper().put("large", large); }
+	public Boolean isWrap() { return (Boolean) getStateHelper().eval("wrap", null); }
+	public void setWrap(Boolean wrap) { getStateHelper().put("wrap", wrap); }
 }

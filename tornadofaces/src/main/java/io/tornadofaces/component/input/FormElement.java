@@ -71,4 +71,6 @@ public class FormElement extends UIPanel implements SystemEventListener {
 	public void setMedium(Integer medium) { getStateHelper().put("medium", medium); }
 	public Integer getLarge() { return (Integer) getStateHelper().eval("large", null); }
 	public void setLarge(Integer large) { getStateHelper().put("large", large); }
+	public Boolean isPadding() { return (Boolean) getStateHelper().eval("padding", null); }
+	public void setPadding(Boolean padding) { getStateHelper().put("padding", padding); }
 }

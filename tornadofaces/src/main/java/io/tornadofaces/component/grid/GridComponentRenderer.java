@@ -27,7 +27,9 @@ public class GridComponentRenderer extends CoreRenderer {
 		Integer medium = gridComponent.getMedium();
 		Integer large = gridComponent.getLarge();
 		
-		StyleClass sc = StyleClass.of(gridComponent.getComponentStyleClass())
+		StyleClass sc = StyleClass
+			.of(gridComponent.getComponentStyleClass())
+			.add("wrap", gridComponent.isWrap())
 			.add(gridComponent.getStyleClass());
 		
 		if (small != null)
