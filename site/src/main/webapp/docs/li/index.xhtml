@@ -6,17 +6,19 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>List Item</h1>
+        <div class="box">
+            <h1 class="subheader">List Item</h1>
+            <div>
+                <p>#{docsController.tag.description}</p>
 
-        <p>#{docsController.tag.description}</p>
+                <p>When you specify the <code>link</code> attribute, the active state will be set on the item if the current
+                    <code>viewId</code> starts with the given link value. This is a neat trick that
+                    makes it very easy to create menu links that activate automatically.</p>
 
-        <p>When you specify the <code>link</code> attribute, the active state will be set on the item if the current
-            <code>viewId</code> starts with the given link value. This is a neat trick that
-            makes it very easy to create menu links that activate automatically.</p>
-
-        <p>The example below shows the markup for rendering the component menu on this page.</p>
-
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+                <p>The example below shows the markup for rendering the component menu on this page.</p>
+            </div>
+        </div>
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="list.xhtml">
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:ul menuBar="true" orientation="vertical">
@@ -29,6 +31,5 @@
                 <ui:include src="../tag-documentation.xhtml"/>
             </t:tab>
         </t:tabView>
-
     </ui:define>
 </ui:composition>

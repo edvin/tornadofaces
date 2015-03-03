@@ -3,6 +3,15 @@
   border: 1px solid $gray;
 }
 
+.tabs {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+// ?. Slider
+// - - - - - - - - - - - - - - -
+//.slider-wrapper
+
 // ?. Box
 // - - - - - - - - - - - - - - -
 .box {
@@ -11,14 +20,63 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+//  margin-bottom: 20px;
+  margin: 20px;
+
+  border: none;
+
+  &> .subheader {
+    line-height: 1;
+    font-size: 26px;
+    border-bottom: 1px solid #f4f4f1;
+    padding: 22px 20px;
+    margin: 0;
+
+    i {
+      color: #3fa2d8;
+      margin-right: 15px;
+      float: left;
+      line-height: inherit;
+      display: block;
+      font-size: 30px;
+    }
+  }
+
+  &> div {
+//    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #616161;
+    padding: 20px;
+
+  }
+
+  p {
+    margin-bottom: 0.7rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .tabs {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .tab-content {
+    padding: 0;
+  }
 }
 
 #left-menu-container {
   min-width: 220px;
   max-width: 300px;
 }
+#left-menu-container.collapsed {
+  min-width: 0;
+}
 #main-container {
   padding: 1rem 2rem;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .icon-navigation {
@@ -32,10 +90,18 @@
 }
 .close-button {
   z-index: 9;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 // 6. Accordion
 // - - - - - - - - - - - - - - -
+.accordion-title i {
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
 .accordion-item {
   background: $accordion-item-background;
 }

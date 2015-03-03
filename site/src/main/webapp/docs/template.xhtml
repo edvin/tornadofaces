@@ -55,18 +55,6 @@
         </t:modal>
 
         <div class="grid-frame vertical">
-            <div id="header" class="menu-group dark">
-                <div class="menu-group-left grid-block">
-                    <i class="menu-toggle icon-navigation hide-for-medium"></i>
-                    <h1 class="grid-block"><a href="/">TornadoFaces</a></h1>
-                </div>
-                <div class="menu-group-right">
-                    <t:ul menuBar="true" id="quick-links">
-                        <li><a href="http://github.com/edvin/tornadofaces/issues"><i class="icon-list-fill"></i><span class="show-for-medium">Issues</span></a></li>
-                        <li><a href="http://github.com/edvin/tornadofaces"><i class="icon-github-alt"></i><span class="show-for-medium">GitHub</span></a></li>
-                    </t:ul>
-                </div>
-            </div>
             <div class="grid-block">
                 <t:grid-container>
                     
@@ -109,7 +97,19 @@
                         </t:ul>
                     </div>
                 </div>
-                <div id="main-container" class="grid-content">
+                <div id="main-container">
+                    <div id="header" class="menu-group dark">
+                        <div class="menu-group-left grid-block">
+                            <i class="menu-toggle icon-navigation hide-for-medium"></i>
+                            <h1 class="grid-block"><a href="/">TornadoFaces</a></h1>
+                        </div>
+                        <div class="menu-group-right">
+                            <t:ul menuBar="true" id="quick-links">
+                                <li><a href="http://github.com/edvin/tornadofaces/issues"><i class="icon-list-fill"></i><span class="show-for-medium">Issues</span></a></li>
+                                <li><a href="http://github.com/edvin/tornadofaces"><i class="icon-github-alt"></i><span class="show-for-medium">GitHub</span></a></li>
+                            </t:ul>
+                        </div>
+                    </div>
                     <ui:insert name="content"/>
                 </div>
             </div>

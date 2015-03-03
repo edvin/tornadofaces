@@ -25,15 +25,10 @@ $block-grid-max-size: 6 !default;
 
 /*
   Define the size of a grid block. Blocks are flex items. By default, they stretch to fill all available space, based on the size of sibling blocks. This is the "expand" behavior.
-
   If set to "shrink", the block will contract and only fill as much space as it needs for its content.
-
   If set to a number, the block will be given a percentage width, based on the total number of columns (12 by default). Percentage widths don't work if a block is inside a vertical grid.
-
   @group grid
-
   @param {number|string} $size - Sizing behavior of the block. Should be expand, shrink, or a number.
-
   @output The flex-basis, flex-grow, and flex-shrink properties.
 */
 @mixin grid-size($size: expand) {

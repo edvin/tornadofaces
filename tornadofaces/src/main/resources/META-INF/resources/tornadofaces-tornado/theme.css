@@ -377,7 +377,7 @@ body {
   color: #333;
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1723,15 +1723,10 @@ meter {
 */
 /*
   Define the size of a grid block. Blocks are flex items. By default, they stretch to fill all available space, based on the size of sibling blocks. This is the "expand" behavior.
-
   If set to "shrink", the block will contract and only fill as much space as it needs for its content.
-
   If set to a number, the block will be given a percentage width, based on the total number of columns (12 by default). Percentage widths don't work if a block is inside a vertical grid.
-
   @group grid
-
   @param {number|string} $size - Sizing behavior of the block. Should be expand, shrink, or a number.
-
   @output The flex-basis, flex-grow, and flex-shrink properties.
 */
 /*
@@ -6972,6 +6967,10 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   border: 1px solid #cbcbcb; }
 
+.tabs {
+  margin-right: 20px;
+  margin-left: 20px; }
+
 .box {
   background: #fff;
   display: -webkit-flex;
@@ -6982,14 +6981,48 @@ http://nicolasgallagher.com/micro-clearfix-hack/
           flex-direction: column;
   -webkit-flex: 1;
       -ms-flex: 1;
-          flex: 1; }
+          flex: 1;
+  margin: 20px;
+  border: none; }
+  .box > .subheader {
+    line-height: 1;
+    font-size: 26px;
+    border-bottom: 1px solid #f4f4f1;
+    padding: 22px 20px;
+    margin: 0; }
+    .box > .subheader i {
+      color: #3fa2d8;
+      margin-right: 15px;
+      float: left;
+      line-height: inherit;
+      display: block;
+      font-size: 30px; }
+  .box > div {
+    color: #616161;
+    padding: 20px; }
+  .box p {
+    margin-bottom: 0.7rem; }
+    .box p:last-child {
+      margin-bottom: 0; }
+  .box .tabs {
+    margin-right: 0;
+    margin-left: 0; }
+  .box .tab-content {
+    padding: 0; }
 
 #left-menu-container {
   min-width: 220px;
   max-width: 300px; }
 
+#left-menu-container.collapsed {
+  min-width: 0; }
+
 #main-container {
-  padding: 1rem 2rem; }
+  padding: 1rem 2rem;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow-y: auto; }
 
 .icon-navigation {
   color: #fff;
@@ -7006,6 +7039,12 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .close-button {
   z-index: 9; }
+  .close-button:hover {
+    color: #fff; }
+
+.accordion-title i {
+  margin-top: -8px;
+  margin-bottom: -8px; }
 
 .accordion-item {
   background: #fff; }

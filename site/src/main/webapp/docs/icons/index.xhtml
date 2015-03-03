@@ -22,35 +22,35 @@
                 }
             }
         </script>
-        <h1>Icons</h1>
 
-        <p>TornadoFaces comes bundled with #{iconDescriptor.icons.size()} icomoon font icons. You can use these by creating an <code>i</code> tag with the specified icon class, or via the
-            <code>icon</code> attribute for many components, like for example <a href="../accordion/">Accordion</a>, <a href="../list/">List</a> and <a href="../button/">Button</a>.</p>
+        <div class="box">
+            <h1 class="subheader">Icons</h1>
+            <div>
+                <p>TornadoFaces comes bundled with #{iconDescriptor.icons.size()} icomoon font icons. You can use these by creating an <code>i</code> tag with the specified icon class, or via the
+                    <code>icon</code> attribute for many components, like for example <a href="../accordion/">Accordion</a>, <a href="../list/">List</a> and <a href="../button/">Button</a>.</p>
 
-        <input id="search" placeholder="Search" class="float-right" onkeyup="filter()"/>
-        
-        <p>Here is a complete list of the supplied icons.</p>
+                <input id="search" placeholder="Search" class="float-right" onkeyup="filter()"/>
 
-        <style>
-            .icons span {
-                margin-left: 10px;
-                line-height: 27px;
-            }
+                <p>Here is a complete list of the supplied icons.</p>
 
-            .icons i {
-                font-size: 30px;
-                color: black;
-                margin-left: 0;
-            }
-        </style>
-        
-        <div class="box" style="padding-left: 3rem">
-            <div class="grid-block padding icons">
-                <ui:repeat value="#{iconDescriptor.icons}" var="icon">
-                    <t:grid-block styleClass="padding small-2 large-4">
-                        <i class="#{icon}"></i> <span>#{icon}</span>
-                    </t:grid-block>
-                </ui:repeat>
+                <style>
+                    .icons span {
+                        margin-left: 10px;
+                        line-height: 27px;
+                    }
+
+                    .icons i {
+                        font-size: 30px;
+                        color: black;
+                        margin-left: 0;
+                    }
+                </style>
+
+                <div class="grid-block icons small-up-1 medium-up-2 large-up-4">
+                    <ui:repeat value="#{iconDescriptor.icons}" var="icon">
+                        <div class="grid-block v-align-center"><i class="#{icon}"></i> <span>#{icon}</span></div>
+                    </ui:repeat>
+                </div>
             </div>
         </div>
     </ui:define>

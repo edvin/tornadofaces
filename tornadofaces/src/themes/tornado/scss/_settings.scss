@@ -96,7 +96,7 @@ $base-line-height: 1.42857143;
 // We use these to control various global styles
 $body-background: #F4F4F1;
 $body-font-color: #333;
-$body-font-family: "Open Sans","Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 // $body-antialiased: true;
@@ -141,6 +141,7 @@ $gray-light: lighten($gray, 10);
 
 // We use these to control header font styles
 // $header-font-family: $body-font-family;
+$header-font-family: "Open Sans","Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: $font-weight-normal;
 // $header-font-color: #222;
@@ -435,6 +436,7 @@ $input-border-focus: 1px solid $primary-color;
 // 16. Menu Bar
 // - - - - - - - - - - - - - - -
 
+$menubar-font-family: "Open Sans","Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $menubar-fontsize: 1rem;
 $menubar-fontsize: $font-base;
 // $menubar-background: #fff;

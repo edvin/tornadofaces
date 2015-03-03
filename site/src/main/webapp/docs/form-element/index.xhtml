@@ -3,23 +3,31 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
 
     <f:metadata>
-        <f:viewAction action="#{docsController.loadTag('form-element')}" />
+        <f:viewAction action="#{docsController.loadTag('form-element')}"/>
     </f:metadata>
 
     <ui:define name="content">
-        <h1>Form Element</h1>
+        <div class="box">
+            <h1 class="subheader">Form Element</h1>
 
-        <p>Form elements include a label, optional prefix and suffix elements and will automatically render a message field after the input when there are validation errors or other messages for the input element.</p>
+            <div>
+                <p>Form elements include a label, optional prefix and suffix elements and will automatically render a message field after the input when there are validation errors or other messages for the input element.</p>
 
-        <ui:include src="form-element.xhtml"/>
+                <ui:include src="form-element.xhtml"/>
 
-        <p>You can add grid size hints to the wrapper by setting one or more of the <code>small</code>, <code>medium</code> and <code>large</code> attributes to a value between 1 and 12.</p>
-        
-        <p>To add inline labels, use the <code>prefix</code> or <code>suffix</code> attributes, or simply add your own markup before or after the input field.</p>
-        
-        <p>Buttons can also be rendered inline as shown above. Please refer to the Foundation For Apps <a href="http://foundation.zurb.com/apps/docs/#!/forms">Forms documentation</a> for further options.</p>
-        
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+                <p>You can add grid size hints to the wrapper by setting one or more of the <code>small</code>,
+                    <code>medium</code> and <code>large</code> attributes to a value between 1 and 12.</p>
+
+                <p>To add inline labels, use the <code>prefix</code> or
+                    <code>suffix</code> attributes, or simply add your own markup before or after the input field.</p>
+
+                <p>Buttons can also be rendered inline as shown above. Please refer to the Foundation For Apps <a
+                        href="http://foundation.zurb.com/apps/docs/#!/forms">Forms documentation</a> for further options.
+                </p>
+            </div>
+        </div>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="box documentation-contents">
             <t:tab title="Markup">
 <pre class="line-numbers"><code class="language-markup">
 &lt;h:form>
@@ -45,7 +53,9 @@
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
-                <p>To fully understand the markup for form elements, please consult the <a href="http://foundation.zurb.com/apps/docs/#!/forms">Foundation for Apps Documentation</a>.</p>
+
+                <p>To fully understand the markup for form elements, please consult the <a
+                        href="http://foundation.zurb.com/apps/docs/#!/forms">Foundation for Apps Documentation</a>.</p>
             </t:tab>
         </t:tabView>
 

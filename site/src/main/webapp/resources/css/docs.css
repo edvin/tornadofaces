@@ -5,7 +5,7 @@ body {
 
 #header,
 #header .menu-bar {
-    background: #8E9A9A;
+    background: #3fa2d8;
 }
 
 .menu-group-left h1 a {
@@ -17,6 +17,10 @@ body {
 
 .menu-toggle {
     cursor: pointer;
+}
+
+.menu-bar.dark > li > a {
+    color: #8E9A9A;
 }
 
 #left-menu-container {
@@ -35,14 +39,39 @@ body {
     padding-bottom: 2rem;
 }
 
+#main-container {
+    padding: 0 !important;
+}
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: #F4F4F1;
+}
+
+@media only screen and (max-width: 40em) {
+    body {
+        background: #fff;
+    }
+    #main-container {
+        padding: 0 !important;
+    }
+    .box {
+        box-shadow: none;
+        margin: 0 0 20px;
+        margin: 0;
+    }
+    .box .subheader i { display: none; }
+}
+
 @media only screen and (min-width: 40em) {
     #main-container {
-        padding: 2rem !important;
+        /*padding: 2rem !important;*/
+        padding: 0;
     }
 }
 @media only screen and (min-width: 75em) {
     #main-container {
-        padding: 2rem 3rem !important;
+        /*padding: 2rem 3rem !important;*/
+        padding: 0;
     }
 }
 
@@ -50,6 +79,10 @@ pre { font-size: 14px !important; }
 pre code {
     background-color: inherit;
     border: none;
+}
+
+.tab-contents.box {
+    margin-top: 0;
 }
 
 .tabs.documentation {
@@ -74,22 +107,23 @@ pre code {
     border-right: 1px solid #cecece;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
     margin-left: 8px;
+    line-height: 1.6;
 }
 
 .tabs.documentation .tab-item.doctab {
     position: absolute;
     right: 8px;
+    background: #3fa2d8;
+    color: #fff;
 }
 
-.tabs.documentation .tab-item.is-active, .tabs.documentation .tab-item.is-active:hover {
+.tabs.documentation .tab-item.is-active,
+.tabs.documentation .tab-item.is-active:hover {
     background: #fff;
 }
-
-.documentation-contents {
-    min-height: 300px;
+.tabs.documentation .tab-item.is-active.doctab {
+    color: inherit;
 }
 
 table.attributes th, table.api-info th {
