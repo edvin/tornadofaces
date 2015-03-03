@@ -6,7 +6,9 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>Datadriven Block List</h1>
+        <div class="box">
+        <h1 class="subheader">Datadriven Block List</h1>
+        <div>
 
         <p>#{docsController.tag.description}</p>
 
@@ -16,7 +18,8 @@
 
         <p>The <code>li</code> tag takes an optional <code>chrevron</code> attribute to render a chrevron to the right of the element, a <code>title</code> to render as a list item header, and also a <code>link</code> attribute that will wrap the children of the li in an anchor with href to the attribute value.</p>
 
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+        </div></div>
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="list.xhtml">
 <pre class="line-numbers"><code class="language-markup">
 &lt;h:inputText pt:placeholder="Search" id=search/>

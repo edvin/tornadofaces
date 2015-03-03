@@ -6,20 +6,21 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>Modal</h1>
+        <div class="box">
+            <h1 class="subheader">Modal</h1>
 
-        <p>#{docsController.tag.description}</p>
+            <div>
+                <p>#{docsController.tag.description}</p>
 
-        <p>You can also manipulate the modal from JavaScript via the <code>widgetVar</code> name to open and close the modal.</p>
+                <p>You can also manipulate the modal from JavaScript via the
+                    <code>widgetVar</code> name to open and close the modal.</p>
 
-        <p>Any button with <code>class=close</code> will close the modal when triggered.</p>
-
-        <hr/>
-        <ui:include src="modal.xhtml"/>
-
-        <br/>
-
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+                <p>Any button with <code>class=close</code> will close the modal when triggered.</p>
+                <ui:include src="modal.xhtml"/>
+            </div>
+        </div>
+        
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="modal.xhtml">
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:modal title="Modal window" widgetVar="mymodal" id="mymodal">

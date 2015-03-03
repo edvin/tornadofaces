@@ -6,15 +6,22 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>Action Sheet</h1>
+        <div class="box">
+            <h1 class="subheader">Action Sheet</h1>
 
-        <p>#{docsController.tag.description}</p>
+            <div>
+                <p>#{docsController.tag.description}</p>
 
-        <ui:include src="actionsheet.xhtml"/>
+                <ui:include src="actionsheet.xhtml"/>
 
-        <p><strong>Tip:</strong> Make sure the container you're in allows overflow to be shown, in case your Action Sheet is located towards the bottom of the container. (This may also be the case horizontally).</p>
+                <p>
+                    <strong>Tip:</strong> Make sure the container you're in allows overflow to be shown, in case your Action Sheet is located towards the bottom of the container. (This may also be the case horizontally).
+                </p>
 
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+            </div>
+        </div>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:actionsheet title="I'm an Action Sheet" description="Please make a choice">

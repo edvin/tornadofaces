@@ -7,13 +7,16 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>JSON Data Loader</h1>
+        <div class="box">
+            <h1 class="subheader">JSON Data Loader</h1>
 
-        <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
+            <div>
+                <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
+                <ui:include src="data.xhtml"/>
+            </div>
+        </div>
 
-        <ui:include src="data.xhtml"/>
-
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="data.xhtml">
 <pre class="line-numbers"><code class="language-markup">
 &lt;!-- JavaScript method that can render movie titles as li tags -->

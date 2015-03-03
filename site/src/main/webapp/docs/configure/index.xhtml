@@ -6,21 +6,25 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>Configure</h1>
+        <div class="box">
+            <h1 class="subheader">Configure</h1>
 
-        <p>#{docsController.tag.description}</p>
+            <div>
+                <p>#{docsController.tag.description}</p>
 
-        <p>This approach keeps your markup and your business logic separate, which often becomes a concern
-            with JSF components that have a large feature set and many configuration options.</p>
+                <p>This approach keeps your markup and your business logic separate, which often becomes a concern
+                    with JSF components that have a large feature set and many configuration options.</p>
 
-        <t:slider min="0" max="100" step="1" lower="20" connect="lower" title="My product"/>
-        <br/>
+                <t:slider min="0" max="100" step="1" lower="20" connect="lower" title="My product"/>
+                <br/>
 
-        <p>The example shows how you can configure a fictive product slider with values from the product itself
-        without cluttering the markup, while making it easy to perform advanced logic to determine the configuration
-        of the slider in a typesafe, familiar manner.</p>
+                <p>The example shows how you can configure a fictive product slider with values from the product itself
+                    without cluttering the markup, while making it easy to perform advanced logic to determine the configuration
+                    of the slider in a typesafe, familiar manner.</p>
+            </div>
+        </div>
 
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Markup and Java Code">
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:slider data=#{docsController.expr('product')}>

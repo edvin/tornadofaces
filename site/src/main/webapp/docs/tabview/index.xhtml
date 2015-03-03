@@ -6,25 +6,31 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>TabView</h1>
+        <div class="box">
+            <h1 class="subheader">TabView</h1>
 
-        <p>#{docsController.tag.description} The markup and default CSS is
-        minimal, making it easy to style and adapt to your spesific need.</p>
-        <hr/>
-        <h4>Basic</h4>
-        <ui:include src="basic.xhtml"/>
+            <div>
+                <p>#{docsController.tag.description} The markup and default CSS is
+                    minimal, making it easy to style and adapt to your spesific need.</p>
+                <hr/>
+                <h4>Basic</h4>
+                <ui:include src="basic.xhtml"/>
 
-        <br/>
-        <h4>AJAX Loading, Custom CSS</h4>
-        <ui:include src="advanced.xhtml"/>
+                <br/>
+                <h4>AJAX Loading, Custom CSS</h4>
+                <ui:include src="advanced.xhtml"/>
 
-        <br/>
-        <p>Infact, the documentation TabView below is another example of CSS styling.</p>
+                <br/>
 
-        <p>See <a href="../tab">Tab</a> for documentation of item attributes.</p>
+                <p>Infact, the documentation TabView below is another example of CSS styling.</p>
 
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
-            <t:tab title="accordion.xhtml">
+                <p>See <a href="../tab">Tab</a> for documentation of item attributes.</p>
+
+            </div>
+        </div>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
+            <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:tabView>
     &lt;t:tab title="Star Wars: Episode I - The Phantom Menace">
@@ -36,10 +42,9 @@
     &lt;t:tab title="Star Wars: Episode III - Revenge of the Sith">
         As the Clone Wars near an end...
     &lt;/t:tab>
-&lt;/t:tabView></code></pre>
-            </t:tab>
-            <t:tab title="advanced.xhtml">
-<pre class="line-numbers"><code class="language-markup">
+&lt;/t:tabView>
+   
+&lt;!-- Advanced -->
 &lt;t:tabView dynamic="true" styleClass="advancedTabView" contentsStyleClass="advancedTabViewContent">
     &lt;t:tab title="Star Wars: Episode I - The Phantom Menace">
         Two Jedi Knights escape a hostile blockade...
@@ -52,7 +57,7 @@
     &lt;/t:tab>
 &lt;/t:tabView></code></pre>
             </t:tab>
-            <t:tab title="styles.css">
+            <t:tab title="CSS">
 <pre class="line-numbers"><code class="language-css">
 .tabs.advancedTabView .tab-item {
     border-top-left-radius: 10px;

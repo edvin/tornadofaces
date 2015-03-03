@@ -7,15 +7,17 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>Flip Panel</h1>
+        <div class="box">
+            <h1 class="subheader">Flip Panel</h1>
 
-        <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
-
-        <hr/>
+            <div>
+                <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
+            </div>
+        </div>
 
         <ui:include src="flip-panel.xhtml"/>
 
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:flip-panel widgetVar="myPanel">

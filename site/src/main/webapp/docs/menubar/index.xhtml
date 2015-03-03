@@ -7,19 +7,20 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>UL and MenuBar</h1>
+        <div class="box">
+        <h1 class="subheader">UL and MenuBar</h1>
+        <div>
 
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
         <p>The ul expects <code>li</code> elements with nested <code>a</code> anchors as children. You can use a normal <code>li</code> tag or the TornadoFaces <code>&lt;t:li&gt;</code> tag for additional functionality, including automatically creating the wrapped <code>a</code> via the <code>link</code> attribute and automatically adding active-state.</p>
         <p>For a data driven alternative, see <a href="../list">List</a>.</p>
-        <hr/>
 
         <ui:include src="menubar.xhtml"/>
 
-        <br/>
+        </div></div>
         
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="menubar.xhtml">
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:ul menuBar="true" color="primary">

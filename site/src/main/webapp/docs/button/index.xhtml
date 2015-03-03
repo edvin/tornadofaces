@@ -6,7 +6,9 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>Button</h1>
+        <div class="box">
+        <h1 class="subheader">Button</h1>
+        <div>
 
         <p>#{docsController.tag.description}</p>
 
@@ -14,8 +16,8 @@
         
         <ui:include src="button.xhtml"/>
         <br/>
-        
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+        </div></div>
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">
 &lt;h4>Command Buttons&lt;/h4>

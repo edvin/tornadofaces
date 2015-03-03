@@ -6,7 +6,9 @@
     </f:metadata>
 
     <ui:define name="content">
-        <h1>Date Picker</h1>
+        <div class="box">
+        <h1 class="subheader">Date Picker</h1>
+        <div>
 
         <p>#{docsController.tag.description}</p>
 
@@ -14,9 +16,9 @@
         
         <ui:include src="datepicker.xhtml"/>
         
-        <br/>
+        </div></div>
         
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents">
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">
 &lt;t:datepicker id="mypicker" format="YYYY-MM-DD" value="#{docsController.expr('controller.date')}">
