@@ -54,64 +54,61 @@
             <f:facet name="right">Right</f:facet>
         </t:modal>
 
-        <div class="grid-frame vertical">
-            <div class="grid-block">
-                <t:grid-container>
-                    
-                </t:grid-container>
-                <div id="left-menu-container" class="medium-grid-block panel panel-left medium-3 bounceInOut">
-                    <a class="menu-toggle close-button hide-for-medium">x</a>
-                    <div class="grid-content" style="padding-top: 1.2rem">
-                        <input class="show-for-medium" type="text" placeholder="Search" onkeyup="searchComponents(this)"/>
-                        <ui:param name="path" value="#{view.viewId}"/>
-                        <t:ul menuBar="true" orientation="vertical" id="left-menu" color="dark">
-                            <t:li title="true">General</t:li>
-                            <t:li link="/docs/index.xhtml">Introduction</t:li>
-                            <t:li link="/docs/theme/">Themes</t:li>
-                            <t:li link="/docs/icons/">Icons</t:li>
-                            <t:li title="true">Components</t:li>
-                            <t:li link="/docs/accordion/">Accordion</t:li>
-                            <t:li link="/docs/tabview/">TabView</t:li>
-                            <t:li link="/docs/tab/">Tab</t:li>
-                            <t:li link="/docs/button/">Button</t:li>
-                            <t:li link="/docs/form-element/">Form Element</t:li>
-                            <t:li link="/docs/list/">List</t:li>
-                            <t:li link="/docs/li/">List Item</t:li>
-                            <t:li link="/docs/slider/">Slider</t:li>
-                            <t:li link="/docs/datepicker/">Date Picker</t:li>
-                            <t:li link="/docs/switch/">Switch</t:li>
-                            <t:li link="/docs/menubar/">Menu Bar</t:li>
-                            <t:li link="/docs/breadcrumb/">Breadcrumb Bar</t:li>
-                            <t:li link="/docs/titlebar/">Title Bar</t:li>
-                            <t:li link="/docs/card/">Card</t:li>
-                            <t:li link="/docs/flip-panel/">Flip Panel</t:li>
-                            <t:li link="/docs/modal/">Modal</t:li>
-                            <t:li link="/docs/panel/">Panel</t:li>
-                            <t:li link="/docs/actionsheet/">Action Sheet</t:li>
-                            <t:li link="/docs/notification/">Notification</t:li>
-                            <t:li link="/docs/message/">Message</t:li>
-                            <t:li title="true">Helpers</t:li>
-                            <t:li link="/docs/configure/">Configure</t:li>
-                            <t:li link="/docs/gid/">Global Ids</t:li>
-                            <t:li link="/docs/data/">Data</t:li>
+        <div class="grid-frame">
+            <div id="left-menu-container" class="medium-grid-block panel panel-left medium-3 bounceInOut">
+                <a class="menu-toggle close-button hide-for-medium">x</a>
+                <div class="grid-content" style="padding-top: 1.2rem">
+                    <input class="show-for-medium" type="text" placeholder="Search" onkeyup="searchComponents(this)"/>
+                    <ui:param name="path" value="#{view.viewId}"/>
+                    <t:ul menuBar="true" orientation="vertical" id="left-menu" color="dark">
+                        <t:li title="true">General</t:li>
+                        <t:li link="/docs/index.xhtml">Introduction</t:li>
+                        <t:li link="/docs/theme/">Themes</t:li>
+                        <t:li link="/docs/icons/">Icons</t:li>
+                        <t:li title="true">Components</t:li>
+                        <t:li link="/docs/accordion/">Accordion</t:li>
+                        <t:li link="/docs/tabview/">TabView</t:li>
+                        <t:li link="/docs/tab/">Tab</t:li>
+                        <t:li link="/docs/button/">Button</t:li>
+                        <t:li link="/docs/form-element/">Form Element</t:li>
+                        <t:li link="/docs/list/">List</t:li>
+                        <t:li link="/docs/li/">List Item</t:li>
+                        <t:li link="/docs/slider/">Slider</t:li>
+                        <t:li link="/docs/datepicker/">Date Picker</t:li>
+                        <t:li link="/docs/switch/">Switch</t:li>
+                        <t:li link="/docs/menubar/">Menu Bar</t:li>
+                        <t:li link="/docs/breadcrumb/">Breadcrumb Bar</t:li>
+                        <t:li link="/docs/titlebar/">Title Bar</t:li>
+                        <t:li link="/docs/card/">Card</t:li>
+                        <t:li link="/docs/flip-panel/">Flip Panel</t:li>
+                        <t:li link="/docs/modal/">Modal</t:li>
+                        <t:li link="/docs/panel/">Panel</t:li>
+                        <t:li link="/docs/actionsheet/">Action Sheet</t:li>
+                        <t:li link="/docs/notification/">Notification</t:li>
+                        <t:li link="/docs/message/">Message</t:li>
+                        <t:li title="true">Helpers</t:li>
+                        <t:li link="/docs/configure/">Configure</t:li>
+                        <t:li link="/docs/gid/">Global Ids</t:li>
+                        <t:li link="/docs/data/">Data</t:li>
+                    </t:ul>
+                </div>
+            </div>
+            <div id="main-container">
+                <div id="header" class="menu-group dark">
+                    <div class="menu-group-left grid-block">
+                        <i class="menu-toggle icon-navigation hide-for-medium"></i>
+                        <h1 class="grid-block"><a href="/">TornadoFaces</a></h1>
+                    </div>
+                    <div class="menu-group-right">
+                        <t:ul menuBar="true" id="quick-links">
+                            <li><a href="http://github.com/edvin/tornadofaces/issues"><i class="icon-list-fill"></i><span class="show-for-medium">Issues</span></a></li>
+                            <li><a href="http://github.com/edvin/tornadofaces"><i class="icon-github-alt"></i><span class="show-for-medium">GitHub</span></a></li>
                         </t:ul>
                     </div>
                 </div>
-                <div id="main-container">
-                    <div id="header" class="menu-group dark">
-                        <div class="menu-group-left grid-block">
-                            <i class="menu-toggle icon-navigation hide-for-medium"></i>
-                            <h1 class="grid-block"><a href="/">TornadoFaces</a></h1>
-                        </div>
-                        <div class="menu-group-right">
-                            <t:ul menuBar="true" id="quick-links">
-                                <li><a href="http://github.com/edvin/tornadofaces/issues"><i class="icon-list-fill"></i><span class="show-for-medium">Issues</span></a></li>
-                                <li><a href="http://github.com/edvin/tornadofaces"><i class="icon-github-alt"></i><span class="show-for-medium">GitHub</span></a></li>
-                            </t:ul>
-                        </div>
-                    </div>
+                <main>
                     <ui:insert name="content"/>
-                </div>
+                </main>
             </div>
         </div>
     </h:body>
