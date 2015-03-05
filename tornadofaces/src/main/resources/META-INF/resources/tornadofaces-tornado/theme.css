@@ -7256,6 +7256,36 @@ form label {
   overflow: hidden;
   text-indent: 100%; }
 
+.padding-small {
+  padding: 0.5rem; }
+
+.padding-large {
+  padding: 1.5rem; }
+
+.pad-children {
+  margin-left: -1rem; }
+  .pad-children > * {
+    padding-left: 1rem;
+    padding-bottom: 1rem; }
+
+.pad-children-small {
+  margin-left: -0.5rem; }
+  .pad-children-small > * {
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem; }
+
+.pad-children-medium {
+  margin-left: -0.66667rem; }
+  .pad-children-medium > * {
+    padding-left: 0.66667rem;
+    padding-bottom: 0.66667rem; }
+
+.pad-children-large {
+  margin-left: -1.5rem; }
+  .pad-children-large > * {
+    padding-left: 1.5rem;
+    padding-bottom: 1.5rem; }
+
 
 
 /*# sourceMappingURL=theme.css.map.xhtml?ln=tornadofaces-tornado */
