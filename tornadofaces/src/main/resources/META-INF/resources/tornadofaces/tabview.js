@@ -14,7 +14,7 @@ TornadoFaces.declareWidget('TabView', function() {
     };
 
     this.hasTabChangeBehavior = function() {
-        return widget.conf.behaviors && widget.conf.behaviors.tabChange;
+        return widget.hasBehaviors() && widget.conf.behaviors.tabChange;
     };
 
     this.getActiveIndexes = function() {
@@ -74,10 +74,10 @@ TornadoFaces.declareWidget('TabView', function() {
             var content = item.children('.tab-contents:first');
 
             // Cached content, just show
-            if (widget.isCache() && widget.isContentCached(itemIndex)) {
+            if (!widget.hasBehaviors() && widget.isCache() && widget.isContentCached(itemIndex)) {
                 widget.setActiveState(item);
             } else {
-                // We need to load content
+                // We need to load content and fire events
                 var tabViewId = widget.elem.attr('id');
                 var contentId = $(widget.contentElem.children()[itemIndex]).attr('id');
 
@@ -100,6 +100,9 @@ TornadoFaces.declareWidget('TabView', function() {
                     props['javax.faces.behavior.event'] = 'tabChange';
                     props[widget.elem.attr('id') + '_newTab'] = contentId;
                 }
+                
+                
+                
 
                 props[widget.elem.attr('id') + '_active'] = itemIndex;
 

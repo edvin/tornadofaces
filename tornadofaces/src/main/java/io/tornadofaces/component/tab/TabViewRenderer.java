@@ -16,7 +16,7 @@ import java.io.IOException;
 import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
 
 @FacesRenderer(rendererType = TabViewRenderer.RENDERER_TYPE, componentFamily = "io.tornadofaces.component")
-public class TabViewRenderer extends Renderer {
+public class TabViewRenderer extends TabParentRenderer {
 	public static final String RENDERER_TYPE = "io.tornadofaces.component.TabViewRenderer";
 
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
@@ -58,6 +58,9 @@ public class TabViewRenderer extends Renderer {
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 
+		UIForm stateholder = (UIForm) component.getChildren().get(0);
+		stateholder.encodeAll(context);
+
 		TabView tabView = (TabView) component;
 
 		writer.endElement("div");
@@ -77,13 +80,8 @@ public class TabViewRenderer extends Renderer {
 			.attr("cache", tabView.isCache())
 			.attr("autoOpen", tabView.isAutoOpen());
 
-		JSONArray tabChange = encodeAjaxBehaviors(context, "tabChange", tabView);
-		if (tabChange != null) {
-			JSONObject behaviors = new JSONObject();
-			behaviors.put("tabChange", tabChange);
-			builder.nativeAttr("behaviors", behaviors.toString());
-		}
-
+		addBehaviors(builder);
+		
 		builder.callback("onItemChange", "function(item)", tabView.getOnItemChange())
 			.finish();
 	}

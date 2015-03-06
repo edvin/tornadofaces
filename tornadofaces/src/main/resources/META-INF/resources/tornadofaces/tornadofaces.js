@@ -165,6 +165,10 @@ TornadoFaces.widget.BaseWidget = Class.extend(function() {
     this.removeScriptElement = function(clientId) {
         $(TornadoFaces.escapeClientId(clientId) + '_s').remove();
     };
+    
+    this.hasBehaviors = function() {
+        return widget.conf.behaviors;
+    }
 });
 
 TW = function(widgetName) {

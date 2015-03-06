@@ -240,4 +240,12 @@ public class WidgetBuilder {
 
         output.endElement("script");
     }
+
+	public Widget getWidget() {
+		return widget;
+	}
+
+	public FacesContext getContext() {
+		return context;
+	}
 }

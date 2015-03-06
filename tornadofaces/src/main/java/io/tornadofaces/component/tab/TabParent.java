@@ -7,6 +7,7 @@ import io.tornadofaces.event.TabChangeEvent;
 
 import javax.faces.component.NamingContainer;
 import javax.faces.component.UIComponent;
+import javax.faces.component.UIForm;
 import javax.faces.component.UIPanel;
 import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.component.behavior.ClientBehaviorHolder;
@@ -30,12 +31,18 @@ public abstract class TabParent extends UIPanel implements Widget, ClientBehavio
 		return ComponentUtils.COMPONENT_FAMILY;
 	}
 
+	public TabParent() {
+		UIForm stateholder = new UIForm();
+		stateholder.setId("stateholder");
+		getChildren().add(stateholder);
+	}
+	
 	public abstract String getTabRendererType();
 
 	public Tab getTabWithIndex(Integer index) {
 		return (Tab) getChildren().stream()
 			.filter(c -> c instanceof Tab)
-			.skip(index - 1)
+			.skip(index)
 			.findAny().orElse(null);
 	}
 	
@@ -95,16 +102,17 @@ public abstract class TabParent extends UIPanel implements Widget, ClientBehavio
 			String clientId = this.getClientId(context);
 			AjaxBehaviorEvent behaviorEvent = (AjaxBehaviorEvent) event;
 
-			if (eventName.equals("tabChange")) {
-				String tabClientId = params.get(clientId + "_newTab");
-				Tab tab = findTab(tabClientId);
+			String activeIndex = params.get(clientId + "_active");
+			Tab tab = activeIndex != null ? getTabWithIndex(Integer.valueOf(activeIndex)) : null;
 
-				// Queue tabChange event
+			if (eventName.equals("tabChange")) {
 				TabChangeEvent changeEvent = new TabChangeEvent(this, behaviorEvent.getBehavior(), tab);
 				changeEvent.setPhaseId(behaviorEvent.getPhaseId());
 				super.queueEvent(changeEvent);
+			}
 
-				// Queue active event for tab
+			// Queue activate event for tab
+			if (tab != null) {
 				List<ClientBehavior> activateBehaviors = tab.getClientBehaviors().get("activate");
 				if (activateBehaviors != null) {
 					for (ClientBehavior behavior : activateBehaviors) {
@@ -114,6 +122,7 @@ public abstract class TabParent extends UIPanel implements Widget, ClientBehavio
 					}
 				}
 			}
+
 		} else {
 			super.queueEvent(event);
 		}
