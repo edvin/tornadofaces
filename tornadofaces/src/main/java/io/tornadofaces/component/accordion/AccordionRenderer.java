@@ -1,7 +1,10 @@
 package io.tornadofaces.component.accordion;
 
+import io.tornadofaces.component.CoreRenderer;
 import io.tornadofaces.component.tab.Tab;
 import io.tornadofaces.component.util.StyleClass;
+import io.tornadofaces.json.JSONArray;
+import io.tornadofaces.json.JSONObject;
 import io.tornadofaces.util.WidgetBuilder;
 
 import javax.faces.component.UIComponent;
@@ -9,11 +12,12 @@ import javax.faces.component.UIForm;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
-import javax.faces.render.Renderer;
 import java.io.IOException;
 
+import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
+
 @FacesRenderer(rendererType = AccordionRenderer.RENDERER_TYPE, componentFamily = "io.tornadofaces.component")
-public class AccordionRenderer extends Renderer {
+public class AccordionRenderer extends CoreRenderer {
 	public static final String RENDERER_TYPE = "io.tornadofaces.component.AccordionRenderer";
 
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
@@ -75,21 +79,33 @@ public class AccordionRenderer extends Renderer {
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 
-		UIForm stateholder = (UIForm) component.getChildren().get(0);
-		stateholder.encodeAll(context);
+//		UIForm stateholder = (UIForm) component.getChildren().get(0);
+//		stateholder.encodeAll(context);
 
 		writer.endElement("div");
 
 		Accordion accordion = (Accordion) component;
-		new WidgetBuilder(context, accordion)
+		WidgetBuilder builder = new WidgetBuilder(context, accordion)
 			.init()
 			.attr("dynamic", accordion.isDynamic())
 			.attr("cache", accordion.isCache())
 			.attr("multi", accordion.isMulti())
 			.attr("collapsible", accordion.isCollapsible())
-			.attr("autoOpen", accordion.isAutoOpen())
-			.callback("onItemChange", "function(item)", accordion.getOnItemChange())
+			.attr("autoOpen", accordion.isAutoOpen());
+
+		JSONArray tabChange = encodeAjaxBehaviors(context, "tabChange", accordion);
+		if (tabChange != null) {
+			JSONObject behaviors = new JSONObject();
+			behaviors.put("tabChange", tabChange);
+			builder.nativeAttr("behaviors", behaviors.toString());
+		}
+
+		builder.callback("onTabChange", "function(tab)", accordion.getOnItemChange())
 			.finish();
+	}
+
+	public void decode(FacesContext context, UIComponent component) {
+		decodeBehaviors(context, component);
 	}
 
 }

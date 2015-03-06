@@ -717,7 +717,7 @@
         </attribute>
         <attribute>
             <description>JavaScript callback to be executed when a user opens an item.</description>
-            <name>onItemChange</name>
+            <name>onTabChange</name>
             <required>false</required>
             <type>String</type>
         </attribute>

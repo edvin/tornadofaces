@@ -1,7 +1,10 @@
 package io.tornadofaces.site.docs;
 
+import io.tornadofaces.component.accordion.Accordion;
+import io.tornadofaces.component.tab.Tab;
 import io.tornadofaces.event.FlipPanelEvent;
 import io.tornadofaces.event.SwitchEvent;
+import io.tornadofaces.event.TabChangeEvent;
 import io.tornadofaces.site.taglib.Tag;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +30,16 @@ public class DocsController {
 	@Getter private Tag tag;
 	@Getter private List<Movie> movies;
 	@Getter @Setter Integer lower = 15;
+	
+	public void onTabChange(AjaxBehaviorEvent e) {
+		TabChangeEvent event = (TabChangeEvent) e;
+		Accordion accordion = (Accordion) event.getSource();
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(SEVERITY_WARN, "Tab changed", "Active: " + accordion.getActiveIndex()));
+	}
+	
+	public void episodeTwoActivated(AjaxBehaviorEvent e) {
+		System.out.println("Episode two activated!");
+	}
 	
 	public void onFlip(AjaxBehaviorEvent e) {
 		FlipPanelEvent event = (FlipPanelEvent) e;

@@ -2,17 +2,26 @@ package io.tornadofaces.component.tab;
 
 import io.tornadofaces.component.api.Widget;
 import io.tornadofaces.component.util.ComponentUtils;
+import io.tornadofaces.component.util.Constants;
+import io.tornadofaces.event.TabChangeEvent;
 
 import javax.faces.component.NamingContainer;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIPanel;
+import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.event.FacesEvent;
 import javax.faces.model.DataModel;
+import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 import static io.tornadofaces.component.util.ComponentUtils.getRequestParam;
+import static io.tornadofaces.component.util.ComponentUtils.isRequestSource;
 
 public abstract class TabParent extends UIPanel implements Widget, ClientBehaviorHolder, NamingContainer {
 	public static final String TAB_CHANGE_EVENT = "tabChange";
@@ -23,6 +32,13 @@ public abstract class TabParent extends UIPanel implements Widget, ClientBehavio
 
 	public abstract String getTabRendererType();
 
+	public Tab getTabWithIndex(Integer index) {
+		return (Tab) getChildren().stream()
+			.filter(c -> c instanceof Tab)
+			.skip(index - 1)
+			.findAny().orElse(null);
+	}
+	
 	public Integer getTabIndex(Tab tab) {
 		int i = 0;
 		for (UIComponent child : getChildren()) {
@@ -70,58 +86,45 @@ public abstract class TabParent extends UIPanel implements Widget, ClientBehavio
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 	public void setDynamic(Boolean dynamic) { getStateHelper().put(Attributes.dynamic, dynamic); }
 
-//	public void decode(FacesContext context) {
-//		Map<String, String> params = context.getExternalContext().getRequestParameterMap();
-//
-//		String event = params.get("javax.faces.behavior.event");
-//
-//		if (event != null) {
-//			if ("tabChange".equals(event)) {
-//				String behaviorSource = params.get("javax.faces.source");
-//				Tab newTab = (Tab) findComponent(behaviorSource);
-//				int newIndex = getTabIndex(newTab);
-//				setActiveIndex(String.valueOf(newIndex));
-//			}
-//
-//			List<ClientBehavior> behaviors = getClientBehaviors().get(event);
-//			if (behaviors != null)
-//				for (ClientBehavior behavior : behaviors)
-//					behavior.decode(context, this);
-//		}
-//	}
+	public void queueEvent(FacesEvent event) {
+		FacesContext context = getFacesContext();
 
+		if (isRequestSource(context, this) && event instanceof AjaxBehaviorEvent) {
+			Map<String, String> params = context.getExternalContext().getRequestParameterMap();
+			String eventName = params.get(Constants.RequestParams.PARTIAL_BEHAVIOR_EVENT_PARAM);
+			String clientId = this.getClientId(context);
+			AjaxBehaviorEvent behaviorEvent = (AjaxBehaviorEvent) event;
 
-//	public Integer getTabContentRequestIndex(FacesContext context) {
-//		String v = getRequestParam(context, getClientId(context) + "_active");
-//		return v == null ? null : Integer.valueOf(v);
-//	}
-//
-//	public Boolean isTabContentRequest(FacesContext context) {
-//		return getTabContentRequestIndex(context) != null;
-//	}
+			if (eventName.equals("tabChange")) {
+				String tabClientId = params.get(clientId + "_newTab");
+				Tab tab = findTab(tabClientId);
 
-//	public String getContainerClientId(FacesContext context) {
-//		if(this.isRepeating()) {
-//			String clientId = super.getContainerClientId(context);
-//
-//			int index = getIndex();
-//			System.out.println("Index is " + index);
-//			if (index == -1)
-//				return clientId;
-//
-//			return clientId + UINamingContainer.getSeparatorChar(context) + index;
-//		}
-//		else {
-//			UIComponent parent = this.getParent();
-//			while (parent != null) {
-//				if (parent instanceof NamingContainer) {
-//					return parent.getContainerClientId(context);
-//				}
-//				parent = parent.getParent();
-//			}
-//
-//			return null;
-//		}
-//	}
+				// Queue tabChange event
+				TabChangeEvent changeEvent = new TabChangeEvent(this, behaviorEvent.getBehavior(), tab);
+				changeEvent.setPhaseId(behaviorEvent.getPhaseId());
+				super.queueEvent(changeEvent);
 
+				// Queue active event for tab
+				List<ClientBehavior> activateBehaviors = tab.getClientBehaviors().get("activate");
+				if (activateBehaviors != null) {
+					for (ClientBehavior behavior : activateBehaviors) {
+						AjaxBehaviorEvent action = new AjaxBehaviorEvent(tab, behavior);
+						action.setPhaseId(behaviorEvent.getPhaseId());
+						super.queueEvent(action);
+					}
+				}
+			}
+		} else {
+			super.queueEvent(event);
+		}
+	}
+
+	public Tab findTab(String tabClientId) {
+		for (UIComponent component : getChildren()) {
+			if (component.getClientId().equals(tabClientId))
+				return (Tab) component;
+		}
+
+		return null;
+	}
 }

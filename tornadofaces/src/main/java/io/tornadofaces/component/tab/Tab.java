@@ -6,14 +6,17 @@ import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIPanel;
 import javax.faces.component.UIViewRoot;
-import javax.faces.context.FacesContext;
-import javax.faces.event.*;
+import javax.faces.component.behavior.ClientBehaviorHolder;
+import javax.faces.event.ListenerFor;
+import javax.faces.event.PostAddToViewEvent;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @ListenerFor(systemEventClass = PostAddToViewEvent.class, sourceClass = UIViewRoot.class)
 @FacesComponent(value = Tab.COMPONENT_TYPE, createTag = true, tagName = "tab", namespace = "http://tornadofaces.io/ui")
-public class Tab extends UIPanel {
+public class Tab extends UIPanel implements ClientBehaviorHolder {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Tab";
 
 	public enum PropertyKeys { styleClass, title, loaded }
@@ -42,6 +45,14 @@ public class Tab extends UIPanel {
 		return activeIndexes.contains(String.valueOf(index));
 	}
 
+	public String getDefaultEventName() {
+		return "activate";
+	}
+
+	public Collection<String> getEventNames() {
+		return Collections.singletonList(getDefaultEventName());
+	}
+
 	public String toString() {
 		return getTitle();
 	}
@@ -52,8 +63,4 @@ public class Tab extends UIPanel {
 	public void setTitle(String title) { getStateHelper().put(PropertyKeys.title, title); }
 	public String getIcon() { return (String) getStateHelper().eval("icon"); }
 	public void setIcon(String icon) { getStateHelper().put("icon", icon); }
-
-	public TabParent getTabParent() {
-		return (TabParent) getParent();
-	}
 }

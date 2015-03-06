@@ -40,6 +40,10 @@ TornadoFaces.declareWidget('Accordion', function() {
         return widget.conf.multi === true;
     };
 
+    this.hasTabChangeBehavior = function() {
+        return widget.conf.behaviors && widget.conf.behaviors.tabChange;
+    };
+    
     this.setActiveState = function(item) {
         // Remove other active contents
         if(!widget.isMulti()) {
@@ -58,8 +62,8 @@ TornadoFaces.declareWidget('Accordion', function() {
         }});
 
         // Call change listener
-        if (widget.conf.onItemChange)
-            widget.conf.onItemChange(item);
+        if (widget.conf.onTabChange)
+            widget.conf.onTabChange(item);
     };
 
     this.select = function(itemIndex) {
@@ -72,7 +76,7 @@ TornadoFaces.declareWidget('Accordion', function() {
                 var contentId = content.attr('id');
 
                 // Cached content, just show
-                if (widget.isCache() && widget.isContentCached(itemIndex)) {
+                if (!widget.hasTabChangeBehavior() || (widget.isCache() && widget.isContentCached(itemIndex))) {
                     widget.setActiveState(item);
                 } else {
                     // We need to load content
@@ -80,12 +84,27 @@ TornadoFaces.declareWidget('Accordion', function() {
                     spinner.appendTo(item.find('.accordion-title'));
 
                     var accId = widget.elem.attr('id');
-                    var stateholderId = accId + ':stateholder';
+                    //var stateholderId = accId + ':stateholder';
 
                     var props = {
                         execute: accId,
                         render: contentId
                     };
+
+                    if (widget.hasTabChangeBehavior()) {
+                        var behaviors = widget.conf.behaviors.tabChange;
+
+                        for (var i = 0; i < behaviors.length; i++) {
+                            var b = behaviors[i];
+                            if (b.render)
+                                props.render = (props.render + " " + b.render).trim();
+                            if (b.execute)
+                                props.execute = (props.execute + " " + b.execute).trim();
+                        }
+
+                        props['javax.faces.behavior.event'] = 'tabChange';
+                        props[widget.elem.attr('id') + '_newTab'] = contentId;
+                    }
 
                     props[widget.elem.attr('id') + '_active'] = itemIndex;
 
@@ -101,7 +120,7 @@ TornadoFaces.declareWidget('Accordion', function() {
                         }
                     };
 
-                    jsf.ajax.request(stateholderId, null, props);
+                    jsf.ajax.request(widget.elem.attr('id'), null, props);
                 }
             } else {
                 // Element already rendered with pageload, just show
