@@ -1,6 +1,8 @@
 package io.tornadofaces.component.tab;
 
 import io.tornadofaces.component.util.StyleClass;
+import io.tornadofaces.json.JSONArray;
+import io.tornadofaces.json.JSONObject;
 import io.tornadofaces.util.WidgetBuilder;
 
 import javax.faces.component.UIComponent;
@@ -10,6 +12,8 @@ import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
 import javax.faces.render.Renderer;
 import java.io.IOException;
+
+import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
 
 @FacesRenderer(rendererType = TabViewRenderer.RENDERER_TYPE, componentFamily = "io.tornadofaces.component")
 public class TabViewRenderer extends Renderer {
@@ -45,7 +49,7 @@ public class TabViewRenderer extends Renderer {
 					titleFacet.encodeAll(context);
 				else
 					writer.writeText(tab.getTitle(), null);
-				
+
 				writer.endElement("div");
 			}
 		}
@@ -55,9 +59,6 @@ public class TabViewRenderer extends Renderer {
 		ResponseWriter writer = context.getResponseWriter();
 
 		TabView tabView = (TabView) component;
-
-		UIForm stateholder = (UIForm) component.getChildren().get(0);
-		stateholder.encodeAll(context);
 
 		writer.endElement("div");
 
@@ -70,14 +71,21 @@ public class TabViewRenderer extends Renderer {
 
 		writer.endElement("div");
 
-		new WidgetBuilder(context, tabView)
+		WidgetBuilder builder = new WidgetBuilder(context, tabView)
 			.init()
 			.attr("dynamic", tabView.isDynamic())
 			.attr("cache", tabView.isCache())
-			.attr("autoOpen", tabView.isAutoOpen())
-			.callback("onItemChange", "function(item)", tabView.getOnItemChange())
-			.finish();
+			.attr("autoOpen", tabView.isAutoOpen());
 
+		JSONArray tabChange = encodeAjaxBehaviors(context, "tabChange", tabView);
+		if (tabChange != null) {
+			JSONObject behaviors = new JSONObject();
+			behaviors.put("tabChange", tabChange);
+			builder.nativeAttr("behaviors", behaviors.toString());
+		}
+
+		builder.callback("onItemChange", "function(item)", tabView.getOnItemChange())
+			.finish();
 	}
 
 	public boolean getRendersChildren() {

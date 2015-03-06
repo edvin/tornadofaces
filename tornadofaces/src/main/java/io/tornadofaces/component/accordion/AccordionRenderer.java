@@ -8,7 +8,6 @@ import io.tornadofaces.json.JSONObject;
 import io.tornadofaces.util.WidgetBuilder;
 
 import javax.faces.component.UIComponent;
-import javax.faces.component.UIForm;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
@@ -78,9 +77,6 @@ public class AccordionRenderer extends CoreRenderer {
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
-
-//		UIForm stateholder = (UIForm) component.getChildren().get(0);
-//		stateholder.encodeAll(context);
 
 		writer.endElement("div");
 

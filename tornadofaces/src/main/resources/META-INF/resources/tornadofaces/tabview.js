@@ -13,6 +13,10 @@ TornadoFaces.declareWidget('TabView', function() {
         widget.bindEvents();
     };
 
+    this.hasTabChangeBehavior = function() {
+        return widget.conf.behaviors && widget.conf.behaviors.tabChange;
+    };
+
     this.getActiveIndexes = function() {
         var activeIndexes = [];
         widget.items.filter('.is-active').each(function() {
@@ -75,13 +79,27 @@ TornadoFaces.declareWidget('TabView', function() {
             } else {
                 // We need to load content
                 var tabViewId = widget.elem.attr('id');
-                var stateholderId = tabViewId + ':stateholder';
                 var contentId = $(widget.contentElem.children()[itemIndex]).attr('id');
 
                 var props = {
                     execute: tabViewId,
                     render: contentId
                 };
+
+                if (widget.hasTabChangeBehavior()) {
+                    var behaviors = widget.conf.behaviors.tabChange;
+
+                    for (var i = 0; i < behaviors.length; i++) {
+                        var b = behaviors[i];
+                        if (b.render)
+                            props.render = (props.render + " " + b.render).trim();
+                        if (b.execute)
+                            props.execute = (props.execute + " " + b.execute).trim();
+                    }
+
+                    props['javax.faces.behavior.event'] = 'tabChange';
+                    props[widget.elem.attr('id') + '_newTab'] = contentId;
+                }
 
                 props[widget.elem.attr('id') + '_active'] = itemIndex;
 

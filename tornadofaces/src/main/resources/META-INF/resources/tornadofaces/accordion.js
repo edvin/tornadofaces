@@ -84,7 +84,6 @@ TornadoFaces.declareWidget('Accordion', function() {
                     spinner.appendTo(item.find('.accordion-title'));
 
                     var accId = widget.elem.attr('id');
-                    //var stateholderId = accId + ':stateholder';
 
                     var props = {
                         execute: accId,
