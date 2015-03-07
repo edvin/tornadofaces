@@ -263,6 +263,12 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Should this component be rendered?</description>
+            <name>render</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Prefix label that will be added as a span with class form-label before the input element
             </description>
             <name>prefix</name>

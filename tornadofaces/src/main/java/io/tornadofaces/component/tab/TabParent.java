@@ -110,30 +110,9 @@ public abstract class TabParent extends UIPanel implements Widget, ClientBehavio
 				changeEvent.setPhaseId(behaviorEvent.getPhaseId());
 				super.queueEvent(changeEvent);
 			}
-
-			// Queue activate event for tab
-			if (tab != null) {
-				List<ClientBehavior> activateBehaviors = tab.getClientBehaviors().get("activate");
-				if (activateBehaviors != null) {
-					for (ClientBehavior behavior : activateBehaviors) {
-						AjaxBehaviorEvent action = new AjaxBehaviorEvent(tab, behavior);
-						action.setPhaseId(behaviorEvent.getPhaseId());
-						super.queueEvent(action);
-					}
-				}
-			}
-
 		} else {
 			super.queueEvent(event);
 		}
 	}
 
-	public Tab findTab(String tabClientId) {
-		for (UIComponent component : getChildren()) {
-			if (component.getClientId().equals(tabClientId))
-				return (Tab) component;
-		}
-
-		return null;
-	}
 }

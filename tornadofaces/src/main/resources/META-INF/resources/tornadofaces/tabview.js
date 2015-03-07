@@ -100,9 +100,18 @@ TornadoFaces.declareWidget('TabView', function() {
                     props['javax.faces.behavior.event'] = 'tabChange';
                     props[widget.elem.attr('id') + '_newTab'] = contentId;
                 }
-                
-                
-                
+
+                var activateBehaviors = widget.conf.behaviors['activate_' + itemIndex];
+                if (activateBehaviors != null) {
+                    for (var i = 0; i < activateBehaviors.length; i++) {
+                        var b = activateBehaviors[i];
+                        if (b.render)
+                            props.render = (props.render + " " + b.render).trim();
+                        if (b.execute)
+                            props.execute = (props.execute + " " + b.execute).trim();
+                    }
+                    props['javax.faces.behavior.event'] = 'tabChange';
+                }
 
                 props[widget.elem.attr('id') + '_active'] = itemIndex;
 

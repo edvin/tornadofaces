@@ -167,7 +167,7 @@ TornadoFaces.widget.BaseWidget = Class.extend(function() {
     };
     
     this.hasBehaviors = function() {
-        return widget.conf.behaviors;
+        return this.conf.behaviors;
     }
 });
 

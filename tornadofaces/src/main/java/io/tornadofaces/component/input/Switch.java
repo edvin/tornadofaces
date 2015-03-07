@@ -33,7 +33,6 @@ public class Switch extends UIPanel implements Widget, ClientBehaviorHolder {
 		super();
 		setRendererType(SwitchRenderer.RENDERER_TYPE);
 		checkbox = new HtmlSelectBooleanCheckbox();
-		checkbox.setId("checkbox");
 		getChildren().add(checkbox);
 	}
 

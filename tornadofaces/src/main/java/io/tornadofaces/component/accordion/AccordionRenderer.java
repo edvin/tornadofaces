@@ -1,11 +1,8 @@
 package io.tornadofaces.component.accordion;
 
-import io.tornadofaces.component.CoreRenderer;
 import io.tornadofaces.component.tab.Tab;
 import io.tornadofaces.component.tab.TabParentRenderer;
 import io.tornadofaces.component.util.StyleClass;
-import io.tornadofaces.json.JSONArray;
-import io.tornadofaces.json.JSONObject;
 import io.tornadofaces.util.WidgetBuilder;
 
 import javax.faces.component.UIComponent;
@@ -14,8 +11,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
 import java.io.IOException;
-
-import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
 
 @FacesRenderer(rendererType = AccordionRenderer.RENDERER_TYPE, componentFamily = "io.tornadofaces.component")
 public class AccordionRenderer extends TabParentRenderer {
@@ -98,10 +93,6 @@ public class AccordionRenderer extends TabParentRenderer {
 		
 		builder.callback("onTabChange", "function(tab)", accordion.getOnItemChange())
 			.finish();
-	}
-
-	public void decode(FacesContext context, UIComponent component) {
-		decodeBehaviors(context, component);
 	}
 
 }

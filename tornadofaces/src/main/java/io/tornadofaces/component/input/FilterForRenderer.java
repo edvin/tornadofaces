@@ -35,7 +35,7 @@ public class FilterForRenderer extends CoreRenderer {
 		
 		String filterFn = "filter_" + widgetName;
 		writer.write("function " + filterFn + "() { TW('" + widgetName + "').filter($('" + targetId + "').val()); }\n");
-		writer.write("$(function() { " + filterFn + "(); $('" + targetId + "').on('keyup', " + filterFn + "); $('#" + scriptId + "').remove(); });");
+		writer.write("$(function() { " + filterFn + "(); $('" + targetId + "').on('keyup', " + filterFn + "); $('" + scriptId + "').remove(); });");
 		writer.endElement("script");
 	}
 }
