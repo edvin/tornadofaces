@@ -31,6 +31,10 @@ public class FormElementRenderer extends Renderer {
 			.add("padding", elem.isPadding())
 			.add(elem.getStyleClass());
 
+		String style = elem.getStyle();
+		if (style != null)
+			writer.writeAttribute("style", style, null);
+
 		Integer small = elem.getSmall();
 		if (small != null)
 			styleClass.add("small-" + small);

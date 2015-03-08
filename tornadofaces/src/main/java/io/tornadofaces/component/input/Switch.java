@@ -9,6 +9,7 @@ import io.tornadofaces.event.SwitchEvent;
 import javax.el.ValueExpression;
 import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
+import javax.faces.component.NamingContainer;
 import javax.faces.component.UIPanel;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.component.html.HtmlSelectBooleanCheckbox;
@@ -24,7 +25,7 @@ import static io.tornadofaces.component.util.Constants.RequestParams.PARTIAL_BEH
 
 @ResourceDependency(library = "tornadofaces", name = "switch.js")
 @FacesComponent(value = Switch.COMPONENT_TYPE, createTag = true, tagName = "switch", namespace = "http://tornadofaces.io/ui")
-public class Switch extends UIPanel implements Widget, ClientBehaviorHolder {
+public class Switch extends UIPanel implements Widget, ClientBehaviorHolder, NamingContainer {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Switch";
 
 	private HtmlSelectBooleanCheckbox checkbox;
@@ -33,6 +34,7 @@ public class Switch extends UIPanel implements Widget, ClientBehaviorHolder {
 		super();
 		setRendererType(SwitchRenderer.RENDERER_TYPE);
 		checkbox = new HtmlSelectBooleanCheckbox();
+		checkbox.setId("checkbox");
 		getChildren().add(checkbox);
 	}
 
@@ -67,6 +69,10 @@ public class Switch extends UIPanel implements Widget, ClientBehaviorHolder {
 	public void setWidgetVar(String widgetVar) { getStateHelper().put("widgetVar", widgetVar); }
 	public String getOnChange() { return (String) getStateHelper().eval("onChange"); }
 	public void setOnChange(String onChange) { getStateHelper().put("onChange", onChange); }
+	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
+	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
+	public String getStyle() { return (String) getStateHelper().eval("style"); }
+	public void setStyle(String style) { getStateHelper().put("style", style); }
 
 	public void queueEvent(FacesEvent event) {
 		FacesContext context = getFacesContext();

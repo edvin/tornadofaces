@@ -27,7 +27,12 @@ public class SwitchRenderer extends CoreRenderer {
 		writer.startElement("div", component);
 		writer.writeAttribute("id", component.getClientId(), null);
 		Switch switchComponent = (Switch) component;
-		StyleClass.of(switchComponent.getSize()).add("switch").write(writer);
+		StyleClass.of(switchComponent.getSize())
+			.add(switchComponent.getStyleClass())
+			.add("switch").write(writer);
+		String style = switchComponent.getStyle();
+		if (style != null)
+			writer.writeAttribute("style", style, null);
 	}
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
