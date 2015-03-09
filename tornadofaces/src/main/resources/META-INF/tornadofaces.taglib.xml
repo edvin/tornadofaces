@@ -16,6 +16,12 @@
             <required>false</required>
             <type>String</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>Flip Panel</description>
@@ -60,6 +66,12 @@
             <name>onFlip</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
     </tag>
     <tag>
@@ -227,6 +239,12 @@
             <required>false</required>
             <type>String</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>GID gives any component a unique id that can be referred to from render and execute statements
@@ -312,6 +330,12 @@
             <required>false</required>
             <type>Integer</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>EXPERIMENTAL/WORK IN PROGRESS! Input tag handler that that will create an input element wrapped in a Form Element</description>
@@ -378,6 +402,12 @@
             <name>large</name>
             <required>false</required>
             <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
     </tag>
     <tag>
@@ -504,6 +534,12 @@
             <name>trigger</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
     </tag>
     <tag>
@@ -632,6 +668,12 @@
             <required>false</required>
             <type>Boolean</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>Switches are toggle element that switch between an Off and On state on tap or click. A switch is
@@ -678,6 +720,12 @@
             <required>false</required>
             <type>String</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>Progress Bar</description>
@@ -700,6 +748,12 @@
             <description>Priority. Represent different colors. high, medium, low</description>
             <name>priority</name>
             <required>false</required>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
     </tag>
     <tag>
@@ -781,6 +835,12 @@
             <required>false</required>
             <type>String</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>A datadriven list component that can accommodate a variety of styles and controls.</description>
@@ -826,6 +886,12 @@
             <name>var</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
     </tag>
     <tag>
@@ -907,6 +973,12 @@
             <required>false</required>
             <type>io.tornadofaces.component.common.Color</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>A navigational component which can display the current screen the user is on, along with additional
@@ -953,6 +1025,12 @@
             <name>title</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
     </tag>
     <tag>
@@ -1019,6 +1097,12 @@
             <required>false</required>
             <type>Boolean</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>Panels are frames that slide in from the top, left, bottom, or right of the screen and appear over
@@ -1067,6 +1151,12 @@
             <required>false</required>
             <type>io.tornadofaces.component.common.Position</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>A card is a rectangular container that holds your content, makes it easy to digest, and separates
@@ -1095,6 +1185,12 @@
             <name>style</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
     </tag>
     <tag>
@@ -1137,6 +1233,12 @@
             <required>false</required>
             <type>String</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>Messages that can be shown from either server or client. It can be set to disappear after a certain
@@ -1176,6 +1278,12 @@
             <required>false</required>
             <type>String</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>Action sheets can be triggered in your app view to providing contextual actions on a component.
@@ -1186,6 +1294,12 @@
             <component-type>io.tornadofaces.component.ActionSheet</component-type>
             <renderer-type>io.tornadofaces.component.ActionSheetRenderer</renderer-type>
         </component>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>Modal dialogs, or pop-up windows, are handy for prototyping and production. It focuses the user on
@@ -1232,6 +1346,12 @@
             </description>
             <name>color</name>
             <type>io.tornadofaces.component.common.Color</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
     </tag>
     <tag>
@@ -1303,6 +1423,12 @@
             <required>false</required>
             <type>String</type>
         </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
     <tag>
         <description>
@@ -1317,6 +1443,12 @@
         <attribute>
             <description>Styles to apply to the link.</description>
             <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Icon for the button, rendered as i tag with icon class</description>
+            <name>icon</name>
             <required>false</required>
             <type>String</type>
         </attribute>
@@ -1399,7 +1531,7 @@
         </attribute>
         <attribute>
             <description>Should this component be rendered?</description>
-            <name>render</name>
+            <name>rendered</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>
@@ -1420,6 +1552,12 @@
             <component-type>io.tornadofaces.component.CommandButton</component-type>
             <renderer-type>io.tornadofaces.component.ButtonRenderer</renderer-type>
         </component>
+        <attribute>
+            <description>Icon for the button, rendered as i tag with icon class</description>
+            <name>icon</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
         <attribute>
             <description>Styles to apply to the button.</description>
             <name>styleClass</name>
@@ -1511,14 +1649,14 @@
             <type>String</type>
         </attribute>
         <attribute>
-            <description>Should this component be rendered?</description>
-            <name>render</name>
+            <description>Expand to fill horizontal space</description>
+            <name>expand</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>
         <attribute>
-            <description>Expand to fill horizontal space</description>
-            <name>expand</name>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>

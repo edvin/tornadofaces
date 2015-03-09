@@ -54,10 +54,20 @@ public class ButtonRenderer extends CoreRenderer {
 		Object value = button.getValue();
 
 		if (value != null) {
-			if (button instanceof CommandButton && ((CommandButton) button).isInput())
+			if (button instanceof CommandButton && ((CommandButton) button).isInput()) {
 				writer.writeAttribute("value", value, null);
-			else
+			} else {
+				String icon = button.getIcon();
+
+				if (icon != null) {
+					writer.startElement("i", button);
+					writer.writeAttribute("class", icon, null);
+					writer.endElement("i");
+					writer.write(" ");
+				}
+
 				writer.writeText(value, "value");
+			}
 		}
 
 		super.encodeChildren(context, component);
