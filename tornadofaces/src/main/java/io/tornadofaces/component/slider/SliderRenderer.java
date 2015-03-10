@@ -25,6 +25,7 @@ public class SliderRenderer extends Renderer {
 		Slider slider = (Slider) component;
 		writer.startElement("div", component);
 		writer.writeAttribute("id", slider.getClientId(), null);
+		StyleClass.of("slider").add(slider.getStyleClass()).write(writer);
 
 		writer.startElement("input", component);
 		writer.writeAttribute("type", "hidden", null);
@@ -46,14 +47,44 @@ public class SliderRenderer extends Renderer {
 			writer.writeAttribute("value", upperValue.toString(), "upper");
 		writer.endElement("input");
 
-		StyleClass.of("slider").add(slider.getStyleClass()).write(writer);
+		if (slider.getHeader()) {
+			writer.startElement("div", slider);
+			writer.writeAttribute("id", slider.getClientId(context) + "_header", null);
+			writer.writeAttribute("class", "slider-header", null);
+
+			// min
+			writer.startElement("span", slider);
+			writer.writeAttribute("class", "slider-min", null);
+			writer.writeText(String.format("%s", slider.getMin()), null);
+			writer.endElement("span");
+
+			// max
+			writer.startElement("span", slider);
+			writer.writeAttribute("class", "slider-max", null);
+			writer.writeText(String.format("%s", slider.getMax()), null);
+			writer.endElement("span");
+
+			// value
+			writer.startElement("h4", slider);
+			writer.writeText(String.format("%s", slider.getLower()), null);
+			Integer upper = slider.getUpper();
+			if (upper != null)
+				writer.writeText(" - " + upper, null);
+			writer.endElement("h4");
+
+			writer.endElement("div");
+		}
+
+		writer.startElement("div", slider);
+		writer.writeAttribute("class", "slider-content", null);
 	}
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		Slider slider = (Slider) component;
 		ResponseWriter writer = context.getResponseWriter();
 
-		writer.endElement("div");
+		writer.endElement("div"); // slider-content
+		writer.endElement("div"); // slider
 
 		WidgetBuilder builder = new WidgetBuilder(context, slider)
 			.initWithDomReady()

@@ -212,9 +212,15 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 	public Boolean getSnap() {
 		return (Boolean) getStateHelper().eval("snap");
 	}
-
 	public void setSnap(Boolean snap) {
 		getStateHelper().put("snap", snap);
+	}
+
+	public Boolean getHeader() {
+		return (Boolean) getStateHelper().eval("header", false);
+	}
+	public void setHeader(Boolean header) {
+		getStateHelper().put("header", header);
 	}
 
 	public void setOnSlide(String onSlide) {

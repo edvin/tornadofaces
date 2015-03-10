@@ -12,6 +12,8 @@ TornadoFaces.declareWidget('Slider', function() {
     this.init = function() {
         widget = this;
 
+        widget.sliderElem = widget.elem.find('.slider-content');
+
         this.lowerElem = this.elem.find(TornadoFaces.escapeClientId(this.conf.lowerId));
         this.upperElem = this.elem.find(TornadoFaces.escapeClientId(this.conf.upperId));
 
@@ -42,14 +44,14 @@ TornadoFaces.declareWidget('Slider', function() {
             }
         }
 
-        widget.slider = widget.elem.noUiSlider(settings);
+        widget.slider = widget.sliderElem.noUiSlider(settings);
 
         var hasOnSlide = widget.conf.onSlide != undefined;
 
         syncTargets();
         
-        widget.elem.on('slide', function() {
-            var val = widget.elem.val();
+        widget.sliderElem.on('slide', function() {
+            var val = widget.sliderElem.val();
 
             if ($.isArray(val)) {
                 widget.lowerElem.val(val[0]);
@@ -63,7 +65,7 @@ TornadoFaces.declareWidget('Slider', function() {
             syncTargets();
             
             if (hasOnSlide)
-                widget.conf.onSlide(widget.elem, val);
+                widget.conf.onSlide(widget.sliderElem, val);
             
             if (widget.conf.behaviors && widget.conf.behaviors.change) {
                 var behaviors = widget.conf.behaviors.change;

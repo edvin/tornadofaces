@@ -558,6 +558,13 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>Show a header containing min, max and value labels above the slider. Defaults to false.
+            </description>
+            <name>header</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Arbitrary data you can connect to your component, for example for retrieval by the configure
                 tag or other custom business logic
             </description>
@@ -1441,6 +1448,24 @@
             <renderer-type>io.tornadofaces.component.ButtonRenderer</renderer-type>
         </component>
         <attribute>
+            <description>The action to call when the button is clicked</description>
+            <name>action</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The action listener to call when the button is clicked</description>
+            <name>actionListener</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Invoke the action in the Apply Request Values phase. Defaults to false.</description>
+            <name>immedate</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Styles to apply to the link.</description>
             <name>styleClass</name>
             <required>false</required>
@@ -1552,6 +1577,24 @@
             <component-type>io.tornadofaces.component.CommandButton</component-type>
             <renderer-type>io.tornadofaces.component.ButtonRenderer</renderer-type>
         </component>
+        <attribute>
+            <description>The action to call when the button is clicked</description>
+            <name>action</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The action listener to call when the button is clicked</description>
+            <name>actionListener</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Invoke the action in the Apply Request Values phase. Defaults to false.</description>
+            <name>immedate</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
         <attribute>
             <description>Icon for the button, rendered as i tag with icon class</description>
             <name>icon</name>
