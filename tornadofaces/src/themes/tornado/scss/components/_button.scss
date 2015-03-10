@@ -1,11 +1,12 @@
 /// @Foundation.settings
 // Button
-$button-padding: 0.85em 1em !default;
+$button-padding: 0.95em 1.3em !default;
 $button-margin: 0 $global-padding $global-padding 0 !default;
 $button-style: solid !default;
 $button-background: $primary-color !default;
-$button-color: auto !default;
-$button-radius: 0 !default;
+//$button-color: auto !default;
+$button-color: #fff !default;
+$button-radius: 2px !default;
 $button-sizes: (
   tiny: 0.7,
   small: 0.8,

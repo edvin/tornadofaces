@@ -11,8 +11,8 @@
 
 /// @Foundation.settings
 // Global Styles
-// This sets 1rem to be 16px
-$rem-base: 16px;
+// This sets 1rem to be 14px
+$rem-base: 14px;
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
@@ -43,10 +43,10 @@ $body-antialiased: true;
 // Application Colors
 $primary-color: #00558b !default;
 $secondary-color: #f1f1f1 !default;
-$alert-color: #F04124 !default;
+$alert-color: #E46E5B !default;
 $info-color: #A0D3E8 !default;
-$success-color: #43AC6A !default;
-$warning-color: #F08A24 !default;
+$success-color: #91EA65 !default;
+$warning-color: #9B9B87 !default;
 $dark-color: #f00 !default;
 $gray: #dfdfdf !default;
 $gray-dark: darken($gray, 8) !default;

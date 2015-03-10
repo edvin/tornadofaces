@@ -13,7 +13,7 @@
 
 /// @Foundation.settings
 // Menu Bar
-$menubar-fontsize: 1rem !default;
+$menubar-fontsize: 0.9rem !default;
 $menubar-background: #fff !default;
 $menubar-background-hover: smartscale($menubar-background, 7%) !default;
 $menubar-background-active: $menubar-background-hover;
