@@ -101,8 +101,8 @@ TornadoFaces.declareWidget('TabView', function() {
                     props[widget.elem.attr('id') + '_newTab'] = contentId;
                 }
 
-                var activateBehaviors = widget.conf.behaviors['activate_' + itemIndex];
-                if (activateBehaviors != null) {
+                if (widget.conf.behaviors && widget.conf.behaviors.hasOwnProperty(activateBehaviorName)) {
+                    var activateBehaviors = widget.conf.behaviors[activateBehaviorName];
                     for (var i = 0; i < activateBehaviors.length; i++) {
                         var b = activateBehaviors[i];
                         if (b.render)

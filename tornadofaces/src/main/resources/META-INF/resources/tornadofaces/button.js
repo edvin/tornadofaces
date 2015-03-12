@@ -32,7 +32,7 @@ TornadoFaces.declareWidget('Button', function() {
     
     this.bindEvents = function() {
         widget.elem.click(function(event) {
-            if (widget.elem.attr('disabled') === 'disabled') {
+            if (widget.elem.attr('disabled')) {
                 widget.elem.addClass('wiggle');
                 setTimeout(function() { widget.elem.removeClass('wiggle')}, 1000);
                 event.preventDefault();

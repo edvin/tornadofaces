@@ -50,7 +50,7 @@ public class FlipPanelRenderer extends CoreRenderer {
 			header.encodeAll(context);
 
 		writer.startElement("div", panel);
-		writer.writeAttribute("class", "flip-wrapper", null);
+		writer.writeAttribute("class", "flip-content", null);
 	}
 
 	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
@@ -87,6 +87,8 @@ public class FlipPanelRenderer extends CoreRenderer {
 
 		WidgetBuilder builder = new WidgetBuilder(context, panel)
 			.init()
+			.attr("duration", panel.getDuration())
+			.attr("flipped", panel.isFlipped())
 			.nativeAttr("onFlip", panel.getOnFlip());
 
 		JSONArray flipBehaviors = encodeAjaxBehaviors(context, "flip", panel);

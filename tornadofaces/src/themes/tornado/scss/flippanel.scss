@@ -1,0 +1,23 @@
+// ?. Flippanel
+// - - - - - - - - - - - - - - -
+.flip-panel {
+  perspective: 1000;
+  flex: 1;
+
+  .flip-wrapper {
+    position: relative;
+  }
+
+  .front, .back {
+    backface-visibility: hidden;
+    width: 100%;
+  }
+  .front {
+    z-index: 2;
+  }
+  .back {
+    position: absolute; top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

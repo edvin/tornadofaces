@@ -6949,6 +6949,27 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   border-bottom: none;
   cursor: help; }
 
+.flip-panel {
+  -webkit-perspective: 1000;
+          perspective: 1000;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+  .flip-panel .flip-wrapper {
+    position: relative; }
+  .flip-panel .front, .flip-panel .back {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    width: 100%; }
+  .flip-panel .front {
+    z-index: 2; }
+  .flip-panel .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
 .boxed, .box, .breadcrumb, .accordion, .accordion.item-spacing .accordion-item {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   border: 1px solid #cbcbcb; }
@@ -7034,38 +7055,6 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .accordion-item {
   background: #fff; }
-
-.flip-panel {
-  -webkit-perspective: 1000;
-          perspective: 1000;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1; }
-  .flip-panel .flip-wrapper {
-    transition: 0.6s;
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-    position: relative; }
-  .flip-panel.flipped .flip-wrapper {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg); }
-  .flip-panel .front, .flip-panel .back {
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-    width: 100%; }
-  .flip-panel .front {
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-    z-index: 2; }
-  .flip-panel .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-transform: rotateY(-180deg);
-            transform: rotateY(-180deg);
-    transition: all 350ms cubic-bezier(0.485, 0.125, 0.83, 0.95); }
 
 .breadcrumb {
   list-style: none;

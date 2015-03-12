@@ -104,8 +104,10 @@ TornadoFaces.declareWidget('Accordion', function() {
                         props['javax.faces.behavior.event'] = 'tabChange';
                     }
 
-                    var activateBehaviors = widget.conf.behaviors['activate_' + itemIndex];
-                    if (activateBehaviors != null) {
+                    var activateBehaviorName = 'activate_' + itemIndex;
+
+                    if (widget.conf.behaviors && widget.conf.behaviors.hasOwnProperty(activateBehaviorName)) {
+                        var activateBehaviors = widget.conf.behaviors[activateBehaviorName];
                         for (var i = 0; i < activateBehaviors.length; i++) {
                             var b = activateBehaviors[i];
                             if (b.render)
@@ -115,7 +117,7 @@ TornadoFaces.declareWidget('Accordion', function() {
                         }
                         props['javax.faces.behavior.event'] = 'tabChange';
                     }
-                    
+
                     props[widget.elem.attr('id') + '_active'] = itemIndex;
 
                     props.onevent = function(event) {
