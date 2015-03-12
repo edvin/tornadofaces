@@ -3,11 +3,6 @@
   border: 1px solid $gray;
 }
 
-.tabs {
-  margin-right: 20px;
-  margin-left: 20px;
-}
-
 // ?. Slider
 // - - - - - - - - - - - - - - -
 //.slider-wrapper
@@ -53,11 +48,6 @@
     &:last-child {
       margin-bottom: 0;
     }
-  }
-
-  .tabs {
-    margin-right: 0;
-    margin-left: 0;
   }
   .tab-content {
     padding: 0;
@@ -207,7 +197,7 @@
 
 @include breakpoint(small) {
   #main-container {
-    padding: 1rem !important;
+    padding: 0 !important;
     padding-right: calc(100% - 1200px) !important;
   }
 

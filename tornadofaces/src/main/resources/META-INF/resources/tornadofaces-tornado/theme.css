@@ -364,7 +364,7 @@ th {
 */
 html, body {
   height: 100%;
-  font-size: 16px; }
+  font-size: 14px; }
 
 html {
   box-sizing: border-box; }
@@ -373,14 +373,14 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #F4F4F1;
-  color: #333;
+  background: #fff;
+  color: #202020;
   padding: 0;
   margin: 0;
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
-  line-height: 1;
+  line-height: 1.5;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -5226,10 +5226,16 @@ meter {
   /*
   	Container styles
   */
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 4px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background: transparent;
+  background: #e5e5e5;
+  padding: 0 0 0.3rem 0.3rem;
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap; }
@@ -5237,15 +5243,21 @@ meter {
     /*
     	Container styles
     */
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    border-radius: 4px;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    background: transparent;
+    background: #e5e5e5;
+    padding: 0 0 0.3rem 0.3rem;
     -webkit-flex-flow: column nowrap;
         -ms-flex-flow: column nowrap;
             flex-flow: column nowrap; }
   .tabs .tab-item {
-    background: #e5e5e5;
+    background: transparent;
     padding: 1rem;
     line-height: 1;
     margin: 0;
@@ -5253,14 +5265,22 @@ meter {
         -ms-flex: 0 1 auto;
             flex: 0 1 auto;
     cursor: pointer;
-    color: #000; }
+    color: #202020;
+    border-radius: 2px;
+    transition: all 0.2s;
+    margin: 0.3rem 0.3rem 0 0; }
     .tabs .tab-item.is-active {
-      background: #dedede;
-      color: #000; }
+      background: #fff;
+      color: #202020; }
       .tabs .tab-item.is-active:hover {
-        background: #d9d9d9; }
+        background: #fff; }
     .tabs .tab-item:hover {
-      background: #d9d9d9; }
+      background: #eeeeee;
+      color: #202020; }
+    .tabs .tab-item:active {
+      background: #fff;
+      color: #202020;
+      transition-duration: 0s; }
 
 .tab-contents {
   padding: 1rem; }
@@ -5472,7 +5492,7 @@ abbr,
 acronym {
   text-transform: uppercase;
   font-size: 90%;
-  color: #333;
+  color: #202020;
   border-bottom: 1px dotted #ddd;
   cursor: help; }
 
@@ -6984,10 +7004,6 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   border: 1px solid #cbcbcb; }
 
-.tabs {
-  margin-right: 20px;
-  margin-left: 20px; }
-
 .box {
   background: #fff;
   display: -webkit-flex;
@@ -7020,9 +7036,6 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     margin-bottom: 0.7rem; }
     .box p:last-child {
       margin-bottom: 0; }
-  .box .tabs {
-    margin-right: 0;
-    margin-left: 0; }
   .box .tab-content {
     padding: 0; }
 
@@ -7139,7 +7152,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
           transform: rotate(180deg); }
 
 #main-container {
-  padding: 1rem !important;
+  padding: 0 !important;
   padding-right: calc(100% - 1200px) !important; }
 
 .menu-group > .menu-group-left {

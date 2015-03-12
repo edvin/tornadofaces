@@ -74,7 +74,7 @@ $include-css: (
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-$base-font-size: 16px;
+$base-font-size: 14px;
 
 // This sets 1rem to be 16px
 // $rem-base: 16px;
@@ -84,7 +84,7 @@ $rem-base: $base-font-size;
 $font-base: 0.875rem;
 
 // $base-line-height is 24px while $base-font-size is 16px
-$base-line-height: 1.42857143;
+$base-line-height: 1.5;
 
 // Text selector helpers
 // $headers: "h1,h2,h3,h4,h5,h6";
@@ -94,8 +94,8 @@ $base-line-height: 1.42857143;
 // $font-weight-bold: bold;
 
 // We use these to control various global styles
-$body-background: #F4F4F1;
-$body-font-color: #333;
+$body-background: #fff;
+$body-font-color: #202020;
 $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;

@@ -5,16 +5,30 @@
 
 /// @Foundation.settings
 // Tabs
-$tabstrip-background: transparent !default;
+$tabstrip-background: $gray-light !default;
+$tabstrip-padding: 0.3rem !default;
+$tabstrip-radius: 4px;
 
-$tab-title-background: $gray-light !default;
-$tab-title-background-hover: smartscale($tab-title-background, 5%) !default;
-$tab-title-background-active: smartscale($tab-title-background, 3%) !default;
-$tab-title-color: isitlight($tab-title-background) !default;
+//$tab-title-background: transparent !default;
+//$tab-title-background-hover: smartscale($tab-title-background, 5%) !default;
+//$tab-title-background-active: smartscale($primary-color, 3%) !default;
+//$tab-title-color: isitlight($tab-title-background) !default;
+//$tab-title-color-active: $tab-title-color !default;
+//
+//$tab-title-padding: $global-padding !default;
+//$tab-content-padding: $global-padding !default;
+
+$tab-title-radius: 2px;
+$tab-title-background: transparent !default;
+$tab-title-background-hover: smartscale($tabstrip-background, -35%) !default;
+$tab-title-background-active: #fff;
+$tab-title-color: $body-font-color;
+$tab-title-color-hover: $body-font-color;
 $tab-title-color-active: $tab-title-color !default;
 
 $tab-title-padding: $global-padding !default;
 $tab-content-padding: $global-padding !default;
+
 ///
 
 @mixin tabstrip(
@@ -24,8 +38,11 @@ $tab-content-padding: $global-padding !default;
 	/*
 		Container styles
 	*/
+    user-select: none;
+    border-radius: $tabstrip-radius;
 	display: flex;
 	background: $background;
+    padding: 0 0 $tabstrip-padding $tabstrip-padding;
 
 	@if $orientation == vertical {
 	  flex-flow: column nowrap;
@@ -41,6 +58,7 @@ $tab-content-padding: $global-padding !default;
 	$background-active: $tab-title-background-active,
 	$color: $tab-title-color,
 	$color-active: $tab-title-color-active,
+	$color-hover: $tab-title-color-hover,
 	$padding: $tab-title-padding
 ) {
   background: $background;
@@ -50,17 +68,26 @@ $tab-content-padding: $global-padding !default;
   flex: 0 1 auto;
   cursor: pointer;
   color: $color;
+  border-radius: $tab-title-radius;
+  transition: all 0.2s;
+  margin: $tabstrip-padding $tabstrip-padding 0 0;
 
   &.is-active {
     background: $background-active;
     color: $color-active;
 
     &:hover {
-      background: $background-hover;
+      background: $background-active;
     }
   }
   &:hover {
     background: $background-hover;
+    color: $color-hover;
+  }
+  &:active {
+    background: $background-active;
+    color: $color-active;
+    transition-duration: 0s;
   }
 }
 
