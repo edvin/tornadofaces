@@ -89,6 +89,7 @@ public class FlipPanelRenderer extends CoreRenderer {
 			.init()
 			.attr("duration", panel.getDuration())
 			.attr("flipped", panel.isFlipped())
+			.attr("mode", panel.getMode())
 			.nativeAttr("onFlip", panel.getOnFlip());
 
 		JSONArray flipBehaviors = encodeAjaxBehaviors(context, "flip", panel);

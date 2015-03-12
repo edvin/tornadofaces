@@ -66,6 +66,14 @@ public class FlipPanel extends UIPanel implements Widget, ClientBehaviorHolder {
 		return (Boolean) getStateHelper().eval("flipped", false);
 	}
 
+	public void setMode(String mode) {
+		getStateHelper().put("mode", mode);
+	}
+
+	public String getMode() {
+		return (String) getStateHelper().eval("mode", "reverse");
+	}
+
 	public String getStyleClass() {
 		return (String) getStateHelper().eval("styleClass");
 	}

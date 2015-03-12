@@ -1,5 +1,5 @@
 TornadoFaces.declareWidget('FlipPanel', function() {
-    var widget, front, back, panel;
+    var widget, front, back, panel, rotation = 0;
 
     this.init = function() {
         widget = this;
@@ -7,21 +7,22 @@ TornadoFaces.declareWidget('FlipPanel', function() {
         panel = widget.elem.find('.flip-content');
         back = widget.elem.find('.back');
         widget.elem.height(front.height());
+        widget.rotation = 0;
     };
 
     this.flip = function() {
-        var targetHeight, rotation;
+        var targetHeight;
 
         if (widget.isFlipped()) {
             targetHeight = front.height();
             rotation = 0;
         } else {
             targetHeight = back.height();
-            rotation = 180;
+            rotation = widget.conf.mode === 'reverse' ? 180 : rotation - 180;
         }
 
-        TweenLite.to(widget.elem, (widget.conf.duration / 2000), { height:targetHeight, ease: Back.easeOut });
-        TweenLite.to(panel, (widget.conf.duration / 1000), { rotationY:rotation, ease: Back.easeOut });
+        TweenLite.to(widget.elem, (widget.conf.duration / 2000), { height: targetHeight, ease: Back.easeOut });
+        TweenLite.to(panel, (widget.conf.duration / 1000), { rotationY: rotation, ease: Back.easeOut });
 
         widget.conf.flipped = !widget.conf.flipped;
         widget.elem.toggleClass('flipped');

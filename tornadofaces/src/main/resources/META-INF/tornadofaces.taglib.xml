@@ -49,6 +49,18 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Flipping from back to front can either spin in reverse or continue in the same direction. Valid options are "reverse", "continue". Defaults to "reverse".</description>
+            <name>mode</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Number of milliseconds for the flip effect. Defaults to 600.</description>
+            <name>duration</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
             <description>Should the panel render the back side?</description>
             <name>flipped</name>
             <required>false</required>
