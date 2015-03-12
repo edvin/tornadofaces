@@ -1,0 +1,34 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('command')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <div class="box">
+            <h1 class="subheader">Command</h1>
+
+            <div>
+                <p>#{docsController.tag.description}</p>
+            </div>
+
+            <ui:include src="command.xhtml"/>
+        </div>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
+            <t:tab title="Example">
+<pre class="line-numbers"><code class="language-markup">
+&lt;h:form>
+    &lt;t:message/>
+    &lt;t:command name="mycommand" action="#{docsController.expr('controller.runCommand')}"/>
+&lt;/h:form>
+
+&lt;button onclick="mycommand()">Run mycommand</code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+            </t:tab>
+        </t:tabView>
+    </ui:define>
+</ui:composition>

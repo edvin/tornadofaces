@@ -24,7 +24,7 @@
         </attribute>
     </tag>
     <tag>
-        <description>Flip Panel</description>
+        <description>Flip Panel lets you flip between showing a front and back side on of a card.</description>
         <tag-name>flip-panel</tag-name>
         <component>
             <component-type>io.tornadofaces.component.FlipPanel</component-type>
