@@ -55,7 +55,7 @@
             <type>String</type>
         </attribute>
         <attribute>
-            <description>Number of milliseconds for the flip effect. Defaults to 600.</description>
+            <description>Number of milliseconds for the flip effect. Defaults to 400.</description>
             <name>duration</name>
             <required>false</required>
             <type>Integer</type>
