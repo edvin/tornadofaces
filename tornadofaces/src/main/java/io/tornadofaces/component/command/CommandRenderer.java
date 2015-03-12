@@ -19,6 +19,7 @@ public class CommandRenderer extends CoreRenderer {
 
 		new WidgetBuilder(context, command)
 			.init()
+			.attr("name", command.getName())
 			.attr("render", ComponentUtils.resolveIds(context, command, Arrays.asList(command.getRender().split(" "))))
 			.attr("execute", ComponentUtils.resolveIds(context, command, Arrays.asList(command.getExecute().split(" "))))
 			.attr("onsuccess", command.getOnsuccess())

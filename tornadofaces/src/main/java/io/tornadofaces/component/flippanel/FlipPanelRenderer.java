@@ -37,7 +37,6 @@ public class FlipPanelRenderer extends CoreRenderer {
 
 		StyleClass.of("flip-panel")
 			.add(panel.getStyleClass())
-			.add("box", panel.isBox())
 			.add("flipped", panel.isFlipped())
 			.write(writer);
 
@@ -60,7 +59,7 @@ public class FlipPanelRenderer extends CoreRenderer {
 		UIComponent front = panel.getFacet("front");
 		if (front != null) {
 			writer.startElement("div", panel);
-			writer.writeAttribute("class", "front", null);
+			StyleClass.of("front").add("box", panel.isBox()).write(writer);
 			front.encodeAll(context);
 			writer.endElement("div");
 		}
@@ -68,7 +67,7 @@ public class FlipPanelRenderer extends CoreRenderer {
 		UIComponent back = panel.getFacet("back");
 		if (back != null) {
 			writer.startElement("div", panel);
-			writer.writeAttribute("class", "back", null);
+			StyleClass.of("back").add("box", panel.isBox()).write(writer);
 			back.encodeAll(context);
 			writer.endElement("div");
 		}
