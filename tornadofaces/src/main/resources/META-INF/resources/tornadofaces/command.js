@@ -3,6 +3,7 @@ TornadoFaces.declareWidget('Command', function() {
 
     this.init = function() {
         widget = this;
+        window[widget.conf.name] = widget.run;
     };
 
     this.run = function() {

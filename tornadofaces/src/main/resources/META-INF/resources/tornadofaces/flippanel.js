@@ -15,10 +15,10 @@ TornadoFaces.declareWidget('FlipPanel', function() {
 
         if (widget.isFlipped()) {
             targetHeight = front.outerHeight();
-            rotation = 0;
+            rotation = widget.conf.mode === 'reverse' ? 180 : rotation - 180;
         } else {
             targetHeight = back.outerHeight();
-            rotation = widget.conf.mode === 'reverse' ? 180 : rotation - 180;
+            rotation = 0;
         }
 
         TweenLite.to(widget.elem, (widget.conf.duration / 2000), { height: targetHeight, ease: Back.easeOut });
