@@ -30,7 +30,11 @@ public class DocsController {
 	@Getter private Tag tag;
 	@Getter private List<Movie> movies;
 	@Getter @Setter Integer lower = 15;
-	
+
+	public void runCommand() {
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(SEVERITY_INFO, "Remote command run!", "Execution was successful."));
+	}
+
 	public void onTabChange(AjaxBehaviorEvent e) {
 		TabChangeEvent event = (TabChangeEvent) e;
 		Accordion accordion = (Accordion) event.getSource();

@@ -4,6 +4,13 @@ TornadoFaces.declareWidget('Command', function() {
     this.init = function() {
         widget = this;
         window[widget.conf.name] = widget.run;
+
+        if (widget.conf.onload && !widget.onloadPerformed) {
+            widget.onloadPerformed = true;
+            $(function() {
+                widget.run();
+            });
+        }
     };
 
     this.run = function() {
@@ -31,7 +38,6 @@ TornadoFaces.declareWidget('Command', function() {
             }
         };
 
-        jsf.ajax.request(widget.elem[0], event, options);
-        event.preventDefault();
+        jsf.ajax.request(widget.elem[0], null, options);
     }
 });
