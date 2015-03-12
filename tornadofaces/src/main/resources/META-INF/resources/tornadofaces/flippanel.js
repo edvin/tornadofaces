@@ -14,10 +14,10 @@ TornadoFaces.declareWidget('FlipPanel', function() {
         var targetHeight;
 
         if (widget.isFlipped()) {
-            targetHeight = front.height();
+            targetHeight = front.outerHeight();
             rotation = 0;
         } else {
-            targetHeight = back.height();
+            targetHeight = back.outerHeight();
             rotation = widget.conf.mode === 'reverse' ? 180 : rotation - 180;
         }
 

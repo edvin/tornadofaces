@@ -35,6 +35,6 @@ public interface Widget {
             return component.getClientId(context).replaceAll("-|" + UINamingContainer.getSeparatorChar(context), "_");
     }
 
-    String getWidgetVar();
+    Object getWidgetVar();
     void setWidgetVar(String widgetVar);
 }
