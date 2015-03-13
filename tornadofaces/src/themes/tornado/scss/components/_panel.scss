@@ -11,17 +11,6 @@
    - Transform into grid block depending on screen size
 */
 
-/// @Foundation.settings
-// Panel
-$panel-size-horizontal: 300px !default;
-$panel-size-vertical: 300px !default;
-$panel-padding: 0 !default;
-
-$panel-background: #fff !default;
-$panel-shadow: 3px 0 10px rgba(black, 0.25) !default;
-$panel-animation-speed: 0.25s !default;
-///
-
 %panel-base {
   display: block;
   position: absolute;

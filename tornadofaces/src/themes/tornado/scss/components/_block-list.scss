@@ -14,26 +14,6 @@
 */
 
 /// @Foundation.settings
-// Block List
-$blocklist-background: #fff !default;
-$blocklist-fullbleed: true !default;
-$blocklist-fontsize: 1rem !default;
-
-$blocklist-item-padding: 0.8rem 1rem !default;
-$blocklist-item-color: isitlight($blocklist-background, #000, #fff) !default;
-$blocklist-item-background-hover: smartscale($blocklist-background, 4.5%) !default;
-$blocklist-item-color-disabled: #999 !default;
-$blocklist-item-border: 1px solid smartscale($blocklist-background, 18.5%) !default;
-
-$blocklist-item-label-color: scale-color($blocklist-item-color, $lightness: 60%) !default;
-$blocklist-item-icon-size: 0.8 !default;
-
-$blocklist-header-fontsize: 0.8em !default;
-$blocklist-header-color: smartscale($blocklist-item-color, 40%) !default;
-$blocklist-header-uppercase: true;
-
-$blocklist-check-icons: true !default;
-///
 
 /*
   Adds styles for a block list container.

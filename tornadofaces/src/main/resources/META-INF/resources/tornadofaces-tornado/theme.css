@@ -898,10 +898,10 @@ meta.foundation-mq {
     .button.secondary[data-popup-toggle]::after, button.secondary[data-popup-toggle]::after {
       border-top-color: #fff; }
   .button.success, button.success {
-    background: #58DF64;
+    background: #61DA7E;
     color: #fff; }
     .button.success:hover, button.success:hover, .button.success:focus, button.success:focus {
-      background: #31d740;
+      background: #3bd15f;
       color: #fff; }
     .button.success[data-popup-toggle]::after, button.success[data-popup-toggle]::after {
       border-top-color: #fff; }
@@ -958,15 +958,15 @@ meta.foundation-mq {
       .button.hollow.secondary[data-popup-toggle]::after, button.hollow.secondary[data-popup-toggle]::after {
         border-top-color: #f1f1f1; }
     .button.hollow.success, button.hollow.success {
-      border: 1px solid #58DF64;
+      border: 1px solid #61DA7E;
       background: transparent;
-      color: #58DF64; }
+      color: #61DA7E; }
       .button.hollow.success:hover, button.hollow.success:hover, .button.hollow.success:focus, button.hollow.success:focus {
-        border-color: #82e78b;
+        border-color: #88e39e;
         background: transparent;
-        color: #82e78b; }
+        color: #88e39e; }
       .button.hollow.success[data-popup-toggle]::after, button.hollow.success[data-popup-toggle]::after {
-        border-top-color: #58DF64; }
+        border-top-color: #61DA7E; }
     .button.hollow.warning, button.hollow.warning {
       border: 1px solid #9B9B87;
       background: transparent;
@@ -1078,16 +1078,16 @@ meta.foundation-mq {
   .button-group.secondary > li.is-active > a, .button-group.secondary > li.is-active > label, .button-group.secondary > li.is-active > button {
     background: #cdcdcd; }
   .button-group.success > li > a, .button-group.success > li > label, .button-group.success > li > button {
-    background: #58DF64;
+    background: #61DA7E;
     color: #fff;
-    border-color: #31d740; }
+    border-color: #3bd15f; }
     .button-group.success > li > a:hover, .button-group.success > li > a:focus, .button-group.success > li > label:hover, .button-group.success > li > label:focus, .button-group.success > li > button:hover, .button-group.success > li > button:focus {
-      background: #31d740;
+      background: #3bd15f;
       color: #fff; }
     .button-group.success > li > a[data-popup-toggle]::after, .button-group.success > li > label[data-popup-toggle]::after, .button-group.success > li > button[data-popup-toggle]::after {
       border-top-color: #fff; }
   .button-group.success > li.is-active > a, .button-group.success > li.is-active > label, .button-group.success > li.is-active > button {
-    background: #31d740; }
+    background: #3bd15f; }
   .button-group.warning > li > a, .button-group.warning > li > label, .button-group.warning > li > button {
     background: #9B9B87;
     color: #fff;
@@ -1122,16 +1122,16 @@ meta.foundation-mq {
     .button-group > li.secondary > a:hover, .button-group > li.secondary > a:focus, .button-group > li.secondary > label:hover, .button-group > li.secondary > label:focus, .button-group > li.secondary > button:hover, .button-group > li.secondary > button:focus {
       border-color: #b5b5b5; }
   .button-group > li.success > a, .button-group > li.success > label, .button-group > li.success > button {
-    background: #58DF64;
+    background: #61DA7E;
     color: #fff;
-    border-color: #58DF64; }
+    border-color: #61DA7E; }
     .button-group > li.success > a:hover, .button-group > li.success > a:focus, .button-group > li.success > label:hover, .button-group > li.success > label:focus, .button-group > li.success > button:hover, .button-group > li.success > button:focus {
-      background: #31d740;
+      background: #3bd15f;
       color: #fff; }
     .button-group > li.success > a[data-popup-toggle]::after, .button-group > li.success > label[data-popup-toggle]::after, .button-group > li.success > button[data-popup-toggle]::after {
       border-top-color: #fff; }
     .button-group > li.success > a:hover, .button-group > li.success > a:focus, .button-group > li.success > label:hover, .button-group > li.success > label:focus, .button-group > li.success > button:hover, .button-group > li.success > button:focus {
-      border-color: #26c434; }
+      border-color: #2dbf50; }
   .button-group > li.warning > a, .button-group > li.warning > label, .button-group > li.warning > button {
     background: #9B9B87;
     color: #fff;
@@ -1181,17 +1181,17 @@ meta.foundation-mq {
         background: #f1f1f1;
         color: #000; }
     .button-group.segmented.success {
-      border-color: #58DF64; }
+      border-color: #61DA7E; }
       .button-group.segmented.success > li > a, .button-group.segmented.success > li > label, .button-group.segmented.success > li > button {
-        border-color: #58DF64;
-        color: #58DF64; }
+        border-color: #61DA7E;
+        color: #61DA7E; }
         .button-group.segmented.success > li > a:hover, .button-group.segmented.success > li > label:hover, .button-group.segmented.success > li > button:hover {
-          background: rgba(88, 223, 100, 0.25);
-          color: #58DF64; }
+          background: rgba(97, 218, 126, 0.25);
+          color: #61DA7E; }
       .button-group.segmented.success > li.is-active > a, .button-group.segmented.success > li.is-active > a:hover,
       .button-group.segmented.success > li > input:checked + label,
       .button-group.segmented.success > li > input:checked + label:hover {
-        background: #58DF64;
+        background: #61DA7E;
         color: #000; }
     .button-group.segmented.warning {
       border-color: #9B9B87; }
@@ -1280,7 +1280,7 @@ meta.foundation-mq {
   .card.success {
     border: 0;
     margin-bottom: 0.5rem;
-    background: #58DF64;
+    background: #61DA7E;
     color: #000;
     border-radius: 4px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -1290,7 +1290,7 @@ meta.foundation-mq {
     .card.success ul {
       margin-bottom: 0; }
     .card.success .card-divider {
-      background: #46db53;
+      background: #4fd66f;
       padding: 1rem; }
   .card.warning {
     border: 0;
@@ -1571,9 +1571,9 @@ progress::-webkit-progress-value {
 progress::-moz-progress-bar {
   background: #3fa2d8; }
 progress.high::-webkit-progress-value {
-  background: #58DF64; }
+  background: #61DA7E; }
 progress.high::-moz-progress-bar {
-  background: #58DF64; }
+  background: #61DA7E; }
 progress.medium::-webkit-progress-value {
   background: #e7cf00; }
 progress.medium::-moz-progress-bar {
@@ -1588,7 +1588,7 @@ meter {
   meter::-webkit-meter-bar {
     background: #ccc; }
   meter::-webkit-meter-optimum-value {
-    background: #58DF64; }
+    background: #61DA7E; }
   meter::-webkit-meter-suboptimum-value {
     background: #e7cf00; }
   meter::-webkit-meter-even-less-good-value {
@@ -1596,7 +1596,7 @@ meter {
   meter::-moz-meter-bar {
     background: #3fa2d8; }
   meter:-moz-meter-optimum::-moz-meter-bar {
-    background: #58DF64; }
+    background: #61DA7E; }
   meter:-moz-meter-sub-optimum::-moz-meter-bar {
     background: #e7cf00; }
   meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
@@ -1628,7 +1628,7 @@ meter {
     Basic styles
   */
   padding: 0;
-  background: #181818; }
+  background: #fff; }
 
 .panel-top {
   /*
@@ -1645,7 +1645,7 @@ meter {
     Shadows
   */ }
   .panel-top.is-active {
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25); }
+    box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.14); }
 
 .panel-right {
   /*
@@ -1665,7 +1665,7 @@ meter {
     .panel-right {
       width: 300px; } }
   .panel-right.is-active {
-    box-shadow: -3px 0 10px rgba(0, 0, 0, 0.25); }
+    box-shadow: 1px 0 6px rgba(0, 0, 0, 0.14); }
 
 .panel-bottom {
   /*
@@ -1682,7 +1682,7 @@ meter {
     Shadows
   */ }
   .panel-bottom.is-active {
-    box-shadow: 2px -3px 10px rgba(0, 0, 0, 0.25); }
+    box-shadow: 2px 1px 6px rgba(0, 0, 0, 0.14); }
 
 .panel-left {
   /*
@@ -1702,7 +1702,7 @@ meter {
     .panel-left {
       width: 300px; } }
   .panel-left.is-active {
-    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.25); }
+    box-shadow: -1px 0 6px rgba(0, 0, 0, 0.14); }
 
 .panel-fixed {
   position: fixed; }
@@ -3333,7 +3333,7 @@ meter {
     border-radius: 0;
     color: #fff; }
   .label.success {
-    background: #58DF64;
+    background: #61DA7E;
     border-radius: 0;
     color: #000; }
   .label.warning {
@@ -3377,7 +3377,7 @@ meter {
     background: #3fa2d8;
     color: #fff; }
   .badge.success {
-    background: #58DF64;
+    background: #61DA7E;
     color: #000; }
   .badge.warning {
     background: #9B9B87;
@@ -4144,7 +4144,7 @@ meter {
   Transitions
 */
 .slideInDown.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4158,7 +4158,7 @@ meter {
           transform: translateX(0) translateY(0); }
 
 .slideInLeft.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4172,7 +4172,7 @@ meter {
           transform: translateX(0) translateY(0); }
 
 .slideInUp.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4186,7 +4186,7 @@ meter {
           transform: translateX(0) translateY(0); }
 
 .slideInRight.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4200,7 +4200,7 @@ meter {
           transform: translateX(0) translateY(0); }
 
 .slideOutBottom.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4214,7 +4214,7 @@ meter {
           transform: translateY(100%); }
 
 .slideOutRight.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4228,7 +4228,7 @@ meter {
           transform: translateX(100%); }
 
 .slideOutUp.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4242,7 +4242,7 @@ meter {
           transform: translateY(-100%); }
 
 .slideOutLeft.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4256,7 +4256,7 @@ meter {
           transform: translateX(-100%); }
 
 .fadeIn.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: opacity;
@@ -4265,7 +4265,7 @@ meter {
   opacity: 1; }
 
 .fadeOut.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: opacity;
@@ -4274,7 +4274,7 @@ meter {
   opacity: 0; }
 
 .hingeInFromTop.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4290,7 +4290,7 @@ meter {
   opacity: 1; }
 
 .hingeInFromRight.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4306,7 +4306,7 @@ meter {
   opacity: 1; }
 
 .hingeInFromBottom.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4322,7 +4322,7 @@ meter {
   opacity: 1; }
 
 .hingeInFromLeft.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4338,7 +4338,7 @@ meter {
   opacity: 1; }
 
 .hingeInFromMiddleX.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4354,7 +4354,7 @@ meter {
   opacity: 1; }
 
 .hingeInFromMiddleY.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4370,7 +4370,7 @@ meter {
   opacity: 1; }
 
 .hingeOutFromTop.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4386,7 +4386,7 @@ meter {
   opacity: 0; }
 
 .hingeOutFromRight.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4402,7 +4402,7 @@ meter {
   opacity: 0; }
 
 .hingeOutFromBottom.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4418,7 +4418,7 @@ meter {
   opacity: 0; }
 
 .hingeOutFromLeft.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4434,7 +4434,7 @@ meter {
   opacity: 0; }
 
 .hingeOutFromMiddleX.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4450,7 +4450,7 @@ meter {
   opacity: 0; }
 
 .hingeOutFromMiddleY.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, opacity;
@@ -4466,7 +4466,7 @@ meter {
   opacity: 0; }
 
 .zoomIn.ng-enter {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, property;
@@ -4480,7 +4480,7 @@ meter {
   opacity: 1; }
 
 .zoomOut.ng-leave {
-  transition-duration: 500ms;
+  transition-duration: 220ms;
   transition-timing-function: ease;
   transition-delay: 0;
   transition-property: -webkit-transform, property;
@@ -4541,10 +4541,10 @@ meter {
   Transition modifiers
 */
 .slow {
-  transition-duration: 750ms !important; }
+  transition-duration: 500ms !important; }
 
 .fast {
-  transition-duration: 250ms !important; }
+  transition-duration: 100ms !important; }
 
 .linear {
   transition-timing-function: linear !important; }
@@ -4582,8 +4582,8 @@ meter {
 .shake {
   -webkit-animation-name: shake;
           animation-name: shake;
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
+  -webkit-animation-duration: 220ms;
+          animation-duration: 220ms;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
   -webkit-backface-visibility: hidden;
@@ -4596,8 +4596,8 @@ meter {
 .spin-cw {
   -webkit-animation-name: spin-cw;
           animation-name: spin-cw;
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
+  -webkit-animation-duration: 220ms;
+          animation-duration: 220ms;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
   -webkit-backface-visibility: hidden;
@@ -4610,8 +4610,8 @@ meter {
 .spin-ccw {
   -webkit-animation-name: spin-ccw;
           animation-name: spin-ccw;
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
+  -webkit-animation-duration: 220ms;
+          animation-duration: 220ms;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
   -webkit-backface-visibility: hidden;
@@ -4624,8 +4624,8 @@ meter {
 .wiggle {
   -webkit-animation-name: wiggle;
           animation-name: wiggle;
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
+  -webkit-animation-duration: 220ms;
+          animation-duration: 220ms;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
   -webkit-backface-visibility: hidden;
@@ -4696,14 +4696,14 @@ meter {
 .spin-cw.slow,
 .spin-ccw.slow,
 .wiggle.slow {
-  -webkit-animation-duration: 750ms !important;
-          animation-duration: 750ms !important; }
+  -webkit-animation-duration: 500ms !important;
+          animation-duration: 500ms !important; }
 .shake.fast,
 .spin-cw.fast,
 .spin-ccw.fast,
 .wiggle.fast {
-  -webkit-animation-duration: 250ms !important;
-          animation-duration: 250ms !important; }
+  -webkit-animation-duration: 100ms !important;
+          animation-duration: 100ms !important; }
 .shake.delay,
 .spin-cw.delay,
 .spin-ccw.delay,
@@ -4729,7 +4729,7 @@ meter {
   transition-delay: 150ms;
   transition-duration: 0; }
 
-/*
+ /*
   NOTIFICATION
   ------------
 
@@ -4778,7 +4778,7 @@ meter {
   .notification, .notification h1, .notification h2, .notification h3, .notification h4, .notification h5, .notification h6 {
     color: white; }
   .notification.success {
-    background: #58DF64;
+    background: #61DA7E;
     padding: 1rem;
     border-radius: 4px; }
     .notification.success, .notification.success h1, .notification.success h2, .notification.success h3, .notification.success h4, .notification.success h5, .notification.success h6 {
@@ -5218,10 +5218,6 @@ meter {
     .switch.large input:checked + label::after {
       left: 1.57143rem; }
 
-/*
-  TABS
-  ----
-*/
 .tabs {
   /*
   	Container styles
@@ -5234,7 +5230,7 @@ meter {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background: #e5e5e5;
+  background: #f3f3f3;
   padding: 0 0 0.3rem 0.3rem;
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
@@ -5251,7 +5247,7 @@ meter {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    background: #e5e5e5;
+    background: #f3f3f3;
     padding: 0 0 0.3rem 0.3rem;
     -webkit-flex-flow: column nowrap;
         -ms-flex-flow: column nowrap;
@@ -5275,7 +5271,7 @@ meter {
       .tabs .tab-item.is-active:hover {
         background: #fff; }
     .tabs .tab-item:hover {
-      background: #eeeeee;
+      background: #f7f7f7;
       color: #202020; }
     .tabs .tab-item:active {
       background: #fff;
@@ -5296,7 +5292,7 @@ meter {
   The trusy accordion allows you to create a series of vertical tabs.
 */
 .accordion {
-  border: 1px solid #b2b2b2; }
+  border: 1px solid #cbcbcb; }
 
 .accordion-title {
   padding: 1rem;
@@ -5307,7 +5303,7 @@ meter {
   .accordion-title:hover {
     background: transparent; }
   .is-active > .accordion-title {
-    background: rgba(8, 8, 8, 0);
+    background: rgba(51, 51, 51, 0);
     color: inherit; }
 
 .accordion-content {
@@ -5370,12 +5366,12 @@ a {
 p {
   font-family: inherit;
   font-weight: normal;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
   margin-bottom: 1.42857rem;
   text-rendering: optimizeLegibility; }
   p.lead {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     line-height: 1.6; }
   p aside {
     font-size: 1rem;
@@ -5460,7 +5456,7 @@ ul,
 ol,
 dl {
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 1.42857rem;
   list-style-position: outside;
   font-family: inherit; }
@@ -5516,7 +5512,7 @@ blockquote {
 
 blockquote,
 blockquote p {
-  line-height: 1.5;
+  line-height: 1.6;
   color: #6f6f6f; }
 
 @media only screen and (min-width: 45.71429em) {
@@ -6217,6 +6213,17 @@ blockquote p {
  * These styles are required for noUiSlider to function.
  * You don't need to change these rules to apply your design.
  */
+.slider {
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  margin-top: 2rem; }
+
 .noUi-target,
 .noUi-target * {
   -webkit-touch-callout: none;
@@ -6238,51 +6245,43 @@ blockquote p {
     top: 0.8em;
     z-index: 0;
     width: 100%;
-    border-top: 1px dotted #464646; }
+    border-top: 1px dotted #CBCBCB; }
   .slider-header > h4 {
     font-size: 1rem;
+    color: initial;
+    font-weight: bold;
     display: inline-block;
     background: #fff;
-    padding: 0 1rem;
-    margin-bottom: 0;
+    padding: 0 1em;
+    margin: 0.1em 0 0;
     position: relative;
     z-index: 1; }
 
 .slider-min,
 .slider-max {
   position: absolute;
-  top: 0.4em;
+  top: 0.1em;
   background: #fff;
   z-index: 1; }
 
 .slider-min {
   left: 0;
-  padding-right: 1rem; }
+  padding-right: 1em; }
 
 .slider-max {
   right: 0;
-  padding-left: 1rem; }
-
-.slider {
-  position: relative;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  width: 100%;
-  margin-bottom: 2.2rem; }
+  padding-left: 1em; }
 
 .noUi-target {
   position: relative;
   direction: ltr;
-  height: 2px;
-  background: #181818; }
+  height: 4px; }
 
 .noUi-connect {
   background: #3fa2d8; }
 
 .noUi-background {
-  background: #181818; }
+  background: #CBCBCB; }
 
 .noUi-base {
   width: 100%;
@@ -6305,7 +6304,7 @@ blockquote p {
 
 .noUi-handle {
   background: #3fa2d8;
-  border: 1px solid #3fa2d8;
+  border: 1px solid #FFFFFF;
   position: absolute;
   top: -9px;
   left: -10px;
@@ -6313,10 +6312,15 @@ blockquote p {
   cursor: pointer;
   width: 23px;
   height: 23px;
-  border-radius: 50%; }
+  border-radius: 50%;
+  transition: all 0.09s;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8); }
   .noUi-handle:hover, .noUi-handle.noUi-active {
     background: #fff;
-    color: #fff; }
+    border: 1px solid #3fa2d8;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
   .noUi-handle:before, .noUi-handle:after {
     position: absolute; }
   .noUi-handle:before {
@@ -6962,7 +6966,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .pika-button:hover {
   color: #fff !important;
-  background: #b2b2b2 !important;
+  background: #cbcbcb !important;
   box-shadow: none !important; }
 
 /* styling for abbr */
@@ -7000,44 +7004,9 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     -webkit-transform: rotateY(-180deg);
             transform: rotateY(-180deg); }
 
-.boxed, .box, .breadcrumb, .accordion, .accordion.item-spacing .accordion-item {
+.boxed, .breadcrumb, .accordion, .accordion.item-spacing .accordion-item {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
-  border: 1px solid #cbcbcb; }
-
-.box {
-  background: #fff;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  border: none; }
-  .box > .subheader {
-    line-height: 1;
-    font-size: 26px;
-    border-bottom: 1px solid #f4f4f1;
-    padding: 22px 20px;
-    margin: 0; }
-    .box > .subheader i {
-      color: #3fa2d8;
-      margin-right: 15px;
-      float: left;
-      line-height: inherit;
-      display: block;
-      font-size: 30px; }
-  .box > div {
-    color: #616161;
-    padding: 20px; }
-  .box p {
-    margin-bottom: 0.7rem; }
-    .box p:last-child {
-      margin-bottom: 0; }
-  .box .tab-content {
-    padding: 0; }
+  border: 1px solid #dfdfdf; }
 
 #left-menu-container {
   min-width: 220px;
@@ -7150,10 +7119,6 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .accordion .accordion-item.is-active .accordion-title:after {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg); }
-
-#main-container {
-  padding: 0 !important;
-  padding-right: calc(100% - 1200px) !important; }
 
 .menu-group > .menu-group-left {
   -webkit-flex: 1;

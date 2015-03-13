@@ -1,34 +1,3 @@
-/*
-  TABS
-  ----
-*/
-
-/// @Foundation.settings
-// Tabs
-$tabstrip-background: $gray-light !default;
-$tabstrip-padding: 0.3rem !default;
-$tabstrip-radius: 4px;
-
-//$tab-title-background: transparent !default;
-//$tab-title-background-hover: smartscale($tab-title-background, 5%) !default;
-//$tab-title-background-active: smartscale($primary-color, 3%) !default;
-//$tab-title-color: isitlight($tab-title-background) !default;
-//$tab-title-color-active: $tab-title-color !default;
-//
-//$tab-title-padding: $global-padding !default;
-//$tab-content-padding: $global-padding !default;
-
-$tab-title-radius: 2px;
-$tab-title-background: transparent !default;
-$tab-title-background-hover: smartscale($tabstrip-background, -35%) !default;
-$tab-title-background-active: #fff;
-$tab-title-color: $body-font-color;
-$tab-title-color-hover: $body-font-color;
-$tab-title-color-active: $tab-title-color !default;
-$tab-title-padding: $global-padding !default;
-$tab-content-padding: $global-padding !default;
-
-///
 
 @mixin tabstrip(
 	$orientation: horizontal,

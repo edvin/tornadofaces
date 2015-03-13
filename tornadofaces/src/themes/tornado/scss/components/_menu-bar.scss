@@ -11,21 +11,6 @@
    - Text labels for vertical menus and badges for horizontal menus
 */
 
-/// @Foundation.settings
-// Menu Bar
-$menubar-fontsize: 0.9rem !default;
-$menubar-background: #fff !default;
-$menubar-background-hover: smartscale($menubar-background, 7%) !default;
-$menubar-background-active: $menubar-background-hover;
-$menubar-color: isitlight($menubar-background) !default;
-$menubar-color-hover: $menubar-color !default;
-$menubar-color-active: $menubar-color-hover;
-
-$menubar-item-padding: $global-padding !default;
-$menubar-icon-size: 25px !default;
-$menubar-icon-spacing: $menubar-item-padding !default;
-///
-
 // Menu bar container
 %menu-bar {
   display: flex;

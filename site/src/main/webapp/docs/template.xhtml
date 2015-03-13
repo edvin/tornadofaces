@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div id="main-container">
-                <div id="header" class="menu-group">
+                <div id="header" class="menu-group main-max-width">
                     <div class="menu-group-left grid-block">
                         <i class="menu-toggle icon-navigation hide-for-medium"></i>
                         <h1 class="grid-block"><a href="/">TornadoFaces</a></h1>
@@ -107,9 +107,11 @@
                         </t:ul>
                     </div>
                 </div>
-                <main>
-                    <ui:insert name="content"/>
-                </main>
+                <div class="main-wrapper main-max-width">
+                    <main>
+                        <ui:insert name="content"/>
+                    </main>
+                </div>
             </div>
         </div>
     </h:body>

@@ -2,6 +2,40 @@
  * These styles are required for noUiSlider to function.
  * You don't need to change these rules to apply your design.
  */
+
+// Slider settings
+$sliderBaseFontSize: 1rem;
+$sliderSpacing: 2rem;
+
+$sliderTrackHeight: 4px;
+$sliderTrackColor: #CBCBCB;
+$sliderTrackSelectionColor: $primary-color;
+
+$sliderHandleColor: $primary-color;
+$sliderHandleBorder: 1px solid #FFFFFF;
+$sliderHandleActiveColor: #fff;
+$sliderHandleActiveBorder: 1px solid $primary-color;
+$sliderHandleSizeX: 23px;
+$sliderHandleSizeY: 23px;
+$sliderHandleRadius: 50%;
+$sliderHandleTransform: scale(.8);
+$sliderHandleActiveTransform: scale(1);
+
+$sliderHeaderBackground: #fff;
+$sliderHeaderFontSize: 1rem;
+$sliderHeaderFontWeight: bold;
+$sliderHeaderFontColor: initial;
+$sliderHeaderLine: 1px dotted #CBCBCB; //border styling
+
+.slider {
+  position: relative;
+  user-select: none;
+  font-size: $sliderBaseFontSize;
+  width: 100%;
+  margin-bottom: $sliderSpacing;
+  margin-top: $sliderSpacing;
+}
+
 .noUi-target,
 .noUi-target * {
 -webkit-touch-callout: none;
@@ -21,14 +55,16 @@
     top: 0.8em;
     z-index: 0;
     width: 100%;
-    border-top: 1px dotted #464646;
+    border-top: $sliderHeaderLine;
   }
   &> h4 {
-    font-size: 1rem;
+    font-size: $sliderHeaderFontSize;
+    color: $sliderHeaderFontColor;
+    font-weight: $sliderHeaderFontWeight;
     display: inline-block;
-    background: #fff;
-    padding: 0 1rem;
-    margin-bottom: 0;
+    background: $sliderHeaderBackground;
+    padding: 0 1em;
+    margin: 0.1em 0 0;
     position: relative;
     z-index: 1;
   }
@@ -36,30 +72,23 @@
 .slider-min,
 .slider-max {
   position: absolute;
-  top: 0.4em;;
-  background: #fff;
+  top: 0.1em;
+  background: $sliderHeaderBackground;
   z-index: 1;
 }
-.slider-min { left: 0; padding-right: 1rem; }
-.slider-max { right: 0; padding-left: 1rem; }
+.slider-min { left: 0; padding-right: 1em; }
+.slider-max { right: 0; padding-left: 1em; }
 
-.slider {
-  position: relative;
-  user-select: none;
-  width: 100%;
-  margin-bottom: 2.2rem;
-}
 .noUi-target {
-	position: relative;
-	direction: ltr;
-  height: 2px;
-  background: $dark-color;
+  position: relative;
+  direction: ltr;
+  height: $sliderTrackHeight;
 }
 .noUi-connect {
-  background: $primary-color;
+  background: $sliderTrackSelectionColor;
 }
 .noUi-background {
-  background: $dark-color;
+  background: $sliderTrackColor;
 }
 .noUi-base {
   width: 100%;
@@ -79,21 +108,24 @@
   position: absolute; right: 0;
 }
 .noUi-handle {
-  background: $primary-color;
-  border: 1px solid $primary-color;
+  background: $sliderHandleColor;
+  border: $sliderHandleBorder;
   position: absolute;
   top: -9px;
   left: -10px;
   z-index: 120;
   cursor: pointer;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
+  width: $sliderHandleSizeX;
+  height: $sliderHandleSizeY;
+  border-radius: $sliderHandleRadius;
+  transition: all 0.09s;
+  transform: $sliderHandleTransform;
 
   &:hover,
   &.noUi-active {
-    background: #fff;
-    color: #fff;
+    background: $sliderHandleActiveColor;
+    border: $sliderHandleActiveBorder;
+    transform: $sliderHandleActiveTransform;
   }
 
   &:before,
@@ -101,7 +133,7 @@
     position: absolute;
   }
 
-  &:before {
+  &:before { //Todo: Fix slider icon
 //    content: '\e63b \e63a';
     letter-spacing: 3px;
     box-sizing: border-box;
@@ -117,7 +149,7 @@
     vertical-align: middle;
     height: 100%;
   }
-  &:after {
+  &:after { //Hit-area for handle
     background: none;
     content: "";
     display: block;
