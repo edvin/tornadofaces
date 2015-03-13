@@ -27,6 +27,33 @@
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
+
+                <h5>Client Side formatting</h5>
+
+                <p>You can format the <code>min</code>, <code>max</code> and <code>value</code> labels in the header by referencing a JavaScript function in the <code>labelFormatter</code> property.
+                This method will be called with the following arguments:</p>
+                <ul>
+                    <li><strong>type</strong> One of 'min', 'max' or 'value'</li>
+                    <li><strong>label</strong> The corresponding span or h4 you must apply the value to</li>
+                    <li><strong>value</strong> The value the label should now reflect. The value will be an array in case both lower and upper is used, or just an int if just lower is used.</li>
+                    <li><strong>widget</strong> The slider widget. Can be used to extract or set further information about the labels.</li>
+                </ul>
+
+                <h5>Client Side Callbacks</h5>
+                <p><code>onSlide</code> is called as a slider value changes.</p>
+                <pre><code class="language-javascript">function onSlide(slider, value) {
+    // The value will be an array if upper is used, int otherwise.
+}</code></pre>
+                <h5>Ajax Behavior Events</h5>
+                <p><code>change</code> will be called when a slider value is changed
+                </p>
+                <pre><code class="language-markup">&lt;t:slider>
+    &lt;f:ajax event="change" listener="#{docsController.expr('controller.changed')}">
+&lt;/t:slider></code></pre>
+                <pre><code class="language-java">public void onChange(SliderValueEvent event) {
+    Slider slider = event.getSlider();
+}</code></pre>
+                <p>The listener will be called with an instance of <code>io.tornadofaces.event.SliderEvent</code> that contains a reference to the slider.</p>
             </t:tab>
         </t:tabView>
 

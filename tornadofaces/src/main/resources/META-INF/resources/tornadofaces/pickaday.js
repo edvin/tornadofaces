@@ -107,6 +107,12 @@
             return (/Date/).test(Object.prototype.toString.call(obj)) && !isNaN(obj.getTime());
         },
 
+        isWeekend = function(date)
+        {
+            var day = date.getDay();
+            return day === 0 || day === 6;
+        },
+
         isLeapYear = function(year)
         {
             // solution by Matti Virkkunen: http://stackoverflow.com/a/4881951
@@ -240,6 +246,9 @@
                 weekdaysShort : ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
             },
 
+            // Theme Classname
+            theme: null,
+
             // callback function
             onSelect: null,
             onOpen: null,
@@ -326,7 +335,7 @@
 
             for (arr = [], i = 0; i < 12; i++) {
                 arr.push('<option value="' + (year === refYear ? i - c : 12 + i - c) + '"' +
-                (i === month ? ' selected': '') +
+                (i === month ? ' selected="selected"': '') +
                 ((isMinYear && i < opts.minMonth) || (isMaxYear && i > opts.maxMonth) ? 'disabled' : '') + '>' +
                 opts.i18n.months[i] + '</option>');
             }
@@ -342,7 +351,7 @@
 
             for (arr = []; i < j && i <= opts.maxYear; i++) {
                 if (i >= opts.minYear) {
-                    arr.push('<option value="' + i + '"' + (i === year ? ' selected': '') + '>' + (i) + '</option>');
+                    arr.push('<option value="' + i + '"' + (i === year ? ' selected="selected"': '') + '>' + (i) + '</option>');
                 }
             }
             yearHtml = '<div class="pika-label">' + year + opts.yearSuffix + '<select class="pika-select pika-select-year">' + arr.join('') + '</select></div>';
@@ -396,6 +405,7 @@
                     return;
                 }
 
+                e.preventDefault();
                 if (!hasClass(target, 'is-disabled')) {
                     if (hasClass(target, 'pika-button') && !hasClass(target, 'is-empty')) {
                         self.setDate(new Date(target.getAttribute('data-pika-year'), target.getAttribute('data-pika-month'), target.getAttribute('data-pika-day')));
@@ -518,9 +528,9 @@
             };
 
             self.el = document.createElement('div');
-            self.el.className = 'pika-single' + (opts.isRTL ? ' is-rtl' : '');
+            self.el.className = 'pika-single' + (opts.isRTL ? ' is-rtl' : '') + (opts.theme ? ' ' + opts.theme : '');
 
-            addEvent(self.el, 'mousedown', self._onMouseDown, true);
+            addEvent(self.el, 'ontouchend' in document ? 'ontouchend' : 'mousedown', self._onMouseDown, true);
             addEvent(self.el, 'change', self._onChange);
 
             if (opts.field) {
@@ -588,9 +598,15 @@
 
             opts.field = (opts.field && opts.field.nodeName) ? opts.field : null;
 
+            opts.theme = (typeof opts.theme) == 'string' && opts.theme ? opts.theme : null;
+
             opts.bound = !!(opts.bound !== undefined ? opts.field && opts.bound : opts.field);
 
             opts.trigger = (opts.trigger && opts.trigger.nodeName) ? opts.trigger : opts.field;
+
+            opts.disableWeekends = !!opts.disableWeekends;
+
+            opts.disableDayFn = (typeof opts.disableDayFn) == "function" ? opts.disableDayFn : null;
 
             var nom = parseInt(opts.numberOfMonths, 10) || 1;
             opts.numberOfMonths = nom > 4 ? 4 : nom;
@@ -605,9 +621,7 @@
                 opts.maxDate = opts.minDate = false;
             }
             if (opts.minDate) {
-                setToStartOfDay(opts.minDate);
-                opts.minYear  = opts.minDate.getFullYear();
-                opts.minMonth = opts.minDate.getMonth();
+                this.setMinDate(opts.minDate)
             }
             if (opts.maxDate) {
                 setToStartOfDay(opts.maxDate);
@@ -796,7 +810,10 @@
          */
         setMinDate: function(value)
         {
+            setToStartOfDay(value);
             this._o.minDate = value;
+            this._o.minYear  = value.getFullYear();
+            this._o.minMonth = value.getMonth();
         },
 
         /**
@@ -932,10 +949,13 @@
             for (var i = 0, r = 0; i < cells; i++)
             {
                 var day = new Date(year, month, 1 + (i - before)),
-                    isDisabled = (opts.minDate && day < opts.minDate) || (opts.maxDate && day > opts.maxDate),
                     isSelected = isDate(this._d) ? compareDates(day, this._d) : false,
                     isToday = compareDates(day, now),
-                    isEmpty = i < before || i >= (days + before);
+                    isEmpty = i < before || i >= (days + before),
+                    isDisabled = (opts.minDate && day < opts.minDate) ||
+                        (opts.maxDate && day > opts.maxDate) ||
+                        (opts.disableWeekends && isWeekend(day)) ||
+                        (opts.disableDayFn && opts.disableDayFn(day));
 
                 row.push(renderDay(1 + (i - before), month, year, isSelected, isToday, isDisabled, isEmpty));
 

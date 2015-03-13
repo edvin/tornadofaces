@@ -24,7 +24,7 @@ public class Modal extends UIPanel implements Widget {
 
 	public String getWidgetVar() { return (String) getStateHelper().eval("widgetVar"); }
 	public void setWidgetVar(String widgetVar) { getStateHelper().put("widgetVar", widgetVar); }
-	public String getTitle() { return (String) getStateHelper().eval("title", ""); }
+	public String getTitle() { return (String) getStateHelper().eval("title"); }
 	public void setTitle(String title) { getStateHelper().put("title", title); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }

@@ -2,7 +2,16 @@
               xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <h:form>
-        <t:slider id="myslider" widgetVar="myslider" header="true" min="0" max="100" step="1" lower="#{docsController.lower}" connect="lower"/>
+        <script>
+            var mySliderFormatter = function(type, label, value, widget) {
+                if (type == 'value')
+                    label.html(value + ' units');
+                else if (type == 'min' &amp;&amp; value == 0)
+                    label.html('Zip');
+
+            }
+        </script>
+        <t:slider id="myslider" widgetVar="myslider" labelFormatter="mySliderFormatter" header="true" min="0" max="100" step="1" lower="#{docsController.lower}" connect="lower"/>
 
         <t:slider header="true" min="0" max="100" step="10" lower="20" upper="80" connect="true"/>
 

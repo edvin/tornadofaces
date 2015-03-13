@@ -577,6 +577,13 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Name of a JavaScript function that will be called to format the header labels for min, max and value.
+            </description>
+            <name>labelFormatter</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Arbitrary data you can connect to your component, for example for retrieval by the configure
                 tag or other custom business logic
             </description>
@@ -1337,9 +1344,9 @@
             <type>String</type>
         </attribute>
         <attribute>
-            <description>The title of the modal window.</description>
+            <description>The title of the modal window. If present, a title bar will be rendered at the top of the modal dialog.</description>
             <name>title</name>
-            <required>true</required>
+            <required>false</required>
             <type>String</type>
         </attribute>
         <attribute>
