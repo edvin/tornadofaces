@@ -45,13 +45,11 @@
     <h:body>
         <!-- Notification and modal needs to be above the grid-frame -->
         <t:notification id="notification" widgetVar="notification" timeout="3000"/>
-        <t:modal title="Modal window" widgetVar="mymodal" id="mymodal" color="dark">
-            <br/>
+        <t:modal widgetVar="mymodal" id="mymodal" color="dark">
+            <h3>Modal Window</h3>
 
             <p>Enter your name: <h:inputText value="#{modalController.name}"/></p>
             <a class="button success close">Save</a>
-            <f:facet name="left"><a href="#" class="close">Close</a></f:facet>
-            <f:facet name="right">Right</f:facet>
         </t:modal>
 
         <div class="grid-frame">

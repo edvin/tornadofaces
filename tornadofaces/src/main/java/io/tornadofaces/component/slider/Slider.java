@@ -184,6 +184,13 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 	public void setStyleClass(String styleClass) {
 		getStateHelper().put("styleClass", styleClass);
 	}
+	public String getLabelFormatter() {
+		return (String) getStateHelper().eval("labelFormatter");
+	}
+
+	public void setLabelFormatter(String labelFormatter) {
+		getStateHelper().put("labelFormatter", labelFormatter);
+	}
 
 	public String getBehaviour() {
 		return (String) getStateHelper().eval("behaviour");

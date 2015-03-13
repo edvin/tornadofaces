@@ -91,7 +91,8 @@ public class SliderRenderer extends Renderer {
 			.attr("lowerId", slider.getLowerClientId(context))
 			.attr("upperId", slider.getUpperClientId(context))
 			.nativeAttr("settings", slider.getSettings().toString())
-			.nativeAttr("onSlide", slider.getOnSlide());
+			.nativeAttr("onSlide", slider.getOnSlide())
+			.nativeAttr("labelFormatter", slider.getLabelFormatter());
 
 		String lowerTarget = slider.getLowerTarget();
 		if (lowerTarget != null)

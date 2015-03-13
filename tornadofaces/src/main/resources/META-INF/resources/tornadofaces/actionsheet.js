@@ -5,7 +5,6 @@ TornadoFaces.declareWidget('ActionSheet', function() {
         widget = this;
 
         var toggleFn = function(event) {
-            console.log(widget.elem);
             widget.elem.toggleClass('is-active');
             widget.elem.find('.action-sheet').toggleClass('is-active');
             event.preventDefault();

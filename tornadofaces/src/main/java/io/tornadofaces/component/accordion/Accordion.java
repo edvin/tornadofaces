@@ -2,10 +2,13 @@ package io.tornadofaces.component.accordion;
 
 import io.tornadofaces.component.tab.TabParent;
 
+import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
 
-@ResourceDependency(library = "tornadofaces", name = "accordion.js")
+@ResourceDependencies({
+	@ResourceDependency(library = "tornadofaces", name = "accordion.js")
+})
 @FacesComponent(value = Accordion.COMPONENT_TYPE, createTag = true, tagName = "accordion", namespace = "http://tornadofaces.io/ui")
 public class Accordion extends TabParent {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Accordion";

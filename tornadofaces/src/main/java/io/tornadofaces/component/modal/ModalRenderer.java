@@ -30,14 +30,24 @@ public class ModalRenderer extends Renderer {
 		writer.writeAttribute("class", "modal", null);
 		writer.startElement("div", modal);
 		writer.writeAttribute("class", "grid-block vertical clearfix", null);
-		writer.startElement("div", modal);
-		StyleClass.of("title-bar").add(modal.getColor()).write(writer);
-		writer.startElement("div", modal);
-		writer.writeAttribute("class", "center title", null);
-		writer.write(modal.getTitle());
-		writer.endElement("div");
 
 		UIComponent left = modal.getFacet("left");
+		UIComponent right = modal.getFacet("right");
+		String title = modal.getTitle();
+		Boolean renderTitleBar = left != null || right != null || title != null;
+
+		if (renderTitleBar) {
+			writer.startElement("div", modal);
+			StyleClass.of("title-bar").add(modal.getColor()).write(writer);
+		}
+
+		if (title != null) {
+			writer.startElement("div", modal);
+			writer.writeAttribute("class", "center title", null);
+			writer.write(title);
+			writer.endElement("div");
+		}
+
 		if (left != null) {
 			writer.startElement("span", modal);
 			writer.writeAttribute("class", "left", null);
@@ -45,7 +55,6 @@ public class ModalRenderer extends Renderer {
 			writer.endElement("span");
 		}
 
-		UIComponent right = modal.getFacet("right");
 		if (right != null) {
 			writer.startElement("span", modal);
 			writer.writeAttribute("class", "right", null);
@@ -53,10 +62,11 @@ public class ModalRenderer extends Renderer {
 			writer.endElement("span");
 		}
 
-		writer.endElement("div");
+		if (renderTitleBar)
+			writer.endElement("div");
 
 		writer.startElement("div", modal);
-		StyleClass.of("grid-content padding").add(modal.getStyleClass()).add("padding-top: 1rem").write(writer);
+		StyleClass.of("grid-content").add(modal.getStyleClass()).write(writer);
 	}
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
