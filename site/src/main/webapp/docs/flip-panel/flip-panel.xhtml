@@ -14,45 +14,6 @@
     </f:facet>
 </t:flip-panel>
 
-<script>
-    var front = $('.front');
-    var back = $('.back');
-    var wrapper = $('.flip-panel');
-    var flipx = function(e) {
-        var mode = 'reverse';
-
-        var toshow, tohide, x;
-        if (wrapper.hasClass('flipped')) {
-            toshow = front;
-            tohide = back;
-            x = -1;
-        } else {
-            toshow = back;
-            tohide = front;
-            x = 1;
-        }
-
-        wrapper.toggleClass('flipped');
-
-        var tl = new TimelineLite();
-
-        tl.set(tohide, {rotationY: 0 });
-
-        tl.to(tohide, 0.15, { rotationY: 90 * x});
-
-        tl.append(function() {
-            tohide.hide();
-            TweenLite.set(toshow, {rotationY: -90 * x });
-            toshow.show();
-        });
-
-        TweenLite.to(wrapper, 0.15, {height: toshow.outerHeight()}, "-=0.3");
-
-        tl.to(toshow, 0.3, {rotationY: 0, ease: Back.easeOut});
-    };
-
-</script>
 <t:notification id="status"/>
-<button onclick="flipx()">flip</button>
 
 </html>
