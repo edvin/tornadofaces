@@ -1,0 +1,79 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('colorpicker')}" />
+    </f:metadata>
+
+    <ui:define name="content">
+        <div class="box">
+        <h1 class="subheader">Color Picker</h1>
+        <div>
+
+        <p>#{docsController.tag.description}</p>
+
+        <ui:include src="colorpicker.xhtml"/>
+        
+        </div></div>
+        
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
+            <t:tab title="Example">
+<pre class="line-numbers"><code class="language-markup">&lt;t:form-element label="Pick a color">
+    &lt;t:colorpicker value="#{docsController.expr('controller.color')}" />
+&lt;/t:form-element>
+
+&lt;t:form-element label="Just the picker">
+    &lt;t:colorpicker value="#{docsController.expr('controller.color')}" showTextField="false" />
+&lt;/t:form-element></code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+                <h5>Client Side Callbacks</h5>
+                <p><code>onChange</code> is called as a color is selected.</p>
+                <pre><code class="language-javascript">function onChange(color) {
+    //
+}</code></pre>
+                <h5>Ajax Behavior Events</h5>
+                <p><code>change</code> will be called when a color is changed
+                </p>
+                <pre><code class="language-markup">&lt;t:color-picker>
+    &lt;f:ajax event="change" listener="#{docsController.expr('controller.colorChanged')}">
+&lt;/t:color-picker></code></pre>
+                <pre><code class="language-java">public void colorChanged(AjaxBehaviorEvent event) {
+    //
+}</code></pre>
+
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.Colorpicker</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>show()</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Show the picker.</td>
+                    </tr>
+                    <tr>
+                        <td>hide()</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Hide the picker.</td>
+                    </tr>
+                    <tr>
+                        <td>toggle()</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Toggle show/hide of the picker.</td>
+                    </tr>
+                </table>
+                <br/>
+                <p>Se more documentation on <a href="https://bgrins.github.io/spectrum/">Spectrum Website</a>.</p>
+            </t:tab>
+        </t:tabView>
+    </ui:define>
+</ui:composition>

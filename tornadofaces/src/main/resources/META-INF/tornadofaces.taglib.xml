@@ -555,6 +555,160 @@
         </attribute>
     </tag>
     <tag>
+        <description>Color Picker based on spectrum.js</description>
+        <tag-name>colorpicker</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Colorpicker</component-type>
+            <renderer-type>io.tornadofaces.component.ColorpickerRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>
+                <![CDATA[Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar.]]></description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Flat means that it will always show up at full size, and be positioned as an inline-block element.</description>
+            <name>flat</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Show the text input field next to the color picker dropdown. Defaults to true.</description>
+            <name>showTextField</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>You can add an input to allow free form typing inside the popup. Defaults to true.</description>
+            <name>showInput</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Allow alpha transparency selection. Defaults to false.</description>
+            <name>showAlpha</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Disable input/color change. Defaults to false.</description>
+            <name>disabled</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Spectrum can show a palette below the colorpicker to make it convenient for users to choose from frequently or recently used colors. When the colorpicker is closed, the current color will be added to the palette if it isn't there already. Add list of colors representing each row via the palette attribute. Defaults to false.</description>
+            <name>showPalette</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Show the palettes you specify, and nothing else. Defaults to false.</description>
+            <name>showPaletteOnly</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Spectrum can show a button to toggle the colorpicker next to the palette. This way, the user can choose from a limited number of colors in the palette, but still be able to pick a color that's not in the palette. The default value for togglePaletteOnly is false. Set it to true to enable the Toggle button. You can also change the text on the Toggle Button with the options togglePaletteMoreText (default is "more") and togglePaletteLessText (default is "less").</description>
+            <name>togglePaletteOnly</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Spectrum can keep track of what has been selected by the user with the showSelectionPalette option. If the localStorageKey option is defined, the selection will be saved in the browser's localStorage object. Defaults to true.</description>
+            <name>showSelectionPalette</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>The default values inside of the selection palette, as a list of Strings. Make sure that showSelectionPalette and showPalette are both enabled. If a localStorageKey is defined, then this value will be overwritten by it.</description>
+            <name>selectionPalette</name>
+            <required>false</required>
+            <type>List&lt;String&gt;</type>
+        </attribute>
+        <attribute>
+            <description>The number of elements allowed in the selectionPalette at any given time. Elements will be removed from the palette in first in - first out order if this limit is reached.</description>
+            <name>maxSelectionSize</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>You can have the colorpicker automatically hide after a palette color is selected. Defaults to false.</description>
+            <name>hideAfterPaletteSelect</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>When clicking outside of the colorpicker, you can force it to fire a change event rather than having it revert the change. Defaults to true.</description>
+            <name>clickoutFiresChange</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Spectrum can show the color that was initially set when opening. This provides an easy way to click back to what was set when opened. Defaults to false.</description>
+            <name>showInitial</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Allows for selecting an empty color. Defaults to false.</description>
+            <name>allowEmpty</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Show buttons in selection dialog. Defaults to true.</description>
+            <name>showButtons</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Cancel button text. Defaults to 'cancel'</description>
+            <name>cancelText</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback on change. The callback gets the selected color as the sole argument.</description>
+            <name>onChange</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Add an additional class name to the container element.</description>
+            <name>containerClassName</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Add an additional class name to the replacer element.</description>
+            <name>replacerClassName</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>You can set the format that is displayed in the text box. Valid options are 'hex', 'hex3', 'hsl', 'rgb', 'name'. Defaults to 'hex'</description>
+            <name>preferredFormat</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Choose button text. Defaults to 'choose'</description>
+            <name>chooseText</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+
+    </tag>
+    <tag>
         <description>
             <![CDATA[Range Slider based on <a href="http://refreshless.com/nouislider/">noUiSlider</a> with support for two slider values and lots of options. Can be programatially configured via the <a href="http://tornadofaces.io/docs/configure/">TornadoFaces configure tag</a> to keep your markup free for business logic.]]></description>
         <tag-name>slider</tag-name>

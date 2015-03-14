@@ -1,0 +1,15 @@
+<t:grid-block xmlns:t="http://tornadofaces.io/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
+              xmlns:h="http://xmlns.jcp.org/jsf/html" orientation="vertical"
+              medium="2">
+    <h:form>
+        <t:form-element label="Pick a color">
+            <t:colorpicker id="mypicker" value="#{pickerController.color}" >
+                <f:ajax listener="#{pickerController.colorChanged}" render="notification"/>
+            </t:colorpicker>
+        </t:form-element>
+
+        <t:form-element label="Just the picker">
+            <t:colorpicker id="mypicker2" value="#{pickerController.color}" showTextField="false" />
+        </t:form-element>
+    </h:form>
+</t:grid-block>

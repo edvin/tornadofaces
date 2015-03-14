@@ -52,7 +52,7 @@ public class FormElement extends UIPanel implements SystemEventListener {
 	}
 
 	public Boolean shouldRenderInlineLabelSpan() {
-		return getChildCount() > 1 || getPrefix() != null || getSuffix() != null;
+		return getChildCount() > 1 || getPrefix() != null || getSuffix() != null || (getChildCount() == 1 && Boolean.TRUE.equals(getChildren().get(0).getAttributes().get("renderInlineLabelWrapper")));
 	}
 
 	public String getLayout() { return (String) getStateHelper().eval("layout", null); }

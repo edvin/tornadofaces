@@ -113,6 +113,6 @@ public class FlipPanelRenderer extends CoreRenderer {
 				panel.setFlipped(Boolean.valueOf(flipped));
 		}
 
-		decodeBehaviors(context, component);
+		super.decode(context, component);
 	}
 }

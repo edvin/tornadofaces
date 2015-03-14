@@ -107,7 +107,7 @@ public class ButtonRenderer extends CoreRenderer {
 		if (clientId.equals(source))
 			component.queueEvent(new ActionEvent(component));
 
-		decodeBehaviors(context, component);
+		super.decode(context, component);
 	}
 
 }

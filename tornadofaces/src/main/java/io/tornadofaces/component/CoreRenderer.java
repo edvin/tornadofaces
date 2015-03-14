@@ -11,7 +11,11 @@ import java.util.Map;
 
 public abstract class CoreRenderer extends Renderer {
 
-	protected void decodeBehaviors(FacesContext context, UIComponent component) {
+	public void decode(FacesContext context, UIComponent component) {
+		decodeBehaviors(context, component);
+	}
+
+	private void decodeBehaviors(FacesContext context, UIComponent component) {
 		if (!(component instanceof ClientBehaviorHolder))
 			return;
 

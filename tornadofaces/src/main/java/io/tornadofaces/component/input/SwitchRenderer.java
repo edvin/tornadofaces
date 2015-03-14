@@ -63,7 +63,7 @@ public class SwitchRenderer extends CoreRenderer {
 	public void decode(FacesContext context, UIComponent component) {
 		Switch _switch = (Switch) component;
 		_switch.getCheckbox().decode(context);
-		decodeBehaviors(context, component);
+		super.decode(context, component);
 	}
 
 }
