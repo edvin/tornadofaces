@@ -6976,18 +6976,12 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .flip-panel {
   -webkit-perspective: 1000;
-          perspective: 1000;
-  position: relative;
-  padding: 0; }
+          perspective: 1000; }
   .flip-panel .flip-content {
     position: relative;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d; }
   .flip-panel .front, .flip-panel .back {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
     padding: 1rem;
     border: 1px solid #cecece; }
   .flip-panel .back {
