@@ -1,13 +1,10 @@
 TornadoFaces.declareWidget('FlipPanel', function() {
-    var widget, front, back, panel;
+    var widget, front, back;
 
     this.init = function() {
         widget = this;
         front = widget.elem.find('.front');
-        panel = widget.elem.find('.flip-content');
         back = widget.elem.find('.back');
-        var heightTarget = widget.isFlipped() ? back : front;
-        widget.elem.height(heightTarget.outerHeight());
     };
 
     this.flip = function() {
