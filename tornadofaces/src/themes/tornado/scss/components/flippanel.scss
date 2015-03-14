@@ -1,9 +1,11 @@
 // ?. Flippanel
 // - - - - - - - - - - - - - - -
+
 .flip-panel {
   perspective: 1000;
   position: relative;
   padding: 0;
+  margin-bottom: 2rem;
 
   .flip-content {
     position: relative;
@@ -16,7 +18,8 @@
     top: 0;
     left: 0;
     padding: 1rem;
-    border: 1px solid #cecece;
+    border: 1px solid #eee;
+    border-radius: 4px;
   }
 
   .back {
