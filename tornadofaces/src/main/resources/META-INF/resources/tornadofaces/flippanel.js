@@ -1,31 +1,44 @@
 TornadoFaces.declareWidget('FlipPanel', function() {
-    var widget, front, back, panel, rotation = 0;
+    var widget, front, back, panel;
 
     this.init = function() {
         widget = this;
         front = widget.elem.find('.front');
         panel = widget.elem.find('.flip-content');
         back = widget.elem.find('.back');
-        widget.elem.height(front.outerHeight());
-        widget.rotation = 0;
+        var heightTarget = widget.isFlipped() ? back : front;
+        widget.elem.height(heightTarget.outerHeight());
     };
 
     this.flip = function() {
-        var targetHeight;
+        var toshow, tohide, x;
 
         if (widget.isFlipped()) {
-            targetHeight = front.outerHeight();
-            rotation = 0;
+            toshow = front;
+            tohide = back;
+            x = widget.conf.mode == 'reverse' ? -1 : 1;
         } else {
-            targetHeight = back.outerHeight();
-            rotation = widget.conf.mode === 'reverse' ? 180 : rotation + 180;
+            toshow = back;
+            tohide = front;
+            x = 1;
         }
 
-        TweenLite.to(widget.elem, (widget.conf.duration / 2000), { height: targetHeight, ease: Back.easeOut });
-        TweenLite.to(panel, (widget.conf.duration / 1000), { rotationY: rotation, ease: Back.easeOut });
+        TweenLite.set(tohide, { rotationY: 0 });
+        TweenLite.set(toshow, { rotationY: -90 * x });
 
-        widget.conf.flipped = !widget.conf.flipped;
-        widget.elem.toggleClass('flipped');
+        var tl = new TimelineLite();
+        tl.to(tohide, .25, { rotationY: 90 * x, ease: Back.easeIn});
+        tl.append(function() {
+            if (widget.isFlipped()) {
+                widget.conf.flipped = false;
+                widget.elem.removeClass('flipped');
+            } else {
+                widget.conf.flipped = true;
+                widget.elem.addClass('flipped');
+            }
+        });
+        tl.to(toshow,.25, {rotationY: 0, ease: Back.easeOut});
+        tl.to(widget.elem,.25, {height: toshow.outerHeight()}, "-=0.25");
 
         if (widget.conf.behaviors && widget.conf.behaviors.flip) {
             var behaviors = widget.conf.behaviors.flip;

@@ -11,6 +11,8 @@
 
             <div>
                 <p>#{docsController.tag.description}</p>
+
+                <p>You can also make the command run when the DOM is ready by setting <code>onload="true"</code>.</p>
             </div>
 
             <ui:include src="command.xhtml"/>
@@ -24,7 +26,7 @@
     &lt;t:command name="mycommand" action="#{docsController.expr('controller.runCommand')}"/>
 &lt;/h:form>
 
-&lt;button onclick="mycommand()">Run mycommand</code></pre>
+&lt;button onclick="mycommand()">Run mycommand&lt;/button></code></pre>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

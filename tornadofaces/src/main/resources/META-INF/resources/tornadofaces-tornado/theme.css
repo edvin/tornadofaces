@@ -6982,27 +6982,20 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   .flip-panel .flip-content {
     position: relative;
     -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden; }
+            transform-style: preserve-3d; }
   .flip-panel .front, .flip-panel .back {
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
     position: absolute;
     width: 100%;
     top: 0;
     left: 0;
-    padding: 1rem; }
-  .flip-panel .front {
-    z-index: 2; }
-  .flip-panel.flipped .flip-content {
-    -webkit-backface-visibility: initial; }
+    padding: 1rem;
+    border: 1px solid #cecece; }
   .flip-panel .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    -webkit-transform: rotateY(-180deg);
-            transform: rotateY(-180deg); }
+    display: none; }
+  .flip-panel.flipped .front {
+    display: none; }
+  .flip-panel.flipped .back {
+    display: block; }
 
 .boxed, .breadcrumb, .accordion, .accordion.item-spacing .accordion-item {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);

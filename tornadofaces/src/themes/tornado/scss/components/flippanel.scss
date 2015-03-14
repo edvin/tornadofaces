@@ -8,26 +8,27 @@
   .flip-content {
     position: relative;
     transform-style: preserve-3d;
-    backface-visibility: hidden;
   }
 
   .front, .back {
-    backface-visibility: hidden;
     position: absolute;
     width: 100%;
     top: 0;
     left: 0;
     padding: 1rem;
+    border: 1px solid #cecece;
   }
-  .front {
-    z-index: 2;
-  }
-  &.flipped .flip-content {
-    -webkit-backface-visibility: initial;
-  }
+
   .back {
-    position: absolute; top: 0; left: 0;
-//    transform: matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1);
-    transform: rotateY(-180deg);
+    display: none;
   }
+
+  &.flipped .front {
+    display: none;
+  }
+
+  &.flipped .back {
+    display: block;
+  }
+
 }
