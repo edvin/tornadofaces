@@ -20,11 +20,9 @@
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">
-&lt;h:form>
-    &lt;t:switch value="#{docsController.expr('bean.booleanValue')}">
-        &lt;f:ajax listener="#{docsController.expr('controller.onSwitch')}" render="msgs"/>
-    &lt;/t:switch>
-&lt;/h:form>
+&lt;t:switch value="#{docsController.expr('bean.booleanValue')}">
+    &lt;f:ajax listener="#{docsController.expr('controller.onSwitch')}" render="noticiation"/>
+&lt;/t:switch>
 
 &lt;button onclick="TW('myswitch').toggle()">Toggle with Widget API&lt;/button></code></pre>
             </t:tab>

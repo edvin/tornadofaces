@@ -1,9 +1,8 @@
 <div xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html"
      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:form>
-        <t:notification id="msgs"/>
         <t:switch widgetVar="myswitch">
-            <f:ajax listener="#{docsController.onSwitch}" render="msgs"/>
+            <f:ajax listener="#{docsController.onSwitch}" render="notification"/>
         </t:switch>
     </h:form>
     

@@ -27,7 +27,7 @@ TornadoFaces.declareWidget('Command', function() {
 
             if (event.status == 'complete') {
                 if (widget.conf.oncomplete) {
-                    var args = JSON.parse(event.responseXML.getElementById("tornadofaces").firstChild.nodeValue);
+                    var args = widget.getResponseArgs(event);
                     eval(widget.conf.oncomplete);
                 }
             }

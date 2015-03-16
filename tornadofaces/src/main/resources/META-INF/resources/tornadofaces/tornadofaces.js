@@ -142,6 +142,14 @@ TornadoFaces.widget.BaseWidget = Class.extend(function() {
         this.init(conf);
     };
 
+    this.getResponseArgs = function(event) {
+        if (event.responseText != null) {
+            var xml = $.parseXML(event.responseText);
+            var extension = $(xml).find('#tornadofaces');
+            return extension.length > 0 ? JSON.parse(extension.text()) : null;
+        }
+    };
+
     //used in ajax updates, reloads the widget configuration
     this.refresh = function(conf) {
         return this.constructor(conf);

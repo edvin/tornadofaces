@@ -19,7 +19,9 @@
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">&lt;t:form-element label="Pick a color">
-    &lt;t:colorpicker value="#{docsController.expr('controller.color')}" />
+    &lt;t:colorpicker value="#{docsController.expr('controller.color')}" >
+        &lt;f:ajax listener="#{docsController.expr('controller.colorChanged')}" render="notification"/>
+    &lt;/t:colorpicker>
 &lt;/t:form-element>
 
 &lt;t:form-element label="Just the picker">

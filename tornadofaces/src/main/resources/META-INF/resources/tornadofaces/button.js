@@ -63,9 +63,10 @@ TornadoFaces.declareWidget('Button', function() {
                         widget.ladda.stop();
                     
                     if (widget.conf.oncomplete) {
-                        var args = JSON.parse(event.responseXML.getElementById("tornadofaces").firstChild.nodeValue);
+                        var args = widget.getResponseArgs(event);
                         eval(widget.conf.oncomplete);
                     }
+
                 }
 
                 if (event.status == 'success') {

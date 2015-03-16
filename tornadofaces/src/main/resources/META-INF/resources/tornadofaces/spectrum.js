@@ -98,7 +98,7 @@
                 "<div class='sp-palette-container'>",
                 "<div class='sp-palette sp-thumb sp-cf'></div>",
                 "<div class='sp-palette-button-container sp-cf'>",
-                "<button type='button' class='sp-palette-toggle'></button>",
+                "<button type='button small' class='sp-palette-toggle'></button>",
                 "</div>",
                 "</div>",
                 "<div class='sp-picker-container'>",
@@ -127,7 +127,7 @@
                 "<div class='sp-initial sp-thumb sp-cf'></div>",
                 "<div class='sp-button-container sp-cf'>",
                 "<a class='sp-cancel' href='#'></a>",
-                "<button type='button' class='sp-choose'></button>",
+                "<button type='button small' class='sp-choose'></button>",
                 "</div>",
                 "</div>",
                 "</div>"

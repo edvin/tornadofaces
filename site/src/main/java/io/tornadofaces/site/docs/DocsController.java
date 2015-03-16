@@ -67,7 +67,7 @@ public class DocsController {
 	}
 
 	public void takeTwo() throws InterruptedException {
-		TimeUnit.SECONDS.sleep(2);
+		TimeUnit.MILLISECONDS.sleep(1000);
 	}
 	
 	public void loadTag(String tagName) throws IOException {
