@@ -123,6 +123,7 @@ $acronym-underline: 1px dotted #ddd !default;
   font-weight: $subheader-font-weight;
   margin-top: $subheader-top-margin;
   margin-bottom: $subheader-bottom-margin;
+  text-transform: $subheader-text-transform;
 }
 
 @include exports(typography) {

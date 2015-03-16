@@ -49,18 +49,23 @@
 //  }
 //}
 
-#left-menu-container {
-  min-width: 220px;
-  max-width: 300px;
-  background: $dark-color;
-}
-#left-menu-container.collapsed {
-  min-width: 0;
+#header {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.32);
+  background: #fff;
+  padding: $global-padding;
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    &> a {color: $body-font-color;}
+  }
 }
 #main-container {
-  padding: 1rem 2rem;
+  padding: 0;
   flex: 1;
   overflow-y: auto;
+}
+.main-wrapper {
+  padding: $global-padding;
 }
 
 .icon-navigation {

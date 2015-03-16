@@ -2040,7 +2040,6 @@ meter {
     height: auto;
     z-index: auto;
     box-shadow: none;
-    background: transparent;
     top: auto;
     right: auto;
     bottom: auto;
@@ -2063,7 +2062,6 @@ meter {
     height: auto;
     z-index: auto;
     box-shadow: none;
-    background: transparent;
     top: auto;
     right: auto;
     bottom: auto;
@@ -2107,7 +2105,6 @@ meter {
       height: auto;
       z-index: auto;
       box-shadow: none;
-      background: transparent;
       top: auto;
       right: auto;
       bottom: auto;
@@ -2131,7 +2128,6 @@ meter {
       height: auto;
       z-index: auto;
       box-shadow: none;
-      background: transparent;
       top: auto;
       right: auto;
       bottom: auto;
@@ -2175,7 +2171,6 @@ meter {
       height: auto;
       z-index: auto;
       box-shadow: none;
-      background: transparent;
       top: auto;
       right: auto;
       bottom: auto;
@@ -2199,7 +2194,6 @@ meter {
       height: auto;
       z-index: auto;
       box-shadow: none;
-      background: transparent;
       top: auto;
       right: auto;
       bottom: auto;
@@ -5394,7 +5388,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 0; }
 
 h1 {
-  font-size: 2.42857rem; }
+  font-size: 1.88571rem; }
 
 h2 {
   font-size: 1.92857rem; }
@@ -5413,10 +5407,11 @@ h6 {
 
 .subheader {
   line-height: 1.4;
-  color: #6f6f6f;
+  color: #212121;
   font-weight: normal;
   margin-top: 0.2rem;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 1rem;
+  text-transform: uppercase; }
 
 hr {
   border: solid #ddd;
@@ -5520,7 +5515,7 @@ blockquote p {
     line-height: 1.4; }
 
   h1 {
-    font-size: 3.14286rem; }
+    font-size: 2.6rem; }
 
   h2 {
     font-size: 2.64286rem; }
@@ -6995,6 +6990,40 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   .flip-panel.flipped .back {
     display: block; }
 
+.sidemenu-toggle {
+  position: absolute; }
+
+.sidemenu {
+  min-width: 300px;
+  max-width: 300px;
+  background: #181818; }
+  .sidemenu > .grid-content {
+    overflow: hidden; }
+  .sidemenu.collapsed {
+    min-width: 0; }
+
+.sidemenu-search {
+  padding: 1rem; }
+  .sidemenu-search > input[type="text"] {
+    border: none;
+    border-radius: 2px;
+    margin: 0; }
+    .sidemenu-search > input[type="text"]:-moz-placeholder, .sidemenu-search > input[type="text"]::-webkit-input-placeholder {
+      color: #ccc; }
+
+.sidemenu-items li a {
+  color: #8c8c8c;
+  display: block; }
+
+.sidemenu-subitems {
+  margin: 0; }
+  .sidemenu-subitems > li {
+    float: left;
+    width: 50%; }
+    .sidemenu-subitems > li > a {
+      padding: 0.4rem 0 0.4rem 0.7rem;
+      border-radius: 2px; }
+
 /***
 Spectrum Colorpicker v1.6.0
 https://github.com/bgrins/spectrum
@@ -7426,20 +7455,25 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   border: 1px solid #dfdfdf; }
 
-#left-menu-container {
-  min-width: 220px;
-  max-width: 300px;
-  background: #181818; }
-
-#left-menu-container.collapsed {
-  min-width: 0; }
+#header {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.32);
+  background: #fff;
+  padding: 1rem; }
+  #header h1 {
+    font-size: 2.2rem;
+    font-weight: 700; }
+    #header h1 > a {
+      color: #202020; }
 
 #main-container {
-  padding: 1rem 2rem;
+  padding: 0;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
   overflow-y: auto; }
+
+.main-wrapper {
+  padding: 1rem; }
 
 .icon-navigation {
   color: #fff;
