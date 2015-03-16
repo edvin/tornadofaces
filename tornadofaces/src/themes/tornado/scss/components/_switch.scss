@@ -1,22 +1,3 @@
-/*
-  SWITCH
-  ------
-*/
-
-/// @Foundation.settings
-// Switch
-$switch-width: rem-calc(50) !default;
-$switch-height: rem-calc(32) !default;
-$switch-background: #ccc !default;
-$switch-background-active: $primary-color !default;
-$switch-border: 0 !default;
-$switch-radius: 9999px !default;
-$switch-animation-speed: 0.15s !default;
-
-$switch-paddle-color: white !default;
-$switch-paddle-offset: 4px !default;
-///
-
 %switch {
   position: relative;
   overflow: hidden;
@@ -90,7 +71,7 @@ $switch-paddle-offset: 4px !default;
 
   > label {
     background: $background;
-
+    transition: background-color $animation-speed;
     &::after {
       background: $paddle-color;
       border-radius: $radius;

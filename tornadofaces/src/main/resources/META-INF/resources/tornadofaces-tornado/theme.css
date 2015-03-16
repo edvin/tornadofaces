@@ -653,6 +653,26 @@ meta.foundation-mq {
         pointer-events: none;
         color: #999; }
 
+.action-sheet-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+  background-color: transparent;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .action-sheet-overlay.is-active {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+
 /*
   BLOCK LIST
   ----------
@@ -1423,7 +1443,6 @@ input[type="checkbox"], input[type="radio"] {
     margin-right: 0.25rem; }
   input[type="checkbox"] + label, input[type="radio"] + label {
     display: inline-block;
-    margin-left: 0.5rem;
     margin-right: 1rem;
     margin-bottom: 0;
     vertical-align: baseline; }
@@ -5141,10 +5160,6 @@ meter {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     border: 0; }
 
-/*
-  SWITCH
-  ------
-*/
 .switch {
   position: relative;
   overflow: hidden;
@@ -5184,7 +5199,8 @@ meter {
   .switch input:checked + label::after {
     left: 1.28571rem; }
   .switch > label {
-    background: #ccc; }
+    background: #ccc;
+    transition: background-color 0.15s; }
     .switch > label::after {
       background: white;
       border-radius: 9999px;
