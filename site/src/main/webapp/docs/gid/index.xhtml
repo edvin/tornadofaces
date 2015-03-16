@@ -4,7 +4,12 @@
     <f:metadata>
         <f:viewAction action="#{docsController.loadTag('gid')}" />
     </f:metadata>
-    
+
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">Helpers</t:li>
+        <t:li active="true">Global Ids</t:li>
+    </ui:define>
+
     <ui:define name="content">
         <div class="box">
             <h1 class="subheader">Global Ids</h1>

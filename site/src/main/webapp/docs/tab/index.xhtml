@@ -5,6 +5,11 @@
         <f:viewAction action="#{docsController.loadTag('tab')}" />
     </f:metadata>
 
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">Components</t:li>
+        <t:li active="true">Tab</t:li>
+    </ui:define>
+
     <ui:define name="content">
         <div class="box">
             <h1 class="subheader">Tab</h1>

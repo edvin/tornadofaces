@@ -2,6 +2,11 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:t="http://tornadofaces.io/ui">
 
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">Components</t:li>
+        <t:li active="true">Icons</t:li>
+    </ui:define>
+
     <ui:define name="content">
         <script>
             var input, icons;

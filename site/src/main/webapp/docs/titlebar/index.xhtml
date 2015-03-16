@@ -6,9 +6,14 @@
         <f:viewAction action="#{docsController.loadTag('titleBar')}"/>
     </f:metadata>
 
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">Components</t:li>
+        <t:li active="true">Title Bar</t:li>
+    </ui:define>
+
     <ui:define name="content">
         <div class="box">
-        <h1 class="subheader">TitleBar</h1>
+        <h1 class="subheader">Title Bar</h1>
         <div>
 
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>

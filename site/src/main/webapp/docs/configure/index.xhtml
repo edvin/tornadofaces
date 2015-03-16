@@ -5,6 +5,11 @@
         <f:viewAction action="#{docsController.loadTag('configure')}" />
     </f:metadata>
 
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">Helpers</t:li>
+        <t:li active="true">Configure</t:li>
+    </ui:define>
+
     <ui:define name="content">
         <div class="box">
             <h1 class="subheader">Configure</h1>

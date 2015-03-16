@@ -5,6 +5,11 @@
         <f:viewAction action="#{docsController.loadTag('message')}" />
     </f:metadata>
 
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">Components</t:li>
+        <t:li active="true">Message</t:li>
+    </ui:define>
+
     <ui:define name="content">
         <div class="box">
             <h1 class="subheader">Message</h1>

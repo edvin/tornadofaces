@@ -5,6 +5,11 @@
         <f:viewAction action="#{docsController.loadTag('actionsheet')}" />
     </f:metadata>
 
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">Components</t:li>
+        <t:li active="true">Action Sheet</t:li>
+    </ui:define>
+
     <ui:define name="content">
         <div class="box">
             <h1 class="subheader">Action Sheet</h1>
