@@ -31,18 +31,6 @@ public class ComponentUtils {
 		return component.getClientId(context).equals(context.getExternalContext().getRequestParameterMap().get(Constants.RequestParams.PARTIAL_SOURCE_PARAM));
 	}
 
-	public static void addCSSToResponse() {
-//		FacesContext context = FacesContext.getCurrentInstance();
-//		if (!"true".equals(context.getExternalContext().getInitParameter("tornadofaces.SKIP_STYLESHEET"))) {
-//			UIComponent css = new UIOutput();
-//			css.getAttributes().put("library", "tornadofaces");
-//			css.getAttributes().put("name", "css/app.css");
-//			css.setRendererType("javax.faces.resource.Stylesheet");
-//			context.getViewRoot().addComponentResource(context, css, "head");
-//		}
-	}
-
-
 	public static Boolean isEmpty(String value) {
 		return value == null || "".equals(value);
 	}

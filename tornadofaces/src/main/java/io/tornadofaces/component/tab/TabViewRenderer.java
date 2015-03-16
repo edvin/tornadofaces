@@ -1,8 +1,6 @@
 package io.tornadofaces.component.tab;
 
 import io.tornadofaces.component.util.StyleClass;
-import io.tornadofaces.json.JSONArray;
-import io.tornadofaces.json.JSONObject;
 import io.tornadofaces.util.WidgetBuilder;
 
 import javax.faces.component.UIComponent;
@@ -10,10 +8,7 @@ import javax.faces.component.UIForm;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
-import javax.faces.render.Renderer;
 import java.io.IOException;
-
-import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
 
 @FacesRenderer(rendererType = TabViewRenderer.RENDERER_TYPE, componentFamily = "io.tornadofaces.component")
 public class TabViewRenderer extends TabParentRenderer {
@@ -23,8 +18,11 @@ public class TabViewRenderer extends TabParentRenderer {
 		TabView tabView = (TabView) component;
 		ResponseWriter writer = context.getResponseWriter();
 		writer.startElement("div", tabView);
+		StyleClass.of("tabview").add(tabView.getStyleClass()).write(writer);
 		writer.writeAttribute("id", tabView.getClientId(context), null);
-		StyleClass.of("tabs").add(tabView.getOrientation()).add(tabView.getStyleClass()).write(writer);
+
+		writer.startElement("div", tabView);
+		StyleClass.of("tabs").add(tabView.getOrientation()).write(writer);
 	}
 
 	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
@@ -58,9 +56,6 @@ public class TabViewRenderer extends TabParentRenderer {
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 
-		UIForm stateholder = (UIForm) component.getChildren().get(0);
-		stateholder.encodeAll(context);
-
 		TabView tabView = (TabView) component;
 
 		writer.endElement("div");
@@ -72,7 +67,12 @@ public class TabViewRenderer extends TabParentRenderer {
 			if (child instanceof Tab)
 				child.encodeAll(context);
 
-		writer.endElement("div");
+		writer.endElement("div"); // tabContents
+
+		UIForm stateholder = (UIForm) component.getChildren().get(0);
+		stateholder.encodeAll(context);
+
+		writer.endElement("div"); // tabView
 
 		WidgetBuilder builder = new WidgetBuilder(context, tabView)
 			.init()

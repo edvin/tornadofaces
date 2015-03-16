@@ -1,11 +1,13 @@
 TornadoFaces.declareWidget('TabView', function() {
-    var widget;
+    var widget, tabsElem, stateholderId;
 
     this.init = function() {
         widget = this;
 
-        widget.items = widget.elem.children('.tab-item');
-        widget.contentElem = widget.elem.next();
+        tabsElem = widget.elem.find('.tabs');
+        widget.items = tabsElem.children('.tab-item');
+        widget.contentElem = widget.elem.find('.tab-contents');
+        stateholderId = widget.elem.find('form').attr('id');
 
         if (widget.isDynamic() && widget.isCache())
             widget.cachedContent = widget.getActiveIndexes();

@@ -1,11 +1,9 @@
 package io.tornadofaces.component.tab;
 
 import io.tornadofaces.component.common.Orientation;
-import io.tornadofaces.component.util.ComponentUtils;
 
 import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
-import javax.faces.component.UIForm;
 
 @ResourceDependency(library = "tornadofaces", name = "tabview.js")
 @FacesComponent(value = TabView.COMPONENT_TYPE, createTag = true, tagName = "tabView", namespace = "http://tornadofaces.io/ui")
@@ -16,10 +14,6 @@ public class TabView extends TabParent {
 
 	public TabView() {
 		super();
-		UIForm form = new UIForm();
-		form.setId("stateholder");
-		getChildren().add(form);
-		ComponentUtils.addCSSToResponse();
 		setRendererType(TabViewRenderer.RENDERER_TYPE);
 	}
 
