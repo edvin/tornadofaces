@@ -7013,7 +7013,12 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .sidemenu-items li a {
   color: #8c8c8c;
-  display: block; }
+  display: block;
+  font-weight: normal; }
+.sidemenu-items li.active > a {
+  font-weight: bold; }
+.sidemenu-items > li.title > a {
+  padding: 1.2rem 0.7rem; }
 
 .sidemenu-subitems {
   margin: 0; }

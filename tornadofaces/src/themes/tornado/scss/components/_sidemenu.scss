@@ -58,6 +58,12 @@ $sidemenu-sublink-radius: 2px;
     a {
       color: $sidemenu-link-color;
       display: block;
+      font-weight: normal;
+    }
+    &.active {
+      >a {
+        font-weight: bold;
+      }
     }
   }
   //applies to 1st level only
@@ -65,6 +71,9 @@ $sidemenu-sublink-radius: 2px;
     &> a {
 
     }
+  }
+  >li.title {
+    > a {padding: 1.2rem 0.7rem;}
   }
 }
 .sidemenu-subitems { //applies to 2nd level only
