@@ -7,9 +7,10 @@ import io.tornadofaces.component.util.ComponentUtils;
 
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIColumn;
+import javax.faces.component.UIPanel;
 
 @FacesComponent(value = Ul.COMPONENT_TYPE, createTag = true, tagName = "ul", namespace = "http://tornadofaces.io/ui")
-public class Ul extends UIColumn {
+public class Ul extends UIPanel {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Ul";
 
 	public Ul() {
@@ -23,7 +24,7 @@ public class Ul extends UIColumn {
 
 	public Orientation getOrientation() { return (Orientation) this.getStateHelper().eval("orientation", null); }
 	public void setOrientation(Orientation orientation) { this.getStateHelper().put("orientation", orientation); }
-	public IconPosition getIconPosition() { return (IconPosition) this.getStateHelper().eval("iconPosition", null); }
+	public IconPosition getIconPosition() { return (IconPosition) this.getStateHelper().eval("iconPosition", IconPosition.left); }
 	public void setIconPosition(IconPosition iconPosition) { this.getStateHelper().put("iconPosition", iconPosition); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }

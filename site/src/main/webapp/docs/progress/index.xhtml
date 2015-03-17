@@ -2,35 +2,28 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
     <f:metadata>
-        <f:viewAction action="#{docsController.loadTag('li')}" />
+        <f:viewAction action="#{docsController.loadTag('progress')}" />
     </f:metadata>
 
     <ui:define name="breadcrumb">
         <t:li link="/docs">Components</t:li>
-        <t:li active="true">List Item</t:li>
+        <t:li active="true">Progress</t:li>
     </ui:define>
 
     <ui:define name="content">
         <div class="box">
-            <h1 class="subheader">List Item</h1>
+            <h1 class="subheader">Progress</h1>
+
             <div>
                 <p>#{docsController.tag.description}</p>
 
-                <p>When you specify the <code>link</code> attribute, the active state will be set on the item if the current
-                    <code>viewId</code> starts with the given link value. This is a neat trick that
-                    makes it very easy to create menu links that activate automatically.</p>
-
-                <p>The example below shows the markup for rendering the component menu on this page.</p>
             </div>
         </div>
+
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
-            <t:tab title="list.xhtml">
+            <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">
-&lt;t:menubar orientation="vertical">
-    &lt;t:li link="/docs/accordion/">Accordion&lt;/t:li>
-    &lt;t:li link="/docs/tabview/">TabView&lt;/t:li>
-    &lt;t:li link="/docs/button/">Button&lt;/t:li>
-&lt;/t:menubar></code></pre>
+</code></pre>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

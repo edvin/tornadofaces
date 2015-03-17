@@ -1098,25 +1098,12 @@
         </attribute>
     </tag>
     <tag>
-        <description>
-            <![CDATA[Unordered List is a list wrapper that optionally can act as a menu or a breadcrumb bar.]]></description>
+        <description>Unordered List is a standard ul element that can have it's own id, determine rendered state and optionally be laid out horizontally. App authors should add their own styles to this component.</description>
         <tag-name>ul</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Ul</component-type>
             <renderer-type>io.tornadofaces.component.UlRenderer</renderer-type>
         </component>
-        <attribute>
-            <description>Should this list behave and look like a menu bar. Default false.</description>
-            <name>menuBar</name>
-            <required>false</required>
-            <type>Boolean</type>
-        </attribute>
-        <attribute>
-            <description>Should this list behave and look like a breadcrumb bar. Default false.</description>
-            <name>breadcrumb</name>
-            <required>false</required>
-            <type>Boolean</type>
-        </attribute>
         <attribute>
             <description>The orientation decides if the list items are laid out horizontally or vertically. Valid
                 options a horizontal and vertical. Default horizontal.
@@ -1128,6 +1115,148 @@
         <attribute>
             <description>Icons, if added, are by default positioned above the text. However, this can be changed by
                 setting this property to left, right or bottom. Default top.
+            </description>
+            <name>iconPosition</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Position</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the ul element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the ul element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The menu bar can be recolored to be dark, or match your primary color. Valid options are dark,
+                primary. Default none.
+            </description>
+            <name>color</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Color</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Context Menu with dynamic capabilities, attaches as context menu to any DOM element and can be invoked via the Widget API.</description>
+        <tag-name>context-menu</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.ContextMenu</component-type>
+            <renderer-type>io.tornadofaces.component.ContextMenuRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Style classes to apply to the menu element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Breadcrumbs is used to visualize the current navigation position.</description>
+        <tag-name>breadcrumbs</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Breadcrumbs</component-type>
+            <renderer-type>io.tornadofaces.component.UlRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Icons, if added, are by default positioned left of the text. However, this can be changed by
+                setting this property to left, right or bottom. Default left.
+            </description>
+            <name>iconPosition</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Position</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the ul element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the ul element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The bar can be recolored to be dark, or match your primary color. Valid options are dark, primary. Default none.</description>
+            <name>color</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Color</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Menu bar gives you the ability to switch between different subtasks, views, or modes in an app. It can be used vertically or horizontally.</description>
+        <tag-name>menubar</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Menubar</component-type>
+            <renderer-type>io.tornadofaces.component.UlRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Icons, if added, are by default positioned left of the text. However, this can be changed by
+                setting this property to left, right or bottom. Default left.
+            </description>
+            <name>iconPosition</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Position</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the ul element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the ul element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The bar can be recolored to be dark, or match your primary color. Valid options are dark, primary. Default none.</description>
+            <name>color</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.common.Color</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>
+            Sidebar typically acts as the main menu for an application. It can be placed to the left or right of the screen. It supports mobile mode, show/hide, iconify-mode, multi level menu items.</description>
+        <tag-name>sidemenu</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Sidemenu</component-type>
+            <renderer-type>io.tornadofaces.component.SidemenuRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Icons, if added, are by default positioned to the left the text. Valid options are "top", "right", "bottom", "left".
             </description>
             <name>iconPosition</name>
             <required>false</required>

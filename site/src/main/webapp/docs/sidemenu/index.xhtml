@@ -3,41 +3,34 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
     <f:metadata>
-        <f:viewAction action="#{docsController.loadTag('breadcrumbs')}"/>
+        <f:viewAction action="#{docsController.loadTag('sidemenu')}"/>
     </f:metadata>
 
     <ui:define name="breadcrumb">
         <t:li link="/docs">Components</t:li>
-        <t:li active="true">Breadcrumbs</t:li>
+        <t:li active="true">Sidemenu</t:li>
     </ui:define>
 
     <ui:define name="content">
         <div class="box">
-        <h1 class="subheader">Breadcrumbs</h1>
-
+        <h1 class="subheader">Side Menu</h1>
         <div>
+
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
-        <ui:include src="breadcrumb.xhtml"/>
+        <p>This documentation site uses the <code>sidemenu</code> as the main navigational component.</p>
 
         </div></div>
         
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
-            <t:tab title="menubar.xhtml">
+            <t:tab title="Example">
 <pre class="line-numbers"><code class="language-markup">
-&lt;t:breadcrumbs>
-    &lt;t:li link="#">Objects&lt;/t:li>
-    &lt;t:li link="#">An Object&lt;/t:li>
-    &lt;t:li>A Property&lt;/t:li>
-&lt;/t:breadcrumbs>
-</code></pre>
+&lt;t:sidemenu>
+    &lt;t:li>Menu option 1&lt;/t:li>
+&lt;/t:sidemenu></code></pre>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
-                <br/>
-                <p>Additional styling is available by setting the <code>styleClass</code> property. Refer to the <a
-                        href="http://foundation.zurb.com/apps/docs/#!/menu-bar">Foundation For Apps Documentation</a> for further information and examples.
-                </p>
             </t:tab>
         </t:tabView>
     </ui:define>

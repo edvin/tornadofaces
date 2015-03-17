@@ -79,7 +79,6 @@ input[type="checkbox"], input[type="radio"] {
   // Input next to a label
   & + label {
     display: inline-block;
-    margin-left: $form-padding;
     margin-right: $form-padding * 2;
     margin-bottom: 0;
     vertical-align: baseline;
