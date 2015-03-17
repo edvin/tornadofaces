@@ -3478,10 +3478,10 @@ meter {
   .menu-bar > li > a {
     color: #000; }
     .menu-bar > li > a:hover {
-      background: #ededed;
+      background: whitesmoke;
       color: #000; }
   .menu-bar .is-active > a {
-    background: #ededed;
+    background: whitesmoke;
     color: #000; }
   .menu-bar, .menu-bar.horizontal {
     /*
@@ -5228,6 +5228,10 @@ meter {
     .switch.large input:checked + label::after {
       left: 1.57143rem; }
 
+.tabview {
+  border: 1px solid #DDD;
+  padding: 1rem; }
+
 .tabs {
   /*
   	Container styles
@@ -5264,7 +5268,7 @@ meter {
             flex-flow: column nowrap; }
   .tabs .tab-item {
     background: transparent;
-    padding: 1rem;
+    padding: 0.9rem 1.4rem 0.9rem;
     line-height: 1;
     margin: 0;
     -webkit-flex: 0 1 auto;
@@ -5276,16 +5280,16 @@ meter {
     transition: all 0.2s;
     margin: 0.3rem 0.3rem 0 0; }
     .tabs .tab-item.is-active {
-      background: #fff;
-      color: #202020; }
+      background: #3fa2d8;
+      color: #fff; }
       .tabs .tab-item.is-active:hover {
-        background: #fff; }
+        background: #3fa2d8; }
     .tabs .tab-item:hover {
       background: #f7f7f7;
       color: #202020; }
     .tabs .tab-item:active {
-      background: #fff;
-      color: #202020;
+      background: #3fa2d8;
+      color: #fff;
       transition-duration: 0s; }
 
 .tab-contents {
@@ -6374,7 +6378,7 @@ blockquote p {
   src: url("icomoon.woff.xhtml?ln=tornadofaces-tornado") format("woff"), url("icomoon.ttf.xhtml?ln=tornadofaces-tornado") format("truetype"), url("icomoon.svg.xhtml?ln=tornadofaces-tornado") format("svg");
   font-weight: normal;
   font-style: normal; }
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -7007,43 +7011,128 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     display: block; }
 
 .sidemenu-toggle {
-  position: absolute; }
+  position: absolute;
+  top: 12px;
+  right: -16px;
+  z-index: 1;
+  width: 16px;
+  height: 50px;
+  border-radius: 0 2px 2px 0;
+  background: #181818; }
+  .sidemenu-toggle > i {
+    font-size: 2.2rem; }
+    .sidemenu-toggle > i:before {
+      margin-left: -1.3rem;
+      vertical-align: middle; }
+
+.sidemenu-logo {
+  text-align: center;
+  padding: 1.4rem 1rem 1rem 0; }
+  .sidemenu-logo > .logo-max {
+    width: 194px;
+    height: auto; }
+  .sidemenu-logo > .logo-min {
+    width: 50px;
+    height: auto; }
 
 .sidemenu {
   min-width: 300px;
   max-width: 300px;
-  background: #181818; }
-  .sidemenu > .grid-content {
-    overflow: hidden; }
-  .sidemenu.collapsed {
-    min-width: 0; }
+  background: #181818;
+  transition: all 0.25s;
+  overflow: visible; }
+  .sidemenu .logo-min {
+    display: none; }
+  .sidemenu ul {
+    margin: 0;
+    width: 100%; }
+    .sidemenu ul > li {
+      list-style: none; }
+
+.sidemenu-content {
+  position: relative;
+  padding-bottom: 2.5rem !important; }
 
 .sidemenu-search {
   padding: 1rem; }
   .sidemenu-search > input[type="text"] {
+    height: 3.3em;
+    padding: 1em;
+    margin: 0;
     border: none;
-    border-radius: 2px;
-    margin: 0; }
+    border-radius: 2px; }
     .sidemenu-search > input[type="text"]:-moz-placeholder, .sidemenu-search > input[type="text"]::-webkit-input-placeholder {
       color: #ccc; }
 
-.sidemenu-items li a {
-  color: #8c8c8c;
-  display: block;
-  font-weight: normal; }
-.sidemenu-items li.active > a {
-  font-weight: bold; }
-.sidemenu-items > li.title > a {
-  padding: 1.2rem 0.7rem; }
+.sidemenu-items li {
+  list-style: none; }
+  .sidemenu-items li a {
+    color: #8c8c8c;
+    display: block;
+    font-weight: normal; }
+  .sidemenu-items li.active > a {
+    font-weight: bold; }
+.sidemenu-items > li {
+  font-size: 1.4rem;
+  padding: 0; }
+  .sidemenu-items > li > a {
+    color: #fff;
+    font-size: inherit;
+    padding: 1.4rem 1.4rem 0; }
+    .sidemenu-items > li > a > i {
+      vertical-align: middle;
+      margin-right: 0.2em;
+      color: #3fa2d8; }
+  .sidemenu-items > li.is-active > a {
+    background: #1e1e1e;
+    border-left: 4px solid #3fa2d8;
+    padding: 1.4rem 1.4rem 0.7rem; }
 
 .sidemenu-subitems {
-  margin: 0; }
+  margin: 0;
+  padding: 0.7rem 1.2rem;
+  display: table; }
   .sidemenu-subitems > li {
     float: left;
-    width: 50%; }
-    .sidemenu-subitems > li > a {
-      padding: 0.4rem 0 0.4rem 0.7rem;
-      border-radius: 2px; }
+    width: 50%;
+    border-radius: 2px;
+    padding: 0.4rem 0 0.4rem 0.7rem; }
+    .sidemenu-subitems > li:hover {
+      background: #212121; }
+    .sidemenu-subitems > li.is-active > a {
+      background: transparent !important;
+      font-weight: bold;
+      color: #fff; }
+      .sidemenu-subitems > li.is-active > a:before {
+        background: #3fa2d8;
+        display: inline-block;
+        width: 3px;
+        height: 0.9em;
+        top: -.1em;
+        position: relative;
+        content: '';
+        vertical-align: middle;
+        margin-right: .6em; }
+
+.sidemenu--collapsed {
+  max-width: 90px;
+  min-width: 75px; }
+  .sidemenu--collapsed .sidemenu-logo {
+    padding: 1rem 0; }
+  .sidemenu--collapsed .sidemenu-search,
+  .sidemenu--collapsed .logo-max {
+    display: none; }
+  .sidemenu--collapsed .logo-min {
+    display: inline-block; }
+  .sidemenu--collapsed .sidemenu-items > li > a {
+    text-align: center;
+    padding: 1.4rem 0; }
+    .sidemenu--collapsed .sidemenu-items > li > a > i {
+      display: block; }
+    .sidemenu--collapsed .sidemenu-items > li > a > .item-text {
+      display: none; }
+  .sidemenu--collapsed .sidemenu-subitems {
+    display: none; }
 
 /***
 Spectrum Colorpicker v1.6.0
@@ -7670,11 +7759,12 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 .compressed-context .nav-header {
   padding: 1px 13px; }
 
-.boxed, .breadcrumb, .accordion, .accordion.item-spacing .accordion-item {
+.boxed, .accordion, .accordion.item-spacing .accordion-item {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   border: 1px solid #dfdfdf; }
 
 #header {
+  position: relative;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.32);
   background: #fff;
   padding: 1rem; }
@@ -7689,10 +7779,11 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  overflow-y: auto; }
+  overflow-y: auto;
+  position: relative; }
 
 .main-wrapper {
-  padding: 1rem; }
+  padding: 1rem 2rem; }
 
 .icon-navigation {
   color: #fff;
@@ -7727,7 +7818,7 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  background: #fff;
+  background: #f3f3f3;
   margin: 0 0 2rem 0;
   padding: 1rem 1.6rem;
   font-size: 14px; }

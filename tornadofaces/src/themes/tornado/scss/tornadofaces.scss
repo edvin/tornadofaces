@@ -50,6 +50,7 @@
 //}
 
 #header {
+  position: relative;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.32);
   background: #fff;
   padding: $global-padding;
@@ -63,9 +64,10 @@
   padding: 0;
   flex: 1;
   overflow-y: auto;
+  position: relative;
 }
 .main-wrapper {
-  padding: $global-padding;
+  padding: $global-padding 2rem;
 }
 
 .icon-navigation {
@@ -101,11 +103,10 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  background: #fff;
+  background: #f3f3f3;
   margin: 0 0 2rem 0;
   padding: 1rem 1.6rem;
   font-size: 14px;
-  @extend .boxed;
 
   &.vertical {
     flex-direction: column;

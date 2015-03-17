@@ -32,20 +32,63 @@ $sidemenu-link-active-background: #212121;
 $sidemenu-sublink-padding: 0.4rem 0 0.4rem 0.7rem;
 $sidemenu-sublink-radius: 2px;
 
-.sidemenu-toggle {position: absolute;}
+.sidemenu-toggle {
+  position: absolute;
+  top: 12px;
+  right: -16px;
+  z-index: 1;
+  width: 16px;
+  height: 50px;
+  border-radius: 0 2px 2px 0;
+  background: #181818;
+  >i {
+    font-size: 2.2rem;
+    &:before {
+      margin-left: -1.3rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+.sidemenu-logo {
+  text-align: center;
+  padding: 1.4rem 1rem 1rem 0; //todo: $logo-padding
+  > .logo-max {
+    width: 194px; //todo: $logo-max-size
+    height: auto;
+  }
+  > .logo-min {
+    width: 50px; //todo: $logo-min-size
+    height: auto;
+  }
+}
+
 .sidemenu {
   min-width: $sidemenu-min-width;
   max-width: $sidemenu-max-width;
   background: $sidemenu-background-color;
-  &> .grid-content {overflow: hidden;} // todo: fix js-scrollbar and remove this
-  &.collapsed {min-width: 0;}
+  transition: all 0.25s;
+  overflow: visible;
+  .logo-min {display: none;}
+  ul { //reset
+    margin: 0;
+    width: 100%;
+    >li {list-style: none;}
+  }
+}
+
+.sidemenu-content {
+  position: relative;
+  padding-bottom: 2.5rem !important; //todo: FIX this
 }
 .sidemenu-search {
   padding: $sidemenu-item-padding;
   &> input[type="text"] {
+    height: 3.3em;
+    padding: 1em;
+    margin: 0;
     border: $sidemenu-search-border;
     border-radius: $sidemenu-search-radius;
-    margin: 0;
     &:-moz-placeholder,
     &::-webkit-input-placeholder {
       color: $sidemenu-search-placeholder;
@@ -55,6 +98,7 @@ $sidemenu-sublink-radius: 2px;
 .sidemenu-items {
   //applies to all
   li {
+    list-style: none;
     a {
       color: $sidemenu-link-color;
       display: block;
@@ -66,24 +110,125 @@ $sidemenu-sublink-radius: 2px;
       }
     }
   }
-  //applies to 1st level only
-  &> li {
-    &> a {
 
+  //applies to 1st level only
+  > li {
+    font-size: 1.4rem; //todo: sidemenu-L1-font-size
+    padding: 0;
+    > a {
+      color: #fff;
+      font-size: inherit;
+      padding: 1.4rem 1.4rem 0; //todo: sidemenu-L1-padding
+      > i {
+        vertical-align: middle;
+        margin-right: 0.2em;
+        color: $primary-color;
+      }
     }
-  }
-  >li.title {
-    > a {padding: 1.2rem 0.7rem;}
+    &.is-active {
+      &> a {
+        background: #1e1e1e; //todo: sidemenu-L1-active-background
+        border-left: 4px solid $primary-color;
+        padding: 1.4rem 1.4rem 0.7rem; //todo: sidemenu-L1-active-padding
+      }
+    }
   }
 }
 .sidemenu-subitems { //applies to 2nd level only
   margin: 0;
+  padding: 0.7rem 1.2rem; // TODO: FIX!
+  display: table;
   &> li {
     float: left;
     width: 50%;
+    border-radius: $sidemenu-sublink-radius;
+    padding: $sidemenu-sublink-padding;
     &> a {
-      padding: $sidemenu-sublink-padding;
-      border-radius: $sidemenu-sublink-radius;
+      &:before {
+
+      }
+    }
+    &:hover {background: $sidemenu-link-hover-background;}
+    &.is-active {
+      > a {
+        background: transparent !important;
+        font-weight: bold;
+        color: #fff;
+        &:before {
+          background: $primary-color;
+          display: inline-block;
+          width: 3px;
+          height: 0.9em;
+          top: -.1em;
+          position: relative;
+          content: '';
+          vertical-align: middle;
+          margin-right: .6em;
+        }
+      }
     }
   }
+}
+
+// Sidemenu Collapsed
+
+.sidemenu--collapsed {
+  max-width: 90px;
+  min-width: 75px;
+
+  .sidemenu-logo {padding: 1rem 0;}
+  .sidemenu-search,
+  .logo-max {
+    display: none;
+  }
+  .logo-min {
+    display: inline-block;
+  }
+
+  .sidemenu-items {
+    //applies to all
+    li {
+
+      a {
+
+      }
+    }
+
+    //applies to 1st level only
+    > li {
+
+      > a {
+        text-align: center;
+        padding: 1.4rem 0;
+        > i {
+          display: block;
+        }
+        > .item-text {display: none;}
+      }
+      &.is-active {
+        &> a {
+
+        }
+      }
+    }
+  }
+
+  .sidemenu-subitems { //applies to 2nd level only
+    display: none;
+    &> li {
+      &> a {
+        &:before {
+
+        }
+      }
+      &:hover {}
+      &.is-active {
+        > a {
+          &:before {
+          }
+        }
+      }
+    }
+  }
+
 }

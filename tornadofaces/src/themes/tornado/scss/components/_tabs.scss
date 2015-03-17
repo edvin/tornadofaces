@@ -20,6 +20,11 @@
 	}
 }
 
+.tabview {
+  border: 1px solid #DDD; //todo: $variable
+  padding: $tabview-padding;
+}
+
 @mixin tabstrip-item(
 	$background: $tab-title-background,
 	$background-hover: $tab-title-background-hover,

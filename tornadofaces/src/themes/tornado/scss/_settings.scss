@@ -431,7 +431,7 @@ $menubar-font-family: initial;
 $menubar-fontsize: 1rem;
 $menubar-fontsize: $font-base;
 $menubar-background: #fff;
-$menubar-background-hover: smartscale($menubar-background, 7%);
+$menubar-background-hover: smartscale($menubar-background, 4%);
 $menubar-background-active: $menubar-background-hover;
 $menubar-color: isitlight($menubar-background);
 $menubar-color-hover: $menubar-color;
@@ -586,12 +586,14 @@ $tabstrip-radius: 4px;
 $tab-title-radius: 2px;
 $tab-title-background: transparent;
 $tab-title-background-hover: smartscale($tabstrip-background, -35%);
-$tab-title-background-active: #fff;
+$tab-title-background-active: $primary-color;
 $tab-title-color: $body-font-color;
 $tab-title-color-hover: $body-font-color;
-$tab-title-color-active: $tab-title-color;
-$tab-title-padding: $global-padding;
-$tab-content-padding: $global-padding;
+$tab-title-color-active: #fff;
+$tab-title-padding: 0.9rem 1.4rem 0.9rem;
+$tab-content-padding: 1rem;
+$tabview-padding: $tab-content-padding;
+
 
 //25. Title Bar
 //- - - - - - - - - - - - - - -
