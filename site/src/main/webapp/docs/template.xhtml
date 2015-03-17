@@ -64,10 +64,11 @@
 
             $(function() {
                 var popouts = $('.popout');
+                var leftMenu = $('#left-menu-container');
+
                 $('#sidemenuToggle').click(function() {
-                    var toToggle = $('#left-menu-container');
-                    toToggle.toggleClass('sidemenu--collapsed');
-                    if(toToggle.hasClass('sidemenu--collapsed')) {
+                    leftMenu.toggleClass('sidemenu--collapsed');
+                    if(leftMenu.hasClass('sidemenu--collapsed')) {
                         bindPopout('bind', popouts)
                     }else {
                         bindPopout('unbind', popouts)
