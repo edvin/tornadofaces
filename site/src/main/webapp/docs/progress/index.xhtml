@@ -1,0 +1,33 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('progress')}" />
+    </f:metadata>
+
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">Components</t:li>
+        <t:li active="true">Progress</t:li>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="box">
+            <h1 class="subheader">Progress</h1>
+
+            <div>
+                <p>#{docsController.tag.description}</p>
+
+            </div>
+        </div>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
+            <t:tab title="Example">
+<pre class="line-numbers"><code class="language-markup">
+</code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+            </t:tab>
+        </t:tabView>
+    </ui:define>
+</ui:composition>

@@ -1148,6 +1148,26 @@
         </attribute>
     </tag>
     <tag>
+        <description>Context Menu with dynamic capabilities, attaches as context menu to any DOM element and can be invoked via the Widget API.</description>
+        <tag-name>context-menu</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.ContextMenu</component-type>
+            <renderer-type>io.tornadofaces.component.ContextMenuRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Style classes to apply to the menu element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>Breadcrumbs is used to visualize the current navigation position.</description>
         <tag-name>breadcrumbs</tag-name>
         <component>
