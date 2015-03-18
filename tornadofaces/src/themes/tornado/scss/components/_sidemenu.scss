@@ -34,6 +34,9 @@ $sidemenu-sublink-radius: 2px;
 
 .sidemenu-toggle {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 12px;
   right: -16px;
   z-index: 1;
@@ -44,6 +47,7 @@ $sidemenu-sublink-radius: 2px;
   >i {
     font-size: 2.2rem;
     &:before {
+      display: block;
       margin-left: -1.3rem;
       vertical-align: middle;
     }
@@ -53,13 +57,18 @@ $sidemenu-sublink-radius: 2px;
 .sidemenu-logo {
   text-align: center;
   padding: 1.4rem 1rem 1rem 0; //todo: $logo-padding
+  border-bottom: 1px solid #2A2A2A; //todo: $sidemenu-border-color
   > .logo-max {
     width: 194px; //todo: $logo-max-size
     height: auto;
+    transition: 0.2s 0.08s;
+    opacity: 1;
   }
   > .logo-min {
-    width: 50px; //todo: $logo-min-size
+    width: 0; //todo: $logo-min-size
     height: auto;
+    transition: none;
+    display: inline-block;
   }
 }
 
@@ -67,12 +76,11 @@ $sidemenu-sublink-radius: 2px;
   min-width: $sidemenu-min-width;
   max-width: $sidemenu-max-width;
   background: $sidemenu-background-color;
+  flex-direction: column;
   transition: all 0.25s;
   overflow: visible;
-  .logo-min {display: none;}
   ul { //reset
     margin: 0;
-    width: 100%;
     >li {list-style: none;}
   }
 }
@@ -137,7 +145,11 @@ $sidemenu-sublink-radius: 2px;
 .sidemenu-subitems { //applies to 2nd level only
   margin: 0;
   padding: 0.7rem 1.2rem; // TODO: FIX!
-  display: table;
+  display: block;
+  height: auto;
+  min-width: $sidemenu-min-width;
+  max-width: $sidemenu-max-width;
+  &:after {content: ''; display: block; clear: both;}
   &> li {
     float: left;
     width: 50%;
@@ -170,19 +182,38 @@ $sidemenu-sublink-radius: 2px;
   }
 }
 
-// Sidemenu Collapsed
+// Sidemenu Collapsed ---------------------------------------------/
+
 
 .sidemenu--collapsed {
   max-width: 90px;
   min-width: 75px;
 
+  .sidemenu-toggle {
+    position: static;
+    width: auto;
+    border-bottom: 1px solid #2A2A2A; //todo: $sidemenu-border-color
+    >i {
+      &:before {
+        margin-left: 0;
+        transition: all .2s .3s;
+        transform: scaleX(-1);
+      }
+    }
+  }
   .sidemenu-logo {padding: 1rem 0;}
-  .sidemenu-search,
-  .logo-max {
+  .sidemenu-search {
     display: none;
   }
+  .ps-container {overflow: visible !important;}
+  .logo-max {
+    width: 0;
+    opacity: 0;
+    transition: 0.05s 0s;
+  }
   .logo-min {
-    display: inline-block;
+    width: 50px;
+    transition: 0.6s 0.05s;
   }
 
   .sidemenu-items {
@@ -212,9 +243,8 @@ $sidemenu-sublink-radius: 2px;
       }
     }
   }
-
   .sidemenu-subitems { //applies to 2nd level only
-    display: none;
+    height: 0;
     &> li {
       &> a {
         &:before {
@@ -230,5 +260,16 @@ $sidemenu-sublink-radius: 2px;
       }
     }
   }
-
+}
+.popout-active {
+  position: relative;
+  > .sidemenu-subitems {
+    background: $sidemenu-background-color;
+    display: block;
+    position: absolute;
+    width: 280px;
+    left: 100%;
+    top: 0;
+    z-index: 9999;
+  }
 }
