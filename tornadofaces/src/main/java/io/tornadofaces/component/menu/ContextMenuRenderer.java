@@ -1,4 +1,4 @@
-package io.tornadofaces.component.contextmenu;
+package io.tornadofaces.component.menu;
 
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.util.WidgetBuilder;

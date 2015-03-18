@@ -21,7 +21,7 @@ public class Command extends UICommand implements Widget, ClientBehaviorHolder {
 		return ComponentUtils.COMPONENT_FAMILY;
 	}
 
-	public Boolean getOnload() { return (Boolean) getStateHelper().eval("onload", false); }
+	public Boolean getOnload() { return (Boolean) getStateHelper().eval("onload", true); }
 	public void setOnload(Boolean onload) { getStateHelper().put("onload", onload); }
 	public String getName() { return (String) getStateHelper().eval("name"); }
 	public void setName(String name) { getStateHelper().put("name", name); }
@@ -35,13 +35,13 @@ public class Command extends UICommand implements Widget, ClientBehaviorHolder {
 	public String getOnstart() { return (String) getStateHelper().eval("onstart"); }
 	public void setOnstart(String onstart) { getStateHelper().put("onstart", onstart); }
 
-	public String getExecute() { return (String) getStateHelper().eval("execute", "@form"); }
+	public String getExecute() { return (String) getStateHelper().eval("execute", "@this"); }
 	public void setExecute(String execute) {
 		getStateHelper().put("execute", execute);
 	}
 
 	public String getRender() {
-		return (String) getStateHelper().eval("render", "@form");
+		return (String) getStateHelper().eval("render");
 	}
 	public void setRender(String render) {
 		getStateHelper().put("render", render);

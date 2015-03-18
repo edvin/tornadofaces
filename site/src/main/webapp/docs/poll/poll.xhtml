@@ -1,0 +1,12 @@
+<t:grid-block orientation="vertical" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:form id="pollForm">
+        <h:outputText value="Server time: #{docsController.now}" id="time"/>
+        <t:poll interval="1000" widgetVar="poller" render="time"/>
+    </h:form>
+
+    <div>
+        <button class="success" onclick="TW('poller').start();">Start poller</button>
+        <button class="alert" onclick="TW('poller').stop()">Stop poller</button>
+    </div>
+
+</t:grid-block>

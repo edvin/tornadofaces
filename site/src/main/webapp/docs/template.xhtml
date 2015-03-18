@@ -23,11 +23,11 @@
                     TornadoFaces.animate($('#left-menu-container'), futureState, 'slideInRight', 'slideOutLeft');
                 });
 
-                var scrollables = $('#left-menu, #main-container');
-                scrollables.perfectScrollbar();
-                $(window).on('resize', function() {
-                    scrollables.perfectScrollbar('update');
-                });
+//                var scrollables = $('#left-menu, #main-container');
+//                scrollables.perfectScrollbar();
+//                $(window).on('resize', function() {
+//                    scrollables.perfectScrollbar('update');
+//                });
             }, false);
 
             var filterFn = function(item, query) {
@@ -156,6 +156,7 @@
                                 <t:li link="/docs/configure/">Configure</t:li>
                                 <t:li link="/docs/gid/">Global Ids</t:li>
                                 <t:li link="/docs/data/">Data</t:li>
+                                <t:li link="/docs/poll/">Poll</t:li>
                             </t:ul>
                         </t:li>
                     </t:ul>

@@ -1,0 +1,70 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('poll')}" />
+    </f:metadata>
+
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">Helpers</t:li>
+        <t:li active="true">Poll</t:li>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="box">
+            <h1 class="subheader">Poll</h1>
+
+            <div>
+                <p>#{docsController.tag.description}</p>
+
+                <p>
+                    <strong>Tip:</strong> Make sure the Ajax request doesn't update the poller itself, as that would result in the intial delay being applied to each poll interval. For this reason, the default
+                    <code>render</code> value is <code>null</code> and the default <code>execute</code> value is
+                    <code>@this</code>.</p>
+            </div>
+
+            <ui:include src="poll.xhtml"/>
+        </div>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
+            <t:tab title="Example">
+<pre class="line-numbers"><code class="language-markup">
+&lt;h:form id="pollForm">
+    &lt;h:outputText value="Server time: #{docsController.expr('controller.now')}" id="time"/>
+    &lt;t:poll interval="1000" widgetVar="poller" render="time"/>
+&lt;/h:form>
+
+&lt;div>
+    &lt;button class="success" onclick="TW('poller').start();">Start poller&lt;/button>
+    &lt;button class="alert" onclick="TW('poller').stop()">Stop poller&lt;/button>
+&lt;/div>
+</code></pre>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+                <h5>Client Side API</h5>
+                <p>Widget: <code>TornadoFaces.widget.Poll</code></p>
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>start()</td>
+                        <td></td>
+                        <td>boolean</td>
+                        <td>Start the poller. Return true if the poller was started, false if the poller was already running.</td>
+                    </tr>
+                    <tr>
+                        <td>stop()</td>
+                        <td></td>
+                        <td>boolean</td>
+                        <td>Stop the poller. Return true if the poller was stopped, false if the poller was not running.</td>
+                    </tr>
+                </table>
+            </t:tab>
+        </t:tabView>
+    </ui:define>
+</ui:composition>

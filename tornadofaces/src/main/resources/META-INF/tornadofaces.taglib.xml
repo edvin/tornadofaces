@@ -2081,6 +2081,74 @@
         </attribute>
     </tag>
     <tag>
+        <description>Poll lets you repeat a server action on a set interval with an optional delay before the first call is made. The Widget API provides methods to stop and start the poller as well.</description>
+        <tag-name>poll</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Poll</component-type>
+            <renderer-type>io.tornadofaces.component.PollRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>The number of milliseconds between each poll call.</description>
+            <name>interval</name>
+            <required>true</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>The number of milliseconds before the first poll call.</description>
+            <name>delay</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Start the poller, optionally after the specified delay on DOM load. Defaults to true.</description>
+            <name>onload</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>The action to call every time while interval is reached</description>
+            <name>action</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Space separated list of components to render after ajax. Defaults to null".</description>
+            <name>render</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Space separated list of components to execute on ajax. Default "@this".</description>
+            <name>execute</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered before the AJAX request is sent</description>
+            <name>oncomplete</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered after AJAX response has arrived</description>
+            <name>oncomplete</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered after DOM update based on AJAX request</description>
+            <name>onsuccess</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
         <tag-name>script</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Script</component-type>
