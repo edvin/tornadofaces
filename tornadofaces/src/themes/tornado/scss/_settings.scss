@@ -504,6 +504,7 @@ $motion-timings: (
    bounceIn: cubic-bezier(0.485, 0.155, 0.240, 1.245),
    bounceOut: cubic-bezier(0.485, 0.155, 0.515, 0.845),
    bounceInOut: cubic-bezier(0.760, -0.245, 0.240, 1.245),
+  slideOut: cubic-bezier(.16,.75,.56,.98)
 );
 
 // Default delay for all transitions and animations
