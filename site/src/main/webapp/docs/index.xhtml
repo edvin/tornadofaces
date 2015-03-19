@@ -1,34 +1,35 @@
 <ui:composition template="template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:t="http://tornadofaces.io/ui">
+
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">TornadoFaces</t:li>
+        <t:li active="true">Introduction</t:li>
+    </ui:define>
+
     <ui:define name="content">
-        <div class="box">
-            <h3 class="subheader">The Modern JSF Component Framework</h3>
+        <h3 class="subheader">The Modern JSF Component Framework</h3>
 
-            <div>
-                <p>TornadoFaces uses modern, stylable, responsive markup and CSS. Using SCSS you create your own custom stylesheet instead of adding overrides to the default theme. You get access to all the SCSS variables we define and you can easily remove components you don't need in your compiled stylesheet. This gives you as a developer some serious power when it comes to customizing your applications look and behavior. </p>
+        <p>TornadoFaces uses modern, stylable, responsive markup and CSS and a sleek Widget API.
+            We want every TornadoFaces application to look unique, so we made sure you can
+            easily customize the look of every detail by extending our SASS styles.
+        </p>
 
-                <p>Components have a clean and simple JavaScript Widget API written in JQuery. You can
-                    <a href="/docs/theme#disable-resources">disable the included JQuery version</a> and use your own if you need to.
-                </p>
-            </div>
-        </div>
+        <p>Components have a clean and simple JavaScript Widget API written in JQuery. You can
+            <a href="/docs/theme#disable-resources">disable the included JQuery version</a> and use your own if you need to.
+        </p>
 
-        <div class="box">
-            <h4 class="subheader">Standing on the shoulders of giants</h4>
+        <h4 class="subheader">Standing on the shoulders of giants</h4>
 
-            <div>
-                <p>TornadoFaces includes ideas, principles and code from other great open source projects, including:</p>
+        <p>TornadoFaces includes ideas, principles and code from other great open source projects, including:</p>
 
-                <p>
-                    <a href="http://foundation.zurb.com/apps/">Foundation for Apps</a>,
-                    <a href="http://www.primefaces.org/">PrimeFaces</a>,
-                    <a href="http://lab.hakim.se/ladda/">Ladda</a>,
-                    <a href="http://dbushell.github.io/Pikaday/">Pickaday</a>,
-                    <a href="http://refreshless.com/nouislider/">noUiSlider</a>,
-                    <a href="https://bgrins.github.io/spectrum/">Spectrum</a>
-                </p>
-            </div>
-        </div>
-
+        <p>
+            <a href="http://foundation.zurb.com/apps/">Foundation for Apps</a>,
+            <a href="http://www.primefaces.org/">PrimeFaces</a>,
+            <a href="http://lab.hakim.se/ladda/">Ladda</a>,
+            <a href="http://dbushell.github.io/Pikaday/">Pickaday</a>,
+            <a href="http://refreshless.com/nouislider/">noUiSlider</a>,
+            <a href="https://bgrins.github.io/spectrum/">Spectrum</a>,
+            <a href="http://prismjs.com/">Prism</a>
+        </p>
     </ui:define>
 </ui:composition>

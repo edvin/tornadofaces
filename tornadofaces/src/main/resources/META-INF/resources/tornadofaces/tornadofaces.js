@@ -62,8 +62,8 @@ TornadoFaces = {
                 return obj.el === el;
             });
 
-            if (inProgress.length > 0)
-                inProgress[0].animation.cancelAnimation();
+            //if (inProgress.length > 0)
+            //    inProgress[0].animation.cancelAnimation();
 
             TornadoFaces.animations.push(elObj);
         }

@@ -11,23 +11,19 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Notification</h1>
+        <h1 class="subheader">Notification</h1>
 
-            <div>
-                <p>#{docsController.tag.description}</p>
+        <p>#{docsController.tag.description}</p>
 
-                <p>It works as a replacement for the
-                    <code>&lt;h:messages</code> tag, but can also be used to show arbitrary messages generated client side via the Widget API.
-                </p>
+        <p>It works as a replacement for the
+            <code>&lt;h:messages</code> tag, but can also be used to show arbitrary messages generated client side via the Widget API.
+        </p>
 
-                <ui:include src="notification.xhtml"/>
+        <ui:include src="notification.xhtml"/>
 
-                <p>Notifications also support an optional icon to be displayed with the message. To support this server side, TornadoFaces
-                    comes with a <code>NotificationMessage</code> class that extends FacesMessage.</p>
+        <p>Notifications also support an optional <code>icon</code> to be displayed with the message, and an optional <code>closable</code> attribute that will override the default for the notification component. To support this server side, TornadoFaces
+            comes with a <code>NotificationMessage</code> class that extends FacesMessage.</p>
 
-            </div>
-        </div>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Markup">
@@ -43,14 +39,13 @@
 &lt;/h:form></t:source>
             </t:tab>
             <t:tab title="Controller">
-<pre class="line-numbers"><code class="language-java">
+<t:source language="java">
 public class alert() {
     FacesContext.getCurrentInstance().addMessage(null, new NotificationMessage(
         "Success!",
         "A successfull server generated message",
-        "http://url/to/image.png"));
-}
-</t:source>
+        "http://url/to/image.png").closable(false));
+}</t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

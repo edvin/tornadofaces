@@ -11,26 +11,22 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Global Ids</h1>
+        <h1 class="subheader">Global Ids</h1>
 
-            <div>
-                <p>#{docsController.tag.description}</p>
+        <p>#{docsController.tag.description}</p>
 
-                <p>This tag handler aims to solve the problem where a deeply nested component needs to refer to another component which is deeply nested within another parent naming container.
-                    There are multiple workarounds for this issue, but most are not elegant or even easy to reason about, hence the
-                    <code>gid</code> tag handler.</p>
+        <p>This tag handler aims to solve the problem where a deeply nested component needs to refer to another component which is deeply nested within another parent naming container.
+            There are multiple workarounds for this issue, but most are not elegant or even easy to reason about, hence the
+            <code>gid</code> tag handler.</p>
 
-                <p>Nest a
-                    <code>&lt;t:gid value="myUniqueId"/&gt;</code> tag inside any component, and then refer to this component in a
-                    <code>render</code> or <code>execute</code> statement as <code>#myUniqueId</code>.
-                    The actual id of the component will be resolved when needed.
-                    <strong>Important: </strong> Make sure the parent component of this tag actually emits an id, or set one explicitly.
-                </p>
+        <p>Nest a
+            <code>&lt;t:gid value="myUniqueId"/&gt;</code> tag inside any component, and then refer to this component in a
+            <code>render</code> or <code>execute</code> statement as <code>#myUniqueId</code>.
+            The actual id of the component will be resolved when needed.
+            <strong>Important: </strong> Make sure the parent component of this tag actually emits an id, or set one explicitly.
+        </p>
 
-                <ui:include src="gid.xhtml"/>
-            </div>
-        </div>
+        <ui:include src="gid.xhtml"/>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">

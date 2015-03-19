@@ -12,17 +12,13 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
         <h1 class="subheader">Slider</h1>
-        <div>
 
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
         <p>In addition to value change events, you can also bind the lower or upper track values to other input elements via <code>lowerTarget</code> and <code>upperTarget</code></p>
         <ui:include src="slider.xhtml"/>
 
-        </div></div>
-        
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="list.xhtml">
 <t:source>

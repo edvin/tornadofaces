@@ -1,6 +1,7 @@
-package io.tornadofaces.component.list;
+package io.tornadofaces.component.table;
 
 import io.tornadofaces.component.api.Widget;
+import io.tornadofaces.component.list.ListRenderer;
 import io.tornadofaces.component.util.ComponentUtils;
 
 import javax.faces.application.ResourceDependencies;
@@ -10,13 +11,13 @@ import javax.faces.component.html.HtmlDataTable;
 
 @ResourceDependencies({
 	@ResourceDependency(library = "tornadofaces", name = "hightlight.js"),
-	@ResourceDependency(library = "tornadofaces", name = "list.js")
+	@ResourceDependency(library = "tornadofaces", name = "table.js")
 })
-@FacesComponent(value = List.COMPONENT_TYPE, createTag = true, tagName = "list", namespace = "http://tornadofaces.io/ui")
-public class List extends HtmlDataTable implements Widget {
-	public static final String COMPONENT_TYPE = "io.tornadofaces.component.List";
+@FacesComponent(value = Table.COMPONENT_TYPE, createTag = true, tagName = "table", namespace = "http://tornadofaces.io/ui")
+public class Table extends HtmlDataTable implements Widget {
+	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Table";
 
-	public List() {
+	public Table() {
 		super();
 		setRendererType(ListRenderer.RENDERER_TYPE);
 		setVar("it");
@@ -26,8 +27,6 @@ public class List extends HtmlDataTable implements Widget {
 		return ComponentUtils.COMPONENT_FAMILY;
 	}
 
-	public String getTitle() { return (String) getStateHelper().eval("title"); }
-	public void setTitle(String title) { getStateHelper().put("title", title); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 	public String getWidgetVar() { return (String) getStateHelper().eval("widgetVar"); }

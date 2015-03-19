@@ -26,15 +26,22 @@ public class CommandRenderer extends CoreRenderer {
 		writer.writeAttribute("id", command.getClientId(context), null);
 		writer.endElement("input");
 
-		new WidgetBuilder(context, command)
+		WidgetBuilder builder = new WidgetBuilder(context, command)
 			.init()
 			.attr("name", command.getName())
-			.attr("render", ComponentUtils.resolveIds(context, command, Arrays.asList(command.getRender().split(" "))))
-			.attr("execute", ComponentUtils.resolveIds(context, command, Arrays.asList(command.getExecute().split(" "))))
 			.attr("onsuccess", command.getOnsuccess())
 			.attr("oncomplete", command.getOncomplete())
-			.attr("onstart", command.getOnstart())
-			.nativeAttr("onload", command.getOnload().toString())
+			.attr("onstart", command.getOnstart());
+
+		String render = command.getRender();
+		if (render != null)
+			builder.attr("render", ComponentUtils.resolveIds(context, command, Arrays.asList(render.split(" "))));
+
+		String execute = command.getExecute();
+		if (execute != null)
+			builder.attr("execute", ComponentUtils.resolveIds(context, command, Arrays.asList(execute.split(" "))));
+
+		builder.nativeAttr("onload", command.getOnload().toString())
 			.finish();
 	}
 

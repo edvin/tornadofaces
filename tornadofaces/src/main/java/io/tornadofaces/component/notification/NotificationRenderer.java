@@ -45,8 +45,12 @@ public class NotificationRenderer extends Renderer {
 
 				if (message instanceof NotificationMessage) {
 					NotificationMessage nmsg = (NotificationMessage) message;
+
 					if (nmsg.getImage() != null)
 						m.put("image", nmsg.getImage());
+
+					if (nmsg.getClosable() != null)
+						m.put("closable", nmsg.getClosable());
 				}
 			} catch (JSONException ex) {
 				throw new IOException(ex);
