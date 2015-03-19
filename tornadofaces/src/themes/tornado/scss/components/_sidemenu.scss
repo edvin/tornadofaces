@@ -84,7 +84,7 @@ $sidemenu-sublink-radius: 2px;
   max-width: $sidemenu-max-width;
   background: $sidemenu-background-color;
   flex-direction: column;
-  transition: all 0.25s;
+//  transition: all 0.25s;
   overflow: visible;
   ul { //reset
     margin: 0;
@@ -217,7 +217,7 @@ $sidemenu-sublink-radius: 2px;
   .logo-max {
     width: 0;
     opacity: 0;
-    transition: 0.05s 0s;
+    transition: none;
   }
   .logo-min {
     width: 50px;

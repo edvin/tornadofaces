@@ -17,25 +17,12 @@
             var scrollables;
 
             document.addEventListener('DOMContentLoaded', function() {
-                scrollables = $('#left-menu, #main-container');
-                FastClick.attach(document.body);
-<<<<<<< Updated upstream
-                $('.menu-toggle').click(function() {
-                    var futureState = !$('#left-menu-container').hasClass('is-active');
-                    TornadoFaces.animate($('#left-menu-container'), futureState, 'slideInRight', 'slideOutLeft');
-                });
-
-//                var scrollables = $('#left-menu, #main-container');
-//                scrollables.perfectScrollbar();
-//                $(window).on('resize', function() {
-//                    scrollables.perfectScrollbar('update');
-//                });
-=======
+                scrollables = $('#left-menu');
+//                FastClick.attach(document.body);
                 scrollables.perfectScrollbar();
                 $(window).on('resize', function() {
                     scrollables.perfectScrollbar('update');
                 });
->>>>>>> Stashed changes
             }, false);
 
             var filterFn = function(item, query) {
@@ -77,6 +64,8 @@
             $(function() {
                 var popouts = $('.popout');
                 var leftMenu = $('#left-menu-container');
+
+
 
                 $('.sidemenu-toggle').click(function() {
                     var mode = $(this).hasClass('show-for-small-only') ? 'activate' : 'collapse';
@@ -123,77 +112,79 @@
         <div class="grid-frame">
             <div id="left-menu-container" class="sidemenu medium-grid-block panel panel-left medium-3 slideOut">
                 <a class="sidemenu-toggle hide-for-small-only"><i class="icon-back"></i></a>
-                <a class="sidemenu-toggle show-for-small-only"><i class="icon-folder-fill"></i></a>
+                <a class="sidemenu-toggle show-for-small-only"><i class="icon-back"></i></a>
                 <div id="left-menu" class="sidemenu-content grid-content collapse">
-                    <div class="sidemenu-logo">
-                        <img class="logo-max" src="/resources/img/logo-tornado-faces-01.svg"/>
-                        <img class="logo-min" src="/resources/img/logo-tornado-faces-symbol.svg"/>
+                    <div class="perfect-scrollbar-content">
+                        <div class="sidemenu-logo">
+                            <img class="logo-max" src="/resources/img/logo-tornado-faces-01.svg"/>
+                            <img class="logo-min" src="/resources/img/logo-tornado-faces-symbol.svg"/>
+                        </div>
+                        <div class="sidemenu-search">
+                            <input class="show-for-medium" type="text" placeholder="Filter..." onkeyup="searchComponents(this)"/>
+                        </div>
+                        <ui:param name="path" value="#{view.viewId}"/>
+                        <t:ul styleClass="sidemenu-items" orientation="vertical" id="left-menu" color="dark">
+                            <t:li title="true" styleClass="popout">
+                                <a href="#">
+                                    <i class="icon-information"></i>
+                                    <span class="item-text">General</span>
+                                </a>
+                                <t:ul styleClass="sidemenu-subitems">
+                                    <t:li link="/docs/index.xhtml">Introduction</t:li>
+                                    <t:li link="/docs/theme/">Themes</t:li>
+                                    <t:li link="/docs/icons/">Icons</t:li>
+                                </t:ul>
+                            </t:li>
+                            <t:li active="true" styleClass="popout">
+                                <a href="#">
+                                    <i class="icon-applist"></i>
+                                    <span class="item-text">Components</span>
+                                </a>
+                                <t:ul styleClass="sidemenu-subitems">
+                                    <t:li link="/docs/accordion/">Accordion</t:li>
+                                    <t:li link="/docs/actionsheet/">Action Sheet</t:li>
+                                    <t:li link="/docs/breadcrumb/">Breadcrumbs</t:li>
+                                    <t:li link="/docs/button/">Button</t:li>
+                                    <t:li link="/docs/card/">Card</t:li>
+                                    <t:li link="/docs/colorpicker/">Color Picker</t:li>
+                                    <t:li link="/docs/contextmenu/">Context Menu</t:li>
+                                    <t:li link="/docs/datepicker/">Date Picker</t:li>
+                                    <t:li link="/docs/flip-panel/">Flip Panel</t:li>
+                                    <t:li link="/docs/form-element/">Form Element</t:li>
+                                    <t:li link="/docs/grid/">Grid</t:li>
+                                    <t:li link="/docs/list/">List</t:li>
+                                    <t:li link="/docs/li/">List Item</t:li>
+                                    <t:li link="/docs/menubar/">Menu Bar</t:li>
+                                    <t:li link="/docs/message/">Message</t:li>
+                                    <t:li link="/docs/modal/">Modal</t:li>
+                                    <t:li link="/docs/notification/">Notification</t:li>
+                                    <t:li link="/docs/panel/">Panel</t:li>
+                                    <t:li link="/docs/progress/">Progress</t:li>
+                                    <t:li link="/docs/sidemenu/">Side Menu</t:li>
+                                    <t:li link="/docs/slider/">Slider</t:li>
+                                    <t:li link="/docs/source/">Source</t:li>
+                                    <t:li link="/docs/switch/">Switch</t:li>
+                                    <t:li link="/docs/tab/">Tab</t:li>
+                                    <t:li link="/docs/tabview/">TabView</t:li>
+                                    <t:li link="/docs/titlebar/">Title Bar</t:li>
+                                    <t:li link="/docs/ul/">Unordered List</t:li>
+                                </t:ul>
+                            </t:li>
+                            <t:li title="true" styleClass="popout">
+                                <a href="#">
+                                    <i class="icon-wand"></i>
+                                    <span class="item-text">Helpers</span>
+                                </a>
+                                <t:ul styleClass="sidemenu-subitems">
+                                    <t:li link="/docs/command/">Command</t:li>
+                                    <t:li link="/docs/configure/">Configure</t:li>
+                                    <t:li link="/docs/gid/">Global Ids</t:li>
+                                    <t:li link="/docs/data/">Data</t:li>
+                                    <t:li link="/docs/poll/">Poll</t:li>
+                                </t:ul>
+                            </t:li>
+                        </t:ul>
                     </div>
-                    <div class="sidemenu-search">
-                        <input class="show-for-medium" type="text" placeholder="Filter..." onkeyup="searchComponents(this)"/>
-                    </div>
-                    <ui:param name="path" value="#{view.viewId}"/>
-                    <t:ul styleClass="sidemenu-items" orientation="vertical" id="left-menu" color="dark">
-                        <t:li title="true" styleClass="popout">
-                            <a href="#">
-                                <i class="icon-information"></i>
-                                <span class="item-text">General</span>
-                            </a>
-                            <t:ul styleClass="sidemenu-subitems">
-                                <t:li link="/docs/index.xhtml">Introduction</t:li>
-                                <t:li link="/docs/theme/">Themes</t:li>
-                                <t:li link="/docs/icons/">Icons</t:li>
-                            </t:ul>
-                        </t:li>
-                        <t:li active="true" styleClass="popout">
-                            <a href="#">
-                                <i class="icon-applist"></i>
-                                <span class="item-text">Components</span>
-                            </a>
-                            <t:ul styleClass="sidemenu-subitems">
-                                <t:li link="/docs/accordion/">Accordion</t:li>
-                                <t:li link="/docs/actionsheet/">Action Sheet</t:li>
-                                <t:li link="/docs/breadcrumb/">Breadcrumbs</t:li>
-                                <t:li link="/docs/button/">Button</t:li>
-                                <t:li link="/docs/card/">Card</t:li>
-                                <t:li link="/docs/colorpicker/">Color Picker</t:li>
-                                <t:li link="/docs/contextmenu/">Context Menu</t:li>
-                                <t:li link="/docs/datepicker/">Date Picker</t:li>
-                                <t:li link="/docs/flip-panel/">Flip Panel</t:li>
-                                <t:li link="/docs/form-element/">Form Element</t:li>
-                                <t:li link="/docs/grid/">Grid</t:li>
-                                <t:li link="/docs/list/">List</t:li>
-                                <t:li link="/docs/li/">List Item</t:li>
-                                <t:li link="/docs/menubar/">Menu Bar</t:li>
-                                <t:li link="/docs/message/">Message</t:li>
-                                <t:li link="/docs/modal/">Modal</t:li>
-                                <t:li link="/docs/notification/">Notification</t:li>
-                                <t:li link="/docs/panel/">Panel</t:li>
-                                <t:li link="/docs/progress/">Progress</t:li>
-                                <t:li link="/docs/sidemenu/">Side Menu</t:li>
-                                <t:li link="/docs/slider/">Slider</t:li>
-                                <t:li link="/docs/source/">Source</t:li>
-                                <t:li link="/docs/switch/">Switch</t:li>
-                                <t:li link="/docs/tab/">Tab</t:li>
-                                <t:li link="/docs/tabview/">TabView</t:li>
-                                <t:li link="/docs/titlebar/">Title Bar</t:li>
-                                <t:li link="/docs/ul/">Unordered List</t:li>
-                            </t:ul>
-                        </t:li>
-                        <t:li title="true" styleClass="popout">
-                            <a href="#">
-                                <i class="icon-wand"></i>
-                                <span class="item-text">Helpers</span>
-                            </a>
-                            <t:ul styleClass="sidemenu-subitems">
-                                <t:li link="/docs/command/">Command</t:li>
-                                <t:li link="/docs/configure/">Configure</t:li>
-                                <t:li link="/docs/gid/">Global Ids</t:li>
-                                <t:li link="/docs/data/">Data</t:li>
-                                <t:li link="/docs/poll/">Poll</t:li>
-                            </t:ul>
-                        </t:li>
-                    </t:ul>
                 </div>
             </div>
             <div id="main-container">
