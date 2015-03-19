@@ -4,6 +4,7 @@ import javax.faces.application.FacesMessage;
 
 public class NotificationMessage extends FacesMessage {
 	private String image;
+	private Boolean closable;
 
 	public NotificationMessage(String summary) {
 		super(summary);
@@ -33,11 +34,25 @@ public class NotificationMessage extends FacesMessage {
 		this.image = image;
 	}
 
+	public NotificationMessage(Severity severity, String summary, String detail, String image, Boolean closable) {
+		super(severity, summary, detail);
+		this.image = image;
+		this.closable = closable;
+	}
+
 	public String getImage() {
 		return image;
 	}
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public Boolean getClosable() {
+		return closable;
+	}
+
+	public void setClosable(Boolean closable) {
+		this.closable = closable;
 	}
 }

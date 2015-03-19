@@ -24,12 +24,12 @@ public class MessageRenderer extends Renderer {
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		writer.startElement("div", component);
-		Message messageComponent = (Message) component;
+		io.tornadofaces.component.message.Message messageComponent = (io.tornadofaces.component.message.Message) component;
 		StyleClass.of("messages vertical grid-block").add(messageComponent.getStyleClass()).write(writer);
 		writer.writeAttribute("id", component.getClientId(), null);
 		writer.endElement("div");
 
-		Message messages = (Message) component;
+		io.tornadofaces.component.message.Message messages = (io.tornadofaces.component.message.Message) component;
 		Iterator<FacesMessage> it = context.getMessages(messages.getFor());
 
 		JSONArray a = new JSONArray();
@@ -50,6 +50,10 @@ public class MessageRenderer extends Renderer {
 					NotificationMessage nmsg = (NotificationMessage) message;
 					if (nmsg.getImage() != null)
 						m.put("image", nmsg.getImage());
+
+					if (nmsg.getClosable() != null)
+						m.put("closable", nmsg.getClosable());
+
 				}
 			} catch (JSONException ex) {
 				throw new IOException(ex);
