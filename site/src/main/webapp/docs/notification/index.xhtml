@@ -44,7 +44,7 @@ public class alert() {
     FacesContext.getCurrentInstance().addMessage(null, new NotificationMessage(
         "Success!",
         "A successfull server generated message",
-        "http://url/to/image.png"));
+        "http://url/to/image.png").closable(false));
 }</t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">

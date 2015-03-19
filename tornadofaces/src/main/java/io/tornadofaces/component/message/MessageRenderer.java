@@ -27,6 +27,12 @@ public class MessageRenderer extends Renderer {
 		io.tornadofaces.component.message.Message messageComponent = (io.tornadofaces.component.message.Message) component;
 		StyleClass.of("messages vertical grid-block").add(messageComponent.getStyleClass()).write(writer);
 		writer.writeAttribute("id", component.getClientId(), null);
+
+		String style = messageComponent.getStyle();
+
+		if (style != null)
+			writer.writeAttribute("style", style, null);
+
 		writer.endElement("div");
 
 		io.tornadofaces.component.message.Message messages = (io.tornadofaces.component.message.Message) component;

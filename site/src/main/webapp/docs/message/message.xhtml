@@ -1,13 +1,13 @@
 <div class="grid-content" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <t:message id="msgs" widgetVar="msgs" closable="true"/>
+    <t:message id="msgs" widgetVar="msgs" closable="true" style="margin-bottom: 20px"/>
 
-    <div class="grid-block">
+    <t:grid-block>
         <a href="#" class="button alert" onclick="TW('msgs').show('Ouch!', 'An error occured', 'ERROR')">Error message</a>
         <a href="#" class="button warning" onclick="TW('msgs').show('Danger!', 'Be warned', 'WARN')">Warning message</a>
         <a href="#" class="button success" onclick="TW('msgs').show('Success!', 'Victory!', 'SUCCESS')">Success message</a>
 
         <h:form>
-            <t:commandButton value="Server info" action="#{notificationController.infoMessage}" render=":msgs"/>
+            <t:commandButton value="Server info, non closable" action="#{notificationController.infoMessage}" render=":msgs"/>
         </h:form>
-    </div>
+    </t:grid-block>
 </div>

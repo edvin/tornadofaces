@@ -24,7 +24,7 @@
         </attribute>
     </tag>
     <tag>
-        <description>Flip Panel lets you flip between showing a front and back side on of a card.</description>
+        <description>Flip Panel lets you flip between showing a front and back side on of a card. Each side can have different heights, and the card will animate to the correct hight when you flip it.</description>
         <tag-name>flip-panel</tag-name>
         <component>
             <component-type>io.tornadofaces.component.FlipPanel</component-type>
@@ -2165,20 +2165,20 @@
         </attribute>
     </tag>
     <tag>
-        <description>Poll lets you repeat a server action on a set interval with an optional delay before the first call is made. The Widget API provides methods to stop and start the poller as well.</description>
+        <description>Poll lets you repeat a server action or simply render/execute any component on a set interval with an optional delay before the first call is made. The Widget API provides methods to stop and start the poller as well.</description>
         <tag-name>poll</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Poll</component-type>
             <renderer-type>io.tornadofaces.component.PollRenderer</renderer-type>
         </component>
         <attribute>
-            <description>The number of milliseconds between each poll call.</description>
+            <description>The number of milliseconds between each poll.</description>
             <name>interval</name>
             <required>true</required>
             <type>Integer</type>
         </attribute>
         <attribute>
-            <description>The number of milliseconds before the first poll call.</description>
+            <description>The number of milliseconds before the first poll.</description>
             <name>delay</name>
             <required>false</required>
             <type>Integer</type>

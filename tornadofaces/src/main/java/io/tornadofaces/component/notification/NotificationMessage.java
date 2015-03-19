@@ -48,11 +48,21 @@ public class NotificationMessage extends FacesMessage {
 		this.image = image;
 	}
 
+	public NotificationMessage image(String image) {
+		setImage(image);
+		return this;
+	}
+
 	public Boolean getClosable() {
 		return closable;
 	}
 
 	public void setClosable(Boolean closable) {
 		this.closable = closable;
+	}
+
+	public NotificationMessage closable(boolean closable) {
+		setClosable(closable);
+		return this;
 	}
 }
