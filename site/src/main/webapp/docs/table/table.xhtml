@@ -1,10 +1,56 @@
 <h:panelGroup xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui"
               xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-    <table>
+    <style>
+        tbody tr td:nth-child(1):before { content: 'Name:'; }
+        tbody tr td:nth-child(2):before { content: 'Desc:'; }
+        tbody tr td:nth-child(3):before { content: 'Req:'; }
+
+    </style>
+    <table id="t" class="attributes">
         <thead>
-        <tr><th>asd</th></tr>
-        </thead>
-        <tbody></tbody>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Required</th>
+            </tr>
+            </thead>
+        <tbody>
+            <!--<tr>-->
+                <!--<td>-->
+                    <!--<span class="cell-head">Name:</span>-->
+                    <!--<span class="cell-value">lineNumbers</span>-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<span class="cell-head">Description:</span>-->
+                    <!--<span class="cell-value">Show line numbers. Defaults to true.</span>-->
+                    <!---->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<span class="cell-head">Required:</span>-->
+                    <!--<span class="cell-value">false</span>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <tr>
+                <td>language</td>
+                <td>The language to syntax highlight. Supports 'markup', 'css', 'scss', 'clike', 'javascript', 'java'. Defaults to 'markup'.</td>
+                <td>false</td>
+            </tr>
+            <tr>
+                <td data-cell-head="Name:">styleClass</td>
+                <td data-cell-head="Description:">Styles to apply to the ul element.</td>
+                <td data-cell-head="Required:">false</td>
+            </tr>
+            <tr>
+                <td data-cell-head="Name:">style</td>
+                <td data-cell-head="Description:">CSS Styles applied to the ul element.</td>
+                <td data-cell-head="Required:">false</td>
+            </tr>
+            <tr>
+                <td data-cell-head="Name:">rendered</td>
+                <td data-cell-head="Description:">Should this component be rendered?</td>
+                <td data-cell-head="Required:">false</td>
+            </tr>
+        </tbody>
     </table>
 </h:panelGroup>

@@ -1,43 +1,38 @@
-<div class="grid-content" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:panelGroup xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:form id="f">
-        <div class="grid-block">
-            <div>
-                <h4>Command Buttons</h4>
+            <h4>Command Buttons</h4>
 
-                <p>This page also demonstrates some of the possible <code>spinnerStyle</code> animations available.</p>
-                
-                <t:commandButton value="Save" color="success" action="#{docsController.takeTwo}" render="none" oncomplete="console.log(args.validationFailed)"/>
-                
-                <t:commandButton value="Launch" color="warning" spinnerStyle="expand-right" action="#{docsController.takeTwo}" render="none"/>
-                
-                <t:commandButton value="Delete" color="alert" spinnerStyle="expand-left" action="#{docsController.takeTwo}" render="none"/>
-                <t:commandButton value="Tiny" size="tiny" spinnerStyle="expand-up" action="#{docsController.takeTwo}" render="none"/>
-                <t:commandButton value="Hollow" hollow="true" spinnerStyle="expand-down" spinnerColor="#888888" action="#{docsController.takeTwo}" render="none"/>
-                <t:commandButton value="Expand" expand="true" spinnerStyle="expand-right" action="#{docsController.takeTwo}" render="none"/>
+            <p>This page also demonstrates some of the possible <code>spinnerStyle</code> animations available.</p>
 
-                <h4>Command link as button</h4>
-                <t:commandLink button="true" value="Go" spinnerStyle="slide-up" action="#{docsController.takeTwo}" />
-                <t:commandLink button="true" value="Contract" spinnerStyle="contract" action="#{docsController.takeTwo}" />
-                <t:commandLink button="true" value="Contract overlay" spinnerStyle="contract-overlay" action="#{docsController.takeTwo}" />
+            <t:commandButton value="Save" color="success" action="#{docsController.takeTwo}" render="none" oncomplete="console.log(args.validationFailed)"/>
 
-                <h4>Command Link in button group</h4>
+            <t:commandButton value="Launch" color="warning" spinnerStyle="expand-right" action="#{docsController.takeTwo}" render="none"/>
 
-                <ul class="button-group">
-                    <li><t:commandLink color="success" spinnerStyle="zoom-in" action="#{docsController.takeTwo}" render="none">One</t:commandLink></li>
-                    <li><t:commandLink value="Two" color="success" action="#{docsController.takeTwo}" render="none"/></li>
-                    <li><t:commandLink value="Three" color="success" action="#{docsController.takeTwo}"/></li>
-                    <li><t:commandLink button="true" value="Four" action="#{docsController.takeTwo}"/></li>
-                </ul>
+            <t:commandButton value="Delete" color="alert" spinnerStyle="expand-left" action="#{docsController.takeTwo}" render="none"/>
+            <t:commandButton value="Tiny" size="tiny" spinnerStyle="expand-up" action="#{docsController.takeTwo}" render="none"/>
+            <t:commandButton value="Hollow" hollow="true" spinnerStyle="expand-down" spinnerColor="#888888" action="#{docsController.takeTwo}" render="none"/>
+            <t:commandButton value="Expand" expand="true" spinnerStyle="expand-right" action="#{docsController.takeTwo}" render="none"/>
 
-                <h4>Command Link in segmented button group</h4>
+            <h4>Command link as button</h4>
+            <t:commandLink button="true" value="Go" spinnerStyle="slide-up" action="#{docsController.takeTwo}" />
+            <t:commandLink button="true" value="Contract" spinnerStyle="contract" action="#{docsController.takeTwo}" />
+            <t:commandLink button="true" value="Contract overlay" spinnerStyle="contract-overlay" action="#{docsController.takeTwo}" />
 
-                <ul class="segmented button-group">
-                    <li class="is-active"><t:commandLink value="One" color="success"/></li>
-                    <li><t:commandLink value="Two" color="success"/></li>
-                    <li><t:commandLink value="Three" color="success"/></li>
-                </ul>
-            </div>
-        </div>
+            <h4>Command Link in button group</h4>
 
+            <ul class="button-group">
+                <li><t:commandLink color="success" spinnerStyle="zoom-in" action="#{docsController.takeTwo}" render="none">One</t:commandLink></li>
+                <li><t:commandLink value="Two" color="success" action="#{docsController.takeTwo}" render="none"/></li>
+                <li><t:commandLink value="Three" color="success" action="#{docsController.takeTwo}"/></li>
+                <li><t:commandLink button="true" value="Four" action="#{docsController.takeTwo}"/></li>
+            </ul>
+
+            <h4>Command Link in segmented button group</h4>
+
+            <ul class="segmented button-group">
+                <li class="is-active"><t:commandLink value="One" color="success"/></li>
+                <li><t:commandLink value="Two" color="success"/></li>
+                <li><t:commandLink value="Three" color="success"/></li>
+            </ul>
     </h:form>
-</div>
+</h:panelGroup>

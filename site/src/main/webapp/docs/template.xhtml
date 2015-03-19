@@ -114,14 +114,14 @@
                 <a class="sidemenu-toggle hide-for-small-only"><i class="icon-back"></i></a>
                 <a class="sidemenu-toggle show-for-small-only"><i class="icon-back"></i></a>
                 <div id="left-menu" class="sidemenu-content grid-content collapse">
+                    <div class="sidemenu-logo">
+                        <img class="logo-max" src="/resources/img/logo-tornado-faces-01.svg"/>
+                        <img class="logo-min" src="/resources/img/logo-tornado-faces-symbol.svg"/>
+                    </div>
+                    <div class="sidemenu-search">
+                        <input class="show-for-medium" type="text" placeholder="Filter..." onkeyup="searchComponents(this)"/>
+                    </div>
                     <div class="perfect-scrollbar-content">
-                        <div class="sidemenu-logo">
-                            <img class="logo-max" src="/resources/img/logo-tornado-faces-01.svg"/>
-                            <img class="logo-min" src="/resources/img/logo-tornado-faces-symbol.svg"/>
-                        </div>
-                        <div class="sidemenu-search">
-                            <input class="show-for-medium" type="text" placeholder="Filter..." onkeyup="searchComponents(this)"/>
-                        </div>
                         <ui:param name="path" value="#{view.viewId}"/>
                         <t:ul styleClass="sidemenu-items" orientation="vertical" id="left-menu" color="dark">
                             <t:li title="true" styleClass="popout">
