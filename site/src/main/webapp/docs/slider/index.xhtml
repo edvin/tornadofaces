@@ -25,10 +25,10 @@
         
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="list.xhtml">
-<pre class="line-numbers"><code class="language-markup">
+<t:source>
 &lt;t:slider min="0" max="100" step="1" lower="#{docsController.expr('controller.numberValue')}" connect="lower" />
 
-&lt;t:slider min="0" max="100" step="10" lower="#{docsController.expr('controller.min')}" upper="#{docsController.expr('controller.max')}" connect="true" /></code></pre>
+&lt;t:slider min="0" max="100" step="10" lower="#{docsController.expr('controller.min')}" upper="#{docsController.expr('controller.max')}" connect="true" /></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
@@ -46,18 +46,18 @@
 
                 <h5>Client Side Callbacks</h5>
                 <p><code>onSlide</code> is called as a slider value changes.</p>
-                <pre><code class="language-javascript">function onSlide(slider, value) {
+                <t:source language="javascript">function onSlide(slider, value) {
     // The value will be an array if upper is used, int otherwise.
-}</code></pre>
+}</t:source>
                 <h5>Ajax Behavior Events</h5>
                 <p><code>change</code> will be called when a slider value is changed
                 </p>
-                <pre><code class="language-markup">&lt;t:slider>
+                <t:source lineNumbers="false">&lt;t:slider>
     &lt;f:ajax event="change" listener="#{docsController.expr('controller.changed')}">
-&lt;/t:slider></code></pre>
-                <pre><code class="language-java">public void onChange(SliderValueEvent event) {
+&lt;/t:slider></t:source>
+                <t:source lineNumbers="false" language="java">public void onChange(SliderValueEvent event) {
     Slider slider = event.getSlider();
-}</code></pre>
+}</t:source>
                 <p>The listener will be called with an instance of <code>io.tornadofaces.event.SliderEvent</code> that contains a reference to the slider.</p>
             </t:tab>
         </t:tabView>

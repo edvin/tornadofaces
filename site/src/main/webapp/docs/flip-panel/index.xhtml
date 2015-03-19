@@ -23,7 +23,7 @@
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
-<pre class="line-numbers"><code class="language-markup">
+<t:source>
 &lt;t:flip-panel widgetVar="myPanel">
     &lt;f:facet name="front">
         &lt;p>front&lt;/p>
@@ -33,24 +33,24 @@
     &lt;/f:facet>
 &lt;/t:flip-panel>
 
-&lt;button class="button" onclick="TW('myPanel').flip()">Flip&lt;/button></code></pre>
+&lt;button class="button" onclick="TW('myPanel').flip()">Flip&lt;/button></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
                 <h5>Client Side Callbacks</h5>
                 <p><code>onFlip</code> is called as a tab is flipped.</p>
-                <pre><code class="language-javascript">function onFlip(panel) {
+                <t:source language="javascript">function onFlip(panel) {
     //
- }</code></pre>
+ }</t:source>
                 <h5>Ajax Behavior Events</h5>
                 <p><code>flip</code> will be called when a card is flipped
                 </p>
-                <pre><code class="language-markup">&lt;t:flip-panel>
+                <t:source lineNumbers="false">&lt;t:flip-panel>
     &lt;f:ajax event="flip" listener="#{docsController.expr('controller.flipped')}">
-&lt;/t:flip-panel></code></pre>
-                <pre><code class="language-java">public void onFlip(FlipPanelEvent event) {
+&lt;/t:flip-panel></t:source>
+                <t:source lineNumbers="false" language="java">public void onFlip(FlipPanelEvent event) {
     FlipPanel panel = event.getFlipPanel();
-}</code></pre>
+}</t:source>
                 <p>The listener will be called with an instance of <code>io.tornadofaces.event.FlipPanelEvent</code> that contains a reference to the flip panel.</p>
 
                 <h5>Client Side API</h5>

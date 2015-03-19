@@ -28,7 +28,7 @@
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
-<pre class="line-numbers"><code class="language-markup">
+<t:source>
 &lt;h:form id="pollForm">
     &lt;h:outputText value="Server time: #{docsController.expr('controller.now')}" id="time"/>
     &lt;t:poll interval="1000" widgetVar="poller" render="time"/>
@@ -38,7 +38,7 @@
     &lt;button class="success" onclick="TW('poller').start();">Start poller&lt;/button>
     &lt;button class="alert" onclick="TW('poller').stop()">Stop poller&lt;/button>
 &lt;/div>
-</code></pre>
+</t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

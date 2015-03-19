@@ -4583,6 +4583,9 @@ meter {
 .bounceInOut {
   transition-timing-function: cubic-bezier(0.76, -0.245, 0.24, 1.245) !important; }
 
+.slideOut {
+  transition-timing-function: cubic-bezier(0.16, 0.75, 0.56, 0.98) !important; }
+
 .delay {
   transition-delay: 300ms !important; }
 
@@ -4705,6 +4708,12 @@ meter {
 .wiggle.bounceInOut {
   -webkit-animation-timing-function: cubic-bezier(0.76, -0.245, 0.24, 1.245) !important;
           animation-timing-function: cubic-bezier(0.76, -0.245, 0.24, 1.245) !important; }
+.shake.slideOut,
+.spin-cw.slideOut,
+.spin-ccw.slideOut,
+.wiggle.slideOut {
+  -webkit-animation-timing-function: cubic-bezier(0.16, 0.75, 0.56, 0.98) !important;
+          animation-timing-function: cubic-bezier(0.16, 0.75, 0.56, 0.98) !important; }
 .shake.slow,
 .spin-cw.slow,
 .spin-ccw.slow,
@@ -7012,6 +7021,15 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .sidemenu-toggle {
   position: absolute;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   top: 12px;
   right: -16px;
   z-index: 1;
@@ -7022,30 +7040,36 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   .sidemenu-toggle > i {
     font-size: 2.2rem; }
     .sidemenu-toggle > i:before {
+      display: block;
       margin-left: -1.3rem;
       vertical-align: middle; }
 
 .sidemenu-logo {
   text-align: center;
-  padding: 1.4rem 1rem 1rem 0; }
+  padding: 1.4rem 1rem 1rem 0;
+  border-bottom: 1px solid #2A2A2A; }
   .sidemenu-logo > .logo-max {
     width: 194px;
-    height: auto; }
+    height: auto;
+    transition: 0.2s 0.08s;
+    opacity: 1; }
   .sidemenu-logo > .logo-min {
-    width: 50px;
-    height: auto; }
+    width: 0;
+    height: auto;
+    transition: none;
+    display: inline-block; }
 
 .sidemenu {
   min-width: 300px;
   max-width: 300px;
   background: #181818;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   transition: all 0.25s;
   overflow: visible; }
-  .sidemenu .logo-min {
-    display: none; }
   .sidemenu ul {
-    margin: 0;
-    width: 100%; }
+    margin: 0; }
     .sidemenu ul > li {
       list-style: none; }
 
@@ -7091,7 +7115,14 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .sidemenu-subitems {
   margin: 0;
   padding: 0.7rem 1.2rem;
-  display: table; }
+  display: block;
+  height: auto;
+  min-width: 300px;
+  max-width: 300px; }
+  .sidemenu-subitems:after {
+    content: '';
+    display: block;
+    clear: both; }
   .sidemenu-subitems > li {
     float: left;
     width: 50%;
@@ -7117,13 +7148,28 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .sidemenu--collapsed {
   max-width: 90px;
   min-width: 75px; }
+  .sidemenu--collapsed .sidemenu-toggle {
+    position: static;
+    width: auto;
+    border-bottom: 1px solid #2A2A2A; }
+    .sidemenu--collapsed .sidemenu-toggle > i:before {
+      margin-left: 0;
+      transition: all .2s .3s;
+      -webkit-transform: scaleX(-1);
+              transform: scaleX(-1); }
   .sidemenu--collapsed .sidemenu-logo {
     padding: 1rem 0; }
-  .sidemenu--collapsed .sidemenu-search,
-  .sidemenu--collapsed .logo-max {
+  .sidemenu--collapsed .sidemenu-search {
     display: none; }
+  .sidemenu--collapsed .ps-container {
+    overflow: visible !important; }
+  .sidemenu--collapsed .logo-max {
+    width: 0;
+    opacity: 0;
+    transition: 0.05s 0s; }
   .sidemenu--collapsed .logo-min {
-    display: inline-block; }
+    width: 50px;
+    transition: 0.6s 0.05s; }
   .sidemenu--collapsed .sidemenu-items > li > a {
     text-align: center;
     padding: 1.4rem 0; }
@@ -7132,7 +7178,18 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     .sidemenu--collapsed .sidemenu-items > li > a > .item-text {
       display: none; }
   .sidemenu--collapsed .sidemenu-subitems {
-    display: none; }
+    height: 0; }
+
+.popout-active {
+  position: relative; }
+  .popout-active > .sidemenu-subitems {
+    background: #181818;
+    display: block;
+    position: absolute;
+    width: 280px;
+    left: 100%;
+    top: 0;
+    z-index: 9999; }
 
 /***
 Spectrum Colorpicker v1.6.0

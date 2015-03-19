@@ -28,7 +28,7 @@
         </div>
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
-<pre class="line-numbers"><code class="language-markup">
+<t:source>
 &lt;t:accordion>
     &lt;t:tab title="Star Wars: Episode I - The Phantom Menace">
         Two Jedi Knights escape a hostile blockade...
@@ -62,7 +62,7 @@
         &lt;/f:facet>
         As the Clone Wars near an end...
     &lt;/t:tab>
-&lt;/t:accordion></code></pre>
+&lt;/t:accordion></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
@@ -71,21 +71,21 @@
                 <p><code>onTabChange</code> is called as a tab is activated and the content is loaded.
                     The callback receives the item element representing the activated item.
                 </p>
-                <pre><code class="language-javascript">function itemChanged(item) {
-                    // item is the new active element
-                    }</code></pre>
+                <t:source language="javascript">function itemChanged(item) {
+    // item is the new active element
+}</t:source>
 
                 <h5>Ajax Behavior Events</h5>
 
                 <p><code>tabChange</code> will be called when an tab item is toggled.
                 </p>
-                <pre><code class="language-markup">&lt;t:accordion>
+                <t:source lineNumbers="false">&lt;t:accordion>
                     &lt;f:ajax event="tabChange" listener="#{docsController.expr('controller.onChange')}">
-                    &lt;/t:accordion></code></pre>
-                <pre><code class="language-java">public void onChange(TabChangeEvent event) {
+                    &lt;/t:accordion></t:source>
+                <t:source lineNumbers="false" language="java">public void onChange(TabChangeEvent event) {
                     Accordion accordion = event.getAccordion();
                     Tab activeTab = event.getTab();
-                    }</code></pre>
+                    }</t:source>
                 <p>The listener will be called with an instance of
                     <code>io.tornadofaces.event.TabChangeEvent</code> that contains a reference to the new active item and the accordion.
                 </p>

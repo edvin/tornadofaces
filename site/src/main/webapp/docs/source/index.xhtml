@@ -3,41 +3,47 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
     <f:metadata>
-        <f:viewAction action="#{docsController.loadTag('breadcrumbs')}"/>
+        <f:viewAction action="#{docsController.loadTag('source')}" />
     </f:metadata>
 
     <ui:define name="breadcrumb">
         <t:li link="/docs">Components</t:li>
-        <t:li active="true">Breadcrumbs</t:li>
+        <t:li active="true">Source</t:li>
     </ui:define>
 
     <ui:define name="content">
         <div class="box">
-        <h1 class="subheader">Breadcrumbs</h1>
-
+        <h1 class="subheader">Source</h1>
         <div>
+
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
-        <p>There is a breadcrumb bar at the top of every page in the documentation.</p>
         </div></div>
         
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
-<t:source>
-&lt;t:breadcrumbs>
-    &lt;t:li link="#">Objects&lt;/t:li>
-    &lt;t:li link="#">An Object&lt;/t:li>
-    &lt;t:li>A Property&lt;/t:li>
-&lt;/t:breadcrumbs>
-</t:source>
+<t:source language="markup">
+&lt;t:source lineNumbers="true" language="java">
+    public class MyJavaClass {
+        public static void main(String[] args) {
+            System.out.println("Syntax highlighting");
+        }
+    }
+&lt;/t:source></t:source>
+
+<p>The result will be rendered like this:</p>
+
+<t:source lineNumbers="true" language="java">
+public class MyJavaClass {
+    public static void main(String[] args) {
+        System.out.println("Syntax highlighting");
+    }
+}</t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
-                <br/>
-                <p>Additional styling is available by setting the <code>styleClass</code> property. Refer to the <a
-                        href="http://foundation.zurb.com/apps/docs/#!/menu-bar">Foundation For Apps Documentation</a> for further information and examples.
-                </p>
             </t:tab>
         </t:tabView>
+
     </ui:define>
 </ui:composition>

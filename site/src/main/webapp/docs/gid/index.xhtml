@@ -34,7 +34,7 @@
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
-<pre class="line-numbers"><code class="language-markup">
+<t:source>
 &lt;h:panelGroup id="theActualId">
     &lt;t:gid value="myUniqueId"/>
     The time is #{docsController.expr('controller.now')}.
@@ -42,7 +42,7 @@
 
 &lt;h:form>
     &lt;t:commandButton value="Update the time" render="#myUniqueId" />
-&lt;/h:form></code></pre>
+&lt;/h:form></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

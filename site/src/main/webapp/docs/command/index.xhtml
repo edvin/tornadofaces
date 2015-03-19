@@ -25,13 +25,13 @@
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
-<pre class="line-numbers"><code class="language-markup">
+<t:source>
 &lt;h:form>
     &lt;t:message/>
     &lt;t:command name="mycommand" action="#{docsController.expr('controller.runCommand')}"/>
 &lt;/h:form>
 
-&lt;button onclick="mycommand()">Run mycommand&lt;/button></code></pre>
+&lt;button onclick="mycommand()">Run mycommand&lt;/button></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

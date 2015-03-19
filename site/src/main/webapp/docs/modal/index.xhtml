@@ -27,7 +27,7 @@
         
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="modal.xhtml">
-<pre class="line-numbers"><code class="language-markup">
+<t:source>
 &lt;t:modal title="Modal window" widgetVar="mymodal" id="mymodal">
     &lt;p>Enter your name: &lt;h:inputText value="#{docsController.expr('modalController.name')}"/>&lt;/p>
     &lt;a class="button success close">Save&lt;/a>
@@ -45,7 +45,7 @@
         value="Server callback first"
         action="#{docsController.expr('modalController.prepareData')}"
         render=":mymodal"/>
-&lt;/h:form></code></pre>
+&lt;/h:form></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

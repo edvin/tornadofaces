@@ -28,8 +28,8 @@
         <h3>Package your theme</h3>
         
         <p>To create a reusable, pluggable theme for TornadoFaces, jar up the following directory structure, optionally adding in any image or other static resources relative to <code>theme.css</code>.</p>
-<pre><code class="language-markup">
-META-INF/resources/tornadofaces-mytheme/theme.css</code></pre>
+<t:source lineNumbers="false">
+META-INF/resources/tornadofaces-mytheme/theme.css</t:source>
         
         <p>In this example the theme name <code>mytheme</code> was chosen. Include the jar in your project and change the theme as documented below.</p>
         
@@ -38,33 +38,33 @@ META-INF/resources/tornadofaces-mytheme/theme.css</code></pre>
         <p>Custom themese can be configured in a number of ways:</p>
 
         <h4>Add an attribute to the current view</h4>
-        <pre><code class="language-markup">&lt;f:attribute name="tornadofaces.THEME" value="mytheme"/></code></pre>
+        <t:source lineNumbers="false">&lt;f:attribute name="tornadofaces.THEME" value="mytheme"/></t:source>
 
         <h4>Configure in web.xml</h4>
-        <pre><code class="language-markup">
+        <t:source lineNumbers="false">
 &lt;context-param>
     &lt;param-name>tornadofaces.THEME&lt;/param-name>
     &lt;param-value>mytheme&lt;/param-value>
-&lt;/context-param></code></pre>
+&lt;/context-param></t:source>
 
         <h4>Configure in a bean</h4>
 
         <p>Define an EL expression in the theme argument web.xml:</p>
 
-        <pre><code class="language-markup">
+        <t:source lineNumbers="false">
 &lt;context-param>
     &lt;param-name>tornadofaces.THEME&lt;/param-name>
     &lt;param-value>#{docsController.expr('themeController.theme')}&lt;/param-value>
-&lt;/context-param></code></pre>
+&lt;/context-param></t:source>
 
-<pre><code class="language-java">
+<t:source lineNumbers="false" language="java">
 &#64;Named
 &#64;RequestScoped
 public class ThemeController {
     public String getTheme() {
         return "dynamically-resolved-theme-name";
     }
-}</code></pre>
+}</t:source>
 
         <p>The bean can have any scope. To disable theming completely, use the theme name <code>none</code>.</p>
 

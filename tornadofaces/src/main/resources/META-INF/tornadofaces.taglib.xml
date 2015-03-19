@@ -139,6 +139,44 @@
         </attribute>
     </tag>
     <tag>
+        <description>Source viewer is used to display source code. It provides syntax highlighting for many different languages.</description>
+        <tag-name>source</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Source</component-type>
+            <renderer-type>io.tornadofaces.component.SourceRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Show line numbers. Defaults to true.</description>
+            <name>lineNumbers</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>The language to syntax highlight. Supports 'markup', 'css', 'scss', 'clike', 'javascript', 'java'. Defaults to 'markup'.</description>
+            <name>language</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the ul element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the ul element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>Grid Frame</description>
         <tag-name>grid-frame</tag-name>
         <component>

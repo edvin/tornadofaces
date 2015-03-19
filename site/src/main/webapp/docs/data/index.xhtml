@@ -23,7 +23,7 @@
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="data.xhtml">
-<pre class="line-numbers"><code class="language-markup">
+<t:source>
 &lt;!-- JavaScript method that can render movie titles as li tags -->
 &lt;script>
     function renderMovies(movies) {
@@ -46,7 +46,7 @@
 &lt;a href="#" class="button" onclick="TW('movieLoader').load()">Load via Widget Call&lt;/a>
 
 &lt;!-- Load data by re-rendering, JSF-style -->
-&lt;t:commandButton value="Load by re-rendering Widget" render=":movies"/></code></pre>
+&lt;t:commandButton value="Load by re-rendering Widget" render=":movies"/></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

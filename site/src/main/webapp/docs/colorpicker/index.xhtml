@@ -23,7 +23,7 @@
         
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
-<pre class="line-numbers"><code class="language-markup">&lt;t:form-element label="Pick a color">
+<t:source>&lt;t:form-element label="Pick a color">
     &lt;t:colorpicker value="#{docsController.expr('controller.color')}" >
         &lt;f:ajax listener="#{docsController.expr('controller.colorChanged')}" render="notification"/>
     &lt;/t:colorpicker>
@@ -31,24 +31,24 @@
 
 &lt;t:form-element label="Just the picker">
     &lt;t:colorpicker value="#{docsController.expr('controller.color')}" showTextField="false" />
-&lt;/t:form-element></code></pre>
+&lt;/t:form-element></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
                 <h5>Client Side Callbacks</h5>
                 <p><code>onChange</code> is called as a color is selected.</p>
-                <pre><code class="language-javascript">function onChange(color) {
+                <t:source language="javascript">function onChange(color) {
     //
-}</code></pre>
+}</t:source>
                 <h5>Ajax Behavior Events</h5>
                 <p><code>change</code> will be called when a color is changed
                 </p>
-                <pre><code class="language-markup">&lt;t:color-picker>
+                <t:source lineNumbers="false">&lt;t:color-picker>
     &lt;f:ajax event="change" listener="#{docsController.expr('controller.colorChanged')}">
-&lt;/t:color-picker></code></pre>
-                <pre><code class="language-java">public void colorChanged(AjaxBehaviorEvent event) {
+&lt;/t:color-picker></t:source>
+                <t:source lineNumbers="false" language="java">public void colorChanged(AjaxBehaviorEvent event) {
     //
-}</code></pre>
+}</t:source>
 
                 <h5>Client Side API</h5>
                 <p>Widget: <code>TornadoFaces.widget.Colorpicker</code></p>

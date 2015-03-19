@@ -26,14 +26,14 @@
         </div></div>
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="list.xhtml">
-<pre class="line-numbers"><code class="language-markup">
+<t:source>
 &lt;h:inputText pt:placeholder="Search" id=search/>
 
 &lt;t:filterFor widget="movies" target="search"/>
 
 &lt;t:list title="Movies" value="#{docsController.expr('controller.movies')}" widgetVar="movies">
     &lt;t:li chevron="true" link="#">#{docsController.expr('it.title')}&lt;/t:li>
-&lt;/t:list></code></pre>
+&lt;/t:list></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

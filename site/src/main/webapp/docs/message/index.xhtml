@@ -30,7 +30,7 @@
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Markup">
-<pre class="line-numbers"><code class="language-markup">
+<t:source>
 &lt;t:message id="msgs" widgetVar="msgs" closable="true"/>
 
 &lt;a href="#" class="button alert" onclick="TW('msgs').show('Ouch!', 'An error occured', 'ERROR')">Error message&lt;/a>
@@ -39,7 +39,7 @@
 
 &lt;h:form>
     &lt;t:commandButton value="Server info" action="#{docsController.expr('controller.alert')}" render=":msgs"/>
-&lt;/h:form></code></pre>
+&lt;/h:form></t:source>
             </t:tab>
             <t:tab title="Controller">
 <pre class="line-numbers"><code class="language-java">
@@ -49,7 +49,7 @@ public class alert() {
         "A successfull server generated message",
         "http://url/to/image.png"));
 }
-</code></pre>
+</t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
