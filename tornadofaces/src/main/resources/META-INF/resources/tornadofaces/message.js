@@ -39,6 +39,11 @@ TornadoFaces.declareWidget('Message', function() {
             message = arguments[0];
         }
 
+        if(typeof message.closable == "undefined"){
+            message.closable = widget.isClosable();
+        }
+
+
         var e = $('<div class="label grid-block">' + message.summary + '</div>');
 
         if (message.detail && message.detail != message.summary)
@@ -47,7 +52,7 @@ TornadoFaces.declareWidget('Message', function() {
         if (message.image)
             e.prepend('<img src="' + message.image + '" style="padding-right: 10px"/>');
 
-        if (widget.isClosable()) {
+        if (message.closable) {
             var closebutton = $('<a href="#" class="close-button">×</a>');
             closebutton.click(function() {
                 widget.destroyNotification(e);
