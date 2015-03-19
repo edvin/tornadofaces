@@ -12,14 +12,11 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
         <h1 class="subheader">Table</h1>
-        <div>
 
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
         <ui:include src="table.xhtml"/>
-        </div></div>
 
         <t:tabView activeIndex="1">
             <t:tab title="Example">

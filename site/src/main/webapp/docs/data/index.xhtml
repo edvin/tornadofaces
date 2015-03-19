@@ -12,14 +12,10 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">JSON Data Loader</h1>
+        <h1 class="subheader">JSON Data Loader</h1>
 
-            <div>
-                <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
-                <ui:include src="data.xhtml"/>
-            </div>
-        </div>
+        <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
+        <ui:include src="data.xhtml"/>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="data.xhtml">

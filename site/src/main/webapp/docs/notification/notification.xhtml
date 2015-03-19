@@ -1,15 +1,11 @@
 <h:panelGroup xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-    <div class="grid-content">
-        <div class="grid-block">
-            <a href="#" class="button alert" onclick="TW('notification').show('Ouch!', 'An error occured', 'ERROR')">Error message</a>
-            <a href="#" class="button warning" onclick="TW('notification').show('Danger!', 'Be warned', 'WARN')">Warning message</a>
-            <a href="#" class="button success" onclick="TW('notification').show('Success!', 'Victory!', 'SUCCESS')">Success message</a>
+    <a href="#" class="button alert" onclick="TW('notification').show('Ouch!', 'An error occured', 'ERROR')">Error message</a>
+    <a href="#" class="button warning" onclick="TW('notification').show('Danger!', 'Be warned', 'WARN')">Warning message</a>
+    <a href="#" class="button success" onclick="TW('notification').show('Success!', 'Victory!', 'SUCCESS')">Success message</a>
 
-            <h:form>
-                <t:commandButton value="Server info" action="#{notificationController.infoMessage}" render=":notification"/>
-            </h:form>
-        </div>
-    </div>
-    
+    <h:form>
+        <t:commandButton value="Server info" action="#{notificationController.infoMessage}" render=":notification"/>
+    </h:form>
+
 </h:panelGroup>

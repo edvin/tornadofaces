@@ -11,28 +11,21 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">TabView</h1>
+        <h1 class="subheader">TabView</h1>
 
-            <div>
-                <p>#{docsController.tag.description} The markup and default CSS is
-                    minimal, making it easy to style and adapt to your spesific need.</p>
-                <hr/>
-                <h4>Basic</h4>
-                <ui:include src="basic.xhtml"/>
+        <p>#{docsController.tag.description} The markup and default CSS is
+            minimal, making it easy to style and adapt to your spesific need.</p>
+        <hr/>
+        <h4>Basic</h4>
+        <ui:include src="basic.xhtml"/>
 
-                <br/>
-                <h4>AJAX Loading, Custom CSS</h4>
-                <ui:include src="advanced.xhtml"/>
+        <br/>
+        <h4>AJAX Loading, Custom CSS</h4>
+        <ui:include src="advanced.xhtml"/>
 
-                <br/>
+        <br/>
 
-                <p>Infact, the documentation TabView below is another example of CSS styling.</p>
-
-                <p>See <a href="../tab">Tab</a> for documentation of item attributes.</p>
-
-            </div>
-        </div>
+        <p>See <a href="../tab">Tab</a> for documentation of item attributes.</p>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
@@ -61,30 +54,6 @@
         As the Clone Wars near an end...
     &lt;/t:tab>
 &lt;/t:tabView></t:source>
-            </t:tab>
-            <t:tab title="CSS">
-<pre class="line-numbers"><code class="language-css">
-.tabs.advancedTabView .tab-item {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.tabs.advancedTabView .tab-item {
-    background-color: #00558b;
-    color: #fff;
-    margin-left: 10px;
-}
-
-.tabs.advancedTabView .tab-item.is-active, .tabs.advancedTabView .tab-item:hover, .tabs.advancedTabView .tab-item.is-active:hover {
-    background-color: #0065a5;
-    color: #fff;
-}
-
-.advancedTabViewContent {
-    min-height: 200px;
-    background-color: #0065a5;
-    color: #cecece;
-}</t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

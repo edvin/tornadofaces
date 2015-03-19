@@ -11,20 +11,15 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Action Sheet</h1>
+        <h1 class="subheader">Action Sheet</h1>
 
-            <div>
-                <p>#{docsController.tag.description}</p>
+        <p>#{docsController.tag.description}</p>
 
-                <ui:include src="actionsheet.xhtml"/>
+        <ui:include src="actionsheet.xhtml"/>
 
-                <p>
-                    <strong>Tip:</strong> Make sure the container you're in allows overflow to be shown, in case your Action Sheet is located towards the bottom of the container. (This may also be the case horizontally).
-                </p>
-
-            </div>
-        </div>
+        <p>
+            <strong>Tip:</strong> Make sure the container you're in allows overflow to be shown, in case your Action Sheet is located towards the bottom of the container. (This may also be the case horizontally).
+        </p>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">

@@ -11,23 +11,19 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Configure</h1>
+        <h1 class="subheader">Configure</h1>
 
-            <div>
-                <p>#{docsController.tag.description}</p>
+        <p>#{docsController.tag.description}</p>
 
-                <p>This approach keeps your markup and your business logic separate, which often becomes a concern
-                    with JSF components that have a large feature set and many configuration options.</p>
+        <p>This approach keeps your markup and your business logic separate, which often becomes a concern
+            with JSF components that have a large feature set and many configuration options.</p>
 
-                <t:slider min="0" max="100" step="1" lower="20" connect="lower" title="My product"/>
-                <br/>
+        <t:slider min="0" max="100" step="1" lower="20" connect="lower" title="My product"/>
+        <br/>
 
-                <p>The example shows how you can configure a fictive product slider with values from the product itself
-                    without cluttering the markup, while making it easy to perform advanced logic to determine the configuration
-                    of the slider in a typesafe, familiar manner.</p>
-            </div>
-        </div>
+        <p>The example shows how you can configure a fictive product slider with values from the product itself
+            without cluttering the markup, while making it easy to perform advanced logic to determine the configuration
+            of the slider in a typesafe, familiar manner.</p>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">

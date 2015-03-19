@@ -11,20 +11,16 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Modal</h1>
+        <h1 class="subheader">Modal</h1>
 
-            <div>
-                <p>#{docsController.tag.description}</p>
+        <p>#{docsController.tag.description}</p>
 
-                <p>You can also manipulate the modal from JavaScript via the
-                    <code>widgetVar</code> name to open and close the modal.</p>
+        <p>You can also manipulate the modal from JavaScript via the
+            <code>widgetVar</code> name to open and close the modal.</p>
 
-                <p>Any button with <code>class=close</code> will close the modal when triggered.</p>
-                <ui:include src="modal.xhtml"/>
-            </div>
-        </div>
-        
+        <p>Any button with <code>class=close</code> will close the modal when triggered.</p>
+        <ui:include src="modal.xhtml"/>
+
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="modal.xhtml">
 <t:source>

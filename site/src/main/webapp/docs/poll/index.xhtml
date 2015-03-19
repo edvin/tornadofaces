@@ -11,20 +11,16 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Poll</h1>
+        <h1 class="subheader">Poll</h1>
 
-            <div>
-                <p>#{docsController.tag.description}</p>
+        <p>#{docsController.tag.description}</p>
 
-                <p>
-                    <strong>Tip:</strong> Make sure the Ajax request doesn't update the poller itself, as that would result in the intial delay being applied to each poll interval. For this reason, the default
-                    <code>render</code> value is <code>null</code> and the default <code>execute</code> value is
-                    <code>@this</code>.</p>
-            </div>
+        <p>
+            <strong>Tip:</strong> Make sure the Ajax request doesn't update the poller itself, as that would result in the intial delay being applied to each poll interval. For this reason, the default
+            <code>render</code> value is <code>null</code> and the default <code>execute</code> value is
+            <code>@this</code>.</p>
 
-            <ui:include src="poll.xhtml"/>
-        </div>
+        <ui:include src="poll.xhtml"/>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">

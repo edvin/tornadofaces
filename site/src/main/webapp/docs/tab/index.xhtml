@@ -11,19 +11,15 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Tab</h1>
+        <h1 class="subheader">Tab</h1>
 
-            <div>
-                <p>#{docsController.tag.description}</p>
+        <p>#{docsController.tag.description}</p>
 
-                <p>The tab typically describes the icon, title and styles of each tab item header.</p>
+        <p>The tab typically describes the icon, title and styles of each tab item header.</p>
 
-                <p>The title can be spesified as the
-                    <code>title</code> attribute, or as a facet with the same name if you want to include more sofisticated markup.
-                </p>
-            </div>
-        </div>
+        <p>The title can be spesified as the
+            <code>title</code> attribute, or as a facet with the same name if you want to include more sofisticated markup.
+        </p>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example"><t:source lineNumbers="false">

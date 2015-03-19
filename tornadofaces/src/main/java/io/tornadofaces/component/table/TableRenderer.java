@@ -1,9 +1,11 @@
-package io.tornadofaces.component.list;
+package io.tornadofaces.component.table;
 
+import io.tornadofaces.component.list.List;
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.StyleClass;
 import io.tornadofaces.util.WidgetBuilder;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -11,29 +13,26 @@ import javax.faces.render.FacesRenderer;
 import javax.faces.render.Renderer;
 import java.io.IOException;
 
-@FacesRenderer(rendererType = ListRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
-public class ListRenderer extends Renderer {
-	public static final String RENDERER_TYPE = "io.tornadofaces.component.ListRenderer";
+@ResourceDependency(library = "tornadofaces", name = "table.js")
+@FacesRenderer(rendererType = TableRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
+public class TableRenderer extends Renderer {
+	public static final String RENDERER_TYPE = "io.tornadofaces.component.TableRenderer";
 
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
 		if (!component.isRendered())
 			return;
 
 		ResponseWriter writer = context.getResponseWriter();
-		List list = (List) component;
-		writer.startElement("section", list);
-		writer.writeAttribute("id", list.getClientId(), null);
-		writer.writeAttribute("widgetVar", list.getWidgetVar(), null);
-		StyleClass.of("block-list").add(list.getStyleClass()).write(writer);
+		Table table = (Table) component;
+		writer.startElement("table", table);
+		writer.writeAttribute("id", table.getClientId(), null);
+		writer.writeAttribute("widgetVar", table.getWidgetVar(), null);
+		StyleClass.of(table.getStyleClass()).write(writer);
 
-		String title = list.getTitle();
-		if (title != null) {
-			writer.startElement("header", list);
-			writer.write(title);
-			writer.endElement("header");
-		}
+		String style = table.getStyle();
+		if (style != null)
+			writer.writeAttribute("style", style, null);
 
-		writer.startElement("ul", list);
 	}
 
 	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
