@@ -116,7 +116,7 @@ public class TableRenderer extends Renderer {
 			.map(c -> (Column) c)
 			.forEach(column -> {
 				Integer colno = colcount.addAndGet(1);
-				styles.append(format("%s tbody tr td:nth-child(%s) span.header:before { content: '%s'; }\n",
+				styles.append(format("%s tbody tr td:nth-child(%s) span.h:before { content: '%s'; }\n",
 					tableId, colno, column.getHeaderText()));
 			});
 
@@ -142,7 +142,7 @@ public class TableRenderer extends Renderer {
 
 					if (table.getReflow()) {
 						writer.startElement("span", column);
-						writer.writeAttribute("class", "header", null);
+						writer.writeAttribute("class", "h", null);
 						writer.endElement("span");
 					}
 
