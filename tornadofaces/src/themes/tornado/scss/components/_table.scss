@@ -33,7 +33,7 @@ th {
 }
 @include breakpoint(medium up) {
   td {
-    &:before {
+    span.header {
       display: none;
     }
   }
@@ -47,7 +47,7 @@ th {
   td {
     display: block;
     padding: 0.4rem;
-    &:before {
+    span.header {
       font-weight: bold;
       padding-right: 1rem;
     }

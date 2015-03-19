@@ -1113,7 +1113,7 @@
         </attribute>
     </tag>
     <tag>
-        <description>Datadriven Table with responsive features</description>
+        <description>Datadriven Table with responsive features.</description>
         <tag-name>table</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Table</component-type>
@@ -1124,6 +1124,12 @@
             <name>styleClass</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Add responsive reflow CSS to the table. Defaults to true.</description>
+            <name>reflow</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
         <attribute>
             <description>A JavaScript function to filter the table when widget.filter() is called. The function is called
@@ -1148,6 +1154,68 @@
         <attribute>
             <description>The variable that will refer to each element in the list. Defaults to "it"</description>
             <name>var</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Column used for DataTable and List</description>
+        <tag-name>column</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Column</component-type>
+            <renderer-type>io.tornadofaces.component.TableRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Style classes to apply to the td</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the td</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Text for the td. A value supplied here will override any defined child components.</description>
+            <name>text</name>
+            <required>false</required>
+            <type>Object</type>
+        </attribute>
+        <attribute>
+            <description>Wether or not to escape the text value for the td. Does not apply to the rendering of children, only to the text property if set. Defaults to true.</description>
+            <name>escape</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Style classes to apply to the th</description>
+            <name>headerClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Text for the th. This value will override any defined header facet.</description>
+            <name>headerText</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Text for the footer. This value will override any defined footer facet.</description>
+            <name>footerText</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Stlye classes to apply to the td in the tfoot.</description>
+            <name>footerClass</name>
             <required>false</required>
             <type>String</type>
         </attribute>

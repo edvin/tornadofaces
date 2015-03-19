@@ -42,6 +42,9 @@ public class ComponentUtils {
 	public static String escapeClientId(String id) {
 		return "#" + id.replace(":", "\\\\:");
 	}
+	public static String escapeClientIdForCss(String id) {
+		return "#" + id.replace(":", "\\:");
+	}
 
 	public static void reportIfMissingFormParent(UIComponent component, FacesContext context) {
 		UIComponent parent = component.getParent();

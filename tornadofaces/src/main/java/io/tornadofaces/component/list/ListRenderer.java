@@ -23,7 +23,6 @@ public class ListRenderer extends Renderer {
 		List list = (List) component;
 		writer.startElement("section", list);
 		writer.writeAttribute("id", list.getClientId(), null);
-		writer.writeAttribute("widgetVar", list.getWidgetVar(), null);
 		StyleClass.of("block-list").add(list.getStyleClass()).write(writer);
 
 		String title = list.getTitle();

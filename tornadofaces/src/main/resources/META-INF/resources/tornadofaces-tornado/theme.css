@@ -7973,7 +7973,7 @@ td, th {
   padding: 1rem; }
 
 @media only screen and (min-width: 45.71429em) {
-  td:before {
+  td span.header {
     display: none; } }
 @media only screen and (min-width: 0em) and (max-width: 45.65179rem) {
   thead {
@@ -7986,7 +7986,7 @@ td, th {
   td {
     display: block;
     padding: 0.4rem; }
-    td:before {
+    td span.header {
       font-weight: bold;
       padding-right: 1rem; } }
 .boxed, .accordion, .accordion.item-spacing .accordion-item {
