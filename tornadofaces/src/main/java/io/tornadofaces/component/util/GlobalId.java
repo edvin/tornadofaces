@@ -16,7 +16,6 @@ import java.util.regex.Pattern;
  * up and also refered to in render and execute statements.
  */
 public class GlobalId extends TagHandler {
-	private static final Pattern GlobalIdPattern = Pattern.compile("#(\\w+)"); 
 	public GlobalId(TagConfig config) {
 		super(config);
 	}
@@ -41,7 +40,6 @@ public class GlobalId extends TagHandler {
 	public static void register(FacesContext context, UIComponent component, String gid) {
 		Map<String, UIComponent> gids = getGlobalIds(context);
 		gids.put(gid, component);
-		
 	}
 	/**
 	 * Get the map of Global ids for the current UIViewRoot in the supplied FacesContext 
@@ -68,7 +66,7 @@ public class GlobalId extends TagHandler {
 		if (gid == null || gid.charAt(0) != '#')
 			return null;
 		
-		return getGlobalIds(context).get(gid);
+		return getGlobalIds(context).get(gid.substring(1));
 	}
 
 //	/**
