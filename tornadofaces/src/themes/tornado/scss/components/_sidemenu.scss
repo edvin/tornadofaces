@@ -1,6 +1,7 @@
 
 //sidemenu
 $sidemenu-background-color: $dark-color;
+$sidemenu-border: 1px solid #2A2A2A;;
 $sidemenu-outer-padding: 0;
 $sidemenu-min-width: 300px;
 $sidemenu-max-width: 300px;
@@ -32,7 +33,7 @@ $sidemenu-link-active-background: #212121;
 $sidemenu-sublink-padding: 0.4rem 0 0.4rem 0.7rem;
 $sidemenu-sublink-radius: 2px;
 
-.sidemenu-toggle {
+.sidemenu .sidemenu-toggle {
   position: absolute;
   display: flex;
   align-items: center;
@@ -52,12 +53,18 @@ $sidemenu-sublink-radius: 2px;
       vertical-align: middle;
     }
   }
+  @include breakpoint(small only) {
+    &.show-for-small-only {display: flex !important;}
+  }
+  @include breakpoint(medium up) {
+    &.hide-for-small-only {display: flex !important;}
+  }
 }
 
 .sidemenu-logo {
   text-align: center;
   padding: 1.4rem 1rem 1rem 0; //todo: $logo-padding
-  border-bottom: 1px solid #2A2A2A; //todo: $sidemenu-border-color
+  border-bottom: $sidemenu-border;
   > .logo-max {
     width: 194px; //todo: $logo-max-size
     height: auto;
@@ -88,6 +95,7 @@ $sidemenu-sublink-radius: 2px;
 .sidemenu-content {
   position: relative;
   padding-bottom: 2.5rem !important; //todo: FIX this
+  max-height: 100%;
 }
 .sidemenu-search {
   padding: $sidemenu-item-padding;
@@ -123,6 +131,7 @@ $sidemenu-sublink-radius: 2px;
   > li {
     font-size: 1.4rem; //todo: sidemenu-L1-font-size
     padding: 0;
+    border-bottom: $sidemenu-border;
     > a {
       color: #fff;
       font-size: inherit;
@@ -135,7 +144,6 @@ $sidemenu-sublink-radius: 2px;
     }
     &.is-active {
       &> a {
-        background: #1e1e1e; //todo: sidemenu-L1-active-background
         border-left: 4px solid $primary-color;
         padding: 1.4rem 1.4rem 0.7rem; //todo: sidemenu-L1-active-padding
       }
@@ -184,7 +192,7 @@ $sidemenu-sublink-radius: 2px;
 
 // Sidemenu Collapsed ---------------------------------------------/
 
-
+@include breakpoint(medium up) {
 .sidemenu--collapsed {
   max-width: 90px;
   min-width: 75px;
@@ -244,7 +252,7 @@ $sidemenu-sublink-radius: 2px;
     }
   }
   .sidemenu-subitems { //applies to 2nd level only
-    height: 0;
+    display: none;
     &> li {
       &> a {
         &:before {
@@ -263,8 +271,9 @@ $sidemenu-sublink-radius: 2px;
 }
 .popout-active {
   position: relative;
+  background: #1e1e1e; //todo: $
   > .sidemenu-subitems {
-    background: $sidemenu-background-color;
+    background: #1e1e1e; //todo: $
     display: block;
     position: absolute;
     width: 280px;
@@ -272,4 +281,5 @@ $sidemenu-sublink-radius: 2px;
     top: 0;
     z-index: 9999;
   }
+}
 }

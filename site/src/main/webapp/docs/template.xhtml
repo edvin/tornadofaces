@@ -14,8 +14,12 @@
         <!--<h:outputStylesheet library="css" name="docs.css"/>-->
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,600" type="text/css" media="all" />
         <script>
+            var scrollables;
+
             document.addEventListener('DOMContentLoaded', function() {
+                scrollables = $('#left-menu, #main-container');
                 FastClick.attach(document.body);
+<<<<<<< Updated upstream
                 $('.menu-toggle').click(function() {
                     var futureState = !$('#left-menu-container').hasClass('is-active');
                     TornadoFaces.animate($('#left-menu-container'), futureState, 'slideInRight', 'slideOutLeft');
@@ -26,6 +30,12 @@
 //                $(window).on('resize', function() {
 //                    scrollables.perfectScrollbar('update');
 //                });
+=======
+                scrollables.perfectScrollbar();
+                $(window).on('resize', function() {
+                    scrollables.perfectScrollbar('update');
+                });
+>>>>>>> Stashed changes
             }, false);
 
             var filterFn = function(item, query) {
@@ -68,19 +78,33 @@
                 var popouts = $('.popout');
                 var leftMenu = $('#left-menu-container');
 
-                $('#sidemenuToggle').click(function() {
-                    leftMenu.toggleClass('sidemenu--collapsed');
-                    if(leftMenu.hasClass('sidemenu--collapsed')) {
-                        bindPopout('bind', popouts)
-                    }else {
-                        bindPopout('unbind', popouts)
+                $('.sidemenu-toggle').click(function() {
+                    var mode = $(this).hasClass('show-for-small-only') ? 'activate' : 'collapse';
+
+                    switch (mode) {
+                        case "collapse":
+                            leftMenu.toggleClass('sidemenu--collapsed');
+                            if(leftMenu.hasClass('sidemenu--collapsed')) {
+                                bindPopout('bind', popouts)
+                            }else {
+                                bindPopout('unbind', popouts)
+                            }
+                            popouts.removeClass('popout-active');
+                            scrollables.perfectScrollbar('update');
+                            break;
+                        case "activate":
+                            var futureState = !$('#left-menu-container').hasClass('is-active');
+                            TornadoFaces.animate($('#left-menu-container'), futureState, 'slideInRight', 'slideOutLeft', function() {
+                                scrollables.perfectScrollbar('update');
+                            });
+                            break;
                     }
-                    popouts.removeClass('popout-active');
                 });
 
                 $(document).on('click', function(e) {
                     if($(e.target).parents('.sidemenu').length == 0) {
                         popouts.removeClass('popout-active');
+                        scrollables.perfectScrollbar('update');
                     }
                 });
             });
@@ -98,7 +122,8 @@
 
         <div class="grid-frame">
             <div id="left-menu-container" class="sidemenu medium-grid-block panel panel-left medium-3 slideOut">
-                <a id="sidemenuToggle" class="sidemenu-toggle"><i class="icon-back"></i></a>
+                <a class="sidemenu-toggle hide-for-small-only"><i class="icon-back"></i></a>
+                <a class="sidemenu-toggle show-for-small-only"><i class="icon-folder-fill"></i></a>
                 <div id="left-menu" class="sidemenu-content grid-content collapse">
                     <div class="sidemenu-logo">
                         <img class="logo-max" src="/resources/img/logo-tornado-faces-01.svg"/>
@@ -174,7 +199,7 @@
             <div id="main-container">
                 <div id="header" class="menu-group main-max-width">
                     <div class="menu-group-left grid-block">
-                        <i class="menu-toggle icon-navigation hide-for-medium"></i>
+                        <i class="sidemenu-toggle icon-navigation show-for-small-only"></i>
                     </div>
                     <div class="menu-group-right">
                         <t:ul menuBar="true" id="quick-links">

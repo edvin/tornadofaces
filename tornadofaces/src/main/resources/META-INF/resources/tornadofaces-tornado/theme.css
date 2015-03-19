@@ -7019,7 +7019,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   .flip-panel.flipped .back {
     display: block; }
 
-.sidemenu-toggle {
+.sidemenu .sidemenu-toggle {
   position: absolute;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7037,12 +7037,22 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   height: 50px;
   border-radius: 0 2px 2px 0;
   background: #181818; }
-  .sidemenu-toggle > i {
+  .sidemenu .sidemenu-toggle > i {
     font-size: 2.2rem; }
-    .sidemenu-toggle > i:before {
+    .sidemenu .sidemenu-toggle > i:before {
       display: block;
       margin-left: -1.3rem;
       vertical-align: middle; }
+  @media only screen and (min-width: 0em) and (max-width: 45.65179rem) {
+    .sidemenu .sidemenu-toggle.show-for-small-only {
+      display: -webkit-flex !important;
+      display: -ms-flexbox !important;
+      display: flex !important; } }
+  @media only screen and (min-width: 45.71429em) {
+    .sidemenu .sidemenu-toggle.hide-for-small-only {
+      display: -webkit-flex !important;
+      display: -ms-flexbox !important;
+      display: flex !important; } }
 
 .sidemenu-logo {
   text-align: center;
@@ -7075,7 +7085,8 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .sidemenu-content {
   position: relative;
-  padding-bottom: 2.5rem !important; }
+  padding-bottom: 2.5rem !important;
+  max-height: 100%; }
 
 .sidemenu-search {
   padding: 1rem; }
@@ -7098,7 +7109,8 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     font-weight: bold; }
 .sidemenu-items > li {
   font-size: 1.4rem;
-  padding: 0; }
+  padding: 0;
+  border-bottom: 1px solid #2A2A2A; }
   .sidemenu-items > li > a {
     color: #fff;
     font-size: inherit;
@@ -7108,7 +7120,6 @@ http://nicolasgallagher.com/micro-clearfix-hack/
       margin-right: 0.2em;
       color: #3fa2d8; }
   .sidemenu-items > li.is-active > a {
-    background: #1e1e1e;
     border-left: 4px solid #3fa2d8;
     padding: 1.4rem 1.4rem 0.7rem; }
 
@@ -7145,52 +7156,53 @@ http://nicolasgallagher.com/micro-clearfix-hack/
         vertical-align: middle;
         margin-right: .6em; }
 
-.sidemenu--collapsed {
-  max-width: 90px;
-  min-width: 75px; }
-  .sidemenu--collapsed .sidemenu-toggle {
-    position: static;
-    width: auto;
-    border-bottom: 1px solid #2A2A2A; }
-    .sidemenu--collapsed .sidemenu-toggle > i:before {
-      margin-left: 0;
-      transition: all .2s .3s;
-      -webkit-transform: scaleX(-1);
-              transform: scaleX(-1); }
-  .sidemenu--collapsed .sidemenu-logo {
-    padding: 1rem 0; }
-  .sidemenu--collapsed .sidemenu-search {
-    display: none; }
-  .sidemenu--collapsed .ps-container {
-    overflow: visible !important; }
-  .sidemenu--collapsed .logo-max {
-    width: 0;
-    opacity: 0;
-    transition: 0.05s 0s; }
-  .sidemenu--collapsed .logo-min {
-    width: 50px;
-    transition: 0.6s 0.05s; }
-  .sidemenu--collapsed .sidemenu-items > li > a {
-    text-align: center;
-    padding: 1.4rem 0; }
-    .sidemenu--collapsed .sidemenu-items > li > a > i {
-      display: block; }
-    .sidemenu--collapsed .sidemenu-items > li > a > .item-text {
+@media only screen and (min-width: 45.71429em) {
+  .sidemenu--collapsed {
+    max-width: 90px;
+    min-width: 75px; }
+    .sidemenu--collapsed .sidemenu-toggle {
+      position: static;
+      width: auto;
+      border-bottom: 1px solid #2A2A2A; }
+      .sidemenu--collapsed .sidemenu-toggle > i:before {
+        margin-left: 0;
+        transition: all .2s .3s;
+        -webkit-transform: scaleX(-1);
+                transform: scaleX(-1); }
+    .sidemenu--collapsed .sidemenu-logo {
+      padding: 1rem 0; }
+    .sidemenu--collapsed .sidemenu-search {
       display: none; }
-  .sidemenu--collapsed .sidemenu-subitems {
-    height: 0; }
+    .sidemenu--collapsed .ps-container {
+      overflow: visible !important; }
+    .sidemenu--collapsed .logo-max {
+      width: 0;
+      opacity: 0;
+      transition: 0.05s 0s; }
+    .sidemenu--collapsed .logo-min {
+      width: 50px;
+      transition: 0.6s 0.05s; }
+    .sidemenu--collapsed .sidemenu-items > li > a {
+      text-align: center;
+      padding: 1.4rem 0; }
+      .sidemenu--collapsed .sidemenu-items > li > a > i {
+        display: block; }
+      .sidemenu--collapsed .sidemenu-items > li > a > .item-text {
+        display: none; }
+    .sidemenu--collapsed .sidemenu-subitems {
+      display: none; }
 
-.popout-active {
-  position: relative; }
-  .popout-active > .sidemenu-subitems {
-    background: #181818;
-    display: block;
-    position: absolute;
-    width: 280px;
-    left: 100%;
-    top: 0;
-    z-index: 9999; }
-
+  .popout-active {
+    position: relative;
+    background: #1e1e1e; }
+    .popout-active > .sidemenu-subitems {
+      background: #1e1e1e;
+      display: block;
+      position: absolute;
+      width: 280px;
+      left: 100%;
+      top: 0;
+      z-index: 9999; } }
 /***
 Spectrum Colorpicker v1.6.0
 https://github.com/bgrins/spectrum
@@ -7843,7 +7855,6 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
   padding: 1rem 2rem; }
 
 .icon-navigation {
-  color: #fff;
   font-size: 1.6rem;
   margin-left: 1rem; }
 
