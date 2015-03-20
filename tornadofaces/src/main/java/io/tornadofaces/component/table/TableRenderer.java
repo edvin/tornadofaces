@@ -34,6 +34,7 @@ public class TableRenderer extends Renderer {
 		StyleClass
 			.of(table.getStyleClass())
 			.add("reflow", table.getReflow())
+			.add("zebra", table.getZebra())
 			.write(writer);
 
 		String style = table.getStyle();

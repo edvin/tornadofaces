@@ -1,9 +1,9 @@
-<h:panelGroup xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
-              xmlns:t="http://tornadofaces.io/ui">
+<h:panelGroup xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:t="http://tornadofaces.io/ui">
     <h:outputText value="#{docsController.tag.description}" escape="false"/>
 
     <h5>Info</h5>
-    <table class="tag-info">
+
+    <table>
         <tr>
             <th>Tag name</th>
             <td>#{docsController.tag.tagName}</td>
@@ -19,9 +19,11 @@
     </table>
 
     <h5>Attributes</h5>
-    <t:table value="#{docsController.tag.attributes}" var="attr">
-        <t:column headerText="Name" text="#{attr.name}"/>
-        <t:column headerText="Description" text="#{attr.description}" escape="false"/>
-        <t:column headerText="Required" text="#{attr.required}"/>
+
+    <t:table value="#{docsController.tag.attributes}">
+        <t:column headerText="Name" text="#{it.name}"/>
+        <t:column headerText="Description" text="#{it.description}" escape="false"/>
+        <t:column headerText="Required" text="#{it.required}"/>
     </t:table>
+
 </h:panelGroup>
