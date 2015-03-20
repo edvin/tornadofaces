@@ -33,8 +33,9 @@ public class TableRenderer extends Renderer {
 		writer.writeAttribute("id", table.getClientId(), null);
 		StyleClass
 			.of(table.getStyleClass())
-			.add("reflow", table.getReflow())
-			.add("zebra", table.getZebra())
+			.add("table-reflow", table.getReflow())
+			.add("table-zebra", table.getZebra())
+			.add("table-compact", table.getCompact())
 			.write(writer);
 
 		String style = table.getStyle();
