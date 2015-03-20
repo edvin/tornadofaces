@@ -33,6 +33,9 @@ $sidemenu-link-active-background: #212121;
 $sidemenu-sublink-padding: 0.4rem 0 0.4rem 0.7rem;
 $sidemenu-sublink-radius: 2px;
 
+//sidemenu popout
+$sidemenu-popuot-background: #1e1e1e;
+
 .sidemenu .sidemenu-toggle {
   position: absolute;
   display: flex;
@@ -41,7 +44,7 @@ $sidemenu-sublink-radius: 2px;
   top: 12px;
   right: -16px;
   z-index: 1;
-  width: 16px;
+  width: 25px;
   height: 50px;
   border-radius: 0 2px 2px 0;
   background: #181818;
@@ -49,7 +52,7 @@ $sidemenu-sublink-radius: 2px;
     font-size: 2.2rem;
     &:before {
       display: block;
-      margin-left: -1.3rem;
+      margin-left: -0.6rem;
       vertical-align: middle;
     }
   }
@@ -84,8 +87,8 @@ $sidemenu-sublink-radius: 2px;
   max-width: $sidemenu-max-width;
   background: $sidemenu-background-color;
   flex-direction: column;
-//  transition: all 0.25s;
   overflow: visible;
+  z-index: 999 !important;
   ul { //reset
     margin: 0;
     >li {list-style: none;}
@@ -132,6 +135,7 @@ $sidemenu-sublink-radius: 2px;
     font-size: 1.4rem; //todo: sidemenu-L1-font-size
     padding: 0;
     border-bottom: $sidemenu-border;
+    transition: background 0.2s;
     > a {
       color: #fff;
       font-size: inherit;
@@ -143,9 +147,20 @@ $sidemenu-sublink-radius: 2px;
       }
     }
     &.is-active {
+      position: relative;
       &> a {
-        border-left: 4px solid $primary-color;
+//        border-left: 4px solid $primary-color;
         padding: 1.4rem 1.4rem 0.7rem; //todo: sidemenu-L1-active-padding
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: -1px;
+        height: calc(100% + 2px);
+        width: 4px;
+        background: $primary-color;
+        z-index: 10;
       }
     }
   }
@@ -193,6 +208,7 @@ $sidemenu-sublink-radius: 2px;
 // Sidemenu Collapsed ---------------------------------------------/
 
 @include breakpoint(medium up) {
+
 .sidemenu--collapsed {
   max-width: 90px;
   min-width: 75px;
@@ -221,7 +237,7 @@ $sidemenu-sublink-radius: 2px;
   }
   .logo-min {
     width: 50px;
-    transition: 0.6s 0.05s;
+    transition: 0.3s 0.035s;
   }
 
   .sidemenu-items {
@@ -235,13 +251,11 @@ $sidemenu-sublink-radius: 2px;
 
     //applies to 1st level only
     > li {
-
+      &:hover { background: $sidemenu-popuot-background; }
       > a {
         text-align: center;
         padding: 1.4rem 0;
-        > i {
-          display: block;
-        }
+        > i { display: block; }
         > .item-text {display: none;}
       }
       &.is-active {
@@ -271,15 +285,16 @@ $sidemenu-sublink-radius: 2px;
 }
 .popout-active {
   position: relative;
-  background: #1e1e1e; //todo: $
+  background: $sidemenu-popuot-background; //todo: $
   > .sidemenu-subitems {
-    background: #1e1e1e; //todo: $
+    background: $sidemenu-popuot-background; //todo: $
+    border: $sidemenu-border;
     display: block;
     position: absolute;
     width: 280px;
-    left: 100%;
+    left: calc(100% - 1px);
     top: 0;
-    z-index: 9999;
+    z-index: -1;
   }
 }
-}
+} //breakpoint medium up END

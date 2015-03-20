@@ -212,7 +212,9 @@ $acronym-underline: 1px dotted #ddd !default;
   h2 { font-size: $h2-font-size - $h2-font-reduction; }
   h3 { font-size: $h3-font-size - $h3-font-reduction; }
   h4 { font-size: $h4-font-size - $h4-font-reduction; }
-  h5 { font-size: $h5-font-size - $h5-font-reduction; }
+  h5 { font-size: $h5-font-size - $h5-font-reduction;
+    text-transform: uppercase; //todo: clean up
+  }
   h6 { font-size: $h6-font-size - $h6-font-reduction; }
 
   .subheader { @include subheader; }

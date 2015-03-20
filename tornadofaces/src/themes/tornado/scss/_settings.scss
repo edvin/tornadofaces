@@ -89,7 +89,7 @@ $base-line-height: 1.5;
 $headers: "h1,h2,h3,h4,h5,h6";
 
 // We use these to define default font weights
-$font-weight-normal: normal;
+$font-weight-normal: 300;
 $font-weight-bold: bold;
 
 // We use these to control various global styles
@@ -111,6 +111,7 @@ $dark-color: #181818;
 $gray: #dfdfdf;
 $gray-dark: darken($gray, 8);
 $gray-light: lighten($gray, 8);
+$default-header-color: #3D3B35;
 
 // We use these to make sure border radius matches unless we want it different.
 $global-radius: 4px;
@@ -149,12 +150,12 @@ $header-top-margin: .2rem;
 $header-bottom-margin: .5rem;
 $header-text-rendering: optimizeLegibility;
 
-// We use these to control header font sizes
+// We use these to control header font sizes //todo: Remove rem calcs
 $h1-font-size: 2.6rem;
 $h2-font-size: rem-calc(37);
 $h3-font-size: rem-calc(27);
 $h4-font-size: rem-calc(23);
-$h5-font-size: rem-calc(18);
+$h5-font-size: 1.6rem;
 $h6-font-size: 1rem;
 
 // We use these to control header size reduction on small screens
@@ -592,8 +593,9 @@ $tab-title-color: $body-font-color;
 $tab-title-color-hover: $body-font-color;
 $tab-title-color-active: #fff;
 $tab-title-padding: 0.9rem 1.4rem 0.9rem;
-$tab-content-padding: 1rem;
-$tabview-padding: $tab-content-padding;
+$tab-content-padding: 0;
+$tabview-padding: 0;
+$tabview-border: none;
 
 
 //25. Title Bar

@@ -16,12 +16,13 @@
 	  flex-flow: column nowrap;
 	}
 	@else {
-		flex-flow: row wrap;
+      flex-flow: row wrap;
+      margin-bottom: 2rem; //todo: variable for default vertical margins
 	}
 }
 
 .tabview {
-  border: 1px solid #DDD; //todo: $variable
+  border: $tabview-border;
   padding: $tabview-padding;
 }
 
@@ -51,6 +52,7 @@
 
     &:hover {
       background: $background-active;
+      color: $color-active;
     }
   }
   &:hover {

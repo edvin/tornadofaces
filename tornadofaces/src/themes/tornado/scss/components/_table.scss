@@ -3,9 +3,18 @@
 
 $default-cell-padding: 1rem;
 $default-table-border: 1px solid #ddd; //todo: make global default border
+$default-table-border-dotted: 1px dotted #CACACA; //todo: make global default border
+
+$table-zebra-background: #EFF6FA;
+
+$table-compact-padding: 0.5rem;
+$table-compact-font-size: 0.85rem;
+
+$table-reflow-compact-padding: 0.1rem 0.9rem;
+
 table {
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   width: 100%;
 }
 thead {
@@ -20,7 +29,7 @@ tfoot {
 
 }
 tr {
-  border-bottom: $default-table-border;
+  border-bottom: $default-table-border-dotted;
 }
 td, th {
   padding: $default-cell-padding;
@@ -29,27 +38,90 @@ td {
 
 }
 th {
-
+  font-weight: bold;
+  color: $default-header-color;
 }
+
+
+// Zebra
+
+.table-zebra {
+  tr {border: none;}
+  >tbody {
+    >tr {
+      &:nth-child(odd) {
+        background: $table-zebra-background;
+      }
+    }
+  }
+}
+
+//bordered
+
+.table-bordered {
+  tr { border: $default-table-border; }
+  td, th {
+    border-right: $default-table-border;
+    &:first-child { border-left: $default-table-border; }
+  }
+}
+
+//compact
+
+.table-compact {
+  font-size: $table-compact-font-size;
+  tr { }
+  td, th {
+    padding: $table-compact-padding;
+    &:first-child { }
+    &:last-child { }
+  }
+}
+
+// Reflow
+
 @include breakpoint(medium up) {
-  td {
-    span.h {
-      display: none;
+  .table-reflow {
+    td {
+      &:before { display: none; }
     }
   }
 }
 @include breakpoint(small only) {
-  thead {display: none;}
-  tr {
-    display: block;
-    padding: 1rem 0;
+  .table-reflow {
+    thead { display: none; }
+    tr {
+      display: block;
+      padding: 1rem 0;
+    }
+    td {
+      display: block;
+      padding: 0.4rem 1.1rem;
+      &:before {
+        font-weight: bold;
+        padding-right: 1rem;
+      }
+    }
+
+    &.table-bordered { //reflow bordered
+      tr { margin-top: -1px; }
+      td, th { border: none; }
+    }
+    &.table-compact { //reflow compact
+      tr { padding: 0.7rem 0; }
+      td, th { padding: 0.1rem 0.9rem; }
+    }
   }
-  td {
-    display: block;
-    padding: 0.4rem;
-    span.h {
-      font-weight: bold;
-      padding-right: 1rem;
+  .table-reflow--block {
+    text-align: center;
+    tr {margin-bottom: 1rem;}
+    td {
+      &:before {
+        padding-right: 0;
+        display: block;
+      }
     }
   }
 }
+
+
