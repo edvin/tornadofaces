@@ -31,7 +31,7 @@ public class Table extends HtmlDataTable implements Widget {
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 	public Boolean getReflow() { return (Boolean) getStateHelper().eval("reflow", true); }
 	public void setReflow(Boolean reflow) { getStateHelper().put("reflow", reflow); }
-	public Boolean getBordered() { return (Boolean) getStateHelper().eval("bordered", true); }
+	public Boolean getBordered() { return (Boolean) getStateHelper().eval("bordered"); }
 	public void setBordered(Boolean bordered) { getStateHelper().put("bordered", bordered); }
 	public Boolean getZebra() { return (Boolean) getStateHelper().eval("zebra"); }
 	public void setZebra(Boolean zebra) { getStateHelper().put("zebra", zebra); }
