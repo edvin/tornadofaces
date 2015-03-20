@@ -1100,6 +1100,12 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Hide the section completely if the value is of zero length (empty list). Default false (will render title if empty).</description>
+            <name>hideEmpty</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>The variable that will refer to each element in the list. Defaults to "it"</description>
             <name>var</name>
             <required>false</required>

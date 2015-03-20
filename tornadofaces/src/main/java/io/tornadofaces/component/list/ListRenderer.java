@@ -23,7 +23,11 @@ public class ListRenderer extends Renderer {
 		List list = (List) component;
 		writer.startElement("section", list);
 		writer.writeAttribute("id", list.getClientId(), null);
-		StyleClass.of("block-list").add(list.getStyleClass()).write(writer);
+		StyleClass.of("block-list")
+                .add(list.getStyleClass())
+                .add("hide-empty", list.getHideEmpty())
+                .add("empty", list.isEmpty())
+                .write(writer);
 
 		String title = list.getTitle();
 		if (title != null) {

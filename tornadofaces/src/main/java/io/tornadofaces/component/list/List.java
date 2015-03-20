@@ -36,4 +36,19 @@ public class List extends HtmlDataTable implements Widget {
 	public void setFilterFn(String filterFn) { getStateHelper().put("filterFn", filterFn); }
 	public Boolean getHighlightFilter() { return (Boolean) getStateHelper().eval("highlightFilter", true); }
 	public void setHighlightFilter(Boolean highlightFilter) { getStateHelper().put("highlightFilter", highlightFilter); }
+
+    public Boolean getHideEmpty() { return (Boolean) getStateHelper().eval("hideEmpty", false); }
+	public void setHideEmpty(Boolean hideEmpty) { getStateHelper().put("hideEmpty", hideEmpty); }
+
+    public Boolean isEmpty(){
+        Object value = getValue();
+        if(value instanceof List){
+            return ((List)value).isEmpty();
+        }
+        if(value instanceof Object[]){
+            return ((Object[])value).length == 0;
+        }
+
+        return value != null;
+    }
 }
