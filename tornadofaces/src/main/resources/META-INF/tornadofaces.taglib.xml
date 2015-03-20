@@ -1126,6 +1126,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>Apply zebra styling to the table</description>
+            <name>zebra</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Add responsive reflow CSS to the table. Defaults to true.</description>
             <name>reflow</name>
             <required>false</required>
