@@ -4,10 +4,18 @@ import io.tornadofaces.component.util.ComponentUtils;
 
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIColumn;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import java.io.IOException;
 
 @FacesComponent(value = Column.COMPONENT_TYPE, createTag = true, tagName = "column", namespace = "http://tornadofaces.io/ui")
 public class Column extends UIColumn {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Column";
+
+	public Column() {
+		super();
+		setRendererType(null);
+	}
 
 	public String getFamily() {
 		return ComponentUtils.COMPONENT_FAMILY;
@@ -29,4 +37,9 @@ public class Column extends UIColumn {
 	public void setHeaderText(String headerText) { getStateHelper().put("headerText", headerText); }
 	public String getFootertext() { return (String) getStateHelper().eval("footerText"); }
 	public void setFootertext(String footerText) { getStateHelper().put("footerText", footerText); }
+
+	public void encodeChildren(FacesContext context) throws IOException {
+		for (UIComponent child : getChildren())
+			child.encodeAll(context);
+	}
 }

@@ -31,7 +31,10 @@ public class TableRenderer extends Renderer {
 
 		writer.startElement("table", table);
 		writer.writeAttribute("id", table.getClientId(), null);
-		StyleClass.of(table.getStyleClass()).write(writer);
+		StyleClass
+			.of(table.getStyleClass())
+			.add("reflow", table.getReflow())
+			.write(writer);
 
 		String style = table.getStyle();
 		if (style != null)
@@ -115,7 +118,7 @@ public class TableRenderer extends Renderer {
 			.map(c -> (Column) c)
 			.forEach(column -> {
 				Integer colno = colcount.addAndGet(1);
-				styles.append(format("%s tbody tr td:nth-child(%s) span.h:before { content: '%s'; }\n",
+				styles.append(format("%s tbody tr td:nth-child(%s):before { content: '%s'; }\n",
 					tableId, colno, column.getHeaderText()));
 			});
 
@@ -130,6 +133,8 @@ public class TableRenderer extends Renderer {
 
 		writer.startElement("tbody", table);
 
+		boolean reflow = table.getReflow();
+
 		for (int i = 0; i < rowCount; i++) {
 			table.setRowIndex(i);
 			writer.startElement("tr", table);
@@ -139,11 +144,8 @@ public class TableRenderer extends Renderer {
 					writer.startElement("td", column);
 					StyleClass.of(column.getStyleClass()).write(writer);
 
-					if (table.getReflow()) {
+					if (reflow)
 						writer.startElement("span", column);
-						writer.writeAttribute("class", "h", null);
-						writer.endElement("span");
-					}
 
 					Object text = column.getText();
 
@@ -155,6 +157,9 @@ public class TableRenderer extends Renderer {
 					} else {
 						column.encodeChildren(context);
 					}
+
+					if (reflow)
+						writer.endElement("span");
 
 					writer.endElement("td");
 				}
