@@ -1126,8 +1126,20 @@
             <type>String</type>
         </attribute>
         <attribute>
-            <description>Apply zebra styling to the table</description>
+            <description>Apply zebra styling to the table. Defaults to false.</description>
             <name>zebra</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Compact table styling. Defaults to false.</description>
+            <name>compact</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Bordered table styling. Defaults to false.</description>
+            <name>bordered</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>
