@@ -9,6 +9,9 @@ import javax.faces.context.FacesContext;
 public class NotificationController {
 	public void infoMessage() {
 		FacesContext.getCurrentInstance().addMessage(null,
-			new NotificationMessage("Information!", "An informational server generated message", "http://alyssa.no/resources/logo.png"));
+			new NotificationMessage(
+				"Information!",
+				"An informational server generated message",
+				"http://alyssa.no/resources/logo.png").closable(false));
 	}
 }

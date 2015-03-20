@@ -12,9 +12,7 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
         <h1 class="subheader">MenuBar</h1>
-        <div>
 
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
@@ -22,8 +20,6 @@
 
         <ui:include src="menubar.xhtml"/>
 
-        </div></div>
-        
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="menubar.xhtml">
 <t:source>

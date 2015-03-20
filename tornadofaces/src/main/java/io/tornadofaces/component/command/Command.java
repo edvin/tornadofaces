@@ -41,7 +41,7 @@ public class Command extends UICommand implements Widget, ClientBehaviorHolder {
 	}
 
 	public String getRender() {
-		return (String) getStateHelper().eval("render");
+		return (String) getStateHelper().eval("render", "@form");
 	}
 	public void setRender(String render) {
 		getStateHelper().put("render", render);

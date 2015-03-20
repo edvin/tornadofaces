@@ -32,6 +32,8 @@ public class Message extends UIMessages implements Widget {
 	public String getWidgetVar() { return (String) getStateHelper().eval("widgetVar"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
+	public void setStyle(String style) { getStateHelper().put("style", style); }
+	public String getStyle() { return (String) getStateHelper().eval("style"); }
 
 	public Boolean isClosable() { return (Boolean) getStateHelper().eval("closable", false); }
 	public void setClosable(Boolean closable) { getStateHelper().put("closable", closable); }

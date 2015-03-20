@@ -1,4 +1,4 @@
-TornadoFaces.declareWidget('List', function() {
+TornadoFaces.declareWidget('Table', function() {
     var widget;
 
     function isFunction(functionToCheck) {
@@ -9,8 +9,7 @@ TornadoFaces.declareWidget('List', function() {
     this.init = function() {
         widget = this;
 
-        widget.items = widget.elem.find('ul li');
-        widget.bindEvents();
+        widget.items = widget.elem.find('tr').not('th');
     };
 
     this.getFilterFn = function() {
@@ -53,13 +52,4 @@ TornadoFaces.declareWidget('List', function() {
         }
     };
 
-    this.bindEvents = function() {
-        widget.items.children('.accordion-title').click(function(event) {
-            var item = $(this).parent();
-            var itemIndex = item.index();
-            widget.select(itemIndex);
-            event.preventDefault();
-            return false;
-        });
-    }
 });

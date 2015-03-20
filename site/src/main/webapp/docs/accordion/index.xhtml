@@ -11,58 +11,55 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Accordion</h1>
+        <h1 class="subheader">Accordion</h1>
 
-            <div>
-                <p>#{docsController.tag.description}</p>
+        <p>#{docsController.tag.description}</p>
 
-                <ui:include src="basic.xhtml"/>
-            </div>
-            <div>
-                <h4 class="subheader">AJAX Loading, No Auto-Open, Multiple, Media queries</h4>
-                <ui:include src="accordion.xhtml"/>
+        <ui:include src="basic.xhtml"/>
+        <br/>
 
-                <p>See <a href="../tab">Tab</a> for documentation of item attributes.</p>
-            </div>
-        </div>
+        <h4 class="subheader">AJAX Loading, No Auto-Open, Multiple, Media queries</h4>
+        <ui:include src="accordion.xhtml"/>
+
+        <p>See <a href="../tab">Tab</a> for documentation of item attributes.</p>
+
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
-<t:source>
-&lt;t:accordion>
-    &lt;t:tab title="Star Wars: Episode I - The Phantom Menace">
-        Two Jedi Knights escape a hostile blockade...
-    &lt;/t:tab>
-    &lt;t:tab title="Star Wars: Episode II - Attack of the Clones">
-        Ten years after initially meeting...
-    &lt;/t:tab>
-    &lt;t:tab title="Star Wars: Episode III - Revenge of the Sith">
-        As the Clone Wars near an end...
-    &lt;/t:tab>
-&lt;/t:accordion>
+                <t:source>
+                    &lt;t:accordion>
+                    &lt;t:tab title="Star Wars: Episode I - The Phantom Menace">
+                    Two Jedi Knights escape a hostile blockade...
+                    &lt;/t:tab>
+                    &lt;t:tab title="Star Wars: Episode II - Attack of the Clones">
+                    Ten years after initially meeting...
+                    &lt;/t:tab>
+                    &lt;t:tab title="Star Wars: Episode III - Revenge of the Sith">
+                    As the Clone Wars near an end...
+                    &lt;/t:tab>
+                    &lt;/t:accordion>
 
-&lt;!-- Advanced -->
-&lt;t:accordion dynamic="true" autoOpen="false" multi="true">
-    &lt;t:tab>
-        &lt;f:facet name="title">
-            Star Wars: Episode I&lt;span class="show-for-medium"> - The Phantom Menace&lt;/span>
-        &lt;/f:facet>
-        Two Jedi Knights escape a hostile blockade...
-    &lt;/t:tab>
-    &lt;t:tab>
-        &lt;f:facet name="title">
-            &lt;f:ajax listener="#{docsController.expr('controller.episodeTwoActivated')}">
-            Star Wars: Episode II&lt;span class="show-for-medium"> - Attack of the Clones&lt;/span>
-        &lt;/f:facet>
-        Ten years after initially meeting...
-    &lt;/t:tab>
-    &lt;t:tab>
-        &lt;f:facet name="title">
-            Star Wars: Episode III&lt;span class="show-for-medium"> - Revenge of the Sith&lt;/span>
-        &lt;/f:facet>
-        As the Clone Wars near an end...
-    &lt;/t:tab>
-&lt;/t:accordion></t:source>
+                    &lt;!-- Advanced -->
+                    &lt;t:accordion dynamic="true" autoOpen="false" multi="true">
+                    &lt;t:tab>
+                    &lt;f:facet name="title">
+                    Star Wars: Episode I&lt;span class="show-for-medium"> - The Phantom Menace&lt;/span>
+                    &lt;/f:facet>
+                    Two Jedi Knights escape a hostile blockade...
+                    &lt;/t:tab>
+                    &lt;t:tab>
+                    &lt;f:facet name="title">
+                    &lt;f:ajax listener="#{docsController.expr('controller.episodeTwoActivated')}">
+                    Star Wars: Episode II&lt;span class="show-for-medium"> - Attack of the Clones&lt;/span>
+                    &lt;/f:facet>
+                    Ten years after initially meeting...
+                    &lt;/t:tab>
+                    &lt;t:tab>
+                    &lt;f:facet name="title">
+                    Star Wars: Episode III&lt;span class="show-for-medium"> - Revenge of the Sith&lt;/span>
+                    &lt;/f:facet>
+                    As the Clone Wars near an end...
+                    &lt;/t:tab>
+                    &lt;/t:accordion></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
@@ -72,8 +69,8 @@
                     The callback receives the item element representing the activated item.
                 </p>
                 <t:source language="javascript">function itemChanged(item) {
-    // item is the new active element
-}</t:source>
+                    // item is the new active element
+                    }</t:source>
 
                 <h5>Ajax Behavior Events</h5>
 
@@ -86,13 +83,15 @@
                     Accordion accordion = event.getAccordion();
                     Tab activeTab = event.getTab();
                     }</t:source>
+
                 <p>The listener will be called with an instance of
                     <code>io.tornadofaces.event.TabChangeEvent</code> that contains a reference to the new active item and the accordion.
                 </p>
 
-                <p>You can also attach the ajax event <code>activate</code> to a tab, so that the listener will be executed
-                only when that tab is activated.<code>activate</code> is the default ajax event name for tabs.</p>
-                
+                <p>You can also attach the ajax event
+                    <code>activate</code> to a tab, so that the listener will be executed
+                    only when that tab is activated.<code>activate</code> is the default ajax event name for tabs.</p>
+
                 <h5>Client Side API</h5>
 
                 <p>Widget: <code>TornadoFaces.widget.Accordion</code></p>

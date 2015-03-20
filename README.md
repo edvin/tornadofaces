@@ -1,5 +1,5 @@
 # TornadoFaces
 
-Modern JSF Component Framework based on Foundation for Apps markup
+Modern JSF Component Framework
 
 http://www.tornadofaces.io

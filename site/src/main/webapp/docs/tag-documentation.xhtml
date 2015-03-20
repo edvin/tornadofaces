@@ -1,34 +1,29 @@
-<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:outputText value="#{docsController.tag.description}" escape="false"/>
-<h5>Info</h5>
-<table class="tag-info">
-<tr>
-    <th>Tag name</th>
-    <td>#{docsController.tag.tagName}</td>
-</tr>
-<tr>
-    <th>Component type</th>
-    <td>#{docsController.tag.component.componentType}</td>
-</tr>
-<tr>
-    <th>Renderer type</th>
-    <td>#{docsController.tag.component.rendererType}</td>
-</tr>
-</table>
+<h:panelGroup xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:t="http://tornadofaces.io/ui">
+    <h:outputText value="#{docsController.tag.description}" escape="false"/>
 
-<h5>Attributes</h5>
-<h:dataTable styleClass="attributes" value="#{docsController.tag.attributes}" var="attr">
-<h:column>
-    <f:facet name="header">Name</f:facet>
-    <h:outputText value="#{attr.name}"/>
-</h:column>
-<h:column>
-    <f:facet name="header">Description</f:facet>
-    <h:outputText value="#{attr.description}" escape="false"/>
-</h:column>
-<h:column>
-    <f:facet name="header">Required</f:facet>
-    <h:outputText value="#{attr.required}"/>
-</h:column>
-</h:dataTable>
-</html>
+    <h5>Info</h5>
+
+    <table>
+        <tr>
+            <th>Tag name</th>
+            <td>#{docsController.tag.tagName}</td>
+        </tr>
+        <tr>
+            <th>Component type</th>
+            <td>#{docsController.tag.component.componentType}</td>
+        </tr>
+        <tr>
+            <th>Renderer type</th>
+            <td>#{docsController.tag.component.rendererType}</td>
+        </tr>
+    </table>
+
+    <h5>Attributes</h5>
+
+    <t:table value="#{docsController.tag.attributes}" zebra="true">
+        <t:column headerText="Name" text="#{it.name}"/>
+        <t:column headerText="Description" text="#{it.description}" escape="false"/>
+        <t:column headerText="Required" text="#{it.required}"/>
+    </t:table>
+
+</h:panelGroup>

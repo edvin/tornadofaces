@@ -12,12 +12,8 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Flip Panel</h1>
-            <div>
-                <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
-            </div>
-        </div>
+        <h1 class="subheader">Flip Panel</h1>
+        <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
         <ui:include src="flip-panel.xhtml"/>
 

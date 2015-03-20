@@ -3,27 +3,30 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
     <f:metadata>
-        <f:viewAction action="#{docsController.loadTag('context-menu')}" />
+        <f:viewAction action="#{docsController.loadTag('column')}" />
     </f:metadata>
 
     <ui:define name="breadcrumb">
-        <t:li link="/docs">Helpers</t:li>
-        <t:li active="true">Context Menu</t:li>
+        <t:li link="/docs">Components</t:li>
+        <t:li active="true">Column</t:li>
     </ui:define>
 
     <ui:define name="content">
-        <h1 class="subheader">Context Menu</h1>
+        <h1 class="subheader">Column</h1>
 
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
-        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
-            <t:tab title="Example">
-                <t:source></t:source>
-            </t:tab>
+        <p>The content of the column can either be set via the <code>text</code> attribute,
+            or via child components inside the column.</p>
 
+        <p>The <code>headerText</code> is used as the row header, and the optional <code>footerText</code>
+        will be added as a <code>tfoot</code> element at the end of the table.</p>
+
+        <t:tabView>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
             </t:tab>
         </t:tabView>
+
     </ui:define>
 </ui:composition>

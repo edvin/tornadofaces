@@ -11,14 +11,13 @@
         <h:outputScript library="js" name="fastclick.min.js"/>
         <h:outputScript library="js" name="perfect-scrollbar.jquery.min.js"/>
         <h:outputStylesheet library="css" name="perfect-scrollbar.css"/>
-        <!--<h:outputStylesheet library="css" name="docs.css"/>-->
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,600" type="text/css" media="all" />
         <script>
             var scrollables;
 
             document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body);
                 scrollables = $('#left-menu');
-//                FastClick.attach(document.body);
                 scrollables.perfectScrollbar();
                 $(window).on('resize', function() {
                     scrollables.perfectScrollbar('update');
@@ -114,14 +113,14 @@
                 <a class="sidemenu-toggle hide-for-small-only"><i class="icon-back"></i></a>
                 <a class="sidemenu-toggle show-for-small-only"><i class="icon-back"></i></a>
                 <div id="left-menu" class="sidemenu-content grid-content collapse">
+                    <div class="sidemenu-logo">
+                        <img class="logo-max" src="/resources/img/logo-tornado-faces-01.svg"/>
+                        <img class="logo-min" src="/resources/img/logo-tornado-faces-symbol.svg"/>
+                    </div>
+                    <div class="sidemenu-search">
+                        <input class="show-for-medium" type="text" placeholder="Filter..." onkeyup="searchComponents(this)"/>
+                    </div>
                     <div class="perfect-scrollbar-content">
-                        <div class="sidemenu-logo">
-                            <img class="logo-max" src="/resources/img/logo-tornado-faces-01.svg"/>
-                            <img class="logo-min" src="/resources/img/logo-tornado-faces-symbol.svg"/>
-                        </div>
-                        <div class="sidemenu-search">
-                            <input class="show-for-medium" type="text" placeholder="Filter..." onkeyup="searchComponents(this)"/>
-                        </div>
                         <ui:param name="path" value="#{view.viewId}"/>
                         <t:ul styleClass="sidemenu-items" orientation="vertical" id="left-menu" color="dark">
                             <t:li title="true" styleClass="popout">
@@ -133,6 +132,7 @@
                                     <t:li link="/docs/index.xhtml">Introduction</t:li>
                                     <t:li link="/docs/theme/">Themes</t:li>
                                     <t:li link="/docs/icons/">Icons</t:li>
+                                    <t:li link="/docs/widgets/">Widgets</t:li>
                                 </t:ul>
                             </t:li>
                             <t:li active="true" styleClass="popout">
@@ -147,6 +147,7 @@
                                     <t:li link="/docs/button/">Button</t:li>
                                     <t:li link="/docs/card/">Card</t:li>
                                     <t:li link="/docs/colorpicker/">Color Picker</t:li>
+                                    <t:li link="/docs/column/">Column</t:li>
                                     <t:li link="/docs/contextmenu/">Context Menu</t:li>
                                     <t:li link="/docs/datepicker/">Date Picker</t:li>
                                     <t:li link="/docs/flip-panel/">Flip Panel</t:li>
@@ -165,6 +166,7 @@
                                     <t:li link="/docs/source/">Source</t:li>
                                     <t:li link="/docs/switch/">Switch</t:li>
                                     <t:li link="/docs/tab/">Tab</t:li>
+                                    <t:li link="/docs/table/">Table</t:li>
                                     <t:li link="/docs/tabview/">TabView</t:li>
                                     <t:li link="/docs/titlebar/">Title Bar</t:li>
                                     <t:li link="/docs/ul/">Unordered List</t:li>

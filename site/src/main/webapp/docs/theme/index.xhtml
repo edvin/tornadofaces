@@ -6,15 +6,13 @@
     </f:metadata>
 
     <ui:define name="breadcrumb">
-        <t:li link="/docs">Docs</t:li>
+        <t:li link="/docs">TornadoFaces</t:li>
         <t:li active="true">Theme</t:li>
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
         <h1 class="subheader">Themes</h1>
 
-            <div>
         <p>TornadoFaces uses Foundation for Apps markup and styling, with a small <a
                 href="https://github.com/edvin/tornadofaces/blob/master/tornadofaces/src/themes/tornado/scss/tornadofaces.scss">override stylesheet</a>.
         </p>
@@ -75,7 +73,5 @@ public class ThemeController {
 
         <p>You can disable all default TornadoFaces resources by setting
             <code>tornadofaces.DISABLE</code> as either a view param or a web.xml init param.</p>
-            </div>
-        </div>
     </ui:define>
 </ui:composition>

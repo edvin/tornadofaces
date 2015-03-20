@@ -1,0 +1,55 @@
+
+// Defaults
+
+$default-cell-padding: 1rem;
+$default-table-border: 1px solid #ddd; //todo: make global default border
+table {
+  text-align: left;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+thead {
+  > tr {
+
+  }
+}
+tbody {
+
+}
+tfoot {
+
+}
+tr {
+  border-bottom: $default-table-border;
+}
+td, th {
+  padding: $default-cell-padding;
+}
+td {
+
+}
+th {
+
+}
+@include breakpoint(medium up) {
+  td {
+    span.h {
+      display: none;
+    }
+  }
+}
+@include breakpoint(small only) {
+  thead {display: none;}
+  tr {
+    display: block;
+    padding: 1rem 0;
+  }
+  td {
+    display: block;
+    padding: 0.4rem;
+    span.h {
+      font-weight: bold;
+      padding-right: 1rem;
+    }
+  }
+}

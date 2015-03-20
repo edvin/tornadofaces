@@ -4,7 +4,6 @@ import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.StyleClass;
 import io.tornadofaces.util.WidgetBuilder;
 
-import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -12,7 +11,6 @@ import javax.faces.render.FacesRenderer;
 import javax.faces.render.Renderer;
 import java.io.IOException;
 
-@ResourceDependency(library = "tornadofaces", name = "list.js")
 @FacesRenderer(rendererType = ListRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
 public class ListRenderer extends Renderer {
 	public static final String RENDERER_TYPE = "io.tornadofaces.component.ListRenderer";
@@ -25,7 +23,6 @@ public class ListRenderer extends Renderer {
 		List list = (List) component;
 		writer.startElement("section", list);
 		writer.writeAttribute("id", list.getClientId(), null);
-		writer.writeAttribute("widgetVar", list.getWidgetVar(), null);
 		StyleClass.of("block-list").add(list.getStyleClass()).write(writer);
 
 		String title = list.getTitle();

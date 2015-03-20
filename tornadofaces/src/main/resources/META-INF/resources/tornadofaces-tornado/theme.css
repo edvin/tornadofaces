@@ -7961,6 +7961,34 @@ pre.line-numbers > code {
   padding-right: 0.8em;
   text-align: right; }
 
+table {
+  text-align: left;
+  margin-bottom: 1rem;
+  width: 100%; }
+
+tr {
+  border-bottom: 1px solid #ddd; }
+
+td, th {
+  padding: 1rem; }
+
+@media only screen and (min-width: 45.71429em) {
+  td span.h {
+    display: none; } }
+@media only screen and (min-width: 0em) and (max-width: 45.65179rem) {
+  thead {
+    display: none; }
+
+  tr {
+    display: block;
+    padding: 1rem 0; }
+
+  td {
+    display: block;
+    padding: 0.4rem; }
+    td span.h {
+      font-weight: bold;
+      padding-right: 1rem; } }
 .boxed, .accordion, .accordion.item-spacing .accordion-item {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   border: 1px solid #dfdfdf; }
@@ -7985,7 +8013,7 @@ pre.line-numbers > code {
   position: relative; }
 
 .main-wrapper {
-  padding: 1rem 2rem; }
+  padding: 1rem 5%; }
 
 .icon-navigation {
   font-size: 1.6rem;

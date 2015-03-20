@@ -24,7 +24,7 @@
         </attribute>
     </tag>
     <tag>
-        <description>Flip Panel lets you flip between showing a front and back side on of a card.</description>
+        <description>Flip Panel lets you flip between showing a front and back side on of a card. Each side can have different heights, and the card will animate to the correct hight when you flip it.</description>
         <tag-name>flip-panel</tag-name>
         <component>
             <component-type>io.tornadofaces.component.FlipPanel</component-type>
@@ -1113,6 +1113,138 @@
         </attribute>
     </tag>
     <tag>
+        <description>Datadriven Table with responsive features.</description>
+        <tag-name>table</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Table</component-type>
+            <renderer-type>io.tornadofaces.component.TableRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Styles to apply to the table element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Apply zebra styling to the table. Defaults to false.</description>
+            <name>zebra</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Compact table styling. Defaults to false.</description>
+            <name>compact</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Bordered table styling. Defaults to false.</description>
+            <name>bordered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Add responsive reflow CSS to the table. Defaults to true.</description>
+            <name>reflow</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>A JavaScript function to filter the table when widget.filter() is called. The function is called
+                with each item in the table
+            </description>
+            <name>filterFn</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The List of elements, as a value expression.</description>
+            <name>value</name>
+            <required>true</required>
+            <type>java.util.List</type>
+        </attribute>
+        <attribute>
+            <description>Highlight text in filtered elements. Default true.</description>
+            <name>highlightFilter</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>The variable that will refer to each element in the list. Defaults to "it"</description>
+            <name>var</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Column is used to build Table columns.</description>
+        <tag-name>column</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Column</component-type>
+            <renderer-type>io.tornadofaces.component.TableRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Style classes to apply to the td</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the td</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Text for the td. A value supplied here will override any defined child components.</description>
+            <name>text</name>
+            <required>false</required>
+            <type>Object</type>
+        </attribute>
+        <attribute>
+            <description>Wether or not to escape the text value for the td. Does not apply to the rendering of children, only to the text property if set. Defaults to true.</description>
+            <name>escape</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Style classes to apply to the th</description>
+            <name>headerClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Text for the th. This value will override any defined header facet.</description>
+            <name>headerText</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Text for the footer. This value will override any defined footer facet.</description>
+            <name>footerText</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Stlye classes to apply to the td in the tfoot.</description>
+            <name>footerClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>FilterFor adds a filtering capabilities for the given widget to the given target component, like an
             input field.
         </description>
@@ -2119,20 +2251,20 @@
         </attribute>
     </tag>
     <tag>
-        <description>Poll lets you repeat a server action on a set interval with an optional delay before the first call is made. The Widget API provides methods to stop and start the poller as well.</description>
+        <description>Poll lets you repeat a server action or simply render/execute any component on a set interval with an optional delay before the first call is made. The Widget API provides methods to stop and start the poller as well.</description>
         <tag-name>poll</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Poll</component-type>
             <renderer-type>io.tornadofaces.component.PollRenderer</renderer-type>
         </component>
         <attribute>
-            <description>The number of milliseconds between each poll call.</description>
+            <description>The number of milliseconds between each poll.</description>
             <name>interval</name>
             <required>true</required>
             <type>Integer</type>
         </attribute>
         <attribute>
-            <description>The number of milliseconds before the first poll call.</description>
+            <description>The number of milliseconds before the first poll.</description>
             <name>delay</name>
             <required>false</required>
             <type>Integer</type>

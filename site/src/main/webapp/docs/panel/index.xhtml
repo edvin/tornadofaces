@@ -11,20 +11,16 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Panel</h1>
+        <h1 class="subheader">Panel</h1>
 
-            <div>
-                <p>#{docsController.tag.description}</p>
+        <p>#{docsController.tag.description}</p>
 
-                <p>To lazyly render the panel content and show on postback, you can make sure the
-                    <code>open</code> attribute is true after the postback
-                    or add <code>success="TW('mypanel').show()</code> to the <code>commandButton</code> or
-                    <code>commandLink</code>.</p>
+        <p>To lazyly render the panel content and show on postback, you can make sure the
+            <code>open</code> attribute is true after the postback
+            or add <code>success="TW('mypanel').show()</code> to the <code>commandButton</code> or
+            <code>commandLink</code>.</p>
 
-                <ui:include src="panel.xhtml"/>
-            </div>
-        </div>
+        <ui:include src="panel.xhtml"/>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">

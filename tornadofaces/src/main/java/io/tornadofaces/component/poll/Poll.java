@@ -19,4 +19,10 @@ public class Poll extends Command {
 	public Integer getInterval() { return (Integer) getStateHelper().eval("interval"); }
 	public void setDelay(Integer delay) { getStateHelper().put("delay", delay); }
 	public Integer getDelay() { return (Integer) getStateHelper().eval("delay"); }
+
+	@Override
+	public String getRender() {
+		return (String) getStateHelper().eval("render");
+	}
+
 }

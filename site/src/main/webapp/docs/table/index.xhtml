@@ -3,7 +3,7 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
     <f:metadata>
-        <f:viewAction action="#{docsController.loadTag('source')}" />
+        <f:viewAction action="#{docsController.loadTag('table')}" />
     </f:metadata>
 
     <ui:define name="breadcrumb">
@@ -12,19 +12,24 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
         <h1 class="subheader">Table</h1>
-        <div>
 
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
-        <ui:include src="table.xhtml"/>
-        </div></div>
+        <p>The default <code>reflow</code> mode uses some clever CSS tricks to show each row of data in a mobile friendly way when
+            displayed on small screens. <strong class="show-for-medium"> Resize your screen to see it in action.</strong></p>
 
-        <t:tabView activeIndex="1">
+        <ui:include src="table.xhtml"/>
+
+        <p>See the <a href="../column">column</a> documentation for column attributes.</p>
+
+        <t:tabView>
             <t:tab title="Example">
                 <t:source language="markup">
-                </t:source>
+&lt;t:table value="#{docsController.expr('controller.movies')}" var="movie">
+    &lt;t:column headerText="ID" text="#{docsController.expr('movie.id')}"/>
+    &lt;t:column headerText="Title" text="#{docsController.expr('movie.title')}"/>
+&lt;/t:table></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

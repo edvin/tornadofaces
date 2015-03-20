@@ -11,19 +11,16 @@
     </ui:define>
 
     <ui:define name="content">
-        <div class="box">
-            <h1 class="subheader">Progress</h1>
+        <h1 class="subheader">Progress</h1>
 
-            <div>
-                <p>#{docsController.tag.description}</p>
+        <p>#{docsController.tag.description}</p>
 
-            </div>
-        </div>
+        <ui:include src="progress.xhtml"/>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
-<t:source>
-</t:source>
+<t:source language="java">
+&lt;t:progress value="#{docsController.expr('controller.progress')}" priority="low"/></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
