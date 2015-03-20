@@ -37,6 +37,7 @@ public class TableRenderer extends Renderer {
 			.add("table-zebra", table.getZebra())
 			.add("table-compact", table.getCompact())
 			.add("table-bordered", table.getBordered())
+			.add("table-reflow--block", Table.ReflowMode.block.equals(table.getReflowMode()))
 			.write(writer);
 
 		String style = table.getStyle();
@@ -110,7 +111,6 @@ public class TableRenderer extends Renderer {
 		final AtomicInteger colcount = new AtomicInteger();
 
 		writer.startElement("style", table);
-//		writer.writeAttribute("id", table.getClientId() + "_style", null);
 
 		StringBuilder styles = new StringBuilder();
 		String tableId = ComponentUtils.escapeClientIdForCss(table.getClientId());
@@ -121,8 +121,9 @@ public class TableRenderer extends Renderer {
 			.map(c -> (Column) c)
 			.forEach(column -> {
 				Integer colno = colcount.addAndGet(1);
-				styles.append(format("%s tbody tr td:nth-child(%s):before { content: '%s'; }\n",
-					tableId, colno, column.getHeaderText()));
+				if (Boolean.TRUE.equals(column.getReflow()))
+					styles.append(format("%s tbody tr td:nth-child(%s):before { content: '%s'; }\n",
+						tableId, colno, column.getHeaderText()));
 			});
 
 		writer.write(styles.toString());

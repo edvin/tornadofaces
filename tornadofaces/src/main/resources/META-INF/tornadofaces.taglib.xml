@@ -1150,6 +1150,12 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Reflow mode determines label placement when the table is viewed in reflow mode. Valid options are "block", "span". Default is "span".</description>
+            <name>reflowMode</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>A JavaScript function to filter the table when widget.filter() is called. The function is called
                 with each item in the table
             </description>
@@ -1200,6 +1206,12 @@
             <name>style</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Reflow this column if table reflow mode is active? Defaults to true.</description>
+            <name>reflow</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
         <attribute>
             <description>Text for the td. A value supplied here will override any defined child components.</description>

@@ -33,6 +33,8 @@ public class Column extends UIColumn {
 	public void setText(Object text) { getStateHelper().put("text", text); }
 	public Boolean getEscape() { return (Boolean) getStateHelper().eval("escape", true); }
 	public void setEscape(Boolean escape) { getStateHelper().put("escape", escape); }
+	public Boolean getReflow() { return (Boolean) getStateHelper().eval("reflow", true); }
+	public void setReflow(Boolean reflow) { getStateHelper().put("reflow", reflow); }
 	public String getHeaderText() { return (String) getStateHelper().eval("headerText"); }
 	public void setHeaderText(String headerText) { getStateHelper().put("headerText", headerText); }
 	public String getFootertext() { return (String) getStateHelper().eval("footerText"); }

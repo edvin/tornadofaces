@@ -16,6 +16,7 @@ import javax.faces.component.html.HtmlDataTable;
 @FacesComponent(value = Table.COMPONENT_TYPE, createTag = true, tagName = "table", namespace = "http://tornadofaces.io/ui")
 public class Table extends HtmlDataTable implements Widget {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Table";
+	public enum ReflowMode { block, span }
 
 	public Table() {
 		super();
@@ -32,6 +33,8 @@ public class Table extends HtmlDataTable implements Widget {
 	public Boolean getReflow() { return (Boolean) getStateHelper().eval("reflow", true); }
 	public void setReflow(Boolean reflow) { getStateHelper().put("reflow", reflow); }
 	public Boolean getBordered() { return (Boolean) getStateHelper().eval("bordered"); }
+	public ReflowMode getReflowMode() { return (ReflowMode) getStateHelper().eval("reflowMode"); }
+	public void setReflowMode(ReflowMode reflowMode) { getStateHelper().put("reflowMode", reflowMode); }
 	public void setBordered(Boolean bordered) { getStateHelper().put("bordered", bordered); }
 	public Boolean getZebra() { return (Boolean) getStateHelper().eval("zebra"); }
 	public void setZebra(Boolean zebra) { getStateHelper().put("zebra", zebra); }
