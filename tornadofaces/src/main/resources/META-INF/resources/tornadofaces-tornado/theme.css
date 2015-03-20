@@ -378,7 +378,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   line-height: 1.5;
   position: relative;
@@ -5238,8 +5238,8 @@ meter {
       left: 1.57143rem; }
 
 .tabview {
-  border: 1px solid #DDD;
-  padding: 1rem; }
+  border: none;
+  padding: 0; }
 
 .tabs {
   /*
@@ -5257,7 +5257,8 @@ meter {
   padding: 0 0 0.3rem 0.3rem;
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
-          flex-flow: row wrap; }
+          flex-flow: row wrap;
+  margin-bottom: 2rem; }
   .tabs.vertical {
     /*
     	Container styles
@@ -5292,7 +5293,8 @@ meter {
       background: #3fa2d8;
       color: #fff; }
       .tabs .tab-item.is-active:hover {
-        background: #3fa2d8; }
+        background: #3fa2d8;
+        color: #fff; }
     .tabs .tab-item:hover {
       background: #f7f7f7;
       color: #202020; }
@@ -5302,7 +5304,7 @@ meter {
       transition-duration: 0s; }
 
 .tab-contents {
-  padding: 1rem; }
+  padding: 0; }
   .tab-contents .tab-content {
     display: none; }
     .tab-contents .tab-content.is-active {
@@ -5388,7 +5390,7 @@ a {
 /* Default paragraph styles */
 p {
   font-family: inherit;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.42857rem;
@@ -5404,8 +5406,8 @@ p {
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  font-style: normal;
+  font-weight: 300;
+  font-style: 300;
   color: #222;
   text-rendering: optimizeLegibility;
   margin-top: 0.2rem;
@@ -5429,7 +5431,8 @@ h4 {
   font-size: 1.28571rem; }
 
 h5 {
-  font-size: 1.28571rem; }
+  font-size: 1.6rem;
+  text-transform: uppercase; }
 
 h6 {
   font-size: 1rem; }
@@ -5437,7 +5440,7 @@ h6 {
 .subheader {
   line-height: 1.4;
   color: #212121;
-  font-weight: normal;
+  font-weight: 300;
   margin-top: 0.2rem;
   margin-bottom: 1rem;
   text-transform: uppercase; }
@@ -5546,7 +5549,7 @@ blockquote p {
     font-size: 1.64286rem; }
 
   h5 {
-    font-size: 1.28571rem; }
+    font-size: 1.6rem; }
 
   h6 {
     font-size: 1rem; } }
@@ -7023,7 +7026,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   top: 12px;
   right: -16px;
   z-index: 1;
-  width: 16px;
+  width: 25px;
   height: 50px;
   border-radius: 0 2px 2px 0;
   background: #181818; }
@@ -7031,7 +7034,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     font-size: 2.2rem; }
     .sidemenu .sidemenu-toggle > i:before {
       display: block;
-      margin-left: -1.3rem;
+      margin-left: -0.6rem;
       vertical-align: middle; }
   @media only screen and (min-width: 0em) and (max-width: 45.65179rem) {
     .sidemenu .sidemenu-toggle.show-for-small-only {
@@ -7066,7 +7069,8 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow: visible; }
+  overflow: visible;
+  z-index: 999 !important; }
   .sidemenu ul {
     margin: 0; }
     .sidemenu ul > li {
@@ -7099,7 +7103,8 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .sidemenu-items > li {
   font-size: 1.4rem;
   padding: 0;
-  border-bottom: 1px solid #2A2A2A; }
+  border-bottom: 1px solid #2A2A2A;
+  transition: background 0.2s; }
   .sidemenu-items > li > a {
     color: #fff;
     font-size: inherit;
@@ -7108,9 +7113,19 @@ http://nicolasgallagher.com/micro-clearfix-hack/
       vertical-align: middle;
       margin-right: 0.2em;
       color: #3fa2d8; }
-  .sidemenu-items > li.is-active > a {
-    border-left: 4px solid #3fa2d8;
-    padding: 1.4rem 1.4rem 0.7rem; }
+  .sidemenu-items > li.is-active {
+    position: relative; }
+    .sidemenu-items > li.is-active > a {
+      padding: 1.4rem 1.4rem 0.7rem; }
+    .sidemenu-items > li.is-active:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -1px;
+      height: calc(100% + 2px);
+      width: 4px;
+      background: #3fa2d8;
+      z-index: 10; }
 
 .sidemenu-subitems {
   margin: 0;
@@ -7170,7 +7185,9 @@ http://nicolasgallagher.com/micro-clearfix-hack/
       transition: none; }
     .sidemenu--collapsed .logo-min {
       width: 50px;
-      transition: 0.6s 0.05s; }
+      transition: 0.3s 0.035s; }
+    .sidemenu--collapsed .sidemenu-items > li:hover {
+      background: #1e1e1e; }
     .sidemenu--collapsed .sidemenu-items > li > a {
       text-align: center;
       padding: 1.4rem 0; }
@@ -7186,12 +7203,13 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     background: #1e1e1e; }
     .popout-active > .sidemenu-subitems {
       background: #1e1e1e;
+      border: 1px solid #2A2A2A;
       display: block;
       position: absolute;
       width: 280px;
-      left: 100%;
+      left: calc(100% - 1px);
       top: 0;
-      z-index: 9999; } }
+      z-index: -1; } }
 /***
 Spectrum Colorpicker v1.6.0
 https://github.com/bgrins/spectrum
@@ -7963,32 +7981,67 @@ pre.line-numbers > code {
 
 table {
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   width: 100%; }
 
 tr {
-  border-bottom: 1px solid #ddd; }
+  border-bottom: 1px dotted #CACACA; }
 
 td, th {
   padding: 1rem; }
 
+th {
+  font-weight: bold;
+  color: #3D3B35; }
+
+.table-zebra tr {
+  border: none; }
+.table-zebra > tbody > tr:nth-child(odd) {
+  background: #EFF6FA; }
+
+.table-bordered tr {
+  border: 1px solid #ddd; }
+.table-bordered td, .table-bordered th {
+  border-right: 1px solid #ddd; }
+  .table-bordered td:first-child, .table-bordered th:first-child {
+    border-left: 1px solid #ddd; }
+
+.table-compact {
+  font-size: 0.85rem; }
+  .table-compact td, .table-compact th {
+    padding: 0.5rem; }
+
 @media only screen and (min-width: 45.71429em) {
-  td span.h {
+  .table-reflow td:before {
     display: none; } }
 @media only screen and (min-width: 0em) and (max-width: 45.65179rem) {
-  thead {
+  .table-reflow thead {
     display: none; }
-
-  tr {
+  .table-reflow tr {
     display: block;
     padding: 1rem 0; }
-
-  td {
+  .table-reflow td {
     display: block;
-    padding: 0.4rem; }
-    td span.h {
+    padding: 0.4rem 1.1rem; }
+    .table-reflow td:before {
       font-weight: bold;
-      padding-right: 1rem; } }
+      padding-right: 1rem; }
+  .table-reflow.table-bordered tr {
+    margin-top: -1px; }
+  .table-reflow.table-bordered td, .table-reflow.table-bordered th {
+    border: none; }
+  .table-reflow.table-compact tr {
+    padding: 0.7rem 0; }
+  .table-reflow.table-compact td, .table-reflow.table-compact th {
+    padding: 0.1rem 0.9rem; }
+
+  .table-reflow--block {
+    text-align: center; }
+    .table-reflow--block tr {
+      margin-bottom: 1rem; }
+    .table-reflow--block td:before {
+      padding-right: 0;
+      display: block; } }
 .boxed, .accordion, .accordion.item-spacing .accordion-item {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   border: 1px solid #dfdfdf; }
@@ -8049,7 +8102,7 @@ td, th {
           flex-wrap: wrap;
   background: #f3f3f3;
   margin: 0 0 2rem 0;
-  padding: 1rem 1.6rem;
+  padding: 1rem 5%;
   font-size: 14px; }
   .breadcrumb.vertical {
     -webkit-flex-direction: column;

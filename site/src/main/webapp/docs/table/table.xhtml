@@ -1,7 +1,7 @@
 <h:panelGroup xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui"
               xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-    <t:table value="#{docsController.movies}" var="movie">
+    <t:table value="#{docsController.movies}" var="movie" compact="true" bordered="true" styleClass="table-reflow--block">
         <t:column headerText="ID" text="#{movie.id}"/>
         <t:column headerText="Title" text="#{movie.title}" />
     </t:table>

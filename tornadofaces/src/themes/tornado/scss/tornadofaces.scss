@@ -104,7 +104,7 @@
   flex-wrap: wrap;
   background: #f3f3f3;
   margin: 0 0 2rem 0;
-  padding: 1rem 1.6rem;
+  padding: 1rem 5%; //todo: $content-outer-padding ellerno
   font-size: 14px;
 
   &.vertical {
