@@ -1,5 +1,6 @@
 package io.tornadofaces.component.column;
 
+import io.tornadofaces.component.table.Table;
 import io.tornadofaces.component.util.ComponentUtils;
 
 import javax.faces.component.FacesComponent;
@@ -36,6 +37,8 @@ public class Column extends UIColumn {
 	public Boolean getReflow() { return (Boolean) getStateHelper().eval("reflow", true); }
 	public void setReflow(Boolean reflow) { getStateHelper().put("reflow", reflow); }
 	public String getHeaderText() { return (String) getStateHelper().eval("headerText"); }
+	public Table.ReflowMode getReflowMode() { return (Table.ReflowMode) getStateHelper().eval("reflowMode"); }
+	public void setReflowMode(Table.ReflowMode reflowMode) { getStateHelper().put("reflowMode", reflowMode); }
 	public void setHeaderText(String headerText) { getStateHelper().put("headerText", headerText); }
 	public String getFootertext() { return (String) getStateHelper().eval("footerText"); }
 	public void setFootertext(String footerText) { getStateHelper().put("footerText", footerText); }

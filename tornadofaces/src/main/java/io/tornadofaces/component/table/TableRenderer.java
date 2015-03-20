@@ -146,7 +146,9 @@ public class TableRenderer extends Renderer {
 				if (child instanceof Column) {
 					Column column = (Column) child;
 					writer.startElement("td", column);
-					StyleClass.of(column.getStyleClass()).write(writer);
+					StyleClass.of(column.getStyleClass())
+						.add("cell-reflow--block", Table.ReflowMode.block.equals(column.getReflowMode()))
+						.write(writer);
 
 					if (reflow)
 						writer.startElement("span", column);

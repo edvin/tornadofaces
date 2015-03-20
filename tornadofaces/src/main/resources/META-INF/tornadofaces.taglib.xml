@@ -1220,6 +1220,12 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Reflow mode for columns override reflow mode set on the table and determines placement when the table is viewed in reflow mode. Valid options are "block", "span". Default is "span".</description>
+            <name>reflowMode</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Text for the td. A value supplied here will override any defined child components.</description>
             <name>text</name>
             <required>false</required>
