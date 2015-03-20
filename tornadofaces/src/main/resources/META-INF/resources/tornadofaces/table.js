@@ -10,7 +10,6 @@ TornadoFaces.declareWidget('Table', function() {
         widget = this;
 
         widget.items = widget.elem.find('tr').not('th');
-        widget.bindEvents();
     };
 
     this.getFilterFn = function() {

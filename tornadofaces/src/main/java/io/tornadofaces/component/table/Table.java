@@ -10,7 +10,7 @@ import javax.faces.component.FacesComponent;
 import javax.faces.component.html.HtmlDataTable;
 
 @ResourceDependencies({
-	@ResourceDependency(library = "tornadofaces", name = "hightlight.js"),
+	@ResourceDependency(library = "tornadofaces", name = "highlight.js"),
 	@ResourceDependency(library = "tornadofaces", name = "table.js")
 })
 @FacesComponent(value = Table.COMPONENT_TYPE, createTag = true, tagName = "table", namespace = "http://tornadofaces.io/ui")

@@ -93,7 +93,6 @@ public class TableRenderer extends Renderer {
 				}
 
 				writer.endElement("td");
-				writer.endElement("table");
 			}
 		}
 
@@ -105,7 +104,7 @@ public class TableRenderer extends Renderer {
 		final AtomicInteger colcount = new AtomicInteger();
 
 		writer.startElement("style", table);
-		writer.writeAttribute("id", table.getClientId() + "_style", null);
+//		writer.writeAttribute("id", table.getClientId() + "_style", null);
 
 		StringBuilder styles = new StringBuilder();
 		String tableId = ComponentUtils.escapeClientIdForCss(table.getClientId());

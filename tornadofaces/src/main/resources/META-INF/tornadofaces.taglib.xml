@@ -1165,7 +1165,7 @@
         </attribute>
     </tag>
     <tag>
-        <description>Column used for DataTable and List</description>
+        <description>Column is used to build Table columns.</description>
         <tag-name>column</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Column</component-type>
