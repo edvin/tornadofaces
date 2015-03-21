@@ -45,11 +45,13 @@
 
             function popoutHandler(e) {
                 if(!$(this).hasClass('popout-active')) {
-                    $('.popout').removeClass('popout-active')
+                    var popout = $('.popout');
+                    popout.removeClass('popout-active');
                     $(this).addClass('popout-active');
                 }else {
                     $(this).removeClass('popout-active');
                 }
+
             }
 
             function bindPopout(todo, toBind) {

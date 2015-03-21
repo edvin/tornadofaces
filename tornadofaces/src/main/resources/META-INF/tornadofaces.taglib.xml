@@ -1125,11 +1125,44 @@
             <component-type>io.tornadofaces.component.Table</component-type>
             <renderer-type>io.tornadofaces.component.TableRenderer</renderer-type>
         </component>
+
         <attribute>
             <description>Styles to apply to the table element.</description>
             <name>styleClass</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Comma-delimited list of CSS style classes that will be applied
+                to the rows of this table. A space separated list of classes
+                may also be specified for any individual row. These styles are
+                applied, in turn, to each row in the table. For example, if
+                the list has two elements, the first style class in the list
+                is applied to the first row, the second to the second row, the
+                first to the third row, the second to the fourth row, etc.  In
+                other words, we keep iterating through the list until we reach
+                the end, and then we start at the beginning again.</description>
+            <name>rowClasses</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Row selection mode. Valid options are "single" or "multiple". Defaults to null.</description>
+            <name>selectionMode</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.table.Table.SelectionMode</type>
+        </attribute>
+        <attribute>
+            <description>Expression used to extract a unique key for each row. This is required when a selection mode is set.</description>
+            <name>rowKey</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The object or a collection of objects currently selected, if any.</description>
+            <name>selection</name>
+            <required>false</required>
+            <type>Object</type>
         </attribute>
         <attribute>
             <description>Apply zebra styling to the table. Defaults to false.</description>

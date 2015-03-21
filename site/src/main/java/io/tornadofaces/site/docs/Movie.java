@@ -21,4 +21,8 @@ public class Movie implements Serializable {
 		this.id = id;
 		this.title = title;
 	}
+
+	public String toString() {
+		return title;
+	}
 }

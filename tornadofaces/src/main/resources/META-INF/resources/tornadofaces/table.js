@@ -1,15 +1,10 @@
 TornadoFaces.declareWidget('Table', function() {
-    var widget;
-
-    function isFunction(functionToCheck) {
-        var getType = {};
-        return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
-    }
+    var widget, items;
 
     this.init = function() {
         widget = this;
-
-        widget.items = widget.elem.find('tr').not('th');
+        items = widget.elem.find('tbody tr');
+        widget.bindEvents();
     };
 
     this.getFilterFn = function() {
@@ -31,13 +26,13 @@ TornadoFaces.declareWidget('Table', function() {
         var doHighlight = widget.conf.highlightFilter;
 
         if (!query || query.length == 0 || query === '') {
-            widget.items.show();
+            items.show();
             if (doHighlight)
-                widget.items.unhighlight();
+                items.unhighlight();
         } else {
             var filterFn = widget.getFilterFn();
-            for (var idx = 0; idx < widget.items.length; idx++) {
-                var item = $(widget.items[idx]);
+            for (var idx = 0; idx < items.length; idx++) {
+                var item = $(items[idx]);
                 if (doHighlight)
                     item.unhighlight();
 
@@ -52,4 +47,50 @@ TornadoFaces.declareWidget('Table', function() {
         }
     };
 
+    this.selectRow = function(event) {
+        if ('single' == widget.conf.selectionMode)
+            this.unselectAllRows();
+
+        var tr = $(event.target).closest('tr');
+        tr.addClass('selected');
+
+        if (widget.conf.behaviors && widget.conf.behaviors.rowSelect) {
+            var behaviors = widget.conf.behaviors.rowSelect;
+            var render = "", execute = "";
+
+            for (var i = 0; i < behaviors.length; i++) {
+                var b = behaviors[i];
+                if (b.render)
+                    render = (render + " " + b.render).trim();
+                if (b.execute)
+                    execute = (execute + " " + b.execute).trim();
+            }
+
+            var props = {
+                'javax.faces.behavior.event': 'rowSelect',
+                render: render,
+                execute: execute
+            };
+
+            var id = widget.elem.attr('id');
+
+            props[id + '_selected'] = tr.data('rk');
+            props[id + '_selection'] = widget.getSelectedRowKeys().join();
+
+            jsf.ajax.request(id, null, props);
+        }
+    };
+
+    this.getSelectedRowKeys = function() {
+        return items.filter('.selected').map(function(){return $(this).data('rk');}).get();
+    };
+
+    this.unselectAllRows = function() {
+        items.removeClass('selected');
+    };
+
+    this.bindEvents = function() {
+        if (widget.conf.selectionMode)
+            items.click(this.selectRow);
+    };
 });

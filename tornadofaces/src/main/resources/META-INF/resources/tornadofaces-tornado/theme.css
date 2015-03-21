@@ -7987,6 +7987,12 @@ table {
 tr {
   border-bottom: 1px dotted #CACACA; }
 
+tbody tr.selected {
+  background-color: #9bdbff; }
+
+.table-rowselect-single tbody tr, .table-rowselect-multiple tbody tr {
+  cursor: pointer; }
+
 td, th {
   padding: 1rem; }
 

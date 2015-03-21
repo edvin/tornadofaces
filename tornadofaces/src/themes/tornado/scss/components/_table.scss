@@ -6,6 +6,7 @@ $default-table-border: 1px solid #ddd; //todo: make global default border
 $default-table-border-dotted: 1px dotted #CACACA; //todo: make global default border
 
 $table-zebra-background: #EFF6FA;
+$table-selected-row-background: #9bdbff;
 
 $table-compact-padding: 0.5rem;
 $table-compact-font-size: 0.85rem;
@@ -31,6 +32,16 @@ tfoot {
 tr {
   border-bottom: $default-table-border-dotted;
 }
+
+// Selection
+tbody tr.selected {
+  background-color: $table-selected-row-background;
+}
+
+.table-rowselect-single tbody tr, .table-rowselect-multiple tbody tr {
+  cursor: pointer;
+}
+
 td, th {
   padding: $default-cell-padding;
 }

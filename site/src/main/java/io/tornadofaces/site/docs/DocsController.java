@@ -1,8 +1,10 @@
 package io.tornadofaces.site.docs;
 
 import io.tornadofaces.component.accordion.Accordion;
+import io.tornadofaces.component.notification.NotificationMessage;
 import io.tornadofaces.component.tab.Tab;
 import io.tornadofaces.event.FlipPanelEvent;
+import io.tornadofaces.event.SelectionEvent;
 import io.tornadofaces.event.SwitchEvent;
 import io.tornadofaces.event.TabChangeEvent;
 import io.tornadofaces.site.taglib.Tag;
@@ -13,9 +15,11 @@ import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -29,7 +33,9 @@ public class DocsController {
 	@Inject DocumentationCache cache;
 	@Getter private Tag tag;
 	@Getter private List<Movie> movies;
+	@Getter @Setter private List<Movie> selectedMovies;
 	@Getter @Setter Integer lower = 15;
+	@Getter @Setter Movie selectedMovie;
 
 	public void runCommand() {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(SEVERITY_INFO, "Remote command run!", "Execution was successful."));
@@ -64,6 +70,17 @@ public class DocsController {
 			new Movie(1, "Star Wars: Episode I - The Phantom Menace"),
 			new Movie(2, "Star Wars: Episode II - Attack of the Clones"),
 			new Movie(3, "Star Wars: Episode III - Revenge of the Sith"));
+
+		selectedMovies = new ArrayList<>();
+		selectedMovies.add(movies.get(1));
+	}
+
+	public void onSelectMovie(AjaxBehaviorEvent event) {
+		SelectionEvent<Movie> selectionEvent = (SelectionEvent<Movie>) event;
+		Movie movie = selectionEvent.getSelection();
+
+		FacesMessage message = new FacesMessage(SEVERITY_INFO, "Selected Movie", movie.getTitle());
+		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
 	public void takeTwo() throws InterruptedException {

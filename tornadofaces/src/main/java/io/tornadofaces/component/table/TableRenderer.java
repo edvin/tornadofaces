@@ -1,8 +1,11 @@
 package io.tornadofaces.component.table;
 
+import io.tornadofaces.component.CoreRenderer;
 import io.tornadofaces.component.column.Column;
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.StyleClass;
+import io.tornadofaces.json.JSONArray;
+import io.tornadofaces.json.JSONObject;
 import io.tornadofaces.util.WidgetBuilder;
 
 import javax.faces.application.ResourceDependency;
@@ -10,15 +13,18 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
-import javax.faces.render.Renderer;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
+import static io.tornadofaces.component.util.ComponentUtils.getRequestParam;
 import static java.lang.String.format;
+import static java.util.Arrays.asList;
 
 @ResourceDependency(library = "tornadofaces", name = "table.js")
 @FacesRenderer(rendererType = TableRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
-public class TableRenderer extends Renderer {
+public class TableRenderer extends CoreRenderer {
 	public static final String RENDERER_TYPE = "io.tornadofaces.component.TableRenderer";
 
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
@@ -28,17 +34,20 @@ public class TableRenderer extends Renderer {
 		ResponseWriter writer = context.getResponseWriter();
 		Table table = (Table) component;
 
-
 		writer.startElement("table", table);
 		writer.writeAttribute("id", table.getClientId(), null);
-		StyleClass
-			.of(table.getStyleClass())
+		StyleClass tableClass = StyleClass.of(table.getStyleClass())
 			.add("table-reflow", table.getReflow())
 			.add("table-zebra", table.getZebra())
 			.add("table-compact", table.getCompact())
 			.add("table-bordered", table.getBordered())
-			.add("table-reflow--block", Table.ReflowMode.block.equals(table.getReflowMode()))
-			.write(writer);
+			.add("table-reflow--block", Table.ReflowMode.block.equals(table.getReflowMode()));
+
+		Table.RowSelectionMode selectionMode = table.getSelectionMode();
+		if (selectionMode != null)
+			tableClass.add("table-rowselect-" + selectionMode);
+
+		tableClass.write(writer);
 
 		String style = table.getStyle();
 		if (style != null)
@@ -137,11 +146,29 @@ public class TableRenderer extends Renderer {
 
 		writer.startElement("tbody", table);
 
+		table.updateSelectedRowKeys();
+
 		boolean reflow = table.getReflow();
+
+		String rowClassString = table.getRowClasses();
+		List<String> rowClasses = rowClassString == null ? null : asList(rowClassString.split(","));
+		int rowClassCount = rowClasses == null ? 0 : rowClasses.size();
 
 		for (int i = 0; i < rowCount; i++) {
 			table.setRowIndex(i);
 			writer.startElement("tr", table);
+
+			StyleClass rowStyleClasses = StyleClass.of("selected", table.isRowSelected());
+
+			if (rowClasses != null)
+				rowStyleClasses.add(rowClasses.get(i % rowClassCount));
+
+			rowStyleClasses.write(writer);
+
+			Object rowKey = table.getRowKey();
+			if (rowKey != null)
+				writer.writeAttribute("data-rk", rowKey, null);
+
 			for (UIComponent child : component.getChildren()) {
 				if (child instanceof Column) {
 					Column column = (Column) child;
@@ -184,15 +211,42 @@ public class TableRenderer extends Renderer {
 
 		writer.endElement("table");
 
+		Table.RowSelectionMode selectionMode = table.getSelectionMode();
+
 		table.setRowIndex(-1);
-		new WidgetBuilder(context, table)
+		WidgetBuilder builder = new WidgetBuilder(context, table)
 			.init()
 			.attr("filterFn", table.getFilterFn())
 			.attr("highlightFilter", table.getHighlightFilter())
-			.finish();
+			.attr("selectionMode", selectionMode != null ? selectionMode.toString() : null);
+
+		JSONArray rowSelectBehaviors = encodeAjaxBehaviors(context, "rowSelect", table);
+
+		if (rowSelectBehaviors != null) {
+			JSONObject behaviors = new JSONObject();
+			behaviors.put("rowSelect", rowSelectBehaviors);
+			builder.nativeAttr("behaviors", behaviors.toString());
+		}
+
+		builder.finish();
 	}
 
 	public boolean getRendersChildren() {
 		return true;
+	}
+
+	public void decode(FacesContext context, UIComponent component) {
+		Table table = (Table) component;
+
+		String clientId = table.getClientId(context);
+
+		// Update selection based on request parameter
+		if (table.isSelectionEnabled()) {
+			String selection = getRequestParam(context, clientId + "_selection");
+			if (selection != null)
+				table.updateSelection(selection);
+		}
+
+		super.decode(context, component);
 	}
 }

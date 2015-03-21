@@ -1,9 +1,17 @@
 <h:panelGroup xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui"
-              xmlns:h="http://xmlns.jcp.org/jsf/html">
+              xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <t:table value="#{docsController.movies}" var="movie" compact="true" bordered="true" styleClass="table-reflow--block">
+    <h5>Row selection, AJAX callback</h5>
+    <t:table id="movies" value="#{docsController.movies}" var="movie" selectionMode="single" rowKey="#{movie.id}">
+        <f:ajax event="rowSelect" listener="#{docsController.onSelectMovie}" render="notification"/>
         <t:column headerText="ID" text="#{movie.id}"/>
         <t:column headerText="Title" text="#{movie.title}" />
+    </t:table>
+
+    <h5>Compact, bordered, title no reflow</h5>
+    <t:table value="#{docsController.movies}" var="movie" compact="true" bordered="true">
+        <t:column headerText="ID" text="#{movie.id}"/>
+        <t:column headerText="Title" text="#{movie.title}" reflow="false"/>
     </t:table>
 
 </h:panelGroup>
