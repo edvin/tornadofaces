@@ -1,6 +1,5 @@
 package io.tornadofaces.component.util;
 
-import io.tornadofaces.component.flippanel.FlipPanel;
 import io.tornadofaces.json.JSONArray;
 import io.tornadofaces.json.JSONObject;
 
@@ -10,7 +9,6 @@ import javax.faces.component.behavior.AjaxBehavior;
 import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
-import java.awt.*;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +16,6 @@ import java.util.Optional;
 public class ComponentUtils {
 	public static final String COMPONENT_FAMILY = "io.tornadofaces.component";
 	public static final String NAMESPACE = "http://tornadofaces.no/ui";
-	private static final String SPLIT_EXPR = " ";
 
 	/**
 	 * Checks if this component's id was the "javax.faces.source" of the request
@@ -37,6 +34,10 @@ public class ComponentUtils {
 
 	public static String getRequestParam(FacesContext context, String key) {
 		return context.getExternalContext().getRequestParameterMap().get(key);
+	}
+
+	public static void setRequestParam(FacesContext context, String key, Object value) {
+		context.getExternalContext().getRequestMap().put(key, value);
 	}
 
 	public static String escapeClientId(String id) {

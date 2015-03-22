@@ -1133,6 +1133,20 @@
         </attribute>
     </tag>
     <tag>
+        <description>Expandable row in a Table.</description>
+        <tag-name>rowExpansion</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.RowExpansion</component-type>
+            <renderer-type>io.tornadofaces.component.RowExpansionRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Styles to apply to the expand element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>Datadriven Table with responsive features.</description>
         <tag-name>table</tag-name>
         <component>

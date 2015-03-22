@@ -5,13 +5,13 @@ import io.tornadofaces.component.util.ComponentUtils;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
 
-@FacesComponent(value = RowToggler.COMPONENT_TYPE, createTag = true, tagName = "rowToggler", namespace = "http://tornadofaces.io/ui")
-public class RowToggler extends UIComponentBase {
-	public static final String COMPONENT_TYPE = "io.tornadofaces.component.RowToggler";
+@FacesComponent(value = RowExpansion.COMPONENT_TYPE, createTag = true, tagName = "rowExpansion", namespace = "http://tornadofaces.io/ui")
+public class RowExpansion extends UIComponentBase {
+	public static final String COMPONENT_TYPE = "io.tornadofaces.component.RowExpansion";
 
-	public RowToggler() {
+	public RowExpansion() {
 		super();
-		setRendererType(RowTogglerRenderer.RENDERER_TYPE);
+		setRendererType(RowExpansionRenderer.RENDERER_TYPE);
 	}
 
 	public String getFamily() {

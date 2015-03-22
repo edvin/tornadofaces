@@ -15,6 +15,7 @@ import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
@@ -87,7 +88,7 @@ public class TableRenderer extends CoreRenderer {
 	}
 
 	private void renderFooter(FacesContext context, ResponseWriter writer, Table table) throws IOException {
-		long footCount = table.getChildren().stream().map(c -> (Column) c).filter(c -> c.getFootertext() != null).count();
+		long footCount = table.getChildren().stream().filter(c -> c instanceof Column).map(c -> (Column) c).filter(c -> c.getFootertext() != null).count();
 		if (footCount == 0)
 			return;
 
@@ -142,6 +143,7 @@ public class TableRenderer extends CoreRenderer {
 	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		Table table = (Table) component;
+
 		int rowCount = table.getRowCount();
 
 		writer.startElement("tbody", table);
@@ -198,23 +200,11 @@ public class TableRenderer extends CoreRenderer {
 				}
 			}
 			writer.endElement("tr");
-
-			// Render expand facet if expand argument was added for this rowKey
-			if (i == 0) {
-				UIComponent expand = table.getFacet("expand");
-				if (expand != null) {
-					writer.startElement("tr", table);
-					writer.writeAttribute("class", "table-expand-row", null);
-					writer.startElement("td", table);
-					writer.writeAttribute("colspan", table.getColumnCount(), null);
-					expand.encodeAll(context);
-					writer.endElement("td");
-					writer.endElement("tr");
-				}
-			}
 		}
 
 		writer.endElement("tbody");
+
+		renderRowExpansion(context, table);
 	}
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
@@ -243,6 +233,12 @@ public class TableRenderer extends CoreRenderer {
 		}
 
 		builder.finish();
+	}
+
+	private void renderRowExpansion(FacesContext context, Table table) throws IOException {
+		Optional<RowExpansion> expansion = table.getChildren().stream().filter(c -> c instanceof RowExpansion).map(c -> ((RowExpansion) c)).findFirst();
+		if (expansion.isPresent())
+			expansion.get().encodeAll(context);
 	}
 
 	public boolean getRendersChildren() {

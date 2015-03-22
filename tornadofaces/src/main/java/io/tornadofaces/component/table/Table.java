@@ -2,22 +2,25 @@ package io.tornadofaces.component.table;
 
 import io.tornadofaces.component.api.Widget;
 import io.tornadofaces.component.column.Column;
-import io.tornadofaces.component.tab.Tab;
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.Constants;
 import io.tornadofaces.event.SelectionEvent;
-import io.tornadofaces.event.TabChangeEvent;
 
 import javax.el.ValueExpression;
 import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
+import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlDataTable;
+import javax.faces.component.visit.VisitCallback;
+import javax.faces.component.visit.VisitContext;
+import javax.faces.component.visit.VisitResult;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.FacesEvent;
 import java.util.*;
 
+import static io.tornadofaces.component.util.ComponentUtils.getRequestParam;
 import static io.tornadofaces.component.util.ComponentUtils.isRequestSource;
 
 @ResourceDependencies({
@@ -194,7 +197,7 @@ public class Table extends HtmlDataTable implements Widget {
 	 * @param rowKey The row key
 	 * @return The data object matching the row key
 	 */
-	private Object getRowData(String rowKey) {
+	public Object getRowData(String rowKey) {
 		String var = getVar();
 		Map<String, Object> requestMap = getFacesContext().getExternalContext().getRequestMap();
 		for (Object value : (List) getValue()) {
@@ -206,4 +209,49 @@ public class Table extends HtmlDataTable implements Widget {
 		return null;
 	}
 
+	public String getRequestedExpandRowKey(FacesContext context) {
+		return getRequestParam(context, getClientId(context) + "_expand");
+	}
+
+	public boolean visitTree(VisitContext context, VisitCallback callback) {
+		// Perform UIComponent's version of visitTree, then UIData's visitTree. If we don't,
+		// the RowExpansion will not be found, so it won't be rendered. This should be better
+		// understood and optimized.
+
+		if (!isVisitable(context))
+			return false;
+
+		// Push ourselves to EL before visiting
+		FacesContext facesContext = context.getFacesContext();
+		pushComponentToEL(facesContext, null);
+
+		try {
+			// Visit ourselves.  Note that we delegate to the
+			// VisitContext to actually perform the visit.
+			VisitResult result = context.invokeVisitCallback(this, callback);
+
+			// If the visit is complete, short-circuit out and end the visit
+			if (result == VisitResult.COMPLETE)
+				return true;
+
+			// Visit children if necessary
+			if (result == VisitResult.ACCEPT) {
+				Iterator<UIComponent> kids = this.getFacetsAndChildren();
+
+				while(kids.hasNext()) {
+					boolean done = kids.next().visitTree(context, callback);
+
+					// If any kid visit returns true, we are done.
+					if (done)
+						return true;
+				}
+			}
+		}
+		finally {
+			// Pop ourselves off the EL stack
+			popComponentFromEL(facesContext);
+		}
+
+		return super.visitTree(context, callback);
+	}
 }

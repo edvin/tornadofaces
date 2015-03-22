@@ -54,12 +54,28 @@ TornadoFaces.declareWidget('Table', function() {
         var rowKey = tr.data('rk');
 
         if (toggle.hasClass('open')) {
-            console.log('has class open!');
             toggle.removeClass('open');
+            var expand = tr.next();
+            if (expand.hasClass('table-expand-row'))
+                expand.remove();
         } else {
-            console.log('does not have class open. adding it.');
             toggle.addClass('open');
-            console.log(toggle.hasClass('open'));
+
+            var tableId = widget.elem.attr('id');
+            var expandId = widget.elem.find('tbody.expand').attr('id');
+
+            var props = {
+                execute: tableId,
+                render: expandId,
+                onevent: function(e) {
+                    if (e.status == 'success')
+                        widget.elem.find('tbody.expand tr').detach().insertAfter(tr);
+                }
+            };
+
+            props[tableId + '_expand'] = rowKey;
+
+            jsf.ajax.request(tableId, null, props);
         }
     };
 

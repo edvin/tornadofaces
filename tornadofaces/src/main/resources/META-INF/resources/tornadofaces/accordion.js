@@ -118,7 +118,7 @@ TornadoFaces.declareWidget('Accordion', function() {
                         props['javax.faces.behavior.event'] = 'tabChange';
                     }
 
-                    props[widget.elem.attr('id') + '_active'] = itemIndex;
+                    props[accId + '_active'] = itemIndex;
 
                     props.onevent = function(event) {
                         if (event.status == 'complete') {
@@ -132,7 +132,7 @@ TornadoFaces.declareWidget('Accordion', function() {
                         }
                     };
 
-                    jsf.ajax.request(widget.elem.attr('id'), null, props);
+                    jsf.ajax.request(accId, null, props);
                 }
             } else {
                 // Element already rendered with pageload, just show

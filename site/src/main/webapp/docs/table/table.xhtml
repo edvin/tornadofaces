@@ -2,26 +2,26 @@
               xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h5>Row selection, AJAX callback</h5>
-    <t:table id="movies" value="#{docsController.movies}" var="movie" selectionMode="single" rowKey="#{movie.id}">
+    <t:table id="moviesSelection" value="#{docsController.movies}" var="movie" selectionMode="single" rowKey="#{movie.id}">
         <f:ajax event="rowSelect" listener="#{docsController.onSelectMovie}" render="notification"/>
         <t:column headerText="ID" text="#{movie.id}"/>
         <t:column headerText="Title" text="#{movie.title}" />
     </t:table>
 
     <h5>Expand rows for detail view</h5>
-    <h:form id="expandForm">
+    <h:form id="f">
         <t:table id="movies" value="#{docsController.movies}" var="movie" rowKey="#{movie.id}">
             <t:column headerText="More"><t:rowToggler/></t:column>
             <t:column headerText="ID" text="#{movie.id}"/>
             <t:column headerText="Title" text="#{movie.title}" />
-            <f:facet name="expand">
+            <t:rowExpansion>
                 #{movie.description}
-            </f:facet>
+            </t:rowExpansion>
         </t:table>
     </h:form>
 
     <h5>Compact, bordered, title no reflow</h5>
-    <t:table value="#{docsController.movies}" var="movie" compact="true" bordered="true">
+    <t:table id="moviesCompact" value="#{docsController.movies}" var="movie" compact="true" bordered="true" selectionMode="single">
         <t:column headerText="ID" text="#{movie.id}"/>
         <t:column headerText="Title" text="#{movie.title}" reflow="false"/>
     </t:table>
