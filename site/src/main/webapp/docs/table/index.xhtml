@@ -27,18 +27,29 @@
             <t:tab title="Example">
                 <t:source language="markup">
 &lt;h5>Row selection, AJAX callback&lt;/h5>
-&lt;t:table id="movies" value="#{docsController.expr('controller.movies')}" var="movie" selectionMode="single" rowKey="#{docsController.expr('movie.id')}">
+&lt;t:table id="moviesSelection" value="#{docsController.expr('controller.movies')}" var="movie" selectionMode="single" rowKey="#{docsController.expr('movie.id')}">
     &lt;f:ajax event="rowSelect" listener="#{docsController.expr('controller.onSelectMovie')}" render="notification"/>
     &lt;t:column headerText="ID" text="#{docsController.expr('movie.id')}"/>
     &lt;t:column headerText="Title" text="#{docsController.expr('movie.title')}" />
 &lt;/t:table>
 
+&lt;h5>Expand rows for detail view&lt;/h5>
+&lt;h:form id="f">
+    &lt;t:table id="movies" value="#{docsController.expr('controller.movies')}" var="movie" rowKey="#{docsController.expr('movie.id')}">
+        &lt;t:column headerText="More">&lt;t:rowToggler/>&lt;/t:column>
+        &lt;t:column headerText="ID" text="#{docsController.expr('movie.id')}"/>
+        &lt;t:column headerText="Title" text="#{docsController.expr('movie.title')}" />
+        &lt;t:rowExpansion>
+            #{docsController.expr('movie.description')}
+        &lt;/t:rowExpansion>
+    &lt;/t:table>
+&lt;/h:form>
+
 &lt;h5>Compact, bordered, title no reflow&lt;/h5>
-&lt;t:table value="#{docsController.expr('controller.movies')}" var="movie" compact="true" bordered="true">
+&lt;t:table id="moviesCompact" value="#{docsController.expr('controller.movies')}" var="movie" compact="true" bordered="true" selectionMode="single">
     &lt;t:column headerText="ID" text="#{docsController.expr('movie.id')}"/>
     &lt;t:column headerText="Title" text="#{docsController.expr('movie.title')}" reflow="false"/>
-&lt;/t:table>
-</t:source>
+&lt;/t:table></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
