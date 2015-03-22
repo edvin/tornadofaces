@@ -67,9 +67,9 @@ public class DocsController {
 	
 	public DocsController() {
 		movies = Arrays.asList(
-			new Movie(1, "Star Wars: Episode I - The Phantom Menace"),
-			new Movie(2, "Star Wars: Episode II - Attack of the Clones"),
-			new Movie(3, "Star Wars: Episode III - Revenge of the Sith"));
+			new Movie(1, "Star Wars: Episode I - The Phantom Menace", "Two Jedi Knights escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to reclaim their old glory."),
+			new Movie(2, "Star Wars: Episode II - Attack of the Clones", "Ten years after initially meeting, Anakin Skywalker shares a forbidden romance with Padmé, while Obi-Wan investigates an assassination attempt on the Senator and discovers a secret clone army crafted for the Jedi."),
+			new Movie(3, "Star Wars: Episode III - Revenge of the Sith", "As the Clone Wars near an end, the Sith Lord Darth Sidious steps out of the shadows, at which time Anakin succumbs to his emotions, becoming Darth Vader and putting his relationships with Obi-Wan and Padme at risk."));
 
 		selectedMovies = new ArrayList<>();
 		selectedMovies.add(movies.get(1));

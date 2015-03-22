@@ -12,14 +12,16 @@ import java.io.Serializable;
 public class Movie implements Serializable {
 	private Integer id;
 	private String title;
+	private String description;
 
 	public Movie() {
 
 	}
 
-	public Movie(Integer id, String title) {
+	public Movie(Integer id, String title, String description) {
 		this.id = id;
 		this.title = title;
+		this.description = description;
 	}
 
 	public String toString() {

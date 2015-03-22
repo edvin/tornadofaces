@@ -3,7 +3,7 @@ TornadoFaces.declareWidget('Table', function() {
 
     this.init = function() {
         widget = this;
-        items = widget.elem.find('tbody tr');
+        items = widget.elem.find('tbody tr').not('.table-expand-row');
         widget.bindEvents();
     };
 
@@ -44,6 +44,22 @@ TornadoFaces.declareWidget('Table', function() {
                     item.hide();
                 }
             }
+        }
+    };
+
+    this.expandRow = function(event) {
+        var toggle = $(event.target).closest('.row-toggler');
+
+        var tr = $(event.target).closest('tr');
+        var rowKey = tr.data('rk');
+
+        if (toggle.hasClass('open')) {
+            console.log('has class open!');
+            toggle.removeClass('open');
+        } else {
+            console.log('does not have class open. adding it.');
+            toggle.addClass('open');
+            console.log(toggle.hasClass('open'));
         }
     };
 
@@ -92,5 +108,7 @@ TornadoFaces.declareWidget('Table', function() {
     this.bindEvents = function() {
         if (widget.conf.selectionMode)
             items.click(this.selectRow);
+
+        items.find('.row-toggler').click(this.expandRow);
     };
 });

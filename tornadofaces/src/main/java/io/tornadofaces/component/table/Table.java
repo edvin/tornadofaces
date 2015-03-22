@@ -1,6 +1,7 @@
 package io.tornadofaces.component.table;
 
 import io.tornadofaces.component.api.Widget;
+import io.tornadofaces.component.column.Column;
 import io.tornadofaces.component.tab.Tab;
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.Constants;
@@ -26,6 +27,10 @@ import static io.tornadofaces.component.util.ComponentUtils.isRequestSource;
 @FacesComponent(value = Table.COMPONENT_TYPE, createTag = true, tagName = "table", namespace = "http://tornadofaces.io/ui")
 public class Table extends HtmlDataTable implements Widget {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Table";
+
+	public long getColumnCount() {
+		return getChildren().stream().filter(c -> c instanceof Column).count();
+	}
 
 	public enum ReflowMode { block, span }
 	public enum RowSelectionMode { single, multiple }

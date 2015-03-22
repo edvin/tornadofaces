@@ -198,6 +198,20 @@ public class TableRenderer extends CoreRenderer {
 				}
 			}
 			writer.endElement("tr");
+
+			// Render expand facet if expand argument was added for this rowKey
+			if (i == 0) {
+				UIComponent expand = table.getFacet("expand");
+				if (expand != null) {
+					writer.startElement("tr", table);
+					writer.writeAttribute("class", "table-expand-row", null);
+					writer.startElement("td", table);
+					writer.writeAttribute("colspan", table.getColumnCount(), null);
+					expand.encodeAll(context);
+					writer.endElement("td");
+					writer.endElement("tr");
+				}
+			}
 		}
 
 		writer.endElement("tbody");

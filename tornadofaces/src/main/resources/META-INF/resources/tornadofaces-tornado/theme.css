@@ -7993,6 +7993,17 @@ tbody tr.selected {
 .table-rowselect-single tbody tr, .table-rowselect-multiple tbody tr {
   cursor: pointer; }
 
+tbody tr.table-expand-row {
+  cursor: default; }
+
+.row-toggler:before {
+  font-family: 'icomoon';
+  content: "\e625"; }
+
+.row-toggler.open:before {
+  font-family: 'icomoon';
+  content: "\e62e" !important; }
+
 td, th {
   padding: 1rem; }
 

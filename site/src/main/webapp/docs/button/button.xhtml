@@ -5,13 +5,10 @@
             <p>This page also demonstrates some of the possible <code>spinnerStyle</code> animations available.</p>
 
             <t:commandButton value="Save" color="success" action="#{docsController.takeTwo}" render="none" oncomplete="console.log(args.validationFailed)"/>
-
             <t:commandButton value="Launch" color="warning" spinnerStyle="expand-right" action="#{docsController.takeTwo}" render="none"/>
-
             <t:commandButton value="Delete" color="alert" spinnerStyle="expand-left" action="#{docsController.takeTwo}" render="none"/>
             <t:commandButton value="Tiny" size="tiny" spinnerStyle="expand-up" action="#{docsController.takeTwo}" render="none"/>
             <t:commandButton value="Hollow" hollow="true" spinnerStyle="expand-down" spinnerColor="#888888" action="#{docsController.takeTwo}" render="none"/>
-            <t:commandButton value="Expand" expand="true" spinnerStyle="expand-right" action="#{docsController.takeTwo}" render="none"/>
 
             <h4>Command link as button</h4>
             <t:commandLink button="true" value="Go" spinnerStyle="slide-up" action="#{docsController.takeTwo}" />

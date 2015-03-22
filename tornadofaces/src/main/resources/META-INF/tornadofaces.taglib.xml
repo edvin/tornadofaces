@@ -1119,13 +1119,26 @@
         </attribute>
     </tag>
     <tag>
+        <description>Row toggler element that will expand the current row of a Table</description>
+        <tag-name>rowToggler</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.RowToggler</component-type>
+            <renderer-type>io.tornadofaces.component.RowTogglerRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Styles to apply to the toggle element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>Datadriven Table with responsive features.</description>
         <tag-name>table</tag-name>
         <component>
             <component-type>io.tornadofaces.component.Table</component-type>
             <renderer-type>io.tornadofaces.component.TableRenderer</renderer-type>
         </component>
-
         <attribute>
             <description>Styles to apply to the table element.</description>
             <name>styleClass</name>

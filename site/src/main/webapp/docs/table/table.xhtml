@@ -8,6 +8,18 @@
         <t:column headerText="Title" text="#{movie.title}" />
     </t:table>
 
+    <h5>Expand rows for detail view</h5>
+    <h:form id="expandForm">
+        <t:table id="movies" value="#{docsController.movies}" var="movie" rowKey="#{movie.id}">
+            <t:column headerText="More"><t:rowToggler/></t:column>
+            <t:column headerText="ID" text="#{movie.id}"/>
+            <t:column headerText="Title" text="#{movie.title}" />
+            <f:facet name="expand">
+                #{movie.description}
+            </f:facet>
+        </t:table>
+    </h:form>
+
     <h5>Compact, bordered, title no reflow</h5>
     <t:table value="#{docsController.movies}" var="movie" compact="true" bordered="true">
         <t:column headerText="ID" text="#{movie.id}"/>
