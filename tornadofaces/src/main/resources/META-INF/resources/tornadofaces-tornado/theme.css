@@ -8004,6 +8004,9 @@ tbody tr.table-expand-row {
   font-family: 'icomoon';
   content: "\e62e" !important; }
 
+tbody.expand {
+  display: none; }
+
 td, th {
   padding: 1rem; }
 

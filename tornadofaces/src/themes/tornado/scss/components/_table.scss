@@ -46,6 +46,7 @@ tbody tr.table-expand-row {
   cursor: default;
 }
 
+// Row expansion
 .row-toggler:before {
   font-family: 'icomoon';
   content: "\e625";
@@ -54,6 +55,10 @@ tbody tr.table-expand-row {
 .row-toggler.open:before {
   font-family: 'icomoon';
   content: "\e62e" !important;
+}
+
+tbody.expand {
+  display: none;
 }
 
 td, th {
