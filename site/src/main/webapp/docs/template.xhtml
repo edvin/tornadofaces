@@ -19,11 +19,11 @@
 
             document.addEventListener('DOMContentLoaded', function() {
                 FastClick.attach(document.body);
-                scrollables = $('#main-container');
-                scrollables.simplebar();
+//                scrollables = $('#main-container');
+//                scrollables.simplebar();
                 $(window).on('resize', function() {
 //                    scrollables.perfectScrollbar('update');
-                    scrollables.simplebar('recalculate');
+//                    scrollables.simplebar('recalculate');
                 });
             }, false);
 
@@ -117,11 +117,12 @@
             <div id="left-menu-container" class="sidemenu medium-grid-block panel panel-left medium-3 slideOut">
                 <a class="sidemenu-toggle hide-for-small-only"><i class="icon-back"></i></a>
                 <a class="sidemenu-toggle show-for-small-only"><i class="icon-back"></i></a>
-                <div id="left-menu" class="simplebar sidemenu-content grid-content collapse">
+                <div id="left-menu" data-simplebar-direction="vertical" class="simplebar sidemenu-content grid-content collapse">
                     <div class="sidemenu-logo">
                         <img class="logo-max" src="/resources/img/logo-tornado-faces-01.svg"/>
                         <img class="logo-min" src="/resources/img/logo-tornado-faces-symbol.svg"/>
                     </div>
+
                     <div class="sidemenu-search">
                         <input class="show-for-medium" type="text" placeholder="Filter..." onkeyup="searchComponents(this)"/>
                     </div>
