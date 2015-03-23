@@ -7988,9 +7988,9 @@ tr {
   border-bottom: 1px solid #ddd; }
 
 tbody tr.selected {
-  background-color: #9bdbff; }
+  background-color: #C4EAFF; }
 
-.table-rowselect-single tbody tr, .table-rowselect-multi tbody tr {
+.table-rowselect-single tbody tr, .table-rowselect-multiple tbody tr {
   cursor: pointer; }
 
 tbody tr.table-expand-row {
@@ -8061,7 +8061,11 @@ th {
       margin-bottom: 1rem; }
     .table-reflow--block td:before {
       padding-right: 0;
-      display: block; } }
+      display: block; }
+
+  .cell-reflow--block:before {
+    padding-right: 0;
+    display: block; } }
 .boxed, .accordion, .accordion.item-spacing .accordion-item {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   border: 1px solid #dfdfdf; }
