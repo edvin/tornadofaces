@@ -47,10 +47,13 @@ TornadoFaces.declareWidget('Table', function() {
         }
     };
 
-    this.expandRow = function(event) {
-        var toggle = $(event.target).closest('.row-toggler');
-
+    this.onExpandRow = function(event) {
         var tr = $(event.target).closest('tr');
+        this.expandRow(tr);
+    };
+
+    this.expandRow = function(tr) {
+        var toggle = tr.find('.row-toggler:first');
         var rowKey = tr.data('rk');
 
         if (toggle.hasClass('open')) {
@@ -80,8 +83,12 @@ TornadoFaces.declareWidget('Table', function() {
         }
     };
 
-    this.selectRow = function(event) {
+    this.onSelectRow = function(event) {
         var tr = $(event.target).closest('tr');
+        this.selectRow(tr);
+    };
+
+    this.selectRow = function(tr) {
         var doSelect = !tr.hasClass('selected');
 
         if (doSelect) {
@@ -128,10 +135,42 @@ TornadoFaces.declareWidget('Table', function() {
         items.removeClass('selected');
     };
 
-    this.bindEvents = function() {
-        if (widget.conf.selectionMode)
-            items.click(this.selectRow);
+    this.selectPreviousRow = function() {
+        var selected = items.filter('.selected:first');
+        var prev = selected.prev('tr');
+        this.selectRow(prev.length == 1 ? prev : items.last());
+    };
 
-        items.find('.row-toggler').click(this.expandRow);
+    this.selectNextRow = function() {
+        var selected = items.filter('.selected:first');
+        var next = selected.next('tr');
+        this.selectRow(next.length == 1 ? next : items.first());
+    };
+
+    this.bindEvents = function() {
+        if (widget.conf.selectionMode) {
+            // click to select row
+            items.click(this.onSelectRow);
+
+            if (!widget.elem.attr('tabindex'))
+                widget.elem.attr('tabindex', 0);
+
+            // keyboard navigation
+            widget.elem.on('keydown', function(e) {
+                switch (e.keyCode) {
+                    case 38:
+                        widget.selectPreviousRow();
+                        e.preventDefault();
+                        return false;
+                    case 40:
+                        widget.selectNextRow();
+                        e.preventDefault();
+                        return false;
+                }
+            });
+        }
+
+        // hook row-toggler action
+        items.find('.row-toggler').click(this.onExpandRow);
     };
 });
