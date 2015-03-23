@@ -7985,7 +7985,7 @@ table {
   width: 100%; }
 
 tr {
-  border-bottom: 1px dotted #CACACA; }
+  border-bottom: 1px solid #ddd; }
 
 tbody tr.selected {
   background-color: #9bdbff; }
