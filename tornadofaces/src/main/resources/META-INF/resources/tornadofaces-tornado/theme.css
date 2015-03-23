@@ -7990,7 +7990,7 @@ tr {
 tbody tr.selected {
   background-color: #9bdbff; }
 
-.table-rowselect-single tbody tr, .table-rowselect-multiple tbody tr {
+.table-rowselect-single tbody tr, .table-rowselect-multi tbody tr {
   cursor: pointer; }
 
 tbody tr.table-expand-row {

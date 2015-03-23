@@ -1174,7 +1174,7 @@
             <type>String</type>
         </attribute>
         <attribute>
-            <description>Row selection mode. Valid options are "single" or "multiple". Defaults to null.</description>
+            <description>Row selection mode. Valid options are "single" or "multi". Defaults to null.</description>
             <name>selectionMode</name>
             <required>false</required>
             <type>io.tornadofaces.component.table.Table.SelectionMode</type>

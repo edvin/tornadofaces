@@ -84,32 +84,38 @@ TornadoFaces.declareWidget('Table', function() {
             this.unselectAllRows();
 
         var tr = $(event.target).closest('tr');
-        tr.addClass('selected');
+        var doSelect = !tr.hasClass('selected');
 
-        if (widget.conf.behaviors && widget.conf.behaviors.rowSelect) {
-            var behaviors = widget.conf.behaviors.rowSelect;
-            var render = "", execute = "";
+        if (doSelect) {
+            tr.addClass('selected');
 
-            for (var i = 0; i < behaviors.length; i++) {
-                var b = behaviors[i];
-                if (b.render)
-                    render = (render + " " + b.render).trim();
-                if (b.execute)
-                    execute = (execute + " " + b.execute).trim();
+            if (widget.conf.behaviors && widget.conf.behaviors.rowSelect) {
+                var behaviors = widget.conf.behaviors.rowSelect;
+                var render = "", execute = "";
+
+                for (var i = 0; i < behaviors.length; i++) {
+                    var b = behaviors[i];
+                    if (b.render)
+                        render = (render + " " + b.render).trim();
+                    if (b.execute)
+                        execute = (execute + " " + b.execute).trim();
+                }
+
+                var props = {
+                    'javax.faces.behavior.event': 'rowSelect',
+                    render: render,
+                    execute: execute
+                };
+
+                var id = widget.elem.attr('id');
+
+                props[id + '_selected'] = tr.data('rk');
+                props[id + '_selection'] = widget.getSelectedRowKeys().join();
+
+                jsf.ajax.request(id, null, props);
             }
-
-            var props = {
-                'javax.faces.behavior.event': 'rowSelect',
-                render: render,
-                execute: execute
-            };
-
-            var id = widget.elem.attr('id');
-
-            props[id + '_selected'] = tr.data('rk');
-            props[id + '_selection'] = widget.getSelectedRowKeys().join();
-
-            jsf.ajax.request(id, null, props);
+        } else {
+            tr.removeClass('selected');
         }
     };
 

@@ -36,7 +36,7 @@ public class Table extends HtmlDataTable implements Widget {
 	}
 
 	public enum ReflowMode { block, span }
-	public enum RowSelectionMode { single, multiple }
+	public enum RowSelectionMode { single, multi }
 
 	private List<Object> selectedRowKeys = new ArrayList<>();
 
