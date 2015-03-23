@@ -7024,17 +7024,17 @@ http://nicolasgallagher.com/micro-clearfix-hack/
       -ms-flex-pack: center;
           justify-content: center;
   top: 12px;
-  right: -16px;
+  right: -24px;
   z-index: 1;
-  width: 25px;
+  width: 32px;
   height: 50px;
   border-radius: 0 2px 2px 0;
   background: #181818; }
   .sidemenu .sidemenu-toggle > i {
-    font-size: 2.2rem; }
+    font-size: 1.6rem; }
     .sidemenu .sidemenu-toggle > i:before {
       display: block;
-      margin-left: -0.6rem;
+      margin-left: 0;
       vertical-align: middle; }
   @media only screen and (min-width: 0em) and (max-width: 45.65179rem) {
     .sidemenu .sidemenu-toggle.show-for-small-only {
@@ -7071,15 +7071,17 @@ http://nicolasgallagher.com/micro-clearfix-hack/
           flex-direction: column;
   overflow: visible;
   z-index: 999 !important; }
+  .sidemenu input {
+    box-sizing: border-box; }
   .sidemenu ul {
-    margin: 0; }
+    margin: 0;
+    box-sizing: border-box; }
     .sidemenu ul > li {
       list-style: none; }
 
 .sidemenu-content {
   position: relative;
-  padding-bottom: 2.5rem !important;
-  max-height: 100%; }
+  padding-bottom: 2.5rem !important; }
 
 .sidemenu-search {
   padding: 1rem; }
