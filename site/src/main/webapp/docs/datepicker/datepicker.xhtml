@@ -1,12 +1,18 @@
 <div xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html"
      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <t:notification id="msgs"/>
     <h:form>
-        <t:form-element label="Pick a day" small="12" medium="4">
+        <t:form-element label="Manual submit" small="12" medium="4">
             <t:datepicker id="mypicker" format="YYYY-MM-DD" value="#{pickerController.date}">
                 <f:convertDateTime pattern="yyyy-MM-dd"/>
             </t:datepicker>
-            <t:commandLink button="true" value="Save" color="success" action="#{pickerController.save}" render="msgs"/>
+            <t:commandLink button="true" value="Submit" color="success" action="#{pickerController.save}" render="notification"/>
+        </t:form-element>
+
+        <t:form-element label="AJAX on change" small="12" medium="4">
+            <t:datepicker format="YYYY-MM-DD" value="#{pickerController.date2}">
+                <f:ajax listener="#{pickerController.onDateChange}" render="notification"/>
+                <f:convertDateTime pattern="yyyy-MM-dd"/>
+            </t:datepicker>
         </t:form-element>
     </h:form>
 </div>

@@ -8,6 +8,7 @@ TornadoFaces.declareWidget('Datepicker', function() {
         widget.picker = new Pikaday(widget.conf.settings);
     };
 
+
     this.open = function() {
         this.picker.open();
     };

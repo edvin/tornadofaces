@@ -9,10 +9,6 @@
         <meta name="apple-mobile-web-app-capable" content="yes"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <h:outputScript library="js" name="fastclick.min.js"/>
-        <!--<h:outputScript library="js" name="perfect-scrollbar.jquery.min.js"/>-->
-        <!--<h:outputStylesheet library="css" name="perfect-scrollbar.css"/>-->
-        <!--<h:outputScript library="js" name="simplebar.min.js"/>-->
-        <!--<h:outputStylesheet library="css" name="simplebar.css"/>-->
         <h:outputScript library="js" name="jquery.scrollbar.js"/>
         <h:outputStylesheet library="css" name="jquery.scrollbar.css"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" type="text/css" media="all" />
@@ -23,11 +19,6 @@
                 FastClick.attach(document.body);
                 scrollables = $('.scrollbar-inner');
                 jQuery(scrollables).scrollbar();
-//                scrollables.simplebar();
-                $(window).on('resize', function() {
-//                    scrollables.perfectScrollbar('update');
-//                    scrollables.simplebar('recalculate');
-                });
             }, false);
 
             var filterFn = function(item, query) {
@@ -72,8 +63,6 @@
                 var popouts = $('.popout');
                 var leftMenu = $('#left-menu-container');
 
-
-
                 $('.sidemenu-toggle').click(function() {
                     var mode = $(this).hasClass('show-for-small-only') ? 'activate' : 'collapse';
 
@@ -86,13 +75,10 @@
                                 bindPopout('unbind', popouts)
                             }
                             popouts.removeClass('popout-active');
-//                            scrollables.perfectScrollbar('update');
                             break;
                         case "activate":
                             var futureState = !$('#left-menu-container').hasClass('is-active');
-                            TornadoFaces.animate($('#left-menu-container'), futureState, 'slideInRight', 'slideOutLeft', function() {
-//                                scrollables.perfectScrollbar('update');
-                            });
+                            TornadoFaces.animate($('#left-menu-container'), futureState, 'slideInRight', 'slideOutLeft');
                             break;
                     }
                 });
@@ -100,7 +86,6 @@
                 $(document).on('click', function(e) {
                     if($(e.target).parents('.sidemenu').length == 0) {
                         popouts.removeClass('popout-active');
-//                        scrollables.perfectScrollbar('update');
                     }
                 });
             });

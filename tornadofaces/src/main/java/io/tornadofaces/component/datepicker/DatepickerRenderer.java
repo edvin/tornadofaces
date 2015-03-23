@@ -1,6 +1,8 @@
 package io.tornadofaces.component.datepicker;
 
 import io.tornadofaces.component.util.ComponentUtils;
+import io.tornadofaces.json.JSONArray;
+import io.tornadofaces.json.JSONObject;
 import io.tornadofaces.util.WidgetBuilder;
 
 import javax.faces.component.UIComponent;
@@ -10,7 +12,8 @@ import javax.faces.convert.ConverterException;
 import javax.faces.render.FacesRenderer;
 import javax.faces.render.Renderer;
 import java.io.IOException;
-import java.util.Map;
+
+import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
 
 @FacesRenderer(rendererType = DatepickerRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
 public class DatepickerRenderer extends Renderer {
@@ -42,5 +45,9 @@ public class DatepickerRenderer extends Renderer {
 			.init()
 			.nativeAttr("settings", picker.getSettings().toString())
 			.finish();
+
+		// change ajax event is available because it attaches to the textfield and uses it's default
+		// change event handling. The datepicker triggers this by updating the input in the browser,
+		// so we don't need to handle this ourselves.
 	}
 }

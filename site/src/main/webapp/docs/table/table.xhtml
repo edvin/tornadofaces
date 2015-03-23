@@ -2,7 +2,7 @@
               xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h5>Row selection, AJAX callback</h5>
-    <t:table id="moviesSelection" value="#{docsController.movies}" var="movie" selectionMode="multi" rowKey="#{movie.id}">
+    <t:table id="moviesSelection" value="#{docsController.movies}" var="movie" selectionMode="single" rowKey="#{movie.id}">
         <f:ajax event="rowSelect" listener="#{docsController.onSelectMovie}" render="notification"/>
         <t:column headerText="ID" text="#{movie.id}"/>
         <t:column headerText="Title" text="#{movie.title}" />

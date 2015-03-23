@@ -18,11 +18,13 @@ import static java.lang.String.format;
 @Setter
 public class PickerController {
 	private Date date;
+	private Date date2;
 	private String color;
 
 	@PostConstruct
 	public void init() {
 		date = new Date();
+		date2 = new Date();
 		color = "#3fa2d8";
 	}
 
@@ -34,5 +36,10 @@ public class PickerController {
 	public void save() {
 		FacesContext.getCurrentInstance().addMessage(null,
 			new FacesMessage(new SimpleDateFormat("yyyy-MM-dd").format(date), "Date saved"));
+	}
+
+	public void onDateChange() {
+		FacesContext.getCurrentInstance().addMessage(null,
+			new FacesMessage(new SimpleDateFormat("yyyy-MM-dd").format(date2), "Date changed"));
 	}
 }

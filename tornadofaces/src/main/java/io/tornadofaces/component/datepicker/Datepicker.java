@@ -8,6 +8,8 @@ import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.html.HtmlInputText;
+import java.util.Collection;
+import java.util.Collections;
 
 @ResourceDependencies({
 	@ResourceDependency(library = "tornadofaces", name = "moment.min.js"),
@@ -25,6 +27,14 @@ public class Datepicker extends HtmlInputText implements Widget {
 
 	public String getFamily() {
 		return ComponentUtils.COMPONENT_FAMILY;
+	}
+
+	public String getDefaultEventName() {
+		return "change";
+	}
+
+	public Collection<String> getEventNames() {
+		return Collections.singletonList(getDefaultEventName());
 	}
 
 	public String getFormat() { return (String) getStateHelper().eval("format"); }
