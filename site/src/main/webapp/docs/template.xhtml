@@ -9,19 +9,19 @@
         <meta name="apple-mobile-web-app-capable" content="yes"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <h:outputScript library="js" name="fastclick.min.js"/>
-        <h:outputScript library="js" name="perfect-scrollbar.jquery.min.js"/>
-        <h:outputStylesheet library="css" name="perfect-scrollbar.css"/>
+        <!--<h:outputScript library="js" name="perfect-scrollbar.jquery.min.js"/>-->
+        <!--<h:outputStylesheet library="css" name="perfect-scrollbar.css"/>-->
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" type="text/css" media="all" />
         <script>
-            var scrollables;
+//            var scrollables;
 
             document.addEventListener('DOMContentLoaded', function() {
                 FastClick.attach(document.body);
-                scrollables = $('#left-menu');
-                scrollables.perfectScrollbar();
-                $(window).on('resize', function() {
-                    scrollables.perfectScrollbar('update');
-                });
+//                scrollables = $('#left-menu');
+//                scrollables.perfectScrollbar();
+//                $(window).on('resize', function() {
+//                    scrollables.perfectScrollbar('update');
+//                });
             }, false);
 
             var filterFn = function(item, query) {
@@ -80,12 +80,12 @@
                                 bindPopout('unbind', popouts)
                             }
                             popouts.removeClass('popout-active');
-                            scrollables.perfectScrollbar('update');
+//                            scrollables.perfectScrollbar('update');
                             break;
                         case "activate":
                             var futureState = !$('#left-menu-container').hasClass('is-active');
                             TornadoFaces.animate($('#left-menu-container'), futureState, 'slideInRight', 'slideOutLeft', function() {
-                                scrollables.perfectScrollbar('update');
+//                                scrollables.perfectScrollbar('update');
                             });
                             break;
                     }
@@ -94,7 +94,7 @@
                 $(document).on('click', function(e) {
                     if($(e.target).parents('.sidemenu').length == 0) {
                         popouts.removeClass('popout-active');
-                        scrollables.perfectScrollbar('update');
+//                        scrollables.perfectScrollbar('update');
                     }
                 });
             });
