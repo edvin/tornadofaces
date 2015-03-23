@@ -543,6 +543,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>Locale used to determine client side locale. The value is globally configured for moment.js.</description>
+            <name>locale</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Preferred position of the datepicker relative to the form field, e.g.: top right, bottom,
                 right. Note: automatic adjustment may occur to avoid datepicker from being displayed outside the
                 viewport, see positions example (default to 'bottom left')

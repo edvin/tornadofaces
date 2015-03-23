@@ -43,6 +43,7 @@ public class DatepickerRenderer extends Renderer {
 
 		new WidgetBuilder(context, picker)
 			.init()
+			.attr("locale", picker.getLocale())
 			.nativeAttr("settings", picker.getSettings().toString())
 			.finish();
 

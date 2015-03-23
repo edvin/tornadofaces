@@ -39,6 +39,8 @@ public class Datepicker extends HtmlInputText implements Widget {
 
 	public String getFormat() { return (String) getStateHelper().eval("format"); }
 	public void setFormat(String format) { getStateHelper().put("format", format); }
+	public String getLocale() { return (String) getStateHelper().eval("locale"); }
+	public void setLocale(String locale) { getStateHelper().put("locale", locale); }
 	public String getPosition() { return (String) getStateHelper().eval("position"); }
 	public void setPosition(String position) { getStateHelper().put("position", position); }
 	public String getContainer() { return (String) getStateHelper().eval("container"); }

@@ -22,7 +22,7 @@ import java.util.ListIterator;
  * - JSF Ajax
  * - JQuery
  * - TornadoFaces JS
- * - PrimeFaces JS (for compatibility in projects that have both libs) 
+ * - PrimeFaces JS (for compatibility in projects that have both libs)
  * - Registered Resources
  * - Head Content
  * - Last Facet
@@ -39,7 +39,6 @@ public class HeadRenderer extends Renderer {
 		}
 
 		appendTornadoFacesResources(context);
-		appendPrimeFacesTheme(context);
 
 		UIComponent middle = component.getFacet("middle");
 		if (middle != null)
@@ -48,12 +47,6 @@ public class HeadRenderer extends Renderer {
 		UIViewRoot viewRoot = context.getViewRoot();
 		for (UIComponent resource : viewRoot.getComponentResources(context, "head"))
 			resource.encodeAll(context);
-	}
-
-	private void appendPrimeFacesTheme(FacesContext context) throws IOException {
-		String theme = getConfigValue(context, "primefaces.THEME", "none");
-		if (!theme.equals("none"))
-			encodeCSS(context, "primefaces-" + theme, "theme.css");
 	}
 
 	/**

@@ -8,10 +8,10 @@
             <t:commandLink button="true" value="Submit" color="success" action="#{pickerController.save}" render="notification"/>
         </t:form-element>
 
-        <t:form-element label="AJAX on change" small="12" medium="4">
-            <t:datepicker format="YYYY-MM-DD" value="#{pickerController.date2}">
+        <t:form-element label="AJAX on change, Norwegian locale" small="12" medium="4">
+            <t:datepicker format="L" locale="nb" value="#{pickerController.date2}">
                 <f:ajax listener="#{pickerController.onDateChange}" render="notification"/>
-                <f:convertDateTime pattern="yyyy-MM-dd"/>
+                <f:convertDateTime pattern="dd.MM.yyyy"/>
             </t:datepicker>
         </t:form-element>
     </h:form>

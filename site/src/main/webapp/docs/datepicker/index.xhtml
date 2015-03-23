@@ -22,9 +22,19 @@
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
 <t:source>
-&lt;t:datepicker id="mypicker" format="YYYY-MM-DD" value="#{docsController.expr('controller.date')}">
-    &lt;f:convertDateTime pattern="yyyy-MM-dd"/>
-&lt;/t:datepicker></t:source>
+&lt;t:form-element label="Manual submit" small="12" medium="4">
+    &lt;t:datepicker id="mypicker" format="YYYY-MM-DD" value="#{docsController.expr('controller.date')}">
+        &lt;f:convertDateTime pattern="yyyy-MM-dd"/>
+    &lt;/t:datepicker>
+    &lt;t:commandLink button="true" value="Submit" color="success" action="#{docsController.expr('controller.save')}" render="notification"/>
+&lt;/t:form-element>
+
+&lt;t:form-element label="AJAX on change, Norwegian locale" small="12" medium="4">
+    &lt;t:datepicker format="L" locale="nb" value="#{docsController.expr('controller.date')}">
+        &lt;f:ajax listener="#{docsController.expr('controller.onDateChange')}" render="notification"/>
+        &lt;f:convertDateTime pattern="dd.MM.yyyy"/>
+    &lt;/t:datepicker>
+&lt;/t:form-element></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

@@ -65,11 +65,12 @@ TornadoFaces.declareWidget('Table', function() {
             var expandId = widget.elem.find('tbody.expand').attr('id');
 
             var props = {
+                'javax.faces.behavior.event': 'rowToggle',
                 execute: tableId,
                 render: expandId,
                 onevent: function(e) {
                     if (e.status == 'success')
-                        widget.elem.find('tbody.expand tr').detach().insertAfter(tr);
+                        widget.elem.find('tbody.expand tr:first').detach().insertAfter(tr);
                 }
             };
 
@@ -80,13 +81,13 @@ TornadoFaces.declareWidget('Table', function() {
     };
 
     this.selectRow = function(event) {
-        if ('single' == widget.conf.selectionMode)
-            this.unselectAllRows();
-
         var tr = $(event.target).closest('tr');
         var doSelect = !tr.hasClass('selected');
 
         if (doSelect) {
+            if ('single' == widget.conf.selectionMode)
+                this.unselectAllRows();
+
             tr.addClass('selected');
 
             if (widget.conf.behaviors && widget.conf.behaviors.rowSelect) {

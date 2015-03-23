@@ -4,6 +4,9 @@ TornadoFaces.declareWidget('Datepicker', function() {
     this.init = function() {
         widget = this;
 
+        if (widget.conf.locale)
+            moment.locale(widget.conf.locale);
+
         widget.conf.settings.field = widget.elem[0];
         widget.picker = new Pikaday(widget.conf.settings);
     };

@@ -30,6 +30,7 @@ import static io.tornadofaces.component.util.ComponentUtils.isRequestSource;
 @FacesComponent(value = Table.COMPONENT_TYPE, createTag = true, tagName = "table", namespace = "http://tornadofaces.io/ui")
 public class Table extends HtmlDataTable implements Widget {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Table";
+	private String rowIndexForRowKey;
 
 	public long getColumnCount() {
 		return getChildren().stream().filter(c -> c instanceof Column).count();
@@ -55,7 +56,7 @@ public class Table extends HtmlDataTable implements Widget {
 	}
 
 	public Collection<String> getEventNames() {
-		return Collections.singletonList(getDefaultEventName());
+		return Arrays.asList("rowSelect", "rowToggle");
 	}
 
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
@@ -180,13 +181,19 @@ public class Table extends HtmlDataTable implements Widget {
 			String clientId = getClientId(context);
 			AjaxBehaviorEvent behaviorEvent = (AjaxBehaviorEvent) event;
 
+			String expandedRowKey = getRequestedExpandRowKey(context);
+			if (expandedRowKey != null)
+				setRowIndexForRowKey(expandedRowKey);
+
 			if (eventName.equals("rowSelect")) {
 				String selectedRowKey = params.get(clientId + "_selected");
-				SelectionEvent se = new SelectionEvent(this, behaviorEvent.getBehavior(), getRowData(selectedRowKey));
+				setRowIndexForRowKey(selectedRowKey);
+				SelectionEvent se = new SelectionEvent(this, behaviorEvent.getBehavior(), getRowData());
 				se.setPhaseId(behaviorEvent.getPhaseId());
 				super.queueEvent(se);
 				return;
 			}
+
 		}
 
 		super.queueEvent(event);
@@ -207,6 +214,25 @@ public class Table extends HtmlDataTable implements Widget {
 		}
 		requestMap.remove(var);
 		return null;
+	}
+
+	/**
+	 * Set the row index to the row that corresponds to the given rowKey
+	 * @param rowKey The row key to look up
+	 */
+	public void setRowIndexForRowKey(String rowKey) {
+		String var = getVar();
+		Map<String, Object> requestMap = getFacesContext().getExternalContext().getRequestMap();
+		int rowIndex = 0;
+		for (Object value : (List) getValue()) {
+			requestMap.put(var, value);
+			if (rowKey.equals(String.valueOf(getRowKey()))) {
+				setRowIndex(rowIndex);
+				break;
+			}
+			rowIndex++;
+		}
+		requestMap.remove(var);
 	}
 
 	public String getRequestedExpandRowKey(FacesContext context) {
