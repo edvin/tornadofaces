@@ -44,6 +44,7 @@
                 if(!$(this).hasClass('popout-active')) {
                     var popout = $('.popout');
                     var subItems = $(this).find('.sidemenu-subitems');
+                    subItems.css({top: 0});
                     popout.removeClass('popout-active');
                     $(this).addClass('popout-active');
                     var padding = 20;
@@ -199,9 +200,9 @@
                         </t:ul>
                     </div>
                 </div>
-                <t:ul breadcrumb="true">
+                <t:breadcrumbs>
                     <ui:insert name="breadcrumb"/>
-                </t:ul>
+                </t:breadcrumbs>
                 <div class="main-wrapper main-max-width">
                     <main>
                         <ui:insert name="content"/>
