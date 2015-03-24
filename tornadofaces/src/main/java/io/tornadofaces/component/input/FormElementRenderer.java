@@ -29,6 +29,7 @@ public class FormElementRenderer extends Renderer {
 		StyleClass styleClass = StyleClass
 			.of(elem.getLayout())
 			.add("padding", elem.isPadding())
+			.add("label-left", FormElement.LabelPosition.left.equals(elem.getLabelPosition()))
 			.add(elem.getStyleClass());
 
 		String style = elem.getStyle();

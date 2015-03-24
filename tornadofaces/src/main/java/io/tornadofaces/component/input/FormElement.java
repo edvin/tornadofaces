@@ -14,7 +14,8 @@ import javax.faces.event.SystemEventListener;
 @FacesComponent(value = FormElement.COMPONENT_TYPE, createTag = true, tagName = "form-element", namespace = "http://tornadofaces.io/ui")
 public class FormElement extends UIPanel implements SystemEventListener {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.FormElement";
-
+	public enum LabelPosition { top, left }
+	
 	public FormElement() {
 		super();
 		setRendererType(FormElementRenderer.RENDERER_TYPE);
@@ -73,6 +74,8 @@ public class FormElement extends UIPanel implements SystemEventListener {
 	public void setMedium(Integer medium) { getStateHelper().put("medium", medium); }
 	public Integer getLarge() { return (Integer) getStateHelper().eval("large", null); }
 	public void setLarge(Integer large) { getStateHelper().put("large", large); }
+	public LabelPosition getLabelPosition() { return (LabelPosition) getStateHelper().eval("labelPosition"); }
+	public void setLabelPosition(LabelPosition labelPosition) { getStateHelper().put("labelPosition", labelPosition); }
 	public Boolean isPadding() { return (Boolean) getStateHelper().eval("padding", null); }
 	public void setPadding(Boolean padding) { getStateHelper().put("padding", padding); }
 }

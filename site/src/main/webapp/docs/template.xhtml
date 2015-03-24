@@ -12,12 +12,18 @@
         <h:outputScript library="js" name="jquery.scrollbar.js"/>
         <h:outputStylesheet library="css" name="jquery.scrollbar.css"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" type="text/css" media="all" />
+
+        <t:form-element label="Navn">
+            <h:inputText/>
+        </t:form-element>
+
         <script>
-            var scrollables;
+            var scrollables, searchables;
 
             document.addEventListener('DOMContentLoaded', function() {
                 FastClick.attach(document.body);
                 scrollables = $('.scrollbar-inner');
+                searchables = $('.sidemenu-subitems li');
                 jQuery(scrollables).scrollbar();
             }, false);
 
@@ -26,16 +32,19 @@
             };
 
             function searchComponents(q) {
-                var items = $('#left-menu').children();
                 var query = $(q).val();
 
-                for (var idx = 0; idx &lt; items.length; idx++) {
-                    var item = $(items[idx]);
+                for (var idx = 0; idx &lt; searchables.length; idx++) {
+                    var item = $(searchables[idx]);
 
                     if (filterFn(item, query)) {
                         item.show();
+                        item.parents('li').show();
                     } else {
                         item.hide();
+                        var parent = item.parents('li');
+                        if (parent.find('ul li').not(':hidden').length == 0)
+                            parent.hide();
                     }
                 }
             }
