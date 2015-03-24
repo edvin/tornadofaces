@@ -13,6 +13,8 @@ import javax.faces.render.Renderer;
 import java.io.IOException;
 import java.util.List;
 
+import static io.tornadofaces.component.input.FormElement.LabelPosition.left;
+
 @FacesRenderer(rendererType = FormElementRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
 public class FormElementRenderer extends Renderer {
 	public static final String RENDERER_TYPE = "io.tornadofaces.component.FormElementRenderer";
@@ -29,7 +31,7 @@ public class FormElementRenderer extends Renderer {
 		StyleClass styleClass = StyleClass
 			.of(elem.getLayout())
 			.add("padding", elem.isPadding())
-			.add("label-left", FormElement.LabelPosition.left.equals(elem.getLabelPosition()))
+			.add("label-left", left.equals(elem.getLabelPosition()))
 			.add(elem.getStyleClass());
 
 		String style = elem.getStyle();

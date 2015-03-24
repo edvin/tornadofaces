@@ -1,0 +1,7 @@
+.reveal .reveal-content {
+  display: none;
+}
+
+.reveal.is-active .reveal-content {
+  display: block;
+}

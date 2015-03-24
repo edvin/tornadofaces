@@ -2341,6 +2341,45 @@
         </attribute>
     </tag>
     <tag>
+        <description>Reveal lets you show an element with an optional animation.</description>
+        <tag-name>reveal</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Reveal</component-type>
+            <renderer-type>io.tornadofaces.component.RevealRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>
+                <![CDATA[Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar. Use this to <code>load()</code> the data or get the data via <code>val()</code>. Note that the Data component must be wrapped in a Form for the load() function to work.]]></description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Show the element on DOM load. Defaults to false.</description>
+            <name>onload</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Animation effect for the reveal. Valid options are "fade", "none". Defaults to "fade".</description>
+            <name>effect</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.reveal.Reveal.Effect</type>
+        </attribute>
+        <attribute>
+            <description>Effect duration in milliseconds. Defaults to 500.</description>
+            <name>duration</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>Poll lets you repeat a server action or simply render/execute any component on a set interval with an optional delay before the first call is made. The Widget API provides methods to stop and start the poller as well.</description>
         <tag-name>poll</tag-name>
         <component>

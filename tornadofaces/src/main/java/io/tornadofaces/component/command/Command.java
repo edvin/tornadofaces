@@ -21,7 +21,7 @@ public class Command extends UICommand implements Widget, ClientBehaviorHolder {
 		return ComponentUtils.COMPONENT_FAMILY;
 	}
 
-	public Boolean getOnload() { return (Boolean) getStateHelper().eval("onload", true); }
+	public Boolean getOnload() { return (Boolean) getStateHelper().eval("onload"); }
 	public void setOnload(Boolean onload) { getStateHelper().put("onload", onload); }
 	public String getName() { return (String) getStateHelper().eval("name"); }
 	public void setName(String name) { getStateHelper().put("name", name); }
