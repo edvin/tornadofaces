@@ -43,12 +43,16 @@
             function popoutHandler(e) {
                 if(!$(this).hasClass('popout-active')) {
                     var popout = $('.popout');
+                    var subItems = $(this).find('.sidemenu-subitems');
                     popout.removeClass('popout-active');
                     $(this).addClass('popout-active');
+                    var padding = 20;
+                    var offset = $(window).height() - subItems.offset().top - subItems.outerHeight() - padding;
+                    if (offset &lt; 0)
+                        subItems.css({top: offset + 'px'});
                 }else {
                     $(this).removeClass('popout-active');
                 }
-
             }
 
             function bindPopout(todo, toBind) {

@@ -7166,15 +7166,11 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   .sidemenu--collapsed {
     max-width: 90px;
     min-width: 75px; }
-    .sidemenu--collapsed .sidemenu-toggle {
-      position: static;
-      width: auto;
-      border-bottom: 1px solid #2A2A2A; }
-      .sidemenu--collapsed .sidemenu-toggle > i:before {
-        margin-left: 0;
-        transition: all .2s .3s;
-        -webkit-transform: scaleX(-1);
-                transform: scaleX(-1); }
+    .sidemenu--collapsed .sidemenu-toggle > i:before {
+      margin-left: 0;
+      transition: all .2s .3s;
+      -webkit-transform: scaleX(-1);
+              transform: scaleX(-1); }
     .sidemenu--collapsed .sidemenu-logo {
       padding: 1rem 0; }
     .sidemenu--collapsed .sidemenu-search {
@@ -7186,7 +7182,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
       opacity: 0;
       transition: none; }
     .sidemenu--collapsed .logo-min {
-      width: 50px;
+      width: 40px;
       transition: 0.3s 0.035s; }
     .sidemenu--collapsed .sidemenu-items > li:hover {
       background: #1e1e1e; }

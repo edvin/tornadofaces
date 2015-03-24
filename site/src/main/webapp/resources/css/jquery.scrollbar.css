@@ -5,6 +5,7 @@
     padding: 0 !important;
     position: relative;
 }
+.sidemenu--collapsed .scroll-wrapper {overflow: visible !important;}
 
 .scroll-wrapper > .scroll-content {
     border: none !important;
@@ -20,6 +21,7 @@
     top: 0;
     width: auto !important;
 }
+.sidemenu--collapsed .scroll-wrapper > .scroll-content {overflow: visible !important;}
 
 .scroll-wrapper > .scroll-content::-webkit-scrollbar {
     height: 0;

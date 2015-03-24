@@ -216,9 +216,9 @@ $sidemenu-popuot-background: #1e1e1e;
   min-width: 75px;
 
   .sidemenu-toggle {
-    position: static;
-    width: auto;
-    border-bottom: 1px solid #2A2A2A; //todo: $sidemenu-border-color
+//    position: static;
+//    width: auto;
+//    border-bottom: 1px solid #2A2A2A; //todo: $sidemenu-border-color
     >i {
       &:before {
         margin-left: 0;
@@ -238,7 +238,7 @@ $sidemenu-popuot-background: #1e1e1e;
     transition: none;
   }
   .logo-min {
-    width: 50px;
+    width: 40px;
     transition: 0.3s 0.035s;
   }
 
