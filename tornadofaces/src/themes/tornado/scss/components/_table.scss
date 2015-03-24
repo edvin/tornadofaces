@@ -17,7 +17,9 @@ table {
   text-align: left;
   margin-bottom: 2rem;
   width: 100%;
+  outline: none;
 }
+
 thead {
   > tr {
 
@@ -50,11 +52,20 @@ tbody tr.table-expand-row {
 .row-toggler:before {
   font-family: 'icomoon';
   content: "\e625";
+  font-size: 2rem;
+  line-height: 1.1;
+  transition: transform 0.2s ease;
+  display: inline-block;
 }
 
 .row-toggler.open:before {
   font-family: 'icomoon';
-  content: "\e62e" !important;
+  transform: rotate(90deg);
+}
+
+.table-compact .row-toggle-container,
+.row-toggle-container {
+  padding: 0 0 0 $default-cell-padding;
 }
 
 tbody.expand {

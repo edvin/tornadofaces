@@ -7984,7 +7984,8 @@ pre.line-numbers > code {
 table {
   text-align: left;
   margin-bottom: 2rem;
-  width: 100%; }
+  width: 100%;
+  outline: none; }
 
 tr {
   border-bottom: 1px solid #ddd; }
@@ -8000,11 +8001,21 @@ tbody tr.table-expand-row {
 
 .row-toggler:before {
   font-family: 'icomoon';
-  content: "\e625"; }
+  content: "\e625";
+  font-size: 2rem;
+  line-height: 1.1;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  display: inline-block; }
 
 .row-toggler.open:before {
   font-family: 'icomoon';
-  content: "\e62e" !important; }
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg); }
+
+.table-compact .row-toggle-container,
+.row-toggle-container {
+  padding: 0 0 0 1rem; }
 
 tbody.expand {
   display: none; }

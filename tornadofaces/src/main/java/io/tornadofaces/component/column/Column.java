@@ -1,5 +1,6 @@
 package io.tornadofaces.component.column;
 
+import io.tornadofaces.component.table.RowToggler;
 import io.tornadofaces.component.table.Table;
 import io.tornadofaces.component.util.ComponentUtils;
 
@@ -46,5 +47,9 @@ public class Column extends UIColumn {
 	public void encodeChildren(FacesContext context) throws IOException {
 		for (UIComponent child : getChildren())
 			child.encodeAll(context);
+	}
+
+	public boolean containsRowToggler() {
+		return getChildren().stream().filter(c -> c instanceof RowToggler).findAny().isPresent();
 	}
 }
