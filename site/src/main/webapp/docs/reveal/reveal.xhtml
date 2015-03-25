@@ -1,10 +1,11 @@
 <h:panelGroup xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
 
+    <div>
+        <button class="button primary" onclick="TW('r1').toggle()">Fade in/out</button>
+    </div>
+
     <t:reveal effect="fade" duration="2000" widgetVar="r1">
         <h1>Look, I faded in!</h1>
     </t:reveal>
 
-    <div>
-        <button class="button primary" onclick="TW('r1').toggle()">Fade in/out</button>
-    </div>
 </h:panelGroup>

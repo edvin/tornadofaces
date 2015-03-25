@@ -15,6 +15,7 @@ import javax.faces.component.UIPanel;
 @FacesComponent(value = "io.tornadofaces.component.Reveal", createTag = true, tagName = "reveal", namespace = "http://tornadofaces.io/ui")
 public class Reveal extends UIPanel implements Widget {
 	public enum Effect { fade }
+	public enum Mode { visibility, display }
 	
 	public Reveal() {
 		super();
@@ -27,6 +28,8 @@ public class Reveal extends UIPanel implements Widget {
 
 	public void setEffect(Effect effect) { getStateHelper().put("effect", effect); }
 	public Effect getEffect() { return (Effect) getStateHelper().eval("effect", Effect.fade); }
+	public void setMode(Mode mode) { getStateHelper().put("mode", mode); }
+	public Mode getMode() { return (Mode) getStateHelper().eval("mode", Mode.display); }
 	public String getWidgetVar() { return (String) getStateHelper().eval("widgetVar"); }
 	public void setWidgetVar(String widgetVar) { getStateHelper().put("widgetVar", widgetVar); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }

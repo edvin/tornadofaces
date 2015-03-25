@@ -1,7 +1,15 @@
-.reveal .reveal-content {
+.reveal.visibility {
+  visibility: hidden;
+}
+
+.reveal.visibility.is-active {
+  visibility: visible;
+}
+
+.reveal.display {
   display: none;
 }
 
-.reveal.is-active .reveal-content {
-  display: block;
+.reveal.display.is-active {
+  display: inherit;
 }

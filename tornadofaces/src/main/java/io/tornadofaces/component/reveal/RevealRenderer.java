@@ -25,7 +25,10 @@ public class RevealRenderer extends CoreRenderer {
 		if (style != null)
 			writer.writeAttribute("style", style, null);
 
-		StyleClass.of("reveal").add(reveal.getStyleClass()).write(writer);
+		StyleClass.of("reveal")
+			.add(reveal.getStyleClass())
+			.add(reveal.getMode())
+			.write(writer);
 
 		writer.startElement("div", reveal);
 		writer.writeAttribute("class", "reveal-content", null);
@@ -43,6 +46,7 @@ public class RevealRenderer extends CoreRenderer {
 		new WidgetBuilder(context, reveal)
 			.init()
 			.attr("onload", reveal.getOnload())
+			.attr("mode", reveal.getMode().toString())
 			.attr("duration", reveal.getDuration())
 			.attr("effect", effect != null ? effect.toString() : null)
 			.finish();

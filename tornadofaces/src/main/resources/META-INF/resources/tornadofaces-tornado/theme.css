@@ -8075,11 +8075,17 @@ th {
   .cell-reflow--block:before {
     padding-right: 0;
     display: block; } }
-.reveal .reveal-content {
+.reveal.visibility {
+  visibility: hidden; }
+
+.reveal.visibility.is-active {
+  visibility: visible; }
+
+.reveal.display {
   display: none; }
 
-.reveal.is-active .reveal-content {
-  display: block; }
+.reveal.display.is-active {
+  display: inherit; }
 
 .boxed, .accordion, .accordion.item-spacing .accordion-item {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);

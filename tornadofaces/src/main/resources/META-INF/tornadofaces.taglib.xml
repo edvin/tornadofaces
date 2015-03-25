@@ -2367,6 +2367,12 @@
             <type>io.tornadofaces.component.reveal.Reveal.Effect</type>
         </attribute>
         <attribute>
+            <description>Reveal by using "visiblity" or "display" CSS property. Defaults to "display".</description>
+            <name>mode</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.reveal.Reveal.Mode</type>
+        </attribute>
+        <attribute>
             <description>Effect duration in milliseconds. Defaults to 500.</description>
             <name>duration</name>
             <required>false</required>

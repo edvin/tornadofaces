@@ -1,9 +1,9 @@
 TornadoFaces.declareWidget('Reveal', function() {
-    var widget, content, duration;
+    var widget, elem, duration;
 
     this.init = function() {
         widget = this;
-        content = widget.elem.find('.reveal-content');
+        elem = widget.elem[0];
         duration = widget.conf.duration / 1000;
 
         if (widget.conf.onload && !widget.onloadPerformed) {
@@ -15,13 +15,19 @@ TornadoFaces.declareWidget('Reveal', function() {
     };
 
     this.show = function() {
-        TweenLite.set(widget.elem, { opacity: 0 });
-        widget.elem.addClass('is-active');
+        var animComplete = function() {
+            widget.elem.addClass('is-active');
+        };
 
         if (widget.conf.effect) {
+            if (widget.conf.mode == 'display') {
+                animComplete();
+                TweenLite.set(elem, { autoAlpha: 0 });
+            }
+
             switch (widget.conf.effect) {
                 case "fade":
-                    TweenLite.to(widget.elem[0], duration, { opacity: 1 });
+                    TweenLite.to(elem, duration, { autoAlpha: 1, onComplete: animComplete });
                     break;
             }
         } else {
@@ -35,10 +41,9 @@ TornadoFaces.declareWidget('Reveal', function() {
         };
 
         if (widget.conf.effect) {
-
             switch (widget.conf.effect) {
                 case "fade":
-                    TweenLite.to(widget.elem[0], duration, { opacity: 0.2, onComplete: animComplete });
+                    TweenMax.to(elem, duration, {autoAlpha:0 , onComplete: animComplete});
                     break;
             }
         } else {
