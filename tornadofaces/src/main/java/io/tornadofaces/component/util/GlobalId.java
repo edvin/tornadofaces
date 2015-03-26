@@ -28,7 +28,8 @@ public class GlobalId extends TagHandler {
 	 * @throws IOException
 	 */
 	public void apply(FaceletContext ctx, UIComponent parent) throws IOException {
-		register(ctx.getFacesContext(), parent, tag.getAttributes().get("value").getValue());
+		String value = (String) tag.getAttributes().get("value").getValueExpression(ctx, String.class).getValue(ctx.getFacesContext().getELContext());
+		register(ctx.getFacesContext(), parent, value);
 	}
 
 	/**

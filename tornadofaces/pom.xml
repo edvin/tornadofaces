@@ -152,6 +152,19 @@
                 </executions>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>essrebel.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
     </build>
 
 </project>
