@@ -325,6 +325,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>Label position. Valid options are "top", "left". Defaults to "top".</description>
+            <name>labelPosition</name>
+            <required>false</required>
+            <type>io.tornadofaces.component.input.FormElement.LabelPosition</type>
+        </attribute>
+        <attribute>
             <description>Add padding. Defaults to false.</description>
             <name>padding</name>
             <required>false</required>
