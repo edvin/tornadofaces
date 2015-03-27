@@ -52,7 +52,9 @@ TornadoFaces.declareWidget('Notification', function() {
 
         var e = $(widget.template).clone();
         e.find('.notification-summary').html(message.summary);
-        e.find('.notification-detail').html(message.detail);
+
+        if (message.summary != message.detail)
+            e.find('.notification-detail').html(message.detail);
 
         if (message.image)
             e.prepend('<img src="' + message.image + '" style="padding-right: 10px"/>');
