@@ -160,7 +160,7 @@
                     <include>**</include>
                 </includes>
                 <excludes>
-                    <exclude>essrebel.xml</exclude>
+                    <exclude>rebel.xml</exclude>
                 </excludes>
             </resource>
         </resources>
