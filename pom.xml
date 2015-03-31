@@ -11,7 +11,9 @@
 	<modules>
 		<module>tornadofaces</module>
 		<module>site</module>
-	</modules>
+        <module>theme</module>
+        <module>theme</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

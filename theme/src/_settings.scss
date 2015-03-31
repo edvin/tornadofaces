@@ -1,0 +1,544 @@
+@import "helpers/functions";
+
+$base-font-size: 14px !default;
+
+// This sets 1rem to be 16px
+$rem-base: $base-font-size !default;
+
+// This makes 14px
+$font-base: 0.875rem !default;
+
+// $base-line-height is 24px while $base-font-size is 16px
+$base-line-height: 1.5 !default;
+
+// Text selector helpers
+$headers: "h1,h2,h3,h4,h5,h6" !default;
+
+// We use these to define default font weights
+$font-weight-normal: 300 !default;
+$font-weight-bold: bold !default;
+
+// We use these to control various global styles
+$body-background: #fff !default;
+$body-font-color: #202020 !default;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-weight: $font-weight-normal !default;
+$body-font-style: normal !default;
+$body-antialiased: true !default;
+$default-border: 1px solid #ddd !default;
+$default-dotted-border: 1px dotted #CACACA !default;
+
+// Application Colors
+$primary-color: #3fa2d8 !default;
+$secondary-color: #f1f1f1 !default;
+$alert-color: #E46E5B !default;
+$info-color: #A0D3E8 !default;
+$success-color: #61DA7E !default;
+$warning-color: #9B9B87 !default;
+$dark-color: #181818 !default;
+$gray: #dfdfdf !default;
+$gray-dark: darken($gray, 8) !default;
+$gray-light: lighten($gray, 8) !default;
+$default-header-color: #3D3B35 !default;
+
+// We use these to make sure border radius matches unless we want it different.
+$global-radius: 4px !default;
+$global-rounded: 1000px !default;
+
+// We use this for default spacing
+$global-padding: 1rem !default;
+$global-spacing: rem-calc(15) !default;
+
+// 3. Breakpoints
+// - - - - - - - - - - - - - - -
+
+// These are our named breakpoints. You can use them in our breakpoint function like this: @include breakpoint(medium) { // Medium and larger styles }
+$breakpoints: (
+   small: rem-calc(0),
+   medium: rem-calc(640),
+   large: rem-calc(1200),
+   xlarge: rem-calc(1440),
+   xxlarge: rem-calc(1920),
+) !default;
+
+// All of the names in this list will be output as classes in your CSS, like small-12, medium-6, and so on.
+// $breakpoint-classes: (small medium large); 
+
+// 4. Typography
+// - - - - - - - - - - - - - - -
+
+// We use these to control header font styles
+$header-font-family: $body-font-family !default;
+$header-font-family: "Open Sans","Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$header-font-weight: $font-weight-normal !default;
+$header-font-style: $font-weight-normal !default;
+$header-font-color: #222 !default;
+$header-line-height: 1.4 !default;
+$header-top-margin: .2rem !default;
+$header-bottom-margin: .5rem !default;
+$header-text-rendering: optimizeLegibility !default;
+
+// We use these to control header font sizes //todo: Remove rem calcs
+$h1-font-size: 2.6rem !default;
+$h2-font-size: rem-calc(37) !default;
+$h3-font-size: rem-calc(27) !default;
+$h4-font-size: rem-calc(23) !default;
+$h5-font-size: 1.6rem !default;
+$h6-font-size: 1rem !default;
+
+// We use these to control header size reduction on small screens
+$h1-font-reduction: rem-calc(10) !default;
+$h2-font-reduction: rem-calc(10) !default;
+$h3-font-reduction: rem-calc(5) !default;
+$h4-font-reduction: rem-calc(5) !default;
+$h5-font-reduction: 0 !default;
+$h6-font-reduction: 0 !default;
+
+// These control how subheaders are styled.
+$subheader-line-height: 1.4 !default;
+$subheader-font-color: #212121 !default;
+$subheader-font-weight: $font-weight-normal !default;
+$subheader-top-margin: .2rem !default;
+$subheader-bottom-margin: 1rem !default;
+$subheader-text-transform: uppercase !default;
+
+// A general <small> styling
+$small-font-size: 60% !default;
+$small-font-color: scale-color($header-font-color, $lightness: 35%) !default;
+
+// We use these to style paragraphs
+$paragraph-font-family: inherit !default;
+$paragraph-font-weight: $font-weight-normal !default;
+$paragraph-font-size: 1rem !default;
+$paragraph-line-height: 1.6 !default;
+$paragraph-margin-bottom: rem-calc(20) !default;
+$paragraph-aside-font-size: rem-calc(14) !default;
+$paragraph-aside-line-height: 1.35 !default;
+$paragraph-aside-font-style: italic !default;
+$paragraph-text-rendering: optimizeLegibility !default;
+
+// We use these to style <code> tags
+$code-color: grayscale($primary-color) !default;
+$code-font-family: Consolas, 'Liberation Mono', Courier, monospace !default;
+$code-font-weight: $font-weight-normal !default;
+$code-background-color: scale-color($secondary-color, $lightness: 70%) !default;
+$code-border-size: 1px !default;
+$code-border-style: solid !default;
+$code-border-color: scale-color($code-background-color, $lightness: -10%) !default;
+$code-padding: rem-calc(2) rem-calc(5) rem-calc(1) !default;
+
+// We use these to style anchors
+$anchor-text-decoration: none !default;
+$anchor-text-decoration-hover: none !default;
+$anchor-font-color: $primary-color !default;
+$anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%) !default;
+
+// We use these to style the <hr> element
+$hr-border-width: 1px !default;
+$hr-border-style: solid !default;
+$hr-border-color: #ddd !default;
+$hr-margin: rem-calc(20) !default;
+
+// We use these to style lists
+$list-font-family: $paragraph-font-family !default;
+$list-font-size: $paragraph-font-size !default;
+$list-font-size: $font-base !default;
+$list-line-height: $paragraph-line-height !default;
+$list-margin-bottom: $paragraph-margin-bottom !default;
+$list-style-position: outside !default;
+$list-side-margin: 1.1rem !default;
+$list-ordered-side-margin: 1.4rem !default;
+$list-side-margin-no-bullet: 0 !default;
+$list-nested-margin: rem-calc(20) !default;
+$definition-list-header-weight: $font-weight-bold !default;
+$definition-list-header-margin-bottom: .3rem !default;
+$definition-list-margin-bottom: rem-calc(12) !default;
+
+// We use these to style blockquotes
+$blockquote-font-color: scale-color($header-font-color, $lightness: 35%) !default;
+$blockquote-padding: rem-calc(9 20 0 19) !default;
+$blockquote-border: 1px solid #ddd !default;
+$blockquote-cite-font-size: rem-calc(13) !default;
+$blockquote-cite-font-color: scale-color($header-font-color, $lightness: 23%) !default;
+$blockquote-cite-link-color: $blockquote-cite-font-color !default;
+
+// Acronym styles
+$acronym-underline: 1px dotted #ddd !default;
+
+// 5. Grid
+// - - - - - - - - - - - - - - -
+
+$container-width: rem-calc(900) !default;
+$block-padding: $global-padding !default;
+$total-columns: 12 !default;
+$block-grid-max-size: 6 !default;
+
+// 6. Accordion
+// - - - - - - - - - - - - - - -
+
+$accordion-border: none !default;
+$accordion-item-border: $default-border !default;
+
+$accordion-title-background: $primary-color !default;
+$accordion-title-background: transparent !default;
+$accordion-title-background-hover: smartscale($accordion-title-background, 5%) !default;
+$accordion-title-background-hover: $accordion-title-background !default;
+$accordion-title-background-active: smartscale($accordion-title-background, 20%) !default;
+$accordion-title-color: isitlight($accordion-title-background) !default;
+$accordion-title-color: inherit !default;
+$accordion-title-color-active: isitlight($accordion-title-background) !default;
+$accordion-title-color-active: inherit !default;
+$accordion-item-background: #fff !default;
+
+$accordion-title-padding: $global-padding !default;
+$accordion-content-padding: $global-padding !default;
+
+// 7. Action Sheet
+// - - - - - - - - - - - - - - -
+
+$actionsheet-background: white !default;
+$actionsheet-border-color: #ccc !default;
+$actionsheet-animate: transform opacity !default;
+$actionsheet-animation-speed: 0.25s !default;
+$actionsheet-width: 300px !default;
+$actionsheet-radius: 4px !default;
+$actionsheet-shadow: 0 -3px 10px rgba(black, 0.25) !default;
+$actionsheet-padding: $global-padding !default;
+$actionsheet-tail-size: 10px !default;
+
+$actionsheet-popup-shadow: 0 0 10px rgba(black, 0.25) !default;
+
+$actionsheet-link-color: #000 !default;
+$actionsheet-link-background-hover: smartscale($actionsheet-background) !default;
+
+// 8. Block List
+// - - - - - - - - - - - - - - -
+
+$blocklist-background: #fff !default;
+$blocklist-fullbleed: true !default;
+$blocklist-fontsize: 1rem !default;
+
+$blocklist-item-padding: 0.8rem 1rem !default;
+$blocklist-item-color: isitlight($blocklist-background, #000, #fff) !default;
+$blocklist-item-background-hover: smartscale($blocklist-background, 4.5%) !default;
+$blocklist-item-color-disabled: #999 !default;
+$blocklist-item-border: 1px solid smartscale($blocklist-background, 18.5%) !default;
+
+$blocklist-item-label-color: scale-color($blocklist-item-color, $lightness: 60%) !default;
+$blocklist-item-icon-size: 0.8 !default;
+
+$blocklist-header-fontsize: 0.8em !default;
+$blocklist-header-color: smartscale($blocklist-item-color, 40%) !default;
+$blocklist-header-uppercase: true !default;
+
+$blocklist-check-icons: true !default;
+
+
+// 9. Button
+// - - - - - - - - - - - - - - -
+
+$button-padding: 0.95em 1.3em !default;
+$button-margin: 0 $global-padding $global-padding 0 !default;
+$button-style: solid !default;
+$button-background: $primary-color !default;
+$button-color: #fff !default;
+$button-radius: 2px !default;
+$button-sizes: (
+        tiny: 0.7,
+        small: 0.8,
+        medium: 1,
+        large: 1.3,
+) !default;
+$button-font-size: 0.9rem !default;
+$button-opacity-disabled: 0.5 !default;
+$button-tag-selector: true !default;
+
+// 10. Button Group
+// - - - - - - - - - - - - - - -
+
+$btngroup-background: $primary-color !default !default;
+$btngroup-color: #fff !default !default;
+$btngroup-radius: $button-radius !default !default;
+
+$btngroup-child-selectors: '> a, > label, > button' !default;
+
+// 11. Card
+// - - - - - - - - - - - - - - -
+
+$card-background: #fff !default;
+$card-color: isitlight($card-background) !default;
+$card-border: 1px solid smartscale($card-background, 7%) !default;
+$card-radius: $global-radius !default;
+$card-shadow: 0 1px 2px rgba(#000, 0.2) !default;
+$card-padding: $global-padding !default;
+$card-margin: 0.5rem !default;
+
+$card-divider-background: smartscale($card-background, 7%) !default;
+
+// 12. Extras
+// - - - - - - - - - - - - - - -
+
+$closebutton-position: (top right) !default;
+$closebutton-size: 2em !default;
+$closebutton-lineheight: 0.5 !default;
+$closebutton-color: #999 !default;
+$closebutton-color-hover: #333 !default;
+
+$thumbnail-padding: 0.5rem !default;
+$thumbnail-shadow: 0 3px 15px rgba(black, 0.25) !default;
+
+// 13. Forms
+// - - - - - - - - - - - - - - -
+
+// Basic form variables
+$form-fontsize: 1rem !default;
+$form-padding: 0.5rem !default;
+
+// Text fields
+$input-color: #000 !default;
+$input-color-hover: $input-color !default;
+$input-color-focus: $input-color !default;
+$input-background: #fff !default;
+$input-background-hover: $input-background !default;
+$input-background-focus: $input-background !default;
+$input-border: 1px solid #ccc !default;
+$input-border-hover: 1px solid #bbb !default;
+$input-border-focus: 1px solid $primary-color !default;
+
+// Select menus
+$select-color: #000 !default;
+$select-background: #fafafa !default;
+$select-background-hover: smartscale($select-background, 4%) !default;
+$select-arrow: true !default;
+$select-arrow-color: $select-color !default;
+
+// Labels
+$form-label-fontsize: 0.9rem !default;
+$form-label-margin: 0.5rem !default;
+$form-label-color: #333 !default;
+
+// Inline labels
+$inlinelabel-color: #333 !default;
+$inlinelabel-background: #eee !default;
+$inlinelabel-border: $input-border !default;
+
+// Range slider
+$slider-background: #ddd !default;
+$slider-height: 1rem !default;
+$slider-radius: 0px !default;
+$slider-thumb-height: 1.5rem !default;
+$slider-thumb-color: $primary-color !default;
+$slider-thumb-radius: 0px !default;
+
+// Progress and meter
+$meter-height: 1.5rem !default;
+$meter-background: #ccc !default;
+$meter-fill: $primary-color !default;
+$meter-fill-high: $success-color !default;
+$meter-fill-medium: #e7cf00 !default;
+$meter-fill-low: $alert-color !default;
+$meter-radius: 0 !default;
+
+
+// 15. Label
+// - - - - - - - - - - - - - - -
+
+$label-fontsize: 0.8rem !default;
+$label-padding: ($global-padding / 3) ($global-padding / 2) !default;
+$label-radius: 0 !default;
+$label-background: $primary-color !default;
+$label-color: isitlight($primary-color) !default;
+
+$badge-fontsize: 0.8em !default;
+$badge-diameter: 1.5rem !default;
+$badge-background: $primary-color !default;
+$badge-color: #fff !default;
+
+// 16. Menu Bar
+// - - - - - - - - - - - - - - -
+
+$menubar-font-family: initial !default;
+$menubar-fontsize: 1rem !default;
+$menubar-fontsize: $font-base !default;
+$menubar-background: #fff !default;
+$menubar-background-hover: smartscale($menubar-background, 4%) !default;
+$menubar-background-active: $menubar-background-hover !default;
+$menubar-color: isitlight($menubar-background) !default;
+$menubar-color-hover: $menubar-color !default;
+$menubar-color-active: $menubar-color-hover !default;
+
+$menubar-item-padding: $global-padding !default;
+$menubar-icon-size: 25px !default;
+$menubar-icon-spacing: $menubar-item-padding !default;
+
+// 17. Modal
+// - - - - - - - - - - - - - - -
+
+$modal-background: #fff !default;
+$modal-border: 0 !default;
+$modal-radius: 0px !default;
+$modal-shadow: none !default;
+$modal-zindex: 1000 !default;
+$modal-sizes: (
+   tiny: 300px,
+   small: 500px,
+   medium: 600px,
+   large: 800px,
+) !default;
+
+$modal-overlay-class: 'modal-overlay' !default;
+$modal-overlay-background: rgba(#333, 0.7) !default;
+
+// 18. Motion UI
+// - - - - - - - - - - - - - - -
+
+// Classes to use when triggering in/out animations
+$motion-class: (
+   in: "ng-enter",
+   out: "ng-leave",
+) !default;
+$motion-class-active: (
+   in: "ng-enter-active",
+   out: "ng-leave-active",
+) !default;
+$motion-class-stagger: (
+   in: "ng-enter-stagger",
+   out: "ng-leave-stagger",
+) !default;
+
+// Set if movement-based transitions should also fade the element in and out
+$motion-slide-and-fade: false !default;
+$motion-hinge-and-fade: true !default;
+$motion-scale-and-fade: true !default;
+$motion-spin-and-fade: true !default;
+
+// Default speed for transitions and animations
+$motion-duration-default: 220ms !default;
+// Slow and fast modifiders
+$motion-duration-slow: 500ms !default;
+$motion-duration-fast: 100ms !default;
+$motion-stagger-duration-default: 150ms !default;
+$motion-stagger-duration-short: 50ms !default;
+$motion-stagger-duration-long: 300ms !default;
+
+// Default timing function for transitions and animations
+$motion-timing-default: ease !default;
+// Built-in and custom easing functions
+// Every item in this map becomes a CSS class
+$motion-timings: (
+   linear: linear,
+   ease: ease,
+   easeIn: ease-in,
+   easeOut: ease-out,
+   easeInOut: ease-in-out,
+   bounceIn: cubic-bezier(0.485, 0.155, 0.240, 1.245),
+   bounceOut: cubic-bezier(0.485, 0.155, 0.515, 0.845),
+   bounceInOut: cubic-bezier(0.760, -0.245, 0.240, 1.245),
+  slideOut: cubic-bezier(.16,.75,.56,.98)
+) !default;
+
+// Default delay for all transitions and animations
+$motion-delay-default: 0 !default;
+//Short and long delay modifiers
+$motion-delay-short: 300ms !default;
+$motion-delay-long: 700ms !default;
+
+//19. Notification
+//- - - - - - - - - - - - - - -
+
+$notification-default-position: right top !default;
+$notification-width: rem-calc(400) !default;
+$notification-offset: $global-padding !default;
+
+$notification-background: $primary-color !default;
+$notification-color: white !default;
+$notification-padding: $global-padding !default;
+$notification-radius: 4px !default;
+
+$notification-icon-size: 60px !default;
+$notification-icon-margin: $global-padding !default;
+$notification-icon-align: top !default;
+ 
+
+//20. Off-canvas
+//- - - - - - - - - - - - - - -
+
+$offcanvas-size-horizontal: 250px !default;
+$offcanvas-size-vertical: 250px !default;
+
+$offcanvas-background: #fff !default;
+$offcanvas-color: isitlight($offcanvas-background) !default;
+$offcanvas-padding: 0 !default;
+$offcanvas-shadow: 3px 0 10px rgba(black, 0.25) !default;
+$offcanvas-animation-speed: 0.25s !default;
+
+$offcanvas-frame-selector: '.grid-frame' !default;
+
+//21. Panel
+//- - - - - - - - - - - - - - -
+
+$panel-size-horizontal: 300px !default;
+$panel-size-vertical: 300px !default;
+$panel-padding: 0 !default;
+
+$panel-background: #fff !default;
+$panel-shadow: -1px 0 6px rgba(0, 0, 0, 0.14) !default;
+$panel-animation-speed: 0.25s !default;
+
+//22. Popup
+//- - - - - - - - - - - - - - - -
+
+$popup-width: rem-calc(300) !default;
+$popup-background: #fff !default;
+$popup-border: 0 !default;
+$popup-radius: 0 !default;
+$popup-shadow: 0 0 10px rgba(#000, 0.25) !default;
+
+//23. Switch
+//- - - - - - - - - - - - - - -
+
+$switch-width: rem-calc(50) !default;
+$switch-height: rem-calc(32) !default;
+$switch-background: #ccc !default;
+$switch-background-active: $primary-color !default;
+$switch-border: 0 !default;
+$switch-radius: 9999px !default;
+$switch-animation-speed: 0.15s !default;
+
+$switch-paddle-color: white !default;
+$switch-paddle-offset: 4px !default;
+
+//24. Tabs
+//- - - - - - - - - - - - - - -
+
+$tabstrip-background: $gray-light !default;
+$tabstrip-padding: 0.3rem !default;
+$tabstrip-radius: 4px !default;
+$tab-title-radius: 2px !default;
+$tab-title-background: transparent !default;
+$tab-title-background-hover: smartscale($tabstrip-background, -35%) !default;
+$tab-title-background-active: $primary-color !default;
+$tab-title-color: $body-font-color !default;
+$tab-title-color-hover: $body-font-color !default;
+$tab-title-color-active: #fff !default;
+$tab-title-padding: 0.9rem 1.4rem 0.9rem !default;
+$tab-content-padding: 0 !default;
+$tabview-padding: 0 !default;
+$tabview-border: none !default;
+
+
+//25. Title Bar
+//- - - - - - - - - - - - - - -
+
+$titlebar-center-width: 50% !default;
+$titlebar-side-width: (100% - $titlebar-center-width) / 2 !default;
+$titlebar-background: #eee !default;
+$titlebar-color: #000 !default;
+$titlebar-border: 1px solid #ccc !default;
+$titlebar-padding: $global-padding !default;
+$titlebar-item-classes: (
+   center: 'center',
+   left: 'left',
+   right: 'right',
+   title: 'title',
+) !default;

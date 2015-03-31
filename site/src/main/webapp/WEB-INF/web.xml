@@ -6,6 +6,11 @@
 
     <display-name>TornadoFaces Site</display-name>
 
+    <context-param>
+        <param-name>tornadofaces.THEME</param-name>
+        <param-value>site</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

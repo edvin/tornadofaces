@@ -1,0 +1,19 @@
+@import "../../../../../../theme/src/theme";
+
+#quick-links {
+      li:nth-child(2) {
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      a {
+            display: flex;
+            flex-direction: row;
+
+      }
+      i {
+            font-size: 1.4rem;
+      }
+      span {
+            margin-left: 0.8rem;
+      }
+}
