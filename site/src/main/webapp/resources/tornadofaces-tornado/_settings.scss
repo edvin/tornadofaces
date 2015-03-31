@@ -1,48 +1,5 @@
-//  FOUNDATION FOR APPS SETTINGS
-//  ----------------------------
-//
-//  Table of Contents:
-//
-//  1.  CSS Exports
-//  2.  Global Styles
-//  3.  Breakpoints
-//  4.  Typography
-//  5.  Grid
-//  6.  Accordion
-//  7.  Action Sheet
-//  8.  Block List
-//  9.  Button
-//  10. Button Group
-//  11. Card
-//  12. Extras
-//  13. Forms
-//  14. Iconic
-//  15. Label
-//  16. Menu Bar
-//  17. Modal
-//  18. Motion UI
-//  19. Notification
-//  20. Off-canvas
-//  21. Panel
-//  22. Popup
-//  23. Switch
-//  24. Tabs
-//  25. Title Bar
-
 @import "helpers/functions";
 
-// 1. CSS Exports
-// - - - - - - - - - - - - - - -
-
-// 2. Global Styles
-// - - - - - - - - - - - - - - -
-
-// The default font-size is set to 100% of the browser style sheet (usually 16px)
-// for compatibility with browser-based text zoom or user-set defaults.
-
-// Since the typical default browser font-size is 16px, that makes the calculation for grid size.
-// If you want your base font-size to be different and not have it affect the grid breakpoints,
-// set $rem-base to $base-font-size and make sure $base-font-size is a px value.
 $base-font-size: 14px;
 
 // This sets 1rem to be 16px

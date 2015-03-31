@@ -87,40 +87,6 @@
 }
 
 
-// ?. Breadcrumb
-// - - - - - - - - - - - - - - -
-.breadcrumb {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  background: #f3f3f3;
-  margin: 0 0 2rem 0;
-  padding: 1rem 5%; //todo: $content-outer-padding ellerno
-  font-size: 14px;
-
-  &.vertical {
-    flex-direction: column;
-  }
-  li + li:before {
-    content: "/\00a0";
-    color: rgb(204,204,204);
-    padding: 0 5px;
-  }
-
-  a {
-    color: $primary-color;
-
-    &:hover {
-      color: darken($primary-color, 30);
-      text-decoration: underline;
-    }
-  }
-  .is-active {
-
-  }
-}
-
-
 @include breakpoint(small) {
   #main-container {
 
@@ -136,23 +102,7 @@
   }
 }
 
-#quick-links {
-  li:nth-child(2) {
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  a {
-    display: flex;
-    flex-direction: row;
-
-  }
-  i {
-    font-size: 1.4rem;
-  }
-  span {
-    margin-left: 0.8rem;
-  }
-}
+CS
 
 span.highlight {
   background-color: orange;
