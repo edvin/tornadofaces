@@ -111,12 +111,6 @@ public class HeadRenderer extends Renderer {
 	protected void encodeCSS(FacesContext context, String library, String resource) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 
-//		Resource cssResource = context.getApplication().getResourceHandler().createResource(resource, library);
-
-//		if (cssResource == null)
-//			throw new FacesException("Error loading css, cannot find \"" + resource + "\" resource of \"" + library + "\" library");
-
-//		else {
 		ServletContext ctx = (ServletContext) context.getExternalContext().getContext();
 
 		writer.startElement("link", null);
@@ -124,7 +118,6 @@ public class HeadRenderer extends Renderer {
 		writer.writeAttribute("rel", "stylesheet", null);
 		writer.writeAttribute("href", format("%s/javax.faces.resource/%s.xhtml?ln=%s", ctx.getContextPath(), resource, library), null);
 		writer.endElement("link");
-//		}
 	}
 
 	protected void encodeJS(FacesContext context, String library, String resource) throws IOException {
