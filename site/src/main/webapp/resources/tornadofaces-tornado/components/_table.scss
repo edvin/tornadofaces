@@ -2,8 +2,8 @@
 // Defaults
 
 $default-cell-padding: 1rem;
-$default-table-border: 1px solid #ddd; //todo: make global default border
-$default-table-border-dotted: 1px dotted #CACACA; //todo: make global default border
+$default-table-border: $default-border;
+$default-table-border-dotted: $default-dotted-border; //todo: make global default border
 
 $table-zebra-background: #EFF6FA;
 $table-selected-row-background: #C4EAFF;

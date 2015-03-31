@@ -86,15 +86,6 @@
   }
 }
 
-// 6. Accordion
-// - - - - - - - - - - - - - - -
-.accordion-title i {
-  margin-top: -8px;
-  margin-bottom: -8px;
-}
-.accordion-item {
-  background: $accordion-item-background;
-}
 
 // ?. Breadcrumb
 // - - - - - - - - - - - - - - -
@@ -129,71 +120,6 @@
   }
 }
 
-.accordion {
-  @extend .boxed;
-
-  &.item-spacing {
-    box-shadow: none;
-    border: none;
-
-    .accordion-item {
-      @extend .boxed;
-      margin-bottom: 0.4rem;
-    }
-  }
-
-  .accordion-item {
-    .accordion-title {
-      position: relative;
-      border-bottom: 1px solid #F4F4F1;
-      padding: 1.4rem 2.4rem 1.4rem 1rem;
-      display: flex;
-      align-items: center;
-      user-select: none;
-
-      i {
-        font-size: 2rem;
-        margin-right: 1rem;
-        color: $primary-color;
-      }
-
-      &:after {
-        content: "\e62e";
-        font-family: icomoon;
-        color: $primary-color;
-        position: absolute; top: 50%; right: 8px;
-        display: block;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
-        text-align: center;
-        font-size: 2rem;
-        border-radius: 50%;
-        transition: all 0.3s;
-        margin-top: -16px;
-      }
-
-      &:hover {
-        &:after {
-          background-color: $primary-color;
-          color: #fff;
-        }
-      }
-    }
-    .accordion-content {
-    }
-    &.is-active {
-      .accordion-title {
-        &:after {
-          transform: rotate(180deg);
-          //content: "\e62d";
-        }
-      }
-    }
-
-  }
-
-}
 
 @include breakpoint(small) {
   #main-container {
