@@ -5317,14 +5317,20 @@ meter {
   The trusy accordion allows you to create a series of vertical tabs.
 */
 .accordion {
-  border: 1px solid #cbcbcb; }
+  border-collapse: collapse; }
+
+.accordion-item {
+  border: 1px solid #ddd;
+  margin-bottom: -1px; }
 
 .accordion-title {
   padding: 1rem;
   background: transparent;
   color: inherit;
   line-height: 1;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 1.4em;
+  font-weight: 200; }
   .accordion-title:hover {
     background: transparent; }
   .is-active > .accordion-title {
@@ -8087,7 +8093,7 @@ th {
 .reveal.display.is-active {
   display: inherit; }
 
-.boxed, .accordion, .accordion.item-spacing .accordion-item {
+.boxed {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
   border: 1px solid #dfdfdf; }
 
@@ -8130,13 +8136,6 @@ th {
   .close-button:hover {
     color: #fff; }
 
-.accordion-title i {
-  margin-top: -8px;
-  margin-bottom: -8px; }
-
-.accordion-item {
-  background: #fff; }
-
 .breadcrumb {
   list-style: none;
   display: -webkit-flex;
@@ -8162,52 +8161,6 @@ th {
     .breadcrumb a:hover {
       color: #154b69;
       text-decoration: underline; }
-
-.accordion.item-spacing {
-  box-shadow: none;
-  border: none; }
-  .accordion.item-spacing .accordion-item {
-    margin-bottom: 0.4rem; }
-.accordion .accordion-item .accordion-title {
-  position: relative;
-  border-bottom: 1px solid #F4F4F1;
-  padding: 1.4rem 2.4rem 1.4rem 1rem;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
-  .accordion .accordion-item .accordion-title i {
-    font-size: 2rem;
-    margin-right: 1rem;
-    color: #3fa2d8; }
-  .accordion .accordion-item .accordion-title:after {
-    content: "\e62e";
-    font-family: icomoon;
-    color: #3fa2d8;
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    display: block;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    font-size: 2rem;
-    border-radius: 50%;
-    transition: all 0.3s;
-    margin-top: -16px; }
-  .accordion .accordion-item .accordion-title:hover:after {
-    background-color: #3fa2d8;
-    color: #fff; }
-.accordion .accordion-item.is-active .accordion-title:after {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg); }
 
 .menu-group > .menu-group-left {
   -webkit-flex: 1;

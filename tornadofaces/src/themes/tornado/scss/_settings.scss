@@ -99,6 +99,8 @@ $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $body-font-weight: $font-weight-normal;
 $body-font-style: normal;
 $body-antialiased: true;
+$default-border: 1px solid #ddd;
+$default-dotted-border: 1px dotted #CACACA;
 
 // Application Colors
 $primary-color: #3fa2d8;
@@ -248,7 +250,8 @@ $block-grid-max-size: 6;
 // 6. Accordion
 // - - - - - - - - - - - - - - -
 
-$accordion-border: 1px solid $gray-dark;
+$accordion-border: none;
+$accordion-item-border: $default-border;
 
 $accordion-title-background: $primary-color;
 $accordion-title-background: transparent;

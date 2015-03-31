@@ -18,6 +18,8 @@
   color: $color;
   line-height: 1;
   cursor: pointer;
+  font-size: 1.4em;
+  font-weight: 200;
 
   &:hover {
     background: $background-hover;
@@ -45,9 +47,13 @@
     @if hasvalue($accordion-border) {
       border: $accordion-border;
     }
+    border-collapse: collapse;
   }
     .accordion-item {
-
+      @if hasvalue($accordion-item-border) {
+        border: $accordion-item-border;
+        margin-bottom: -1px;
+      }
     }
     .accordion-title {
       @include accordion-title;
