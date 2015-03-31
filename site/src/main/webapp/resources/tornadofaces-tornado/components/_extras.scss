@@ -1,0 +1,46 @@
+/*
+  Odds and ends.
+*/
+
+// A basic close button. They pin to the corner of the thing they're inside.
+%close-button {
+  $x: nth($closebutton-position, 1);
+  $y: nth($closebutton-position, 2);
+
+  position: absolute;
+  color: $closebutton-color;
+  #{$x}: $global-padding;
+  #{$y}: $global-padding;
+  font-size: $closebutton-size;
+  line-height: $closebutton-lineheight;
+  cursor: pointer;
+
+  &:hover {
+    color: $closebutton-color-hover;
+  }
+}
+
+// Make your images fancy-like.
+%thumbnail {
+  padding: $thumbnail-padding;
+  box-shadow: $thumbnail-shadow;
+}
+
+.close-button {
+  @extend %close-button;
+}
+
+.thumbnail {
+  @extend %thumbnail;
+}
+
+ul.thumbnails > li {
+  margin-bottom: 1rem;
+
+  a {
+    display: block;
+  }
+  img {
+    @extend %thumbnail;
+  }
+}

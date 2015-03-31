@@ -18,7 +18,7 @@ public class IconDescriptor {
 	@Getter List<String> icons;
 
 	@PostConstruct
-	public void init() throws IOException {
+	public void init() {
 		try (InputStream input = getClass().getResourceAsStream("/META-INF/resources/tornadofaces-tornado/theme.css")) {
 			byte[] data = IOUtils.readFully(input, -1, false);
 			String css = new String(data);
@@ -26,6 +26,8 @@ public class IconDescriptor {
 			icons = new ArrayList<>();
 			while (m.find())
 				icons.add(m.group(1));
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 }

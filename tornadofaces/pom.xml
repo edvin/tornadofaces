@@ -110,24 +110,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <!--<plugin>-->
-                <!--<groupId>com.github.warmuuh</groupId>-->
-                <!--<artifactId>libsass-maven-plugin</artifactId>-->
-                <!--<version>0.1.2</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>generate-resources</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>compile</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<configuration>-->
-                    <!--<outputStyle>compressed</outputStyle>-->
-                    <!--<inputPath>${basedir}/src/themes/tornado/scss</inputPath>-->
-                    <!--<outputPath>${basedir}/src/main/resources/META-INF/resources/tornadofaces-tornado/</outputPath>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
@@ -152,7 +134,6 @@
                 </executions>
             </plugin>
         </plugins>
-
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -164,7 +145,5 @@
                 </excludes>
             </resource>
         </resources>
-
     </build>
-
 </project>

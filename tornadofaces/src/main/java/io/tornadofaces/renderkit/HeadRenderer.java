@@ -10,12 +10,15 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
+import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.util.ListIterator;
 
+import static java.lang.String.format;
+
 /**
  * Code copied from PrimeFaces and modified
- *
+ * <p>
  * Renders head content based on the following order
  * - First Facet
  * - Theme CSS
@@ -51,11 +54,12 @@ public class HeadRenderer extends Renderer {
 
 	/**
 	 * Get a config value by first looking at ViewRoot attributes, and then for init parameters.
-	 * 
+	 * <p>
 	 * If a value is found, it is resolved as an EL expression
-	 * * 
+	 * *
+	 *
 	 * @param context The current FacesContext
-	 * @param key The key to lookup
+	 * @param key     The key to lookup
 	 * @return The resolved value or null if not found
 	 */
 	private String getConfigValue(FacesContext context, String key, String defaultValue) {
@@ -64,7 +68,7 @@ public class HeadRenderer extends Renderer {
 
 		if (value == null)
 			value = context.getExternalContext().getInitParameter(key);
-	
+
 		if (value != null) {
 			ELContext elContext = context.getELContext();
 			ExpressionFactory expressionFactory = context.getApplication().getExpressionFactory();
@@ -80,7 +84,7 @@ public class HeadRenderer extends Renderer {
 		if ("true".equals(getConfigValue(context, "tornadofaces.DISABLE", "false")))
 			return;
 
-		String theme = getConfigValue(context, "tornadofaces.THEME", "tornado"); 
+		String theme = getConfigValue(context, "tornadofaces.THEME", "tornado");
 
 		if (!theme.equals("none"))
 			encodeCSS(context, "tornadofaces-" + theme, "theme.css");
@@ -107,18 +111,20 @@ public class HeadRenderer extends Renderer {
 	protected void encodeCSS(FacesContext context, String library, String resource) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 
-		Resource cssResource = context.getApplication().getResourceHandler().createResource(resource, library);
+//		Resource cssResource = context.getApplication().getResourceHandler().createResource(resource, library);
 
-		if (cssResource == null)
-			throw new FacesException("Error loading css, cannot find \"" + resource + "\" resource of \"" + library + "\" library");
+//		if (cssResource == null)
+//			throw new FacesException("Error loading css, cannot find \"" + resource + "\" resource of \"" + library + "\" library");
 
-		else {
-			writer.startElement("link", null);
-			writer.writeAttribute("type", "text/css", null);
-			writer.writeAttribute("rel", "stylesheet", null);
-			writer.writeAttribute("href", cssResource.getRequestPath(), null);
-			writer.endElement("link");
-		}
+//		else {
+		ServletContext ctx = (ServletContext) context.getExternalContext().getContext();
+
+		writer.startElement("link", null);
+		writer.writeAttribute("type", "text/css", null);
+		writer.writeAttribute("rel", "stylesheet", null);
+		writer.writeAttribute("href", format("%s/javax.faces.resource/%s.xhtml?ln=%s", ctx.getContextPath(), resource, library), null);
+		writer.endElement("link");
+//		}
 	}
 
 	protected void encodeJS(FacesContext context, String library, String resource) throws IOException {
