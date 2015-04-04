@@ -46,7 +46,7 @@ $global-radius: 4px !default;
 $global-rounded: 1000px !default;
 
 // We use this for default spacing
-$global-padding: 1rem !default;
+$global-padding: 2rem !default;
 $global-spacing: rem-calc(15) !default;
 
 // 3. Breakpoints
@@ -177,13 +177,13 @@ $block-grid-max-size: 6 !default;
 // - - - - - - - - - - - - - - -
 
 $accordion-border: none !default;
-$accordion-item-border: $default-border !default;
+$accordion-item-border: none !default;
+$accordion-item-shadow: 0px 1px 4px rgba(0, 0, 0, 0.32) !default; //Todo: variable
 
-$accordion-title-background: $primary-color !default;
-$accordion-title-background: transparent !default;
-$accordion-title-background-hover: smartscale($accordion-title-background, 5%) !default;
+$accordion-title-background: #fff !default;
+$accordion-title-background-hover: #f3f3f3 !default;
 $accordion-title-background-hover: $accordion-title-background !default;
-$accordion-title-background-active: smartscale($accordion-title-background, 20%) !default;
+$accordion-title-background-active: smartscale($accordion-title-background, -5%) !default;
 $accordion-title-color: isitlight($accordion-title-background) !default;
 $accordion-title-color: inherit !default;
 $accordion-title-color-active: isitlight($accordion-title-background) !default;
