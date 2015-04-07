@@ -18,12 +18,24 @@
   color: $color;
   line-height: 1;
   cursor: pointer;
-  font-size: 1.2em;
-  font-weight: 200;
+  font-size: 1.5rem;
+  font-weight: 400;
   position: relative;
 
   &:hover {
     background: $background-hover;
+  }
+
+  > i {
+    vertical-align: middle;
+    font-size: 1.4em;
+    padding-right: 0.6em;
+    display: inline-block;
+    margin-top: -0.2em;
+    &:before {
+      vertical-align: middle;
+      color: $primary-color;
+    }
   }
 
   &:after {
@@ -48,7 +60,7 @@
 @mixin accordion-content(
   $padding: $accordion-content-padding
 ) {
-  padding: $padding;
+  padding: 0 $padding $padding;
 
   display: none;
   .is-active > & {

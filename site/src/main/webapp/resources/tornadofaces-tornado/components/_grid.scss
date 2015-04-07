@@ -23,6 +23,9 @@
   @param {number|string} $size - Sizing behavior of the block. Should be expand, shrink, or a number.
   @output The flex-basis, flex-grow, and flex-shrink properties.
 */
+
+.is-hidden {display: none;}
+
 @mixin grid-size($size: expand) {
   @if (type-of($size) == 'number') {
     $pct: percentage($size / $total-columns);

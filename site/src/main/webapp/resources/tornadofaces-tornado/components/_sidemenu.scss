@@ -6,6 +6,10 @@ $sidemenu-outer-padding: 0;
 $sidemenu-min-width: 300px;
 $sidemenu-max-width: 300px;
 
+//Toggle (minimizer)
+$sidemenu-toggle-background: $primary-color;
+$sidemenu-toggle-color: #fff;
+
 //sidemenu item - applies to li
 $sidemenu-item-background: initial;
 $sidemenu-item-hover-background: initial;
@@ -45,12 +49,13 @@ $sidemenu-popuot-background: #1e1e1e;
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 50px;
+  height: 36px;
   border-radius: 0 2px 2px 0;
-  background: #181818;
+  background: $sidemenu-toggle-background;
   >i {
     font-size: 1.6rem;
     &:before {
+      color: $sidemenu-toggle-color;
       display: block;
       margin-left: 0;
       vertical-align: middle;

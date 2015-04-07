@@ -1,5 +1,6 @@
 TornadoFaces.declareWidget('Accordion', function() {
     var widget;
+    var duration = 145;
 
     this.init = function() {
         widget = this;
@@ -49,7 +50,7 @@ TornadoFaces.declareWidget('Accordion', function() {
         if(!widget.isMulti()) {
             widget.items.filter('.is-active').each(function() {
                 var _item = $(this);
-                _item.children('.accordion-content').slideUp({ duration: 125, complete: function() {
+                _item.children('.accordion-content').slideUp({ duration: duration, complete: function() {
                         _item.removeClass('is-active');
                     }
                 });
@@ -57,7 +58,7 @@ TornadoFaces.declareWidget('Accordion', function() {
         }
 
         // Animate and show this content
-        item.children('.accordion-content').slideDown({duration: 125, complete: function() {
+        item.children('.accordion-content').slideDown({duration: duration, complete: function() {
             item.addClass('is-active');
         }});
 
@@ -139,7 +140,7 @@ TornadoFaces.declareWidget('Accordion', function() {
                 widget.setActiveState(item);
             }
         } else {
-            item.find('.accordion-content').slideUp({duration: 200, complete: function() {
+            item.find('.accordion-content').slideUp({duration: duration, complete: function() {
                 item.removeClass('is-active');
             }});
         }

@@ -21,7 +21,7 @@ $font-weight-bold: bold !default;
 // We use these to control various global styles
 $body-background: #fff !default;
 $body-font-color: #202020 !default;
-$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
 $body-font-weight: $font-weight-normal !default;
 $body-font-style: normal !default;
 $body-antialiased: true !default;
@@ -238,7 +238,7 @@ $blocklist-check-icons: true !default;
 // - - - - - - - - - - - - - - -
 
 $button-padding: 0.95em 1.3em !default;
-$button-margin: 0 $global-padding $global-padding 0 !default;
+$button-margin: 0 $global-padding/2 $global-padding/2 0 !default;
 $button-style: solid !default;
 $button-background: $primary-color !default;
 $button-color: #fff !default;
