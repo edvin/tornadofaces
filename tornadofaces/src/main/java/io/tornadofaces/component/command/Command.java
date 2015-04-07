@@ -21,7 +21,7 @@ public class Command extends UICommand implements Widget, ClientBehaviorHolder {
 		return ComponentUtils.COMPONENT_FAMILY;
 	}
 
-	public Boolean getOnload() { return (Boolean) getStateHelper().eval("onload"); }
+	public Boolean getOnload() { return (Boolean) getStateHelper().eval("onload", false); }
 	public void setOnload(Boolean onload) { getStateHelper().put("onload", onload); }
 	public String getName() { return (String) getStateHelper().eval("name"); }
 	public void setName(String name) { getStateHelper().put("name", name); }
@@ -32,8 +32,11 @@ public class Command extends UICommand implements Widget, ClientBehaviorHolder {
 	public String getOncomplete() { return (String) getStateHelper().eval("oncomplete"); }
 	public void setOncomplete(String oncomplete) { getStateHelper().put("oncomplete", oncomplete); }
 
-	public String getOnstart() { return (String) getStateHelper().eval("onstart"); }
-	public void setOnstart(String onstart) { getStateHelper().put("onstart", onstart); }
+	public String getOnbegin() { return (String) getStateHelper().eval("onbegin"); }
+	public void setOnbegin(String onbegin) { getStateHelper().put("onbegin", onbegin); }
+
+	public String getBeforebegin() { return (String) getStateHelper().eval("beforebegin"); }
+	public void setBeforebegin(String beforebegin) { getStateHelper().put("beforebegin", beforebegin); }
 
 	public String getExecute() { return (String) getStateHelper().eval("execute", "@this"); }
 	public void setExecute(String execute) {

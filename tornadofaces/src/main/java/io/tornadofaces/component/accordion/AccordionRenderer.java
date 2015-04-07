@@ -59,12 +59,12 @@ public class AccordionRenderer extends TabParentRenderer {
 		}
 
 		UIComponent titleFacet = tab.getFacet("title");
-		
+
 		if (titleFacet != null)
 			titleFacet.encodeAll(context);
 		else
 			writer.writeText(tab.getTitle(), null);
-		
+
 		writer.endElement("div");
 
 		child.encodeAll(context);
@@ -87,12 +87,12 @@ public class AccordionRenderer extends TabParentRenderer {
 			.attr("cache", accordion.isCache())
 			.attr("multi", accordion.isMulti())
 			.attr("collapsible", accordion.isCollapsible())
-			.attr("autoOpen", accordion.isAutoOpen());
+			.attr("autoOpen", accordion.isAutoOpen())
+			.nativeAttr("onItemChange", accordion.getOnItemChange());
 
 		addBehaviors(builder);
-		
-		builder.callback("onTabChange", "function(tab)", accordion.getOnItemChange())
-			.finish();
+
+		builder.finish();
 	}
 
 }

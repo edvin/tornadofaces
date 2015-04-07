@@ -74,8 +74,10 @@ public abstract class ButtonBase extends UICommand implements Widget, ClientBeha
 	public void setIcon(String icon) { getStateHelper().put("icon", icon); }
 	public String getOncomplete() { return (String) getStateHelper().eval("oncomplete"); }
 	public void setOncomplete(String oncomplete) { getStateHelper().put("oncomplete", oncomplete); }
-	public String getOnstart() { return (String) getStateHelper().eval("onstart"); }
-	public void setOnstart(String onstart) { getStateHelper().put("onstart", onstart); }
+	public String getOnbegin() { return (String) getStateHelper().eval("onbegin"); }
+	public void setOnbegin(String onbegin) { getStateHelper().put("onbegin", onbegin); }
+	public String getBeforebegin() { return (String) getStateHelper().eval("beforebegin"); }
+	public void setBeforebegin(String beforebegin) { getStateHelper().put("beforebegin", beforebegin); }
 
 	public String getWidgetVar() { return (String) getStateHelper().eval("widgetVar"); }
 	public void setWidgetVar(String widgetVar) { getStateHelper().put("widgetVar", widgetVar); }

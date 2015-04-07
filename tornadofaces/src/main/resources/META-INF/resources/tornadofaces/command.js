@@ -14,6 +14,9 @@ TornadoFaces.declareWidget('Command', function() {
     };
 
     this.run = function() {
+        if (widget.conf.beforebegin)
+            eval(widget.conf.beforebegin);
+
         var options = {
             execute: widget.conf.execute,
             render: widget.conf.render

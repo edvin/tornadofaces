@@ -62,8 +62,8 @@ TornadoFaces.declareWidget('Accordion', function() {
         }});
 
         // Call change listener
-        if (widget.conf.onTabChange)
-            widget.conf.onTabChange(item);
+        if (widget.conf.onItemChange)
+            widget.conf.onItemChange(item);
     };
 
     this.select = function(itemIndex) {

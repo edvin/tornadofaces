@@ -549,6 +549,18 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>Converter</description>
+            <name>converter</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The value</description>
+            <name>value</name>
+            <required>false</required>
+            <type>Object</type>
+        </attribute>
+        <attribute>
             <description>Locale used to determine client side locale. The value is globally configured for moment.js.</description>
             <name>locale</name>
             <required>false</required>
@@ -1024,8 +1036,8 @@
             <type>Integer or String</type>
         </attribute>
         <attribute>
-            <description>JavaScript callback to be executed when a user opens an item.</description>
-            <name>onTabChange</name>
+            <description>JavaScript callback to be executed when a user opens an item. The function will be called with the selected item as the only argument.</description>
+            <name>onItemChange</name>
             <required>false</required>
             <type>String</type>
         </attribute>
@@ -2105,8 +2117,14 @@
             <type>io.tornadofaces.component.common.Color</type>
         </attribute>
         <attribute>
+            <description>JavaScript callback triggered before the AJAX event is assembled</description>
+            <name>beforebegin</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>JavaScript callback triggered before the AJAX request is sent</description>
-            <name>oncomplete</name>
+            <name>onbegin</name>
             <required>false</required>
             <type>String</type>
         </attribute>
@@ -2242,8 +2260,14 @@
             <type>io.tornadofaces.component.common.Color</type>
         </attribute>
         <attribute>
+            <description>JavaScript callback triggered before the AJAX event is assembled</description>
+            <name>beforebegin</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>JavaScript callback triggered before the AJAX request is sent</description>
-            <name>oncomplete</name>
+            <name>onbegin</name>
             <required>false</required>
             <type>String</type>
         </attribute>
@@ -2320,6 +2344,12 @@
             <name>execute</name>
             <required>false</required>
             <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered before the AJAX event is assembled</description>
+            <name>beforebegin</name>
+            <required>false</required>
+            <type>String</type>
         </attribute>
         <attribute>
             <description>JavaScript callback triggered before the AJAX request is sent</description>
@@ -2403,6 +2433,12 @@
             <name>interval</name>
             <required>true</required>
             <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Start the poller on DOM load. Defaults to true.</description>
+            <name>onload</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
         <attribute>
             <description>The number of milliseconds before the first poll.</description>

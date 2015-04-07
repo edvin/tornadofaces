@@ -85,7 +85,8 @@ public class ButtonRenderer extends CoreRenderer {
 			.attr("execute", ComponentUtils.resolveIds(context, button, Arrays.asList(button.getExecute().split(" "))))
 			.attr("onsuccess", button.getOnsuccess())
 			.attr("oncomplete", button.getOncomplete())
-			.attr("onstart", button.getOnstart());
+			.attr("onbegin", button.getOnbegin())
+			.attr("beforebegin", button.getBeforebegin());
 
 		if (button.getTreatAsButton())
 			builder

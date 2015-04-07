@@ -35,7 +35,7 @@ public class PollRenderer extends CoreRenderer {
 			.attr("execute", ComponentUtils.resolveIds(context, poll, Arrays.asList(poll.getExecute().split(" "))))
 			.attr("onsuccess", poll.getOnsuccess())
 			.attr("oncomplete", poll.getOncomplete())
-			.attr("onstart", poll.getOnstart())
+			.attr("onbegin", poll.getOnbegin())
 			.finish();
 	}
 

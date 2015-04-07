@@ -31,7 +31,8 @@ public class CommandRenderer extends CoreRenderer {
 			.attr("name", command.getName())
 			.attr("onsuccess", command.getOnsuccess())
 			.attr("oncomplete", command.getOncomplete())
-			.attr("onstart", command.getOnstart());
+			.attr("onbegin", command.getOnbegin())
+			.attr("beforebegin", command.getBeforebegin());
 
 		String render = command.getRender();
 		if (render != null)

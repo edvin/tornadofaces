@@ -19,7 +19,7 @@ public class IconDescriptor {
 
 	@PostConstruct
 	public void init() {
-		try (InputStream input = getClass().getResourceAsStream("/META-INF/resources/tornadofaces-tornado/theme.css")) {
+		try (InputStream input = getClass().getResourceAsStream("/META-INF/resources/tornadofaces-tornado/components/_icons.scss")) {
 			byte[] data = IOUtils.readFully(input, -1, false);
 			String css = new String(data);
 			Matcher m = IconPattern.matcher(css);

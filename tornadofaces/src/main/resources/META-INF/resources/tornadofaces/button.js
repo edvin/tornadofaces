@@ -39,6 +39,9 @@ TornadoFaces.declareWidget('Button', function() {
                 return false;
             }
 
+            if (widget.conf.beforebegin)
+                eval(widget.conf.beforebegin);
+
             widget.initLadda();
             
             var options = {

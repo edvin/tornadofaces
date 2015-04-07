@@ -18,7 +18,9 @@
         <p>Pickaday uses <a href="http://momentjs.com/">moment.js</a> for client side date formatting. Be aware that client and server side formats may differ.</p>
         
         <ui:include src="datepicker.xhtml"/>
-        
+
+        <p><strong>Important!</strong> If you don't add ajax behavior to the datepicker, you have to assign it an id for the client side functionality to kick in. The reason for this is that <code>inputText</code> elements do not get an id unless they have client behaviors.</p>
+
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
 <t:source>
