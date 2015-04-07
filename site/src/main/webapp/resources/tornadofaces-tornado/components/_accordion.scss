@@ -18,16 +18,30 @@
   color: $color;
   line-height: 1;
   cursor: pointer;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 200;
+  position: relative;
 
   &:hover {
     background: $background-hover;
   }
 
+  &:after {
+    content: '\e62e';
+    font-family: icomoon;
+    font-size: 1.6rem;
+    position: absolute;
+    right: 2rem;
+    color: $primary-color;
+    transition: transform 0.32s;
+  }
+
   .is-active > & {
     background: $background-active;
     color: $color-active;
+    &:after {
+      transform: rotateX(180deg);
+    }
   }
 }
 
@@ -46,12 +60,22 @@
     @if hasvalue($accordion-border) {
       border: $accordion-border;
     }
-    border-collapse: collapse;
+    padding-bottom: $global-padding;
   }
     .accordion-item {
+      position: relative;
+      background: $accordion-item-background;
       @if hasvalue($accordion-item-border) {
         border: $accordion-item-border;
         margin-bottom: -1px;
+      }
+      @if hasvalue($accordion-item-shadow) {
+        box-shadow: $accordion-item-shadow;
+        margin-bottom: -1px;
+      }
+      transition: margin 0.18s;
+      &.is-active {
+        margin-bottom: 1rem;
       }
     }
     .accordion-title {

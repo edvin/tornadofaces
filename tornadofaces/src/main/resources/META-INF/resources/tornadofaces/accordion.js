@@ -43,13 +43,13 @@ TornadoFaces.declareWidget('Accordion', function() {
     this.hasTabChangeBehavior = function() {
         return widget.conf.behaviors && widget.conf.behaviors.tabChange;
     };
-    
+
     this.setActiveState = function(item) {
         // Remove other active contents
         if(!widget.isMulti()) {
             widget.items.filter('.is-active').each(function() {
                 var _item = $(this);
-                _item.children('.accordion-content').slideUp({ duration: 200, complete: function() {
+                _item.children('.accordion-content').slideUp({ duration: 125, complete: function() {
                         _item.removeClass('is-active');
                     }
                 });
@@ -57,7 +57,7 @@ TornadoFaces.declareWidget('Accordion', function() {
         }
 
         // Animate and show this content
-        item.children('.accordion-content').slideDown({duration: 200, complete: function() {
+        item.children('.accordion-content').slideDown({duration: 125, complete: function() {
             item.addClass('is-active');
         }});
 
