@@ -23,7 +23,7 @@ $sliderHandleActiveTransform: scale(1);
 
 $sliderHeaderBackground: #fff;
 $sliderHeaderFontSize: 1rem;
-$sliderHeaderFontWeight: bold;
+$sliderHeaderFontWeight: $font-weight-bold;
 $sliderHeaderFontColor: initial;
 $sliderHeaderLine: 1px dotted #CBCBCB; //border styling
 

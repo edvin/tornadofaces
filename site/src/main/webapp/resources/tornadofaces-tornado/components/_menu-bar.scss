@@ -297,7 +297,7 @@
     > li.title {
       padding: $menubar-item-padding;
       cursor: default;
-      font-weight: bold;
+      font-weight: $font-weight-bold;
     }
   }
 

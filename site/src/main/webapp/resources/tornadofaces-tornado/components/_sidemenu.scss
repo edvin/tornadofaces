@@ -132,7 +132,7 @@ $sidemenu-popuot-background: #1e1e1e;
     }
     &.active {
       >a {
-        font-weight: bold;
+        font-weight: $font-weight-bold;
       }
     }
   }
@@ -194,7 +194,7 @@ $sidemenu-popuot-background: #1e1e1e;
     &.is-active {
       > a {
         background: transparent !important;
-        font-weight: bold;
+        font-weight: $font-weight-bold;
         color: #fff;
         &:before {
           background: $primary-color;

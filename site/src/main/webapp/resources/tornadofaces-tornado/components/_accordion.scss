@@ -11,14 +11,15 @@
   $background-active: $accordion-title-background-active,
   $color: $accordion-title-color,
   $color-active: $accordion-title-color-active,
-  $padding: $accordion-title-padding
+  $padding: $accordion-title-padding,
+  $font-size: $accordion-title-font-size
 ) {
   padding: $padding;
   background: $background;
   color: $color;
   line-height: 1;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: $accordion-title-font-size;
   font-weight: 400;
   position: relative;
 

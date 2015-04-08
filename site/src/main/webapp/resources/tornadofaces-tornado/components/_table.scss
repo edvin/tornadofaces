@@ -79,7 +79,7 @@ td {
 
 }
 th {
-  font-weight: bold;
+  font-weight: $font-weight-bold;
   color: $default-header-color;
 }
 
@@ -139,7 +139,7 @@ th {
       display: block;
       padding: 0.4rem 1.1rem;
       &:before {
-        font-weight: bold;
+        font-weight: $font-weight-bold;
         padding-right: 1rem;
       }
     }

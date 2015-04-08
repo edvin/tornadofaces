@@ -125,7 +125,7 @@ pre[class*="language-"] {
 
 .token.important,
 .token.bold {
-  font-weight: bold;
+  font-weight: $font-weight-bold;
 }
 .token.italic {
   font-style: italic;

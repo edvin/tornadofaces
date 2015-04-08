@@ -15,8 +15,8 @@ $base-line-height: 1.5 !default;
 $headers: "h1,h2,h3,h4,h5,h6" !default;
 
 // We use these to define default font weights
-$font-weight-normal: 300 !default;
-$font-weight-bold: bold !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 600 !default;
 
 // We use these to control various global styles
 $body-background: #fff !default;
@@ -180,6 +180,7 @@ $accordion-border: none !default;
 $accordion-item-border: none !default;
 $accordion-item-shadow: 0px 1px 4px rgba(0, 0, 0, 0.32) !default; //Todo: variable
 
+$accordion-title-font-size: 1.3rem;
 $accordion-title-background: #fff !default;
 $accordion-title-background-hover: #f3f3f3 !default;
 $accordion-title-background-hover: $accordion-title-background !default;
