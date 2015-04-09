@@ -28,23 +28,26 @@
   padding: $form-padding;
   margin: 0 0 $global-padding 0;
   border: $input-border;
-  border-radius: 0;
+  border-radius: $input-radius;
   background: $input-background;
   color: $input-color;
   font-size: $form-fontsize;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
+  transition: $input-transition-base;
 
   &:hover {
     border: $input-border-hover;
     background: $input-background-hover;
     color: $input-color-hover;
+    transition: $input-transition-hover;
   }
   &:focus {
     outline: 0;
     border: $input-border-focus;
     background: $input-background-focus;
     color: $input-color-focus;
+    transition: $input-transition-hover;
   }
 
   label > & {
@@ -153,8 +156,9 @@ select {
   margin: 0 0 $global-padding 0;
   font-size: $form-fontsize;
   color: $select-color;
-  border-radius: 0;
+  border-radius: $input-radius;
   border: $input-border;
+  transition: $input-transition-base;
 
   @if $select-arrow {
     background: $select-background url(image-triangle($select-arrow-color)) right 10px center no-repeat;
@@ -166,11 +170,13 @@ select {
   }
 
   &:hover {
+    transition: $input-transition-hover;
     background-color: $select-background-hover;
   }
 
   &:focus {
     outline: 0;
+    transition: $input-transition-hover;
   }
 }
 

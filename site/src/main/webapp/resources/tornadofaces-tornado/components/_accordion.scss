@@ -24,7 +24,7 @@
   position: relative;
 
   &:hover {
-    background: $background-hover;
+//    background: $background-hover;
   }
 
   > i {
@@ -86,11 +86,14 @@
         box-shadow: $accordion-item-shadow;
         margin-bottom: -1px;
       }
-      transition: margin 0.18s;
+      transition: margin 0.15s;
       &.is-active {
-        margin-bottom: 1rem;
+        margin: 1rem 0;
       }
+      &:first-child.is-active { margin: 0 0 1rem;}
+      &:last-child.is-active { margin: 1rem 0 0;} //todo: setting
     }
+    .accordion-item:last-child {background: #ff0000 !important;}
     .accordion-title {
       @include accordion-title;
     }

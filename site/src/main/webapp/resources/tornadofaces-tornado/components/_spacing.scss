@@ -3,8 +3,14 @@
 // ?. Padding & gutters
 // - - - - - - - - - - - - - - -
 
-.padding-small { padding: ($global-padding / 2); }
-.padding-large { padding: ($global-padding * 1.5); }
+$padding-small: ($global-padding / 2);
+$padding-large: ($global-padding * 1.5);
+
+.padding { padding: $global-padding; }
+.padding-0 {padding: 0;}
+.padding-small { padding: $padding-small; }
+.padding-large { padding: $padding-large; }
+
 .gutters {
   margin-left: -$global-padding;
   &> * { padding-left: $global-padding; }
@@ -21,3 +27,24 @@
   margin-left: -($global-padding * 1.5);
   &> * { padding-left: ($global-padding * 1.5); }
 }
+
+.t-padding { padding-top: $global-padding; }
+.r-padding { padding-right: $global-padding; }
+.b-padding { padding-bottom: $global-padding; }
+.l-padding { padding-left: $global-padding; }
+.lr-padding { padding: 0 $global-padding; }
+.tb-padding { padding: $global-padding 0; }
+
+.t-padding-small { padding-top: $padding-small; }
+.r-padding-small { padding-right: $padding-small; }
+.b-padding-small { padding-bottom: $padding-small; }
+.l-padding-small { padding-left: $padding-small; }
+.lr-padding-small { padding: 0 $padding-small; }
+.tb-padding-small { padding: $padding-small 0; }
+
+.t-padding-large { padding-top: $padding-large; }
+.r-padding-large { padding-right: $padding-large; }
+.b-padding-large { padding-bottom: $padding-large; }
+.l-padding-large { padding-left: $padding-large; }
+.lr-padding-large { padding: 0 $padding-large; }
+.tb-padding-large { padding: $padding-large 0; }

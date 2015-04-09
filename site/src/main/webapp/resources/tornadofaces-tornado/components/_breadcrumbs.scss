@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   background: #f3f3f3;
-  margin: 0 0 2rem 0;
+  margin: 0;
   padding: 1rem 5%; //todo: $content-outer-padding ellerno
   font-size: 14px;
 
@@ -14,6 +14,10 @@
     content: "/\00a0";
     color: rgb(204,204,204);
     padding: 0 5px;
+  }
+  li:last-child {
+    font-weight: $font-weight-bold;
+    &:before {font-weight: initial;}
   }
 
   a {

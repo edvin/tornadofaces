@@ -101,6 +101,9 @@ $sidemenu-popuot-background: #1e1e1e;
     >li {list-style: none;}
   }
 }
+.sidemenu-scroll-content {
+  padding-bottom: 5rem;
+}
 
 .sidemenu-content {
   position: relative;
@@ -139,42 +142,44 @@ $sidemenu-popuot-background: #1e1e1e;
 
   //applies to 1st level only
   > li {
-    font-size: 1.4rem; //todo: sidemenu-L1-font-size
+    font-size: 1.2rem; //todo: sidemenu-L1-font-size
     padding: 0;
-    border-bottom: $sidemenu-border;
+    border-bottom: 0;
     transition: background 0.2s;
+    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.07);
     > a {
       color: #fff;
       font-size: inherit;
-      padding: 1.4rem 1.4rem 0; //todo: sidemenu-L1-padding
+      font-weight: 300; //todo: setting
+      padding: 0.8rem 0rem 0.7rem 1.3rem; //todo: sidemenu-L1-padding
+      background: #1e1e1e; //todo: fix
       > i {
-        vertical-align: middle;
-        margin-right: 0.2em;
+        font-size: 1.1em;
         color: $primary-color;
       }
     }
-    &.is-active {
-      position: relative;
-      &> a {
-//        border-left: 4px solid $primary-color;
-        padding: 1.4rem 1.4rem 0.7rem; //todo: sidemenu-L1-active-padding
-      }
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: -1px;
-        height: calc(100% + 2px);
-        width: 4px;
-        background: $primary-color;
-        z-index: 10;
-      }
-    }
+//    &.is-active {
+//      position: relative;
+//      &> a {
+//        padding: 1.4rem 1.4rem 0.7rem; //todo: sidemenu-L1-active-padding
+//      }
+//      &:before {
+//        content: '';
+//        position: absolute;
+//        left: 0;
+//        top: -1px;
+//        height: calc(100% + 2px);
+//        width: 4px;
+//        background: $primary-color;
+//        z-index: 10;
+//      }
+//    }
   }
 }
 .sidemenu-subitems { //applies to 2nd level only
+  font-size: .9rem;
   margin: 0;
-  padding: 0.7rem 1.2rem; // TODO: FIX!
+  padding: 1rem; // TODO: FIX setting!
   display: block;
   height: auto;
   min-width: $sidemenu-min-width;
@@ -185,17 +190,21 @@ $sidemenu-popuot-background: #1e1e1e;
     width: 50%;
     border-radius: $sidemenu-sublink-radius;
     padding: $sidemenu-sublink-padding;
+    transition: background 0.5s;
     &> a {
       &:before {
 
       }
     }
-    &:hover {background: $sidemenu-link-hover-background;}
+    &:hover {
+      background: $sidemenu-link-hover-background;
+      transition: background 0.08s;
+    }
     &.is-active {
       > a {
         background: transparent !important;
-        font-weight: $font-weight-bold;
-        color: #fff;
+        font-weight: 500;
+        color: #DADADA; //todo: setting
         &:before {
           background: $primary-color;
           display: inline-block;

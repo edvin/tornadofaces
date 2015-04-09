@@ -169,7 +169,7 @@ $acronym-underline: 1px dotted #ddd !default;
 // - - - - - - - - - - - - - - -
 
 $container-width: rem-calc(900) !default;
-$block-padding: $global-padding !default;
+$block-padding: 0 !default;
 $total-columns: 12 !default;
 $block-grid-max-size: 6 !default;
 
@@ -216,7 +216,7 @@ $actionsheet-link-background-hover: smartscale($actionsheet-background) !default
 // - - - - - - - - - - - - - - -
 
 $blocklist-background: #fff !default;
-$blocklist-fullbleed: true !default;
+$blocklist-fullbleed: false !default;
 $blocklist-fontsize: 1rem !default;
 
 $blocklist-item-padding: 0.8rem 1rem !default;
@@ -291,24 +291,31 @@ $thumbnail-shadow: 0 3px 15px rgba(black, 0.25) !default;
 // 13. Forms
 // - - - - - - - - - - - - - - -
 
+
+// Basic transitions
+
+$input-transition-base: background 0.25s, border 0.25s;
+$input-transition-hover: background 0.11s, border 0.11s;
+
 // Basic form variables
-$form-fontsize: 1rem !default;
-$form-padding: 0.5rem !default;
+$form-fontsize: .9rem !default;
+$form-padding: .8rem !default;
 
 // Text fields
-$input-color: #000 !default;
+$input-color: #101010 !default;
 $input-color-hover: $input-color !default;
 $input-color-focus: $input-color !default;
-$input-background: #fff !default;
+$input-background: #f3f3f3 !default;
 $input-background-hover: $input-background !default;
 $input-background-focus: $input-background !default;
-$input-border: 1px solid #ccc !default;
+$input-border: 1px solid $input-background !default;
+$input-radius: 2px !default;
 $input-border-hover: 1px solid #bbb !default;
 $input-border-focus: 1px solid $primary-color !default;
 
 // Select menus
-$select-color: #000 !default;
-$select-background: #fafafa !default;
+$select-color: $input-color !default;
+$select-background: $input-background !default;
 $select-background-hover: smartscale($select-background, 4%) !default;
 $select-arrow: true !default;
 $select-arrow-color: $select-color !default;

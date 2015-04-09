@@ -231,12 +231,13 @@
   // Reset the height used by frames
   height: auto;
 
+
   // Blocks will scroll by default if their content overflows
-  @if ($orientation == vertical) {
-    overflow-x: auto;
-  } @else {
-    overflow-y: auto;
-  }
+//  @if ($orientation == vertical) {
+//    overflow-x: auto;
+//  } @else {
+//    overflow-y: auto;
+//  }
 
   // Add scrolling with inertia
   -webkit-overflow-scrolling: touch;
@@ -360,7 +361,7 @@
   @extend %child-core;
   @include grid-content;
 
-  &.collapse {
+  &.padding {
     padding: 0;
   }
 }
