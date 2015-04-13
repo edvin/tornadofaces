@@ -7,6 +7,16 @@ TornadoFaces.declareWidget('FlipPanel', function() {
         back = widget.elem.find('.back');
     };
 
+    //Widget name = cardStack
+
+    //var cards = $.makeArray('.flip-content > div');
+    //var cardsLength = cards.length;
+    //var currentCard = 'active'
+    //nextCard = currentCard[+=1]
+    //prevCard = currentCard[-=1]
+    //if currentCard == cards[cardslength] {nextCard = cards[0]}
+    //if currentCard == cards[0] {prevcard = cards[cardsLength]
+
     this.flip = function() {
         var toshow, tohide, x;
 

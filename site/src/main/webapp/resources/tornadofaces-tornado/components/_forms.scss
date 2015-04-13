@@ -19,6 +19,15 @@
      -moz-appearance: none;
 }
 
+
+// Placeholder
+::-webkit-input-placeholder { color: $input-placeholder-color; }
+
+
+:-moz-placeholder { color: $input-placeholder-color; }
+::-moz-placeholder { color: $input-placeholder-color; }
+:-ms-input-placeholder { color: $input-placeholder-color; }
+
 // Text fields
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 #{$text-input-selectors} {

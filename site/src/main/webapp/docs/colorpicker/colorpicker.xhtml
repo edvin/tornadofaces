@@ -3,7 +3,7 @@
               medium="2">
     <h:form>
         <t:form-element label="Pick a color">
-            <t:colorpicker id="mypicker" value="#{pickerController.color}">
+            <t:colorpicker id="mypicker" value="#{pickerController.color}" showAlpha="true">
                 <f:ajax listener="#{pickerController.colorChanged}" render="notification"/>
             </t:colorpicker>
         </t:form-element>
