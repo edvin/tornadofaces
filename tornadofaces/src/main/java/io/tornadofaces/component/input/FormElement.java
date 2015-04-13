@@ -60,6 +60,8 @@ public class FormElement extends UIPanel implements SystemEventListener {
 	public void setLayout(String layout) { getStateHelper().put("layout", layout); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
+	public String getLabelClass() { return (String) getStateHelper().eval("labelClass"); }
+	public void setLabelClass(String labelClass) { getStateHelper().put("labelClass", labelClass); }
 	public String getStyle() { return (String) getStateHelper().eval("style"); }
 	public void setStyle(String style) { getStateHelper().put("style", style); }
 	public String getPrefix() { return (String) getStateHelper().eval("prefix"); }

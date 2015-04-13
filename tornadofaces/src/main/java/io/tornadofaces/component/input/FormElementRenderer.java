@@ -54,6 +54,7 @@ public class FormElementRenderer extends Renderer {
 
 		if (label != null) {
 			writer.startElement("label", component);
+			StyleClass.of(elem.getLabelClass()).write(writer);
 			UIInput input = ComponentUtils.getFirstInputChild(component);
 			if (input != null)
 				writer.writeAttribute("for", input.getClientId(), null);
