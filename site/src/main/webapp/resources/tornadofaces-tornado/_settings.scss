@@ -25,7 +25,7 @@ $body-font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial,
 $body-font-weight: $font-weight-normal !default;
 $body-font-style: normal !default;
 $body-antialiased: true !default;
-$default-border: 1px solid #ddd !default;
+$default-border: 1px solid #f0f0f0 !default;
 $default-dotted-border: 1px dotted #CACACA !default;
 
 // Application Colors
@@ -182,7 +182,7 @@ $accordion-item-shadow: 0px 1px 4px rgba(0, 0, 0, 0.32) !default; //Todo: variab
 
 $accordion-title-font-size: 1.3rem;
 $accordion-title-background: #fff !default;
-$accordion-title-background-hover: #f3f3f3 !default;
+$accordion-title-background-hover: #f7f7f7 !default;
 $accordion-title-background-hover: $accordion-title-background !default;
 $accordion-title-background-active: smartscale($accordion-title-background, -5%) !default;
 $accordion-title-color: isitlight($accordion-title-background) !default;
@@ -219,11 +219,11 @@ $blocklist-background: #fff !default;
 $blocklist-fullbleed: false !default;
 $blocklist-fontsize: 1rem !default;
 
-$blocklist-item-padding: 0.8rem 1rem !default;
+$blocklist-item-padding: 0.8rem !default;
 $blocklist-item-color: isitlight($blocklist-background, #000, #fff) !default;
 $blocklist-item-background-hover: smartscale($blocklist-background, 4.5%) !default;
 $blocklist-item-color-disabled: #999 !default;
-$blocklist-item-border: 1px solid smartscale($blocklist-background, 18.5%) !default;
+$blocklist-item-border: 1px solid smartscale($blocklist-background, 6%) !default;
 
 $blocklist-item-label-color: scale-color($blocklist-item-color, $lightness: 60%) !default;
 $blocklist-item-icon-size: 0.8 !default;
@@ -301,12 +301,13 @@ $input-transition-hover: background 0.11s, border 0.11s;
 // Basic form variables
 $form-fontsize: .9rem !default;
 $form-padding: .8rem !default;
+$input-padding: $global-padding/2;
 
 // Text fields
 $input-color: #101010 !default;
 $input-color-hover: $input-color !default;
 $input-color-focus: $input-color !default;
-$input-background: #f3f3f3 !default;
+$input-background: #f7f7f7 !default;
 $input-background-hover: $input-background !default;
 $input-background-focus: $input-background !default;
 $input-border: 1px solid $input-background !default;
@@ -328,7 +329,7 @@ $form-label-color: #333 !default;
 
 // Inline labels
 $inlinelabel-color: #333 !default;
-$inlinelabel-background: #eee !default;
+$inlinelabel-background: #fff !default;
 $inlinelabel-border: $input-border !default;
 
 // Range slider
@@ -340,13 +341,15 @@ $slider-thumb-color: $primary-color !default;
 $slider-thumb-radius: 0px !default;
 
 // Progress and meter
-$meter-height: 1.5rem !default;
-$meter-background: #ccc !default;
+$meter-height: 3.2rem !default;
+$meter-font-weight: 600;
+$meter-background: $input-background !default;
 $meter-fill: $primary-color !default;
 $meter-fill-high: $success-color !default;
 $meter-fill-medium: #e7cf00 !default;
 $meter-fill-low: $alert-color !default;
-$meter-radius: 0 !default;
+$meter-border: none !default;
+$meter-radius: 3px !default;
 
 
 // 15. Label
@@ -376,7 +379,7 @@ $menubar-color: isitlight($menubar-background) !default;
 $menubar-color-hover: $menubar-color !default;
 $menubar-color-active: $menubar-color-hover !default;
 
-$menubar-item-padding: $global-padding !default;
+$menubar-item-padding: $global-padding/2 !default;
 $menubar-icon-size: 25px !default;
 $menubar-icon-spacing: $menubar-item-padding !default;
 

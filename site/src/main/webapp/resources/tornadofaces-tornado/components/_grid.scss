@@ -228,6 +228,8 @@
 @mixin grid-block($size: expand, $orientation: horizontal, $wrap: false, $align: left, $order: 0) {
   @include grid-frame($size, $orientation, $wrap, $align, $order);
 
+  overflow: visible;
+
   // Reset the height used by frames
   height: auto;
 
@@ -253,7 +255,7 @@
   padding: 0 $block-padding;
 
   // Add scrolling with inertia
-  overflow-y: auto;
+  //overflow-y: auto; //Todo: To keep or not to keep?
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 

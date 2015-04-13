@@ -314,3 +314,8 @@ $sidemenu-popuot-background: #1e1e1e;
   }
 }
 } //breakpoint medium up END
+
+@include breakpoint(small) {
+  .sidemenu {overflow-y: auto;}
+  .sidemenu-toggle {display: none;}
+}
