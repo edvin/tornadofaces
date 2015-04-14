@@ -2,7 +2,6 @@ package io.tornadofaces.component.button;
 
 import io.tornadofaces.component.CoreRenderer;
 import io.tornadofaces.component.util.ComponentUtils;
-import io.tornadofaces.component.util.GlobalId;
 import io.tornadofaces.component.util.StyleClass;
 import io.tornadofaces.util.WidgetBuilder;
 
@@ -29,6 +28,10 @@ public class ButtonRenderer extends CoreRenderer {
 			writer.writeAttribute("type", "submit", null);
 		else if (button instanceof CommandLink)
 			writer.writeAttribute("href", "#", null);
+
+		String title = button.getTitle();
+		if (title != null)
+			writer.writeAttribute("title", title, null);
 
 		Boolean disabled = button.isDisabled();
 		if (disabled)

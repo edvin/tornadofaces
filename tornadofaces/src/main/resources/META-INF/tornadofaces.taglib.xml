@@ -2052,6 +2052,12 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Title attribute</description>
+            <name>title</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Styles to apply to the link.</description>
             <name>styleClass</name>
             <required>false</required>
@@ -2196,6 +2202,12 @@
         <attribute>
             <description>Styles to apply to the button.</description>
             <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Title attribute</description>
+            <name>title</name>
             <required>false</required>
             <type>String</type>
         </attribute>
