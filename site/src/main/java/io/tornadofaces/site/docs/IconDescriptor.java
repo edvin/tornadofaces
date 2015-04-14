@@ -5,7 +5,8 @@ import sun.misc.IOUtils;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
-import java.io.IOException;
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +17,11 @@ import java.util.regex.Pattern;
 public class IconDescriptor {
 	Pattern IconPattern = Pattern.compile("\\.(icon-[\\w|-]+):before");
 	@Getter List<String> icons;
+	@Inject HttpServletRequest request;
 
 	@PostConstruct
 	public void init() {
-		try (InputStream input = getClass().getResourceAsStream("/META-INF/resources/tornadofaces-tornado/components/_icons.scss")) {
+		try (InputStream input = request.getServletContext().getResourceAsStream("/resources/tornadofaces-tornado/components/_icons.scss")) {
 			byte[] data = IOUtils.readFully(input, -1, false);
 			String css = new String(data);
 			Matcher m = IconPattern.matcher(css);
