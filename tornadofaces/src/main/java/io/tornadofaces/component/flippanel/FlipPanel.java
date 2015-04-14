@@ -79,7 +79,7 @@ public class FlipPanel extends UIPanel implements Widget, ClientBehaviorHolder {
 	}
 
 	public Integer getDuration() {
-		return (Integer) getStateHelper().eval("duration", 400);
+		return (Integer) getStateHelper().eval("duration", 275);
 	}
 
 	public void setDuration(Integer duration) {

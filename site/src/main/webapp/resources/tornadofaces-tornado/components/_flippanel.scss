@@ -3,9 +3,11 @@
 
 .flip-panel {
   perspective: 1000;
+  -webkit-perspective: 1000;
   position: relative;
   padding: 0;
   margin-bottom: 2rem;
+  box-sizing: border-box;
 
   .flip-content {
     position: relative;
