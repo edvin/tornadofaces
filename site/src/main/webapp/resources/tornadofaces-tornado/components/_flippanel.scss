@@ -4,6 +4,7 @@
 .flip-panel {
   perspective: 1000;
   -webkit-perspective: 1000;
+  -moz-perspective: 1000;
   position: relative;
   padding: 0;
   margin-bottom: 2rem;
@@ -12,11 +13,13 @@
   .flip-content {
     position: relative;
     transform-style: preserve-3d;
+    text-align: center;
   }
 
   .front, .back {
     padding: 1rem;
-    border: 1px solid #eee;
+    border: none; //todo: var
+    box-shadow: $default-box-shadow; //todo: var
     border-radius: 4px;
   }
 
