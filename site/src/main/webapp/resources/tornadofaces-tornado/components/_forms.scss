@@ -20,12 +20,10 @@
 }
 
 // Placeholder
-::-webkit-input-placeholder { color: $input-placeholder-color; }
-
-
-:-moz-placeholder { color: $input-placeholder-color; }
-::-moz-placeholder { color: $input-placeholder-color; }
-:-ms-input-placeholder { color: $input-placeholder-color; }
+::-webkit-input-placeholder { color: $input-placeholder-color; line-height: 1.4; }
+:-moz-placeholder { color: $input-placeholder-color; line-height: 1.4; }
+::-moz-placeholder { color: $input-placeholder-color; line-height: 1.4; }
+:-ms-input-placeholder { color: $input-placeholder-color; line-height: 1.4; }
 
 // Text fields
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -57,6 +55,12 @@
     color: $input-color-focus;
     transition: $input-transition-hover;
   }
+  &[readonly="readonly"] {
+//    color: red;
+    background: #fff;
+    border: transparent;
+    border-bottom: $default-border;
+  }
 
   label > & {
     margin-top: $form-label-margin;
@@ -73,6 +77,16 @@ label {
 
   > input, > textarea {
     margin-top: $form-label-margin;
+  }
+}
+.label-left {
+  display: flex;
+  margin-bottom: $input-padding;
+  > label {
+    align-self: center;
+  }
+  > * {
+    margin-bottom: 0;
   }
 }
 
@@ -103,7 +117,7 @@ input[type="checkbox"], input[type="radio"] {
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
-  margin-bottom: $global-padding;
+  margin-bottom: $input-padding;
 
   // Imitates the top margin on normal inputs
   label > & {
@@ -161,12 +175,12 @@ select {
   display: block;
   width: 100%;
   padding: $form-padding;
-  margin: 0 0 $global-padding 0;
+  margin: 0 0 $input-padding 0;
   font-size: $form-fontsize;
   color: $select-color;
   border-radius: $input-radius;
   border: $input-border;
-  transition: $input-transition-base;
+//  transition: $input-transition-base;
 
   @if $select-arrow {
     background: $select-background url(image-triangle($select-arrow-color)) right 10px center no-repeat;
@@ -178,13 +192,13 @@ select {
   }
 
   &:hover {
-    transition: $input-transition-hover;
+//    transition: $input-transition-hover;
     background-color: $select-background-hover;
   }
 
   &:focus {
     outline: 0;
-    transition: $input-transition-hover;
+//    transition: $input-transition-hover;
   }
 }
 
@@ -280,6 +294,18 @@ progress, meter {
   width: 100%;
   height: $meter-height;
   margin-bottom: 1rem;
+  border: $meter-border;
+  overflow: hidden;
+  position: relative;
+  font-weight: $meter-font-weight;
+  text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.2);
+  &:before {
+    content: attr(value) '%';
+    color: #fff;
+    position: absolute;
+    left: 1rem;
+    top: $meter-height/4;
+  }
 
   @if hasvalue($meter-radius) {
     border-radius: $meter-radius;
@@ -287,26 +313,27 @@ progress, meter {
 
   // For Firefox
   background: $meter-background;
-  border: 0;
 }
 
 progress {
   &::-webkit-progress-bar {
     background: $meter-background;
     @if hasvalue($meter-radius) {
-      border-radius: $meter-radius;
+      border-radius: 0;
     }
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
   }
   &::-webkit-progress-value {
     background: $meter-fill;
     @if hasvalue($meter-radius) {
-      border-radius: $meter-radius;
+      border-radius: 0;
     }
+    box-shadow: 0 0 20px rgba(0,0,0,0.35);
   }
   &::-moz-progress-bar {
     background: $meter-fill;
     @if hasvalue($meter-radius) {
-      border-radius: $meter-radius;
+      border-radius: 0;
     }
   }
 
@@ -326,30 +353,30 @@ meter {
   &::-webkit-meter-bar {
     background: $meter-background;
     @if hasvalue($meter-radius) {
-      border-radius: $meter-radius;
+      border-radius: 0;
     }
   }
   &::-webkit-meter-inner-element {
     @if hasvalue($meter-radius) {
-      border-radius: $meter-radius;
+      border-radius: 0;
     }
   }
   &::-webkit-meter-optimum-value {
     background: $meter-fill-high;
     @if hasvalue($meter-radius) {
-      border-radius: $meter-radius;
+      border-radius: 0;
     }
   }
   &::-webkit-meter-suboptimum-value {
     background: $meter-fill-medium;
     @if hasvalue($meter-radius) {
-      border-radius: $meter-radius;
+      border-radius: 0;
     }
   }
   &::-webkit-meter-even-less-good-value {
     background: $meter-fill-low;
     @if hasvalue($meter-radius) {
-      border-radius: $meter-radius;
+      border-radius: 0;
     }
   }
 
@@ -358,7 +385,7 @@ meter {
   &::-moz-meter-bar {
     background: $primary-color;
     @if hasvalue($meter-radius) {
-      border-radius: $meter-radius;
+      border-radius: 0;
     }
   }
   &:-moz-meter-optimum::-moz-meter-bar {

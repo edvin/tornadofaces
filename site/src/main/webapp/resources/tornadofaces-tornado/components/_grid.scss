@@ -132,7 +132,7 @@
 */
 @mixin grid-collapse($collapse: true) {
   @if ($collapse) {
-    padding: 0;
+//    padding: 0;
   }
 }
 
@@ -228,6 +228,8 @@
 @mixin grid-block($size: expand, $orientation: horizontal, $wrap: false, $align: left, $order: 0) {
   @include grid-frame($size, $orientation, $wrap, $align, $order);
 
+  overflow: visible;
+
   // Reset the height used by frames
   height: auto;
 
@@ -250,10 +252,10 @@
 @mixin grid-content($size: expand, $offset: null, $order: null) {
   // Content blocks are not flex items and have padding
   display: block;
-  padding: 0 $block-padding;
+//  padding: 0 $block-padding;
 
   // Add scrolling with inertia
-  overflow-y: auto;
+  //overflow-y: auto; //Todo: To keep or not to keep?
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 
@@ -272,7 +274,7 @@
   list-style-type: none;
 
   > li, > div, > section {
-    padding: 0 1rem 1rem;
+//    padding: 0;
     flex: 0 0 percentage(1 / $up);
   }
 }
@@ -362,7 +364,7 @@
   @include grid-content;
 
   &.padding {
-    padding: 0;
+//    padding: 0;
   }
 }
 

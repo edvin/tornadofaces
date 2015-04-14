@@ -116,7 +116,9 @@
     }
   }
   > a, > label, select {
+    transition: $input-transition-base;
     &:hover {
+      transition: $input-transition-hover;
       background: $background-hover;
     }
   }
