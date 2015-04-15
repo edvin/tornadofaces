@@ -57,7 +57,7 @@ $global-spacing: rem-calc(15) !default;
 $breakpoints: (
    small: rem-calc(0),
    medium: rem-calc(640),
-   large: rem-calc(1200),
+   large: rem-calc(1100),
    xlarge: rem-calc(1440),
    xxlarge: rem-calc(1920),
 ) !default;
@@ -240,7 +240,7 @@ $blocklist-check-icons: true !default;
 // - - - - - - - - - - - - - - -
 
 $button-padding: 0.95em 1.3em !default;
-$button-margin: 0 $global-padding/2 $global-padding/2 0 !default;
+$button-margin: 0 $global-padding/3 $global-padding/3 0 !default;
 $button-style: solid !default;
 $button-background: $primary-color !default;
 $button-color: #fff !default;

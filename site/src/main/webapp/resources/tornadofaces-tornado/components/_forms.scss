@@ -198,6 +198,7 @@ select {
 
   &:focus {
     outline: 0;
+    border: $input-border-focus;
 //    transition: $input-transition-hover;
   }
 }

@@ -37,7 +37,6 @@ TornadoFaces.declareWidget('FlipPanel', function() {
 
         var tl = new TimelineLite();
         tl.to(tohide, duration / 2, { rotationY: 90 * x, ease: Linear.easeNone});
-        tl.to(widget.elem, duration / 2, {height: toshow.outerHeight()}, "-=" + duration);
         tl.append(function() {
             if (widget.isFlipped()) {
                 widget.conf.flipped = false;
@@ -48,7 +47,7 @@ TornadoFaces.declareWidget('FlipPanel', function() {
             }
         });
         tl.to(toshow, duration, {rotationY: 0, ease: Back.easeOut.config(2)});
-
+        tl.to(widget.elem, duration / 2, {height: toshow.outerHeight()}, "-=" + duration);
 
         if (widget.conf.behaviors && widget.conf.behaviors.flip) {
             var behaviors = widget.conf.behaviors.flip;

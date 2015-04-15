@@ -1,7 +1,7 @@
 
 //sidemenu
 $sidemenu-background-color: $dark-color;
-$sidemenu-border: 1px solid #2A2A2A;;
+$sidemenu-border: 1px solid #252525;;
 $sidemenu-outer-padding: 0;
 $sidemenu-min-width: 300px;
 $sidemenu-max-width: 300px;
@@ -29,12 +29,12 @@ $sidemenu-search-radius: 2px;
 
 //sidemenu link - applies to li > a
 $sidemenu-link-padding: 1rem;
-$sidemenu-link-color: #8c8c8c;
-$sidemenu-link-hover: #8c8c8c;
+$sidemenu-link-color: #ABABAB;
+$sidemenu-link-hover: #ABABAB;
 $sidemenu-link-hover-background: #212121;
 $sidemenu-link-active-background: #212121;
 
-$sidemenu-sublink-padding: 0.4rem 0 0.4rem 0.7rem;
+$sidemenu-sublink-padding: 0.4rem 0 0.4rem 1rem;
 $sidemenu-sublink-radius: 2px;
 
 //sidemenu popout
@@ -71,8 +71,7 @@ $sidemenu-popuot-background: #1e1e1e;
 
 .sidemenu-logo {
   text-align: center;
-  padding: 1.4rem 1rem 1rem 0; //todo: $logo-padding
-  border-bottom: $sidemenu-border;
+  padding: 1.4rem 1rem 1.2rem 0; //todo: $logo-padding
   > .logo-max {
     width: 194px; //todo: $logo-max-size
     height: auto;
@@ -94,6 +93,7 @@ $sidemenu-popuot-background: #1e1e1e;
   flex-direction: column;
   overflow: visible;
   z-index: 999 !important;
+  font-family: "Open Sans Condensed", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   input { box-sizing: border-box; }
   ul { //reset
     margin: 0;
@@ -146,14 +146,18 @@ $sidemenu-popuot-background: #1e1e1e;
     padding: 0;
     border-bottom: 0;
     transition: background 0.2s;
-    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.07);
+//    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.07);
     > a {
+      border-bottom: $sidemenu-border;
+      border-top: $sidemenu-border;
       color: #fff;
+      text-align: center;
       font-size: inherit;
       font-weight: 300; //todo: setting
-      padding: 0.8rem 0rem 0.7rem 1.3rem; //todo: sidemenu-L1-padding
-      background: #1e1e1e; //todo: fix
+      padding: 0.6rem 1.2rem 0.6rem 0; //todo: sidemenu-L1-padding
+      margin: 0 1.6rem 0 1.6rem;
       > i {
+        display: none;
         font-size: 1.1em;
         color: $primary-color;
       }
@@ -177,7 +181,7 @@ $sidemenu-popuot-background: #1e1e1e;
   }
 }
 .sidemenu-subitems { //applies to 2nd level only
-  font-size: .9rem;
+  font-size: 1.05rem;
   margin: 0;
   padding: 1rem; // TODO: FIX setting!
   display: block;
