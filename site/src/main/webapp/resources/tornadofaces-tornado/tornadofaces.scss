@@ -54,6 +54,9 @@
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.32);
   background: #fff;
   padding: 1rem 5%; //todo: $content-outer-padding ellerno
+  @include breakpoint(medium up) {
+    padding: 2.2rem;
+  }
   h1 {
     font-size: 2.2rem;
     font-weight: 700;
@@ -89,7 +92,10 @@
 }
 
 
-@include breakpoint(small) {
+@include breakpoint(small only) {
+  .main-wrapper {
+    padding: $global-padding 3%;
+  }
   #main-container {
 
   }

@@ -121,7 +121,8 @@ th {
 
 // Reflow
 
-.table-reflow {
+.small-table-reflow,
+.medium-table-reflow {
   td {
     &:before { display: none; }
   }
@@ -170,12 +171,14 @@ th {
   }
 }
 
-@include breakpoint(large down) { //Todo: må fikse differansiering!
-  .table-reflow { @include table-reflow; }
-}
 
+.large-table-reflow { @include table-reflow; }
+
+@include breakpoint(large down) {
+  .small-table-reflow { @include table-reflow; }
+}
 @include breakpoint(small only) {
-  .table-reflow { @include table-reflow; }
+  .small-table-reflow { @include table-reflow; }
 }
 
 

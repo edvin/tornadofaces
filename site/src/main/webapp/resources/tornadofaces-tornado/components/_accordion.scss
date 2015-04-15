@@ -32,8 +32,8 @@
   }
   > i {
     vertical-align: middle;
-    font-size: 1.4em;
-    padding-right: 0.6em;
+    font-size: 2.1em;
+    margin-right: 0.6rem;
     display: inline-block;
     margin-top: -0.2em;
     &:before {
@@ -45,9 +45,10 @@
   &:after {
     content: '\e62e';
     font-family: icomoon;
-    font-size: 1.6rem;
     position: absolute;
     right: 2rem;
+    font-size: 1.9rem;
+    top: 1.2em;
     color: $primary-color;
     transition: transform 0.32s;
   }
