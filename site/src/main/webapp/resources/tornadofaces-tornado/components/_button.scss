@@ -10,7 +10,7 @@
   transition: background 0.25s ease-out;
   vertical-align: middle;
   border: 0;
-  box-shadow: -2px 2px 0px #ddd;
+  box-shadow: -2px 2px 0px rgba(0, 0, 0, 0.17); //todo: make setting
 
   padding: $button-padding;
   margin: $button-margin;
