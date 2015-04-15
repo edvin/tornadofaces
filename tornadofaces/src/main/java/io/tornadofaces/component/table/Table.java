@@ -36,6 +36,7 @@ public class Table extends HtmlDataTable implements Widget {
 		return getChildren().stream().filter(c -> c instanceof Column).count();
 	}
 
+	public enum ReflowAtSize { small, medium, large, reflow, none }
 	public enum ReflowMode { block, span }
 	public enum RowSelectionMode { single, multi }
 
@@ -67,8 +68,8 @@ public class Table extends HtmlDataTable implements Widget {
 	public void setSelectionMode(RowSelectionMode selectionMode) { getStateHelper().put("selectionMode", selectionMode); }
 	public Object getSelection() { return getStateHelper().eval("selection"); }
 	public void setSelection(Object selection) { getStateHelper().put("selection", selection); }
-	public Boolean getReflow() { return (Boolean) getStateHelper().eval("reflow", true); }
-	public void setReflow(Boolean reflow) { getStateHelper().put("reflow", reflow); }
+	public ReflowAtSize getReflow() { return (ReflowAtSize) getStateHelper().eval("reflow", ReflowAtSize.small); }
+	public void setReflow(ReflowAtSize reflow) { getStateHelper().put("reflow", reflow); }
 	public Boolean getBordered() { return (Boolean) getStateHelper().eval("bordered"); }
 	public ReflowMode getReflowMode() { return (ReflowMode) getStateHelper().eval("reflowMode"); }
 	public void setReflowMode(ReflowMode reflowMode) { getStateHelper().put("reflowMode", reflowMode); }

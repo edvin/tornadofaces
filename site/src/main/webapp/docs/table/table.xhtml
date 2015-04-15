@@ -20,10 +20,10 @@
         </t:table>
     </h:form>
 
-    <h5>Compact, bordered, title no reflow</h5>
+    <h5>Compact, bordered, title no reflow small</h5>
     <t:table id="moviesCompact" value="#{docsController.movies}" var="movie" compact="true" bordered="true" selectionMode="single">
         <t:column headerText="ID" text="#{movie.id}"/>
-        <t:column headerText="Title" text="#{movie.title}" reflow="false"/>
+        <t:column headerText="Title" text="#{movie.title}" reflow="small"/>
     </t:table>
 
 </h:panelGroup>

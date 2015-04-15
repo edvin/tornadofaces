@@ -1240,7 +1240,7 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
-            <description>Add responsive reflow CSS to the table. Defaults to true.</description>
+            <description>Add responsive reflow CSS to the table at the given breakpoint. Valid options are, small, medium, large and none. Defaults to small.</description>
             <name>reflow</name>
             <required>false</required>
             <type>Boolean</type>

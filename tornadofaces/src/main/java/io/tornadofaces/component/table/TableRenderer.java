@@ -37,8 +37,9 @@ public class TableRenderer extends CoreRenderer {
 
 		writer.startElement("table", table);
 		writer.writeAttribute("id", table.getClientId(), null);
+		Table.ReflowAtSize reflow = table.getReflow();
 		StyleClass tableClass = StyleClass.of(table.getStyleClass())
-			.add("table-reflow", table.getReflow())
+			.add(reflow + "-table-reflow", !Table.ReflowAtSize.none.equals(reflow))
 			.add("table-zebra", table.getZebra())
 			.add("table-compact", table.getCompact())
 			.add("table-bordered", table.getBordered())
@@ -54,7 +55,7 @@ public class TableRenderer extends CoreRenderer {
 		if (style != null)
 			writer.writeAttribute("style", style, null);
 
-		if (table.getReflow())
+		if (!Table.ReflowAtSize.none.equals(table.getReflow()))
 			renderReflowStylesheet(writer, table);
 
 		renderHead(context, writer, table);
@@ -150,7 +151,7 @@ public class TableRenderer extends CoreRenderer {
 
 		table.updateSelectedRowKeys();
 
-		boolean reflow = table.getReflow();
+		Table.ReflowAtSize reflow = table.getReflow();
 
 		String rowClassString = table.getRowClasses();
 		List<String> rowClasses = rowClassString == null ? null : asList(rowClassString.split(","));
@@ -180,7 +181,7 @@ public class TableRenderer extends CoreRenderer {
 						.add("row-toggle-container", column.containsRowToggler())
 						.write(writer);
 
-					if (reflow)
+					if (!Table.ReflowAtSize.none.equals(reflow))
 						writer.startElement("span", column);
 
 					Object text = column.getText();
@@ -194,7 +195,7 @@ public class TableRenderer extends CoreRenderer {
 						column.encodeChildren(context);
 					}
 
-					if (reflow)
+					if (!Table.ReflowAtSize.none.equals(reflow))
 						writer.endElement("span");
 
 					writer.endElement("td");
