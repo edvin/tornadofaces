@@ -27,6 +27,9 @@
 //    background: $background-hover;
   }
 
+  > .spinner {
+    margin: 0.7em 4.9em 0 0 !important;
+  }
   > i {
     vertical-align: middle;
     font-size: 1.4em;
@@ -52,8 +55,13 @@
   .is-active > & {
     background: $background-active;
     color: $color-active;
+    padding: $padding 0 $padding/1.5;
+    margin: 0 $padding  $padding/2;
+    border-bottom: $default-border;
+
     &:after {
       transform: rotateX(180deg);
+      right: 0;
     }
   }
 }

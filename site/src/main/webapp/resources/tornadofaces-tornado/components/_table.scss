@@ -121,15 +121,59 @@ th {
 
 // Reflow
 
-@include breakpoint(medium up) {
+.table-reflow {
+  td {
+    &:before { display: none; }
+  }
+}
+
+
+@include breakpoint(large down) { //Todo: må fikse differansiering!
   .table-reflow {
+    thead { display: none; }
+    tr {
+      display: block;
+      padding: 1rem 0;
+    }
     td {
-      &:before { display: none; }
+      display: block;
+      padding: 0.4rem 1.1rem;
+      &:before {
+        font-weight: $font-weight-bold;
+        padding-right: 1rem;
+        display: inline;
+      }
+    }
+
+    &.table-bordered { //reflow bordered
+      tr { margin-top: -1px; }
+      td, th { border: none; }
+    }
+    &.table-compact { //reflow compact
+      tr { padding: 0.7rem 0; }
+      td, th { padding: 0.1rem 0.9rem; }
+    }
+  }
+  .table-reflow--block {
+    text-align: center;
+    tr {margin-bottom: 1rem;}
+    td {
+      &:before {
+        padding-right: 0;
+        display: block;
+      }
+    }
+  }
+  .cell-reflow--block {
+    &:before {
+      padding-right: 0;
+      display: block;
     }
   }
 }
+
 @include breakpoint(small only) {
-  .table-reflow {
+  .table-reflow--small {
     thead { display: none; }
     tr {
       display: block;

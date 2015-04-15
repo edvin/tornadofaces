@@ -59,6 +59,7 @@
     font-weight: 700;
     &> a {color: $body-font-color;}
   }
+  a {display: inline-block;}
 }
 #main-container {
   padding: 0;

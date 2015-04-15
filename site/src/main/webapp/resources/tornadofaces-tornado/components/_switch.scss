@@ -72,6 +72,7 @@
   > label {
     background: $background;
     transition: background-color $animation-speed;
+    border-radius: $switch-radius;
     &::after {
       background: $paddle-color;
       border-radius: $radius;
