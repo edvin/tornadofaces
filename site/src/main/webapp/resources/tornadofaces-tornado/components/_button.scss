@@ -9,13 +9,20 @@
   -webkit-font-smoothing: antialiased;
   transition: background 0.25s ease-out;
   vertical-align: middle;
-  border: 1px solid #37A3DF;
+  border: 0;
   box-shadow: -2px 2px 0px #ddd;
 
   padding: $button-padding;
   margin: $button-margin;
   font-size: $button-font-size;
   border-radius: $button-radius;
+  outline: none;
+  &:active {
+    position: relative;
+    top: 1px;
+    left: -1px;
+    box-shadow: none;
+  }
 
   // Dropdown arrow
   // TODO: Change to class and mixin because now the toggle is 'fa-open' which is too generic
