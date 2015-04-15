@@ -2,7 +2,6 @@
 
 %button {
   display: inline-block;
-  border: 0;
   text-align: center;
   line-height: 1;
   cursor: pointer;
@@ -10,6 +9,8 @@
   -webkit-font-smoothing: antialiased;
   transition: background 0.25s ease-out;
   vertical-align: middle;
+  border: 1px solid #37A3DF;
+  box-shadow: -2px 2px 0px #ddd;
 
   padding: $button-padding;
   margin: $button-margin;
