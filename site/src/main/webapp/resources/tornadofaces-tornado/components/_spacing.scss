@@ -12,19 +12,19 @@ $padding-large: ($global-padding * 1.5);
 .padding-large { padding: $padding-large; }
 
 .gutters {
-  margin-left: -$global-padding;
+  margin-left: -$global-padding !important;
   &> * { padding-left: $global-padding; }
 }
 .gutters-small {
-  margin-left: -($global-padding / 2);
+  margin-left: -($global-padding / 2) !important;
   &> * { padding-left: ($global-padding / 2); }
 }
 .gutters-medium {
-  margin-left: -($global-padding / 1.5);
+  margin-left: -($global-padding / 1.5) !important;;
   &> * { padding-left: ($global-padding / 1.5); }
 }
 .gutters-large {
-  margin-left: -($global-padding * 1.5);
+  margin-left: -($global-padding * 1.5) !important;;
   &> * { padding-left: ($global-padding * 1.5); }
 }
 
