@@ -1,7 +1,7 @@
 
 //sidemenu
 $sidemenu-background-color: $dark-color;
-$sidemenu-border: 1px solid #252525;;
+$sidemenu-border: 1px solid rgba(255, 255, 255, 0.14);
 $sidemenu-outer-padding: 0;
 $sidemenu-min-width: 300px;
 $sidemenu-max-width: 300px;
@@ -31,7 +31,7 @@ $sidemenu-search-radius: 2px;
 $sidemenu-link-padding: 1rem;
 $sidemenu-link-color: #ABABAB;
 $sidemenu-link-hover: #ABABAB;
-$sidemenu-link-hover-background: #212121;
+$sidemenu-link-hover-background: rgba(0, 0, 0, 0.15);
 $sidemenu-link-active-background: #212121;
 
 $sidemenu-sublink-padding: 0.4rem 0 0.4rem 1rem;

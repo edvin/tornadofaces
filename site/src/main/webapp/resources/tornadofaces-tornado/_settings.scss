@@ -79,13 +79,16 @@ $header-top-margin: .2rem !default;
 $header-bottom-margin: .5rem !default;
 $header-text-rendering: optimizeLegibility !default;
 
-// We use these to control header font sizes //todo: Remove rem calcs
+// We use these to control header font sizes
 $h1-font-size: 2.6rem !default;
 $h2-font-size: rem-calc(37) !default;
 $h3-font-size: rem-calc(27) !default;
 $h4-font-size: rem-calc(23) !default;
 $h5-font-size: 1.6rem !default;
 $h6-font-size: 1rem !default;
+
+// We use these to control header font weights //todo: add more
+$h1-font-weight: 300 !default;
 
 // We use these to control header size reduction on small screens
 $h1-font-reduction: rem-calc(10) !default;
