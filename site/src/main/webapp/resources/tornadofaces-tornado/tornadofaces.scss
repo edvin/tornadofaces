@@ -85,10 +85,6 @@
 }
 .close-button {
   z-index: 9;
-
-  &:hover {
-    color: #fff;
-  }
 }
 
 
@@ -124,21 +120,6 @@ form label {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.messages {
-  position: relative;
-}
-
-.messages .close-button {
-  top: 6px;
-  right: 8px;
-  color: #fff;
-}
-
-.messages .label {
-  margin: 0;
-  padding: 10px;
 }
 
 .field-error-message {

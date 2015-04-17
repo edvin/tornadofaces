@@ -44,7 +44,7 @@ TornadoFaces.declareWidget('Message', function() {
         if (typeof message.closable == "undefined")
             message.closable = widget.isClosable();
 
-        var e = $('<div class="label grid-block">' + message.summary + '</div>');
+        var e = $('<div class="message grid-block">' + message.summary + '</div>');
 
         if (message.detail && message.detail != message.summary)
             e.append(' <span class="detail">' + message.detail + '</span>');
@@ -53,7 +53,7 @@ TornadoFaces.declareWidget('Message', function() {
             e.prepend('<img src="' + message.image + '" style="padding-right: 10px"/>');
 
         if (message.closable) {
-            var closebutton = $('<a href="#" class="close-button">×</a>');
+            var closebutton = $('<a href="#" class="close-button icon-cross"></a>');
             closebutton.click(function() {
                 widget.destroyNotification(e);
                 event.stopPropagation();
@@ -64,17 +64,17 @@ TornadoFaces.declareWidget('Message', function() {
 
         switch (message.severity) {
             case 'INFO':
-                e.addClass('primary');
+                e.addClass('message--info');
                 break;
             case 'FATAL':
             case 'ERROR':
-                e.addClass('alert');
+                e.addClass('message--alert');
                 break;
             case 'WARN':
-                e.addClass('warning');
+                e.addClass('message--warning');
                 break;
             default:
-                e.addClass('success');
+                e.addClass('message--success');
         }
 
         widget.elem.append(e);

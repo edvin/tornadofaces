@@ -1,0 +1,56 @@
+
+$message-radius: $input-radius;
+
+$message-info-background: #fff;
+$message-info-color: #B8DFF7;
+
+$message-success-background: #fff;
+$message-success-color: #B3EDC1;
+
+$message-warning-background: #fff;
+$message-warning-color: #FFB4A3;
+
+$message-alert-background: #FF4040;
+$message-alert-color: #fff;
+
+.messages {
+  .close-button {
+    top: 1.2rem;
+    right: 1.2rem;
+  }
+}
+
+.message {
+  padding: 1.3rem;
+  margin-bottom: 0.5rem;
+  box-shadow: $default-box-shadow;
+  font-size: .9rem;
+  border-radius: $message-radius;
+  .close-button {color: inherit;}
+
+  &:before {
+    content: '';
+    display: block;
+    width: 1.4rem;
+    margin-right: $global-padding/2;
+    border-radius: 2px;
+  }
+}
+
+.message--info {
+  background: $message-info-background;
+  &:before {background: $message-info-color;}
+}
+.message--success {
+  background: $message-success-background;
+  &:before {background: $message-success-color;}
+}
+.message--warning {
+  background: $message-warning-background;
+  &:before {background: $message-warning-color;}
+}
+.message--alert {
+  &:before {background: $message-alert-color;}
+  background: $message-alert-background;
+  color: #fff;
+}
