@@ -25,9 +25,10 @@ $body-font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial,
 $body-font-weight: $font-weight-normal !default;
 $body-font-style: normal !default;
 $body-antialiased: true !default;
-$default-border: 1px solid #f0f0f0 !default;
+$default-border: 1px solid #eee !default;
 $default-dotted-border: 1px dotted #CACACA !default;
-$default-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.26);
+//$default-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.26);
+$default-box-shadow: -2px 2px 0px rgba(0, 0, 0, 0.17);
 
 // Application Colors
 $primary-color: #3fa2d8 !default;
@@ -181,7 +182,7 @@ $block-grid-max-size: 6 !default;
 // - - - - - - - - - - - - - - -
 
 $accordion-border: none !default;
-$accordion-item-border: none !default;
+$accordion-item-border: $default-border !default;
 $accordion-item-shadow: $default-box-shadow !default; //Todo: variable
 
 $accordion-title-font-size: 1.3rem;

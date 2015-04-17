@@ -93,7 +93,7 @@ $sidemenu-popuot-background: #1e1e1e;
   flex-direction: column;
   overflow: visible;
   z-index: 999 !important;
-  font-family: "Open Sans Condensed", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+//  font-family: "Open Sans Condensed", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   input { box-sizing: border-box; }
   ul { //reset
     margin: 0;
@@ -181,7 +181,7 @@ $sidemenu-popuot-background: #1e1e1e;
   }
 }
 .sidemenu-subitems { //applies to 2nd level only
-  font-size: 1.05rem;
+  font-size: .9rem;
   margin: 0;
   padding: 1rem; // TODO: FIX setting!
   display: block;
