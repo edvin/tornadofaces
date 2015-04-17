@@ -3,7 +3,7 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
     <f:metadata>
-        <f:viewAction action="#{docsController.loadTag('table')}" />
+        <f:viewAction action="#{docsController.loadTag('table')}"/>
     </f:metadata>
 
     <ui:define name="breadcrumb">
@@ -16,57 +16,62 @@
 
         <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
 
-        <p>The default <code>reflow</code> mode uses some clever CSS tricks to show each row of data in a mobile friendly way when
-            displayed on small screens. <strong class="show-for-medium"> Resize your screen to see it in action.</strong></p>
+        <p>The default
+            <code>reflow</code> mode uses some clever CSS tricks to show each row of data in a mobile friendly way when
+            displayed on small screens. Optionally you can make reflow trigger at <code>medium</code> or
+            <code>large</code> displays instead, or turn it off by choosing <code>none</code>.<strong
+                    class="show-for-medium"> Resize your screen to see it in action.</strong></p>
 
         <ui:include src="table.xhtml"/>
 
-        <p>See the <a href="../column">column</a> documentation for column attributes and advanced reflow combinations.</p>
+        <p>See the <a href="../column">column</a> documentation for column attributes and advanced reflow combinations.
+        </p>
 
         <t:tabView>
             <t:tab title="Example">
                 <t:source language="markup">
-&lt;h5>Row selection, AJAX callback&lt;/h5>
-&lt;t:table id="moviesSelection" value="#{docsController.expr('controller.movies')}" var="movie" selectionMode="single" rowKey="#{docsController.expr('movie.id')}">
-    &lt;f:ajax event="rowSelect" listener="#{docsController.expr('controller.onSelectMovie')}" render="notification"/>
-    &lt;t:column headerText="ID" text="#{docsController.expr('movie.id')}"/>
-    &lt;t:column headerText="Title" text="#{docsController.expr('movie.title')}" />
-&lt;/t:table>
+                    &lt;h5>Row selection, AJAX callback&lt;/h5>
+                    &lt;t:table id="moviesSelection" value="#{docsController.expr('controller.movies')}" var="movie" selectionMode="single" rowKey="#{docsController.expr('movie.id')}">
+                    &lt;f:ajax event="rowSelect" listener="#{docsController.expr('controller.onSelectMovie')}" render="notification"/>
+                    &lt;t:column headerText="ID" text="#{docsController.expr('movie.id')}"/>
+                    &lt;t:column headerText="Title" text="#{docsController.expr('movie.title')}" />
+                    &lt;/t:table>
 
-&lt;h5>Expand rows for detail view&lt;/h5>
-&lt;h:form id="f">
-    &lt;t:table id="movies" value="#{docsController.expr('controller.movies')}" var="movie" rowKey="#{docsController.expr('movie.id')}">
-        &lt;t:column headerText="More">&lt;t:rowToggler/>&lt;/t:column>
-        &lt;t:column headerText="ID" text="#{docsController.expr('movie.id')}"/>
-        &lt;t:column headerText="Title" text="#{docsController.expr('movie.title')}" />
-        &lt;t:rowExpansion>
-            #{docsController.expr('movie.description')}
-        &lt;/t:rowExpansion>
-    &lt;/t:table>
-&lt;/h:form>
+                    &lt;h5>Expand rows for detail view&lt;/h5>
+                    &lt;h:form id="f">
+                    &lt;t:table id="movies" value="#{docsController.expr('controller.movies')}" var="movie" rowKey="#{docsController.expr('movie.id')}">
+                    &lt;t:column headerText="More">&lt;t:rowToggler/>&lt;/t:column>
+                    &lt;t:column headerText="ID" text="#{docsController.expr('movie.id')}"/>
+                    &lt;t:column headerText="Title" text="#{docsController.expr('movie.title')}" />
+                    &lt;t:rowExpansion>
+                    #{docsController.expr('movie.description')}
+                    &lt;/t:rowExpansion>
+                    &lt;/t:table>
+                    &lt;/h:form>
 
-&lt;h5>Compact, bordered, title no reflow&lt;/h5>
-&lt;t:table id="moviesCompact" value="#{docsController.expr('controller.movies')}" var="movie" compact="true" bordered="true" selectionMode="single">
-    &lt;t:column headerText="ID" text="#{docsController.expr('movie.id')}"/>
-    &lt;t:column headerText="Title" text="#{docsController.expr('movie.title')}" reflow="false"/>
-&lt;/t:table></t:source>
+                    &lt;h5>Compact, bordered, title no reflow&lt;/h5>
+                    &lt;t:table id="moviesCompact" value="#{docsController.expr('controller.movies')}" var="movie" compact="true" bordered="true" selectionMode="single">
+                    &lt;t:column headerText="ID" text="#{docsController.expr('movie.id')}"/>
+                    &lt;t:column headerText="Title" text="#{docsController.expr('movie.title')}" reflow="none"/>
+                    &lt;/t:table></t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>
                 <h5>Ajax Behavior Events</h5>
 
                 <p><code>rowSelect</code> will be called when a row is selected. To enable selection you must also set
-                    <code>rowKey</code> to return a unique id per row and the <code>selectionMode</code> to either <code>single</code>
+                    <code>rowKey</code> to return a unique id per row and the <code>selectionMode</code> to either
+                    <code>single</code>
                     or <code>multi</code>.
 
                 </p>
                 <t:source lineNumbers="false">&lt;t:table>
-    &lt;f:ajax event="rowSelect" listener="#{docsController.expr('controller.onSelect')}">
-&lt;/t:table></t:source>
+                    &lt;f:ajax event="rowSelect" listener="#{docsController.expr('controller.onSelect')}">
+                    &lt;/t:table></t:source>
                 <t:source lineNumbers="false" language="java">public void onSelect(SelectionEvent&lt;Movie> event) {
-    Table table = (Table) event.getSource();
-    Movie movie = event.getSelection();
-}</t:source>
+                    Table table = (Table) event.getSource();
+                    Movie movie = event.getSelection();
+                    }</t:source>
 
                 <p>The listener will be called with an instance of
                     <code>io.tornadofaces.event.SelectionEvent</code> that contains a reference to the Table and the selected row object.

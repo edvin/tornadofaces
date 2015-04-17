@@ -12,7 +12,7 @@
     <h:form id="f">
         <t:table id="movies" value="#{docsController.movies}" var="movie" rowKey="#{movie.id}">
             <t:column headerText="More"><t:rowToggler/></t:column>
-            <t:column headerText="ID" text="#{movie.id}"/>
+            <t:column headerText="ID" link="http://www.vg.no" text="#{movie.id}"/>
             <t:column headerText="Title" text="#{movie.title}" />
             <t:rowExpansion>
                 #{movie.description}
@@ -20,10 +20,10 @@
         </t:table>
     </h:form>
 
-    <h5>Compact, bordered, title no reflow small</h5>
+    <h5>Compact, bordered, title no reflow</h5>
     <t:table id="moviesCompact" value="#{docsController.movies}" var="movie" compact="true" bordered="true" selectionMode="single">
         <t:column headerText="ID" text="#{movie.id}"/>
-        <t:column headerText="Title" text="#{movie.title}" reflow="small"/>
+        <t:column headerText="Title" text="#{movie.title}" reflow="none"/>
     </t:table>
 
 </h:panelGroup>

@@ -23,6 +23,8 @@ public class Column extends UIColumn {
 		return ComponentUtils.COMPONENT_FAMILY;
 	}
 
+	public String getLink() { return (String) getStateHelper().eval("link"); }
+	public void setLink(String link) { getStateHelper().put("link", link); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 	public String getHeaderClass() { return (String) getStateHelper().eval("headerClass"); }

@@ -1298,6 +1298,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>Wrap the column content in an anchor with the the href set to the link property</description>
+            <name>link</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Styles to apply to the td</description>
             <name>style</name>
             <required>false</required>
@@ -1676,8 +1682,7 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
-            <description>Will wrap the contents of this li in an anchor with href set to the this property value.
-            </description>
+            <description>Wrap the contents of this li in an anchor with href set to the this property value.</description>
             <name>link</name>
             <required>false</required>
             <type>String</type>

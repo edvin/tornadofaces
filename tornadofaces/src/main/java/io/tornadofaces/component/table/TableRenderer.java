@@ -181,6 +181,12 @@ public class TableRenderer extends CoreRenderer {
 						.add("row-toggle-container", column.containsRowToggler())
 						.write(writer);
 
+					String link = column.getLink();
+					if (link != null) {
+						writer.startElement("a", column);
+						writer.writeAttribute("href", link, null);
+					}
+
 					if (!Table.ReflowAtSize.none.equals(reflow))
 						writer.startElement("span", column);
 
@@ -197,6 +203,9 @@ public class TableRenderer extends CoreRenderer {
 
 					if (!Table.ReflowAtSize.none.equals(reflow))
 						writer.endElement("span");
+
+					if (link != null)
+						writer.endElement("a");
 
 					writer.endElement("td");
 				}
