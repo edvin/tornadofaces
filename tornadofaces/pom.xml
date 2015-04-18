@@ -11,7 +11,7 @@
     
     <parent>
         <groupId>io.tornadofaces</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>tornadofaces-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

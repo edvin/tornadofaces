@@ -138,6 +138,12 @@ TornadoFaces.widget.BaseWidget = Class.extend(function() {
         this.conf = conf;
         this.elem = $(TornadoFaces.escapeClientId(conf.id));
 
+        // Fallback to name if no id was found. Will match input fields with no id.
+        if (this.elem.length == 0) {
+            this.elem = $("[name='" + conf.id + "']");
+            this.elem.attr('id', conf.id);
+        }
+
         this.removeScriptElement(conf.id);
         this.init(conf);
     };

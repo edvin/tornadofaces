@@ -3,13 +3,13 @@
               medium="2">
     <h:form>
         <t:form-element label="Pick a color">
-            <t:colorpicker id="mypicker" value="#{pickerController.color}" showAlpha="true">
+            <t:colorpicker value="#{pickerController.color}" showAlpha="true">
                 <f:ajax listener="#{pickerController.colorChanged}" render="notification"/>
             </t:colorpicker>
         </t:form-element>
 
         <t:form-element label="Just the picker">
-            <t:colorpicker id="mypicker2" value="#{pickerController.color}" showTextField="false" />
+            <t:colorpicker value="#{pickerController.color}" showTextField="false" />
         </t:form-element>
     </h:form>
 </t:grid-block>
