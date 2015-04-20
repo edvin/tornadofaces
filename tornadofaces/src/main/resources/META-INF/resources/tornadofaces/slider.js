@@ -118,7 +118,7 @@ TornadoFaces.declareWidget('Slider', function() {
                         props.execute = b.execute;
 
                     if (b.delay)
-                        props.delay = parseInt(b.delay);
+                        props.delay = b.delay;
 
                     jsf.ajax.request(widget.elem.attr('id'), null, props);
                 }
