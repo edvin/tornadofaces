@@ -116,7 +116,10 @@ TornadoFaces.declareWidget('Slider', function() {
                     
                     if (b.execute)
                         props.execute = b.execute;
-                    
+
+                    if (b.delay)
+                        props.delay = parseInt(b.delay);
+
                     jsf.ajax.request(widget.elem.attr('id'), null, props);
                 }
             }
