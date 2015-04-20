@@ -105,6 +105,10 @@ public class ComponentUtils {
 					if (render != null)
 						o.put("render", resolveIds(context, component, render));
 
+					String delay = ab.getDelay();
+					if (delay != null)
+						o.put("delay", delay);
+
 					array.put(o);
 				}
 			}

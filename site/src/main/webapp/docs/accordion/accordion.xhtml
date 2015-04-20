@@ -1,10 +1,10 @@
 <h:panelGroup xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<t:accordion dynamic="true" autoOpen="false" multi="true" cache="false">
-    <f:ajax listener="#{docsController.onTabChange}" render=":notification"/>
+<t:accordion id="accordion" dynamic="true" autoOpen="false" multi="true" cache="false">
+    <f:ajax listener="#{docsController.onTabChange}" render="_notification"/>
 
-    <t:tab icon="icon-refresh-circle">
+    <t:tab icon="icon-refresh-circle" id="tab1">
         <f:facet name="title">
             Star Wars: Episode I - The Phantom Menace
         </f:facet>
@@ -18,7 +18,7 @@
             </div>
         </div>
     </t:tab>
-    <t:tab icon="icon-cloud">
+    <t:tab icon="icon-cloud" id="tab2">
         <f:ajax listener="#{docsController.episodeTwoActivated}"/>
         <f:facet name="title">
             Star Wars: Episode II - Attack of the Clones
@@ -32,7 +32,7 @@
             </div>
         </div>
     </t:tab>
-    <t:tab icon="icon-filter-down">
+    <t:tab icon="icon-filter-down" id="tab3">
         <f:facet name="title">
             Star Wars: Episode III - Revenge of the Sith
         </f:facet>
