@@ -4,7 +4,7 @@ $sidemenu-background-color: $dark-color;
 $sidemenu-border: 1px solid rgba(255, 255, 255, 0.14);
 $sidemenu-outer-padding: 0;
 $sidemenu-min-width: 300px;
-$sidemenu-max-width: 300px;
+$sidemenu-max-width: 340px;
 
 //Toggle (minimizer)
 $sidemenu-toggle-background: $primary-color;
@@ -34,7 +34,7 @@ $sidemenu-link-hover: #ABABAB;
 $sidemenu-link-hover-background: rgba(0, 0, 0, 0.15);
 $sidemenu-link-active-background: #212121;
 
-$sidemenu-sublink-padding: 0.4rem 0 0.4rem 1rem;
+$sidemenu-sublink-padding: .4rem 0 .4rem .6rem;
 $sidemenu-sublink-radius: 2px;
 
 //sidemenu popout
@@ -63,6 +63,7 @@ $sidemenu-popuot-background: #1e1e1e;
   }
   @include breakpoint(small only) {
     &.show-for-small-only {display: flex !important;}
+
   }
   @include breakpoint(medium up) {
     &.hide-for-small-only {display: flex !important;}
@@ -71,7 +72,7 @@ $sidemenu-popuot-background: #1e1e1e;
 
 .sidemenu-logo {
   text-align: center;
-  padding: 1.4rem 1rem 1.2rem 0; //todo: $logo-padding
+  padding: 2.1rem 1rem 2rem 0; //todo: $logo-padding
   > .logo-max {
     width: 194px; //todo: $logo-max-size
     height: auto;
@@ -196,6 +197,7 @@ $sidemenu-popuot-background: #1e1e1e;
     padding: $sidemenu-sublink-padding;
     transition: background 0.5s;
     &> a {
+      word-break: break-word;
       &:before {
 
       }
