@@ -22,23 +22,16 @@ public class OutputTextRenderer extends CoreRenderer {
 		writer.startElement(text.getTag(), text);
 		writer.writeAttribute("id", text.getClientId(context), null);
 
-		if (text.getEmpty()) {
-			StyleClass.of(text.getEmptyClass()).write(writer);
-		} else {
+		if (text.getShow()) {
 			StyleClass.of(text.getStyleClass()).write(writer);
 			String style = text.getStyle();
 			if (style != null)
 				writer.writeAttribute("style", style, null);
+
+			Object txt = text.getValue();
+			if (txt != null)
+				writer.writeText(txt, null);
 		}
-	}
-
-	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
-		OutputText text = (OutputText) component;
-		if (text.getEmpty())
-			return;
-
-		for (UIComponent child : component.getChildren())
-			child.encodeAll(context);
 	}
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
