@@ -49,47 +49,28 @@
                 }
             }
 
-            function popoutHandler(e) {
-                if(!$(this).hasClass('popout-active')) {
-                    var popout = $('.popout');
-                    var subItems = $(this).find('.sidemenu-subitems');
-                    subItems.css({top: 0});
-                    popout.removeClass('popout-active');
-                    $(this).addClass('popout-active');
-                    var padding = 20;
-                    var offset = $(window).height() - subItems.offset().top - subItems.outerHeight() - padding;
-                    if (offset &lt; 0)
-                        subItems.css({top: offset + 'px'});
-                }else {
-                    $(this).removeClass('popout-active');
-                }
-            }
-
-            function bindPopout(todo, toBind) {
-                if(todo == 'bind') {
-                    toBind.bind('click', popoutHandler);
-                }else if (todo == 'unbind') {
-                    toBind.unbind('click', popoutHandler);
-                }
-            }
-
             $(function() {
                 var leftMenu = $('#left-menu-container');
                 var toggle = $('.sidemenu-toggle');
 
-                var close = function() { TornadoFaces.animate(leftMenu, false, 'slideInRight', 'slideOutLeft') };
+                var closeFn = function(e) {
+                    if($(e.target).parents('#left-menu-container').length == 0) {
+                        leftMenu.removeClass('is-active');
+                        $(document).off('click', closeFn);
+                    }
+                };
 
-                toggle.click(function() {
-                    var futureState = !leftMenu.hasClass('is-active');
-                    TornadoFaces.animate(leftMenu, futureState, 'slideInRight', 'slideOutLeft');
-                });
-
-                $(document).on('click', function(e) {
-                    if($(e.target).parents('.sidemenu').length == 0) {
-                        if (leftMenu.hasClass('is-active'))
-                            ;
+                toggle.click(function(e) {
+                    if (leftMenu.hasClass('is-active')) {
+                        closeFn(e);
+                        $(document).off('click', closeFn);
+                    } else {
+                        e.stopPropagation();
+                        leftMenu.addClass('is-active');
+                        $(document).on('click', closeFn);
                     }
                 });
+
             });
         </script>
     </h:head>
