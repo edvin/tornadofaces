@@ -192,6 +192,7 @@ $accordion-title-background-hover: $accordion-title-background !default;
 $accordion-title-background-active: smartscale($accordion-title-background, -5%) !default;
 $accordion-title-color: isitlight($accordion-title-background) !default;
 $accordion-title-color: inherit !default;
+$accordion-title-icon-size: 1.7em !default;
 $accordion-title-color-active: isitlight($accordion-title-background) !default;
 $accordion-title-color-active: inherit !default;
 $accordion-item-background: #fff !default;
@@ -300,8 +301,8 @@ $input-placeholder-color: #808080;
 
 // Basic transitions
 
-$input-transition-base: background 0.25s, border 0.25s;
-$input-transition-hover: background 0.11s, border 0.11s;
+$input-transition-base: background 0.25s, border 0.25s, color 0.25s;
+$input-transition-hover: background 0.11s, border 0.11s, color 0.11s;
 
 // Basic form variables
 $form-fontsize: .9rem !default;
