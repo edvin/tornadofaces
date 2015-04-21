@@ -94,7 +94,6 @@ $sidemenu-popuot-background: #1e1e1e;
   flex-direction: column;
   overflow: visible;
   z-index: 999 !important;
-//  font-family: "Open Sans Condensed", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   input { box-sizing: border-box; }
   ul { //reset
     margin: 0;
@@ -321,7 +320,7 @@ $sidemenu-popuot-background: #1e1e1e;
 }
 } //breakpoint medium up END
 
-@include breakpoint(small) {
-  .sidemenu {overflow-y: auto;}
+@include breakpoint(small only) {
+  .sidemenu {overflow-y: scroll;}
   .sidemenu-toggle {display: none;}
 }
