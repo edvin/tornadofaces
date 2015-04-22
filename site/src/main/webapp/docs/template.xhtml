@@ -48,10 +48,20 @@
             $(function() {
                 var leftMenu = $('#left-menu-container');
                 var toggle = $('.sidemenu-toggle');
+                var overlay  = function(todo) {
+                    if(todo == 'add') {
+                        $('#main-container').prepend('<div class="main-container-overlay"></div>');
+                    }else if(todo == 'remove') {
+                        $('.main-container-overlay').fadeOut('210', function(){
+                            this.remove();
+                        });
+                    }
+                };
 
                 var closeFn = function(e) {
                     if($(e.target).parents('#left-menu-container').length == 0) {
                         leftMenu.removeClass('is-active');
+                        overlay('remove');
                         $(document).off('click', closeFn);
                     }
                 };
@@ -62,6 +72,7 @@
                         $(document).off('click', closeFn);
                     } else {
                         e.stopPropagation();
+                        overlay('add');
                         leftMenu.addClass('is-active');
                         $(document).on('click', closeFn);
                     }
