@@ -11,6 +11,38 @@
         <param-value>site</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>${jsfProjectStage}</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>SassFilter</filter-name>
+        <filter-class>no.tornado.libsass.SassFilter</filter-class>
+        <init-param>
+            <param-name>outputStyle</param-name>
+            <param-value>${libsassOutputStyle}</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cache</param-name>
+            <param-value>${libsassCache}</param-value>
+        </init-param>
+        <init-param>
+            <param-name>autoprefix</param-name>
+            <param-value>${libsassAutoprefix}</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>SassFilter</filter-name>
+        <url-pattern>*.css</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>SassFilter</filter-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

@@ -3,7 +3,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
-<f:view transient="true">
+<f:view>
     <h:head>
         <title>TornadoFaces - Modern JSF Component Framework</title>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -12,10 +12,6 @@
         <h:outputScript library="js" name="jquery.scrollbar.js"/>
         <h:outputStylesheet library="css" name="jquery.scrollbar.css"/>
         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,400,300,700' rel='stylesheet' type='text/css'/>
-
-        <t:form-element label="Navn">
-            <h:inputText/>
-        </t:form-element>
 
         <script>
             var scrollables, searchables;
@@ -90,15 +86,14 @@
         <t:notification id="notification" widgetVar="notification" timeout="3000"/>
         <t:modal widgetVar="mymodal" id="mymodal" color="dark">
             <h3>Modal Window</h3>
-
-            <p>Enter your name: <h:inputText value="#{modalController.name}"/></p>
+            <h:form>
+                <p>Enter your name: <h:inputText value="#{modalController.name}"/></p>
+            </h:form>
             <a class="button success close">Save</a>
         </t:modal>
 
         <div class="grid-frame">
             <div id="left-menu-container" class="sidemenu medium-grid-block panel panel-left medium-3 slideOut">
-                <a class="sidemenu-toggle hide-for-small-only"><i class="icon-back"></i></a>
-                <a class="sidemenu-toggle show-for-small-only"><i class="icon-back"></i></a>
                 <div id="left-menu" class="scrollbar-inner sidemenu-content grid-content collapse">
                     <div class="sidemenu-logo">
                         <img class="logo-max" src="/resources/img/logo-tornado-faces-01.svg"/>
@@ -147,7 +142,9 @@
                                     <t:li link="/docs/message/">Message</t:li>
                                     <t:li link="/docs/modal/">Modal</t:li>
                                     <t:li link="/docs/notification/">Notification</t:li>
+                                    <t:li link="/docs/outputtext/">OutputText</t:li>
                                     <t:li link="/docs/panel/">Panel</t:li>
+                                    <t:li link="/docs/panelgroup/">PanelGroup</t:li>
                                     <t:li link="/docs/primarymenu/">Primary Menu</t:li>
                                     <t:li link="/docs/progress/">Progress</t:li>
                                     <t:li link="/docs/reveal/">Reveal</t:li>
