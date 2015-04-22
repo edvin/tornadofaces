@@ -378,7 +378,7 @@ $badge-color: #fff !default;
 $menubar-font-family: initial !default;
 $menubar-fontsize: 1rem !default;
 $menubar-fontsize: $font-base !default;
-$menubar-background: #fff !default;
+$menubar-background: transparent !default;
 $menubar-background-hover: smartscale($menubar-background, 4%) !default;
 $menubar-background-active: $menubar-background-hover !default;
 $menubar-color: isitlight($menubar-background) !default;
