@@ -55,7 +55,7 @@ public class Colorpicker extends HtmlInputText implements Widget, ClientBehavior
 	public void setSelectionPalette(List<String> selectionPalette) { getStateHelper().put("selectionPalette", selectionPalette); }
 	public String getCancelText() { return (String) getStateHelper().eval("cancelText", null); }
 	public void setCancelText(String cancelText) { getStateHelper().put("cancelText", cancelText); }
-	public String getPreferredFormat() { return (String) getStateHelper().eval("preferredFormat", "hex"); }
+	public String getPreferredFormat() { return (String) getStateHelper().eval("preferredFormat", "rgb"); }
 	public void setPreferredFormat(String preferredFormat) { getStateHelper().put("preferredFormat", preferredFormat); }
 	public String getContainerClassName() { return (String) getStateHelper().eval("containerClassName", null); }
 	public void setContainerClassName(String containerClassName) { getStateHelper().put("containerClassName", containerClassName); }
