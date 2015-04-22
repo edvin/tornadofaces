@@ -1,6 +1,6 @@
 <t:grid-block xmlns:t="http://tornadofaces.io/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
               xmlns:h="http://xmlns.jcp.org/jsf/html" orientation="vertical"
-              medium="2">
+              medium="3">
     <h:form>
         <t:form-element label="Pick a color">
             <t:colorpicker value="#{pickerController.color}" showAlpha="true">
@@ -8,8 +8,8 @@
             </t:colorpicker>
         </t:form-element>
 
-        <t:form-element label="Just the picker">
-            <t:colorpicker value="#{pickerController.color}" showTextField="false" />
+        <t:form-element label="Just the picker, hex">
+            <t:colorpicker value="#{pickerController.color}" preferredFormat="hex" showTextField="false" />
         </t:form-element>
     </h:form>
 </t:grid-block>
