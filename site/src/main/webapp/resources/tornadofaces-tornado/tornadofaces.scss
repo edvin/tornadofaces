@@ -52,7 +52,6 @@
 #header {
   position: relative;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.32);
-  background: #fff;
   padding: 1rem 5%; //todo: $content-outer-padding ellerno
   @include breakpoint(medium up) {
     padding: 2.2rem;
