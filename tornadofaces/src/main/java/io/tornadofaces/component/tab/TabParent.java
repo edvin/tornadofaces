@@ -48,7 +48,9 @@ public abstract class TabParent extends UIPanel implements Widget, ClientBehavio
 			if (child instanceof Tab) {
 				if (child == tab)
 					return i;
-				i++;
+
+				if (child.isRendered())
+					i++;
 			}
 		}
 		return -1;

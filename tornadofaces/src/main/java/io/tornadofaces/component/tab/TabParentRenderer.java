@@ -9,10 +9,9 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
-import java.awt.*;
 import java.io.IOException;
-import java.util.*;
 import java.util.List;
+import java.util.Map;
 
 import static io.tornadofaces.component.util.ComponentUtils.encodeAjaxBehaviors;
 
