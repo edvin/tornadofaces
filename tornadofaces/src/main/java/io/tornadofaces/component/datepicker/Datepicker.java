@@ -60,7 +60,7 @@ public class Datepicker extends HtmlInputText implements Widget {
 		settings.put("position", getPosition());
 		settings.put("container", getContainer());
 		settings.put("onSelect", getOnselect());
-		settings.put("repoisition", getReposition());
+		settings.put("reposition", getReposition());
 		settings.put("trigger", getTrigger());
 		return settings;
 	}
