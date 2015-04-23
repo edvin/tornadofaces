@@ -56,11 +56,6 @@
   @include breakpoint(medium up) {
     padding: 2.2rem;
   }
-  h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    &> a {color: $body-font-color;}
-  }
   a {display: inline-block;}
 }
 #main-container {
