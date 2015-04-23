@@ -111,6 +111,8 @@ $sidemenu-popuot-background: #1e1e1e;
 .sidemenu-content {
   position: relative;
   padding-bottom: 2.5rem !important; //todo: FIX this
+  overflow-y: auto;
+  overflow-x: hidden;
 //  max-height: 100%;
 }
 .sidemenu-search {
@@ -185,7 +187,7 @@ $sidemenu-popuot-background: #1e1e1e;
   }
 }
 .sidemenu-subitems { //applies to 2nd level only
-  font-size: .9rem;
+  font-size: 1.05rem;
   margin: 0;
   padding: 0.5rem 1.6rem 1rem; // TODO: FIX setting!
   display: block;

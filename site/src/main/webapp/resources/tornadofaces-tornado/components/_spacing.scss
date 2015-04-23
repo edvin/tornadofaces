@@ -3,6 +3,7 @@
 // ?. Padding & gutters
 // - - - - - - - - - - - - - - -
 
+$padding-tiny: ($global-padding / 4);
 $padding-small: ($global-padding / 2);
 $padding-large: ($global-padding * 1.5);
 
@@ -34,6 +35,13 @@ $padding-large: ($global-padding * 1.5);
 .l-padding { padding-left: $global-padding; }
 .lr-padding { padding: 0 $global-padding; }
 .tb-padding { padding: $global-padding 0; }
+
+.t-padding-tiny { padding-top: $padding-tiny; }
+.r-padding-tiny { padding-right: $padding-tiny; }
+.b-padding-tiny { padding-bottom: $padding-tiny; }
+.l-padding-tiny { padding-left: $padding-tiny; }
+.lr-padding-tiny { padding: 0 $padding-tiny; }
+.tb-padding-tiny { padding: $padding-tiny 0; }
 
 .t-padding-small { padding-top: $padding-small; }
 .r-padding-small { padding-right: $padding-small; }
