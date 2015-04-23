@@ -4,11 +4,14 @@ $sidemenu-background-color: $dark-color;
 $sidemenu-border: 1px solid rgba(255, 255, 255, 0.14);
 $sidemenu-outer-padding: 0;
 $sidemenu-min-width: 300px;
-$sidemenu-max-width: 300px;
+$sidemenu-max-width: 340px;
 
 //Toggle (minimizer)
 $sidemenu-toggle-background: $primary-color;
 $sidemenu-toggle-color: #fff;
+
+//sidemenu title
+$sidemenu-title-weight: 500;
 
 //sidemenu item - applies to li
 $sidemenu-item-background: initial;
@@ -34,7 +37,7 @@ $sidemenu-link-hover: #ABABAB;
 $sidemenu-link-hover-background: rgba(0, 0, 0, 0.15);
 $sidemenu-link-active-background: #212121;
 
-$sidemenu-sublink-padding: 0.4rem 0 0.4rem 1rem;
+$sidemenu-sublink-padding: .4rem 0 .4rem .6rem;
 $sidemenu-sublink-radius: 2px;
 
 //sidemenu popout
@@ -63,6 +66,7 @@ $sidemenu-popuot-background: #1e1e1e;
   }
   @include breakpoint(small only) {
     &.show-for-small-only {display: flex !important;}
+
   }
   @include breakpoint(medium up) {
     &.hide-for-small-only {display: flex !important;}
@@ -71,7 +75,7 @@ $sidemenu-popuot-background: #1e1e1e;
 
 .sidemenu-logo {
   text-align: center;
-  padding: 1.4rem 1rem 1.2rem 0; //todo: $logo-padding
+  padding: 2.1rem 1rem 2rem 0; //todo: $logo-padding
   > .logo-max {
     width: 194px; //todo: $logo-max-size
     height: auto;
@@ -93,7 +97,6 @@ $sidemenu-popuot-background: #1e1e1e;
   flex-direction: column;
   overflow: visible;
   z-index: 999 !important;
-//  font-family: "Open Sans Condensed", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   input { box-sizing: border-box; }
   ul { //reset
     margin: 0;
@@ -146,14 +149,12 @@ $sidemenu-popuot-background: #1e1e1e;
     padding: 0;
     border-bottom: 0;
     transition: background 0.2s;
-//    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.07);
     > a {
-      border-bottom: $sidemenu-border;
-      border-top: $sidemenu-border;
+      border: $sidemenu-border;
       color: #fff;
       text-align: center;
       font-size: inherit;
-      font-weight: 300; //todo: setting
+      font-weight: $sidemenu-title-weight; //todo: setting
       padding: 0.6rem 1.2rem 0.6rem 0; //todo: sidemenu-L1-padding
       margin: 0 1.6rem 0 1.6rem;
       > i {
@@ -162,28 +163,12 @@ $sidemenu-popuot-background: #1e1e1e;
         color: $primary-color;
       }
     }
-//    &.is-active {
-//      position: relative;
-//      &> a {
-//        padding: 1.4rem 1.4rem 0.7rem; //todo: sidemenu-L1-active-padding
-//      }
-//      &:before {
-//        content: '';
-//        position: absolute;
-//        left: 0;
-//        top: -1px;
-//        height: calc(100% + 2px);
-//        width: 4px;
-//        background: $primary-color;
-//        z-index: 10;
-//      }
-//    }
   }
 }
 .sidemenu-subitems { //applies to 2nd level only
   font-size: .9rem;
   margin: 0;
-  padding: 1rem; // TODO: FIX setting!
+  padding: 1rem 1.4rem; // TODO: FIX setting!
   display: block;
   height: auto;
   min-width: $sidemenu-min-width;
@@ -196,6 +181,7 @@ $sidemenu-popuot-background: #1e1e1e;
     padding: $sidemenu-sublink-padding;
     transition: background 0.5s;
     &> a {
+      word-break: break-word;
       &:before {
 
       }
@@ -319,7 +305,7 @@ $sidemenu-popuot-background: #1e1e1e;
 }
 } //breakpoint medium up END
 
-@include breakpoint(small) {
-  .sidemenu {overflow-y: auto;}
+@include breakpoint(small only) {
+  .sidemenu {overflow-y: scroll;}
   .sidemenu-toggle {display: none;}
 }

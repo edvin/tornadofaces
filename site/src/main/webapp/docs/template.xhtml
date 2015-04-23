@@ -3,7 +3,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
-<f:view transient="true">
+<f:view>
     <h:head>
         <title>TornadoFaces - Modern JSF Component Framework</title>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -11,11 +11,7 @@
         <h:outputScript library="js" name="fastclick.min.js"/>
         <h:outputScript library="js" name="jquery.scrollbar.js"/>
         <h:outputStylesheet library="css" name="jquery.scrollbar.css"/>
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,800|Open+Sans+Condensed:300,700" type="text/css" media="all" />
-
-        <t:form-element label="Navn">
-            <h:inputText/>
-        </t:form-element>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,400,300,700' rel='stylesheet' type='text/css'/>
 
         <script>
             var scrollables, searchables;
@@ -49,58 +45,39 @@
                 }
             }
 
-            function popoutHandler(e) {
-                if(!$(this).hasClass('popout-active')) {
-                    var popout = $('.popout');
-                    var subItems = $(this).find('.sidemenu-subitems');
-                    subItems.css({top: 0});
-                    popout.removeClass('popout-active');
-                    $(this).addClass('popout-active');
-                    var padding = 20;
-                    var offset = $(window).height() - subItems.offset().top - subItems.outerHeight() - padding;
-                    if (offset &lt; 0)
-                        subItems.css({top: offset + 'px'});
-                }else {
-                    $(this).removeClass('popout-active');
-                }
-            }
-
-            function bindPopout(todo, toBind) {
-                if(todo == 'bind') {
-                    toBind.bind('click', popoutHandler);
-                }else if (todo == 'unbind') {
-                    toBind.unbind('click', popoutHandler);
-                }
-            }
-
             $(function() {
-                var popouts = $('.popout');
                 var leftMenu = $('#left-menu-container');
+                var toggle = $('.sidemenu-toggle');
+                var overlay  = function(todo) {
+                    if(todo == 'add') {
+                        $('#main-container').prepend('<div class="main-container-overlay"></div>');
+                    }else if(todo == 'remove') {
+                        $('.main-container-overlay').fadeOut('210', function(){
+                            this.remove();
+                        });
+                    }
+                };
 
-                $('.sidemenu-toggle').click(function() {
-                    var mode = $(this).hasClass('show-for-small-only') ? 'activate' : 'collapse';
+                var closeFn = function(e) {
+                    if($(e.target).parents('#left-menu-container').length == 0) {
+                        leftMenu.removeClass('is-active');
+                        overlay('remove');
+                        $(document).off('click', closeFn);
+                    }
+                };
 
-                    switch (mode) {
-                        case "collapse":
-                            leftMenu.toggleClass('sidemenu--collapsed');
-                            if(leftMenu.hasClass('sidemenu--collapsed')) {
-                                bindPopout('bind', popouts)
-                            }else {
-                                bindPopout('unbind', popouts)
-                            }
-                            popouts.removeClass('popout-active');
-                            break;
-                        case "activate":
-                            var futureState = !$('#left-menu-container').hasClass('is-active');
-                            TornadoFaces.animate($('#left-menu-container'), futureState, 'slideInRight', 'slideOutLeft');
-                            break;
+                toggle.click(function(e) {
+                    if (leftMenu.hasClass('is-active')) {
+                        closeFn(e);
+                        $(document).off('click', closeFn);
+                    } else {
+                        e.stopPropagation();
+                        overlay('add');
+                        leftMenu.addClass('is-active');
+                        $(document).on('click', closeFn);
                     }
                 });
-                $(document).on('click', function(e) {
-                    if($(e.target).parents('.sidemenu').length == 0) {
-                        popouts.removeClass('popout-active');
-                    }
-                });
+
             });
         </script>
     </h:head>
@@ -109,15 +86,14 @@
         <t:notification id="notification" widgetVar="notification" timeout="3000"/>
         <t:modal widgetVar="mymodal" id="mymodal" color="dark">
             <h3>Modal Window</h3>
-
-            <p>Enter your name: <h:inputText value="#{modalController.name}"/></p>
+            <h:form>
+                <p>Enter your name: <h:inputText value="#{modalController.name}"/></p>
+            </h:form>
             <a class="button success close">Save</a>
         </t:modal>
 
         <div class="grid-frame">
             <div id="left-menu-container" class="sidemenu medium-grid-block panel panel-left medium-3 slideOut">
-                <a class="sidemenu-toggle hide-for-small-only"><i class="icon-back"></i></a>
-                <a class="sidemenu-toggle show-for-small-only"><i class="icon-back"></i></a>
                 <div id="left-menu" class="scrollbar-inner sidemenu-content grid-content collapse">
                     <div class="sidemenu-logo">
                         <img class="logo-max" src="/resources/img/logo-tornado-faces-01.svg"/>
@@ -166,7 +142,9 @@
                                     <t:li link="/docs/message/">Message</t:li>
                                     <t:li link="/docs/modal/">Modal</t:li>
                                     <t:li link="/docs/notification/">Notification</t:li>
+                                    <t:li link="/docs/outputtext/">OutputText</t:li>
                                     <t:li link="/docs/panel/">Panel</t:li>
+                                    <t:li link="/docs/panelgroup/">PanelGroup</t:li>
                                     <t:li link="/docs/primarymenu/">Primary Menu</t:li>
                                     <t:li link="/docs/progress/">Progress</t:li>
                                     <t:li link="/docs/reveal/">Reveal</t:li>

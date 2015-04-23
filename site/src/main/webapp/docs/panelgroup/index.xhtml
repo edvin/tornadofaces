@@ -1,0 +1,41 @@
+<ui:composition template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:t="http://tornadofaces.io/ui">
+    <f:metadata>
+        <f:viewAction action="#{docsController.loadTag('panelGroup')}" />
+    </f:metadata>
+
+    <ui:define name="breadcrumb">
+        <t:li link="/docs">Components</t:li>
+        <t:li active="true">PanelGroup</t:li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h1 class="subheader">PanelGroup</h1>
+
+        <p>#{docsController.tag.description}</p>
+
+        <p>In addition to the normal <code>rendered</code> attribute, there is also a <code>show</code> attribute that has the same semantics, but instead of entirely
+        omitting the element in the markup, <code>show=false</code> will render an empty placeholder element.</p>
+
+        <p>This is especially neat for the cases where you would normally need to add an outer wrapper to AJAX update a conditionally rendered element.</p>
+
+        <ui:include src="panelgroup.xhtml"/>
+
+        <p>The panelGroup will render as a <code>div</code> by default, but you can render it as any tag name by specifiying the <code>tag</code> attribute.</p>
+
+        <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
+            <t:tab title="Example">
+<t:source>
+&lt;t:panelGroup id="mypanel" show="#{docsController.expr('controller.show')}">
+    &lt;h3>This is the content of the panel&lt;/h3>
+&lt;/t:panelGroup>
+
+&lt;t:commandButton value="Show" action="#{docsController.expr('controller.setShow(true)')}" render="mypanel"/></t:source>
+            </t:tab>
+            <t:tab title="Documentation" styleClass="doctab">
+                <ui:include src="../tag-documentation.xhtml"/>
+            </t:tab>
+        </t:tabView>
+    </ui:define>
+</ui:composition>

@@ -21,7 +21,7 @@ $font-weight-bold: 600 !default;
 // We use these to control various global styles
 $body-background: #fff !default;
 $body-font-color: #202020 !default;
-$body-font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-family: "Roboto Condensed", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
 $body-font-weight: $font-weight-normal !default;
 $body-font-style: normal !default;
 $body-antialiased: true !default;
@@ -71,7 +71,7 @@ $breakpoints: (
 
 // We use these to control header font styles
 $header-font-family: $body-font-family !default;
-$header-font-family: "Open Sans","Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$header-font-family: "Roboto Condensed","Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
 $header-font-weight: $font-weight-normal !default;
 $header-font-style: $font-weight-normal !default;
 $header-font-color: #222 !default;
@@ -192,6 +192,7 @@ $accordion-title-background-hover: $accordion-title-background !default;
 $accordion-title-background-active: smartscale($accordion-title-background, -5%) !default;
 $accordion-title-color: isitlight($accordion-title-background) !default;
 $accordion-title-color: inherit !default;
+$accordion-title-icon-size: 1.7em !default;
 $accordion-title-color-active: isitlight($accordion-title-background) !default;
 $accordion-title-color-active: inherit !default;
 $accordion-item-background: #fff !default;
@@ -243,7 +244,7 @@ $blocklist-check-icons: true !default;
 // 9. Button
 // - - - - - - - - - - - - - - -
 
-$button-padding: 1.4em 2.1em !default;
+$button-padding: 1.2em 1.7em !default;
 $button-margin: 0 $global-padding/3 $global-padding/3 0 !default;
 $button-style: solid !default;
 $button-background: $primary-color !default;
@@ -296,12 +297,12 @@ $thumbnail-shadow: 0 3px 15px rgba(black, 0.25) !default;
 // 13. Forms
 // - - - - - - - - - - - - - - -
 
-$input-placeholder-color: #b9b9b9;
+$input-placeholder-color: #808080;
 
 // Basic transitions
 
-$input-transition-base: background 0.25s, border 0.25s;
-$input-transition-hover: background 0.11s, border 0.11s;
+$input-transition-base: background 0.25s, border 0.25s, color 0.25s;
+$input-transition-hover: background 0.11s, border 0.11s, color 0.11s;
 
 // Basic form variables
 $form-fontsize: .9rem !default;
@@ -377,7 +378,7 @@ $badge-color: #fff !default;
 $menubar-font-family: initial !default;
 $menubar-fontsize: 1rem !default;
 $menubar-fontsize: $font-base !default;
-$menubar-background: #fff !default;
+$menubar-background: transparent !default;
 $menubar-background-hover: smartscale($menubar-background, 4%) !default;
 $menubar-background-active: $menubar-background-hover !default;
 $menubar-color: isitlight($menubar-background) !default;

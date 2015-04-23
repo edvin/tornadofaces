@@ -297,6 +297,88 @@
         </attribute>
     </tag>
     <tag>
+        <description>Extension of the outputText element</description>
+        <tag-name>outputText</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.OutputText</component-type>
+            <renderer-type>io.tornadofaces.component.OutputTextRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>CSS Classes to apply to the element</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Style attribute</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Tag name to render as. Defaults to span.</description>
+            <name>tag</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Show this component normally, or render an empty placeholder element. Defaults to true.</description>
+            <name>show</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Style class to append to the element if the empty attribute is true. In this case, no other attributes or child elements will be rendered.</description>
+            <name>emptyClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Extension of the panelGroup element</description>
+        <tag-name>panelGroup</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.PanelGroup</component-type>
+            <renderer-type>io.tornadofaces.component.PanelGroupRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Classes to apply to the element</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Style attribute</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Tag name to render as. Defaults to div.</description>
+            <name>tag</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Show this component normally, or render an empty placeholder element. Defaults to true.</description>
+            <name>show</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>GID gives any component a unique id that can be referred to from render and execute statements
             without having to deal with the component hierarchy.
         </description>

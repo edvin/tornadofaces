@@ -36,6 +36,7 @@ public class DocsController {
 	@Getter @Setter private List<Movie> selectedMovies;
 	@Getter @Setter Integer lower = 15;
 	@Getter @Setter Movie selectedMovie;
+	@Getter @Setter Boolean showPanel = false;
 
 	public void runCommand() {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(SEVERITY_INFO, "Remote command run!", "Execution was successful."));
