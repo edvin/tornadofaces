@@ -90,6 +90,7 @@ public class SliderRenderer extends Renderer {
 			.initWithDomReady()
 			.attr("lowerId", slider.getLowerClientId(context))
 			.attr("upperId", slider.getUpperClientId(context))
+			.attr("throttle", slider.getThrottle())
 			.nativeAttr("settings", slider.getSettings().toString())
 			.nativeAttr("onSlide", slider.getOnSlide())
 			.nativeAttr("labelFormatter", slider.getLabelFormatter());
