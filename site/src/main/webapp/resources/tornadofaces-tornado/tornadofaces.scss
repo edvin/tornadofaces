@@ -52,11 +52,12 @@
 #header {
   position: relative;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.32);
-  padding: 1rem 5%; //todo: $content-outer-padding ellerno
-  @include breakpoint(medium up) {
-    padding: 2.2rem;
-  }
-  a {display: inline-block;}
+  padding: 1.4rem 5%; //todo: $content-outer-padding ellerno
+  font-size: .9rem;
+//  @include breakpoint(medium up) {
+//    padding: 2.2rem;
+//  }
+  a {display: inline-block; color: #999}
 }
 #main-container {
   padding: 0;
