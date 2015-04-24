@@ -95,10 +95,12 @@ $sidemenu-popuot-background: #1e1e1e;
   max-width: $sidemenu-max-width;
   background: $sidemenu-background-color;
   flex-direction: column;
-  overflow: visible;
+  overflow: auto;
   z-index: 999 !important;
   input { box-sizing: border-box; }
   ul { //reset
+    display: flex;
+    flex-direction: column;
     margin: 0;
     box-sizing: border-box;
     >li {list-style: none;}
@@ -192,12 +194,17 @@ $sidemenu-popuot-background: #1e1e1e;
   padding: 0.5rem 1.6rem 1rem; // TODO: FIX setting!
   display: block;
   height: auto;
+  flex-direction: row !important;
+  flex-wrap: wrap;
   min-width: $sidemenu-min-width;
   max-width: $sidemenu-max-width;
   &:after {content: ''; display: block; clear: both;}
   &> li {
-    float: left;
-    width: 50%;
+    //float: left;
+    //width: 50%;
+    min-width: 50%;
+    flex: 1 1 auto;
+    white-space: nowrap;
     &> a {
       word-wrap: break-word;
       transition: background 0.5s;
