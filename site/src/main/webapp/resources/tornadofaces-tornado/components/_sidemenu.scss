@@ -1,7 +1,7 @@
 
 //sidemenu
 $sidemenu-background-color: $dark-color;
-$sidemenu-border: 1px solid rgba(255, 255, 255, 0.14);
+$sidemenu-border: none;
 $sidemenu-outer-padding: 0;
 $sidemenu-min-width: 300px;
 $sidemenu-max-width: 340px;
@@ -95,10 +95,12 @@ $sidemenu-popuot-background: #1e1e1e;
   max-width: $sidemenu-max-width;
   background: $sidemenu-background-color;
   flex-direction: column;
-  overflow: visible;
+  overflow: auto;
   z-index: 999 !important;
   input { box-sizing: border-box; }
   ul { //reset
+    display: flex;
+    flex-direction: column;
     margin: 0;
     box-sizing: border-box;
     >li {list-style: none;}
@@ -111,6 +113,8 @@ $sidemenu-popuot-background: #1e1e1e;
 .sidemenu-content {
   position: relative;
   padding-bottom: 2.5rem !important; //todo: FIX this
+  overflow-y: auto;
+  overflow-x: hidden;
 //  max-height: 100%;
 }
 .sidemenu-search {
@@ -152,43 +156,67 @@ $sidemenu-popuot-background: #1e1e1e;
     > a {
       border: $sidemenu-border;
       color: #fff;
-      text-align: center;
       font-size: inherit;
       font-weight: $sidemenu-title-weight; //todo: setting
-      padding: 0.6rem 1.2rem 0.6rem 0; //todo: sidemenu-L1-padding
-      margin: 0 1.6rem 0 1.6rem;
-      > i {
-        display: none;
-        font-size: 1.1em;
+      padding: 1rem 1.8rem; //todo: sidemenu-L1-padding
+      margin: 0;
+      display: flex;
+      position: relative;
+      align-items: center;
+      >.grid-block {
+        padding: 0 0 0 2.3em;
+        &:after {
+          content: '';
+          display: block;
+          flex: 1;
+          background: rgba(255,255,255,0.1);
+          height: 2px;
+          margin-left: .8rem;
+          align-self: flex-end;
+          position: relative;
+          bottom: .5em;
+        }
+      }
+      i {
+        font-size: 1.7em;
+        position: absolute;
+        line-height: 1;
+        top: -0.1em;
+        left: 0;
         color: $primary-color;
       }
     }
   }
 }
 .sidemenu-subitems { //applies to 2nd level only
-  font-size: .9rem;
+  font-size: 1.05rem;
   margin: 0;
-  padding: 1rem 1.4rem; // TODO: FIX setting!
+  padding: 0.5rem 1.6rem 1rem; // TODO: FIX setting!
   display: block;
   height: auto;
+  flex-direction: row !important;
+  flex-wrap: wrap;
   min-width: $sidemenu-min-width;
   max-width: $sidemenu-max-width;
   &:after {content: ''; display: block; clear: both;}
   &> li {
-    float: left;
-    width: 50%;
-    border-radius: $sidemenu-sublink-radius;
-    padding: $sidemenu-sublink-padding;
-    transition: background 0.5s;
+    //float: left;
+    //width: 50%;
+    min-width: 50%;
+    flex: 1 1 auto;
+    white-space: nowrap;
     &> a {
-      word-break: break-word;
+      word-wrap: break-word;
+      transition: background 0.5s;
+      border-radius: $sidemenu-sublink-radius;
+      padding: $sidemenu-sublink-padding;
+      &:hover {
+        background: $sidemenu-link-hover-background;
+        transition: background 0.08s;
+      }
       &:before {
 
       }
-    }
-    &:hover {
-      background: $sidemenu-link-hover-background;
-      transition: background 0.08s;
     }
     &.is-active {
       > a {
