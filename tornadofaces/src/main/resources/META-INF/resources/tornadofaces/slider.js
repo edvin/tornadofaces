@@ -1,5 +1,5 @@
 TornadoFaces.declareWidget('Slider', function() {
-    var widget, lowerTarget, upperTarget, headerElem, minLabel, maxLabel, valueLabel;
+    var widget, lowerTarget, upperTarget, headerElem, minLabel, maxLabel, valueLabel, lastVal;
 
     function update() {
         var lowerVal = widget.lowerElem.val();
@@ -90,6 +90,11 @@ TornadoFaces.declareWidget('Slider', function() {
 
         widget.sliderElem.on('slide', function() {
             var val = widget.sliderElem.val();
+
+            if (val == lastVal)
+                return;
+
+            lastVal = val;
 
             if ($.isArray(val)) {
                 widget.lowerElem.val(val[0]);
