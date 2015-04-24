@@ -1010,6 +1010,12 @@
             <required>false</required>
             <type>Boolean</type>
         </attribute>
+        <attribute>
+            <description>Throttle calls to behaviours. A throttle enforces the supplied value as a maximum time allowed between calls to the behaviours. Use instead of delay on i.e. ajax-behaviours.</description>
+            <name>throttle</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
     </tag>
     <tag>
         <description>Switches are toggle element that switch between an Off and On state on tap or click. A switch is

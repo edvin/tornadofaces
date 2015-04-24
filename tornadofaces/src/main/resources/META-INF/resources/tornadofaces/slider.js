@@ -1,5 +1,8 @@
 TornadoFaces.declareWidget('Slider', function() {
-    var widget, lowerTarget, upperTarget, headerElem, minLabel, maxLabel, valueLabel, lastVal;
+    var widget, lowerTarget, upperTarget, headerElem, minLabel, maxLabel, valueLabel, throttle = {
+        tid: null,
+        last: false
+    };
 
     function update() {
         var lowerVal = widget.lowerElem.val();
@@ -81,6 +84,7 @@ TornadoFaces.declareWidget('Slider', function() {
         widget.slider = widget.sliderElem.noUiSlider(settings);
 
         var hasOnSlide = widget.conf.onSlide != undefined;
+        var throttled = widget.conf.throttle != undefined;
 
         $(function() {
             widget.formatLabel('min', minLabel, widget.conf.settings.range.min);
@@ -88,13 +92,30 @@ TornadoFaces.declareWidget('Slider', function() {
             update();
         });
 
+        var runBehaviours = function(){
+            throttle.last = (new Date()).getTime();
+            if (widget.conf.behaviors && widget.conf.behaviors.change) {
+                var behaviors = widget.conf.behaviors.change;
+                for (var i = 0; i < behaviors.length; i++) {
+                    var b = behaviors[i];
+                    var props = { 'javax.faces.behavior.event': 'change'};
+
+                    if (b.render)
+                        props.render = b.render;
+
+                    if (b.execute)
+                        props.execute = b.execute;
+
+                    if (b.delay)
+                        props.delay = b.delay;
+
+                    jsf.ajax.request(widget.elem.attr('id'), null, props);
+                }
+            }
+        };
+
         widget.sliderElem.on('slide', function() {
-            var val = widget.sliderElem.val();
-
-            if (val == lastVal)
-                return;
-
-            lastVal = val;
+            var val = widget.sliderElem.val(), elapsed,now;
 
             if ($.isArray(val)) {
                 widget.lowerElem.val(val[0]);
@@ -106,28 +127,28 @@ TornadoFaces.declareWidget('Slider', function() {
             }
 
             update();
-            
+
             if (hasOnSlide)
                 widget.conf.onSlide(widget.sliderElem, val);
-            
-            if (widget.conf.behaviors && widget.conf.behaviors.change) {
-                var behaviors = widget.conf.behaviors.change;
-                for (var i = 0; i < behaviors.length; i++) {
-                    var b = behaviors[i];
-                    var props = { 'javax.faces.behavior.event': 'change'};
-                    
-                    if (b.render)
-                        props.render = b.render;
-                    
-                    if (b.execute)
-                        props.execute = b.execute;
 
-                    if (b.delay)
-                        props.delay = b.delay;
+            if (widget.conf.throttle) {
+                if (throttle.tid) {
+                    clearTimeout(throttle.tid);
+                    throttle.tid = null;
+                }
 
-                    jsf.ajax.request(widget.elem.attr('id'), null, props);
+                now = (new Date()).getTime();
+
+                if (throttle.last) {
+                    elapsed = now - throttle.last;
+                    if (elapsed < Number(widget.conf.throttle)) {
+                        throttle.tid = setTimeout(runBehaviours, Number(widget.conf.throttle) - elapsed);
+                        return;
+                    }
                 }
             }
+
+            runBehaviours();
         });
     };
 });
