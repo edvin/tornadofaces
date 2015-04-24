@@ -112,7 +112,7 @@ TornadoFaces.declareWidget('Slider', function() {
                     jsf.ajax.request(widget.elem.attr('id'), null, props);
                 }
             }
-        }
+        };
 
         widget.sliderElem.on('slide', function() {
             var val = widget.sliderElem.val(), elapsed,now;
