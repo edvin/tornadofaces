@@ -82,11 +82,14 @@ label {
 .label-left {
   display: flex;
   margin-bottom: $input-padding;
+  border-bottom: $default-border;
   > label {
     align-self: center;
+    padding-right: .4em;
   }
   > * {
     margin-bottom: 0;
+    border-bottom: none !important;
   }
 }
 
