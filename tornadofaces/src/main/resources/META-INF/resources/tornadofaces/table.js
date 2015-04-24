@@ -50,6 +50,8 @@ TornadoFaces.declareWidget('Table', function() {
     this.onExpandRow = function(event) {
         var tr = $(event.target).closest('tr');
         this.expandRow(tr);
+        event.preventDefault();
+        return false;
     };
 
     this.expandRow = function(tr) {
