@@ -2222,7 +2222,7 @@
             <type>io.tornadofaces.component.common.Color</type>
         </attribute>
         <attribute>
-            <description>JavaScript callback triggered before the AJAX event is assembled</description>
+            <description>JavaScript callback triggered before the AJAX event is assembled. Return false to cancel request.</description>
             <name>beforebegin</name>
             <required>false</required>
             <type>String</type>
@@ -2371,7 +2371,7 @@
             <type>io.tornadofaces.component.common.Color</type>
         </attribute>
         <attribute>
-            <description>JavaScript callback triggered before the AJAX event is assembled</description>
+            <description>JavaScript callback triggered before the AJAX event is assembled. Return false to cancel request.</description>
             <name>beforebegin</name>
             <required>false</required>
             <type>String</type>
@@ -2457,7 +2457,7 @@
             <type>java.lang.String</type>
         </attribute>
         <attribute>
-            <description>JavaScript callback triggered before the AJAX event is assembled</description>
+            <description>JavaScript callback triggered before the AJAX event is assembled. Return false to cancel request.</description>
             <name>beforebegin</name>
             <required>false</required>
             <type>String</type>
