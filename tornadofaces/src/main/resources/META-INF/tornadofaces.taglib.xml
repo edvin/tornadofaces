@@ -2047,6 +2047,38 @@
         </attribute>
     </tag>
     <tag>
+        <description>Extension to the default Form element</description>
+        <tag-name>form</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Form</component-type>
+            <renderer-type>io.tornadofaces.component.FormRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Styles to apply to the form</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the form</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Show this component normally, or render an empty placeholder element. Defaults to true.</description>
+            <name>show</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>The TabView presents contents in vertical or horizontal tabs.</description>
         <tag-name>tabView</tag-name>
         <component>
@@ -2137,6 +2169,12 @@
             <name>action</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Show false will add the class 'is-hidden' to the element so it can be hidden with CSS. Defaults to true.</description>
+            <name>show</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
         <attribute>
             <description>The action listener to call when the button is clicked</description>
@@ -2279,6 +2317,12 @@
             <name>action</name>
             <required>false</required>
             <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Show false will add the class 'is-hidden' to the element so it can be hidden with CSS. Defaults to true.</description>
+            <name>show</name>
+            <required>false</required>
+            <type>Boolean</type>
         </attribute>
         <attribute>
             <description>The action listener to call when the button is clicked</description>

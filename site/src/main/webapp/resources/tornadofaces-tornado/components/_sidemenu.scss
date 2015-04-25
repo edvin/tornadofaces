@@ -201,8 +201,8 @@ $sidemenu-popuot-background: #1e1e1e;
   &:after {content: ''; display: block; clear: both;}
   &> li {
     //float: left;
-    //width: 50%;
-    min-width: 50%;
+    width: 50%;
+    //min-width: 50%;
     flex: 1 1 auto;
     white-space: nowrap;
     &> a {

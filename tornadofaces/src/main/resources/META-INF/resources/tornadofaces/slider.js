@@ -84,7 +84,6 @@ TornadoFaces.declareWidget('Slider', function() {
         widget.slider = widget.sliderElem.noUiSlider(settings);
 
         var hasOnSlide = widget.conf.onSlide != undefined;
-        var throttled = widget.conf.throttle != undefined;
 
         $(function() {
             widget.formatLabel('min', minLabel, widget.conf.settings.range.min);

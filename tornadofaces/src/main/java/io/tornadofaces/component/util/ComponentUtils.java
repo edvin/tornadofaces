@@ -36,8 +36,12 @@ public class ComponentUtils {
 		return context.getExternalContext().getRequestParameterMap().get(key);
 	}
 
-	public static void setRequestParam(FacesContext context, String key, Object value) {
+	public static void setRequestScopeParam(FacesContext context, String key, Object value) {
 		context.getExternalContext().getRequestMap().put(key, value);
+	}
+
+	public static Object getRequestScopeParam(FacesContext context, String key) {
+		return context.getExternalContext().getRequestMap().get(key);
 	}
 
 	public static String escapeClientId(String id) {

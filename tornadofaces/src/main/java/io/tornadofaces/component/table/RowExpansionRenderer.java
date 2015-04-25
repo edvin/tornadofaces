@@ -2,7 +2,6 @@ package io.tornadofaces.component.table;
 
 import io.tornadofaces.component.CoreRenderer;
 import io.tornadofaces.component.util.ComponentUtils;
-import io.tornadofaces.component.util.StyleClass;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -10,8 +9,7 @@ import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
 import java.io.IOException;
 
-import static io.tornadofaces.component.util.ComponentUtils.setRequestParam;
-import static javax.faces.component.UINamingContainer.getSeparatorChar;
+import static io.tornadofaces.component.util.ComponentUtils.setRequestScopeParam;
 
 @FacesRenderer(rendererType = RowExpansionRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
 public class RowExpansionRenderer extends CoreRenderer {
@@ -39,10 +37,10 @@ public class RowExpansionRenderer extends CoreRenderer {
 		if (rowKey != null) {
 			Object rowData = table.getRowData(rowKey);
 			String var = table.getVar();
-			setRequestParam(context, var, rowData);
+			setRequestScopeParam(context, var, rowData);
 			for (UIComponent child : component.getChildren())
 				child.encodeAll(context);
-			setRequestParam(context, var, null);
+			setRequestScopeParam(context, var, null);
 		}
 	}
 
