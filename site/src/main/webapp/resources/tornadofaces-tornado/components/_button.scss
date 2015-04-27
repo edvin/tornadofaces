@@ -7,10 +7,10 @@
   cursor: pointer;
   -webkit-appearance: none;
   -webkit-font-smoothing: antialiased;
-  transition: background 0.25s ease-out;
+  transition: background 0.2s ease-out, border 0.25s ease-out;
   vertical-align: middle;
-  border: 0;
-  box-shadow: -2px 2px 0px rgba(0, 0, 0, 0.17); //todo: make setting
+  border-width: $button-border-width;
+  border-style: solid;
 
   padding: $button-padding;
   margin: $button-margin;
@@ -20,7 +20,6 @@
   &:active {
     position: relative;
     top: 1px;
-    left: -1px;
     box-shadow: none;
   }
 
@@ -75,6 +74,8 @@
   $style: $button-style,
   $btngroup: false
 ){
+  $button-border-color: darken($background,6%);
+
   @if $style == hollow {
     border: 1px solid $background;
     background: transparent;
@@ -95,11 +96,15 @@
       $color: isitlight($background);
     }
 
+
+
     background: $background;
+    border-color: $button-border-color;
     color: $color;
 
     &:hover, &:focus {
       background: scale-color($background, $lightness: -15%);
+      border-color: scale-color($button-border-color, $lightness: -15%);
       color: $color;
     }
     &[data-popup-toggle]::after {

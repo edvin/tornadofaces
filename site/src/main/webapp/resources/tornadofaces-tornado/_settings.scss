@@ -249,6 +249,7 @@ $button-margin: 0 $global-padding/3 $global-padding/3 0 !default;
 $button-style: solid !default;
 $button-background: $primary-color !default;
 $button-color: #fff !default;
+$button-border-width: 0 1px 2px 1px;
 $button-radius: 2px !default;
 $button-sizes: (
         tiny: 0.7,

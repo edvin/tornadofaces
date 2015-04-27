@@ -131,6 +131,7 @@ input[type="checkbox"], input[type="radio"] {
   > input, > select {
     flex: 1;
     margin: 0;
+    border-radius: $input-radius 0 0 $input-radius
   }
 
   // Inline labels and buttons shrink
@@ -157,7 +158,9 @@ input[type="checkbox"], input[type="radio"] {
     padding-top: 0;
     padding-bottom: 0;
     margin: 0;
-    border-radius: 0;
+    border-radius: 0 $button-radius $button-radius 0;
+    border-bottom-width: 1px;
+    &:active { top: 0; }
   }
 }
 
