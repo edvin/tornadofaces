@@ -196,12 +196,12 @@ $sidemenu-popuot-background: #1e1e1e;
   height: auto;
   flex-direction: row !important;
   flex-wrap: wrap;
-  min-width: $sidemenu-min-width;
-  max-width: $sidemenu-max-width;
+  //min-width: $sidemenu-min-width;
+  //max-width: $sidemenu-max-width;
   &:after {content: ''; display: block; clear: both;}
   &> li {
-    flex: 1 1 50%;
-    white-space: nowrap;
+    min-width: 50%;
+    flex: 50%;;
     &> a {
       word-wrap: break-word;
       transition: background 0.5s;
@@ -331,6 +331,6 @@ $sidemenu-popuot-background: #1e1e1e;
 } //breakpoint medium up END
 
 @include breakpoint(small only) {
-  .sidemenu {overflow-y: scroll;}
+  .sidemenu {overflow-y: auto;}
   .sidemenu-toggle {display: none;}
 }
