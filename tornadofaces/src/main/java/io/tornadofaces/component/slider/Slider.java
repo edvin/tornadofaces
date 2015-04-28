@@ -243,18 +243,21 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 	}
 
 	public String getWidgetVar() {
-		return (String) getStateHelper().eval("widgetVar", null);
+		return (String) getStateHelper().eval("widgetVar");
 	}
 
 	public void setWidgetVar(String widgetVar) {
 		getStateHelper().put("widgetVar", widgetVar);
 	}
 
-	public String getLowerTarget() { return (String) getStateHelper().eval("lowerTarget", null); }
+	public String getLowerTarget() { return (String) getStateHelper().eval("lowerTarget"); }
 	public void setLowerTarget(String lowerTarget) { getStateHelper().put("lowerTarget", lowerTarget); }
-	public String getUpperTarget() { return (String) getStateHelper().eval("upperTarget", null); }
+	public String getUpperTarget() { return (String) getStateHelper().eval("upperTarget"); }
 	public void setUpperTarget(String upperTarget) { getStateHelper().put("upperTarget", upperTarget); }
-	
+
+	public Integer getThrottle() { return (Integer) getStateHelper().eval("throttle"); }
+	public void setThrottle(Integer throttle) { getStateHelper().put("throttle", throttle); }
+
 	public JSONObject getSettings() {
 		JSONObject settings = new JSONObject();
 

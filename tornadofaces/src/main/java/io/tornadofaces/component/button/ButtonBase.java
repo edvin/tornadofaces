@@ -85,6 +85,9 @@ public abstract class ButtonBase extends UICommand implements Widget, ClientBeha
 	public String getTitle() { return (String) getStateHelper().eval("title"); }
 	public void setTitle(String title) { getStateHelper().put("title", title); }
 
+	public Boolean getShow() { return (Boolean) getStateHelper().eval("show", true); }
+	public void setShow(Boolean show) { getStateHelper().put("show", show); }
+
 	public Boolean getTreatAsButton() {
 		return !(this instanceof CommandLink) || ((CommandLink) this).isButton();
 	}

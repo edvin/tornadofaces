@@ -43,6 +43,7 @@ public class ButtonRenderer extends CoreRenderer {
 			.add("hollow", button.isHollow())
 			.add("expand", button.isExpand())
 			.add("button", button.getTreatAsButton())
+			.add("is-hidden", !button.getShow())
 			.write(writer);
 	}
 

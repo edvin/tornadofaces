@@ -1,5 +1,7 @@
 package io.tornadofaces.renderkit;
 
+import io.tornadofaces.component.util.ComponentUtils;
+
 import javax.faces.context.FacesContext;
 import javax.faces.context.PartialResponseWriter;
 import java.io.IOException;
@@ -18,9 +20,11 @@ public class TFPartialResponseWriter extends PartialResponseWriter {
 	}
 
 	public void endDocument() throws IOException {
-		startExtension(extensionMap);
-		write("{\"validationFailed\": " + FacesContext.getCurrentInstance().isValidationFailed() + "}");
-		endExtension();
+		if (!"true".equals(ComponentUtils.getRequestScopeParam(FacesContext.getCurrentInstance(), "TornadoFaces.SkipExtensions"))) {
+			startExtension(extensionMap);
+			write("{\"validationFailed\": " + FacesContext.getCurrentInstance().isValidationFailed() + "}");
+			endExtension();
+		}
 		super.endDocument();
 	}
 }

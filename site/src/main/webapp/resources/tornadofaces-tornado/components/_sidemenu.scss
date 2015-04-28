@@ -200,10 +200,7 @@ $sidemenu-popuot-background: #1e1e1e;
   max-width: $sidemenu-max-width;
   &:after {content: ''; display: block; clear: both;}
   &> li {
-    //float: left;
-    //width: 50%;
-    min-width: 50%;
-    flex: 1 1 auto;
+    flex: 1 1 50%;
     white-space: nowrap;
     &> a {
       word-wrap: break-word;
