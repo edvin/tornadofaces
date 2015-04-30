@@ -36,10 +36,17 @@ public abstract class TabParent extends UIPanel implements Widget, ClientBehavio
 	public abstract String getTabRendererType();
 
 	public Tab getTabWithIndex(Integer index) {
-		return (Tab) getChildren().stream()
-			.filter(c -> c instanceof Tab)
-			.skip(index)
-			.findAny().orElse(null);
+		int i = 0;
+		for (UIComponent child : getChildren()) {
+			if (child instanceof Tab) {
+				if (child.isRendered()) {
+					if (i == index)
+						return (Tab) child;
+					i++;
+				}
+			}
+		}
+		return null;
 	}
 	
 	public Integer getTabIndex(Tab tab) {

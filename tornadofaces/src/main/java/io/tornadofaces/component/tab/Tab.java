@@ -35,6 +35,8 @@ public class Tab extends UIPanel implements ClientBehaviorHolder {
 
 	public Boolean isActive() {
 		TabParent parent = (TabParent) getParent();
+		if (!isRendered())
+			return false;
 
 		String activeIndex = parent.getActiveIndex();
 		if (activeIndex == null || "".equals(activeIndex))
