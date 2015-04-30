@@ -64,6 +64,9 @@
   flex: 1;
   overflow-y: scroll;
   position: relative;
+  width: 100vw;
+  height: 100vh;
+  -webkit-overflow-scrolling: touch;
 }
 .main-wrapper {
   padding: $global-padding 5%;
