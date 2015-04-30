@@ -25,14 +25,19 @@
 ::-moz-placeholder { color: $input-placeholder-color; line-height: 1.4; }
 :-ms-input-placeholder { color: $input-placeholder-color; line-height: 1.4; }
 
-// Text fields
+// Form Element
+// - -
+.form-element {
+  margin-bottom: $input-padding;
+}
+
+//// Text fields
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 #{$text-input-selectors} {
   @include no-appearance;
   display: block;
   width: 100%;
   padding: $form-padding;
-  margin: 0 0 $global-padding 0;
   border: $input-border;
   border-radius: $input-radius;
   background: $input-background;
@@ -181,7 +186,6 @@ select {
   display: block;
   width: 100%;
   padding: $form-padding;
-  margin: 0 0 $input-padding 0;
   font-size: $form-fontsize;
   color: $select-color;
   border-radius: $input-radius;
@@ -222,7 +226,6 @@ input[type="range"] {
   cursor: pointer;
   overflow: visible;
   margin-top: $margin;
-  margin-bottom: $margin;
 
   @if hasvalue($slider-radius) {
     border-radius: $slider-radius;
@@ -300,18 +303,18 @@ progress, meter {
   display: block;
   width: 100%;
   height: $meter-height;
-  margin-bottom: 1rem;
   border: $meter-border;
   overflow: hidden;
   position: relative;
   font-weight: $meter-font-weight;
-  text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3);
   &:before {
     content: attr(value) '%';
     color: #fff;
     position: absolute;
     left: 1rem;
-    top: $meter-height/4;
+    top: 0;
+    line-height: $meter-height;
   }
 
   @if hasvalue($meter-radius) {
@@ -328,14 +331,12 @@ progress {
     @if hasvalue($meter-radius) {
       border-radius: 0;
     }
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
   }
   &::-webkit-progress-value {
     background: $meter-fill;
     @if hasvalue($meter-radius) {
       border-radius: 0;
     }
-    box-shadow: 0 0 20px rgba(0,0,0,0.35);
   }
   &::-moz-progress-bar {
     background: $meter-fill;
@@ -346,12 +347,17 @@ progress {
 
   @each $name, $color in (high: $meter-fill-high, medium: $meter-fill-medium, low: $meter-fill-low) {
     &.#{$name} {
-      &::-webkit-progress-value {
-        background: $color;
+      &::-webkit-progress-bar {
+        background: lighten($color,31%);
       }
-      &::-moz-progress-bar {
-        background: $color;
-      }
+        &::-webkit-progress-value {
+          background: $color;
+        }
+
+      background: lighten($color,31%);
+        &::-moz-progress-bar {
+          background: $color;
+        }
     }
   }
 }

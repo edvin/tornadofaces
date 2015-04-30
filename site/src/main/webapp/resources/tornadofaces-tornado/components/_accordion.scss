@@ -22,6 +22,7 @@
   font-size: $accordion-title-font-size;
   font-weight: 400;
   position: relative;
+  transition: margin-bottom 0.15s;
 
   &:hover {
     background: $background-hover;
@@ -58,8 +59,8 @@
   .is-active > & {
     background: $background-active;
     color: $color-active;
-    padding: $padding 0 $padding/1.5;
-    margin: 0 $padding  $padding/2;
+    padding: get-side($padding,top) 0 get-side($padding,bottom);
+    margin: 0 get-side($padding,right) get-side($padding,bottom) get-side($padding,left);
     border-bottom: $default-border;
 
     &:after {

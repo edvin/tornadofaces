@@ -28,7 +28,7 @@ $body-antialiased: true !default;
 $default-border: 1px solid rgba(0, 0, 0, 0.08) !default;
 $default-dotted-border: 1px dotted #CACACA !default;
 //$default-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.26);
-$default-box-shadow: -2px 2px 0px rgba(0, 0, 0, 0.17);
+$default-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.17);
 
 // Application Colors
 $primary-color: #3fa2d8 !default;
@@ -197,7 +197,7 @@ $accordion-title-color-active: isitlight($accordion-title-background) !default;
 $accordion-title-color-active: inherit !default;
 $accordion-item-background: #fff !default;
 
-$accordion-title-padding: $global-padding !default;
+$accordion-title-padding: 1.5rem 1.7rem !default;
 $accordion-content-padding: $global-padding !default;
 
 // 7. Action Sheet
@@ -244,12 +244,12 @@ $blocklist-check-icons: true !default;
 // 9. Button
 // - - - - - - - - - - - - - - -
 
-$button-padding: 1.2em 1.7em !default;
+$button-padding: 1.1em 1.7em 1em !default;
 $button-margin: 0 $global-padding/3 $global-padding/3 0 !default;
 $button-style: solid !default;
 $button-background: $primary-color !default;
 $button-color: #fff !default;
-$button-border-width: 0 1px 2px 1px;
+$button-border-width: 0 1px 1px 1px;
 $button-radius: 2px !default;
 $button-sizes: (
         tiny: 0.7,
@@ -331,7 +331,7 @@ $select-arrow-color: $select-color !default;
 
 // Labels
 $form-label-fontsize: 0.9rem !default;
-$form-label-margin: 0.5rem !default;
+$form-label-margin: 0.2rem !default;
 $form-label-color: #333 !default;
 
 // Inline labels
@@ -348,7 +348,7 @@ $slider-thumb-color: $primary-color !default;
 $slider-thumb-radius: 0px !default;
 
 // Progress and meter
-$meter-height: 3.2rem !default;
+$meter-height: 2rem !default;
 $meter-font-weight: 600;
 $meter-background: $input-background !default;
 $meter-fill: $primary-color !default;
