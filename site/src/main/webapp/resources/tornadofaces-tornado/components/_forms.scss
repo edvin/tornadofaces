@@ -125,7 +125,7 @@ input[type="checkbox"], input[type="radio"] {
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
-  margin-bottom: $input-padding;
+//  margin-bottom: $input-padding;
 
   // Imitates the top margin on normal inputs
   label > & {
@@ -190,6 +190,7 @@ select {
   color: $select-color;
   border-radius: $input-radius;
   border: $input-border;
+  line-height: 1;
 //  transition: $input-transition-base;
 
   @if $select-arrow {
