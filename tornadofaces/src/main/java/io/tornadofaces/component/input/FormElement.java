@@ -80,4 +80,7 @@ public class FormElement extends UIPanel implements SystemEventListener {
 	public void setLabelPosition(LabelPosition labelPosition) { getStateHelper().put("labelPosition", labelPosition); }
 	public Boolean isPadding() { return (Boolean) getStateHelper().eval("padding", null); }
 	public void setPadding(Boolean padding) { getStateHelper().put("padding", padding); }
+
+	public void setQuickhelp(String quickhelp) { getStateHelper().put("quickhelp", quickhelp); }
+	public String getQuickhelp(){ return (String) getStateHelper().eval("quickhelp", ""); }
 }

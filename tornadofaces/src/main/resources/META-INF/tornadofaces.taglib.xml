@@ -401,6 +401,12 @@
             <renderer-type>io.tornadofaces.component.FormElementRenderer</renderer-type>
         </component>
         <attribute>
+            <description>Renders a quickhelp icon beside the label, requires label to be rendered. </description>
+            <name>quickhelp</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Label for the form element</description>
             <name>label</name>
             <required>false</required>

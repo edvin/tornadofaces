@@ -60,6 +60,15 @@ public class FormElementRenderer extends Renderer {
             if (input != null)
                 writer.writeAttribute("for", input.getClientId(), null);
 
+            String quickHelp = elem.getQuickhelp();
+
+            if(!quickHelp.isEmpty()){
+                writer.startElement("a", component);
+                writer.writeAttribute("class", "icon-help label-help", null);
+                writer.writeAttribute("onclick", "pop(this, '" + quickHelp + "')", null);
+                writer.endElement("a");
+            }
+
             writer.write(label);
             writer.endElement("label");
         }
