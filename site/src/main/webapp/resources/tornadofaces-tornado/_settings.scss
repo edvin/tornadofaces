@@ -185,19 +185,19 @@ $accordion-border: none !default;
 $accordion-item-border: $default-border !default;
 $accordion-item-shadow: $default-box-shadow !default; //Todo: variable
 
-$accordion-title-font-size: 1.3rem;
+$accordion-title-font-size: 1.2rem;
 $accordion-title-background: #fff !default;
 $accordion-title-background-hover: #f7f7f7 !default;
 $accordion-title-background-hover: $accordion-title-background !default;
 $accordion-title-background-active: smartscale($accordion-title-background, -5%) !default;
 $accordion-title-color: isitlight($accordion-title-background) !default;
 $accordion-title-color: inherit !default;
-$accordion-title-icon-size: 1.5em !default;
+$accordion-title-icon-size: 1.4em !default;
 $accordion-title-color-active: isitlight($accordion-title-background) !default;
 $accordion-title-color-active: inherit !default;
 $accordion-item-background: #fff !default;
 
-$accordion-title-padding: 1.5rem 1.7rem !default;
+$accordion-title-padding: 1.3rem 1.7rem !default;
 $accordion-content-padding: $global-padding !default;
 
 // 7. Action Sheet
