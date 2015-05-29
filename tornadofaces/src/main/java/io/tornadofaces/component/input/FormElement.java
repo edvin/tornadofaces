@@ -3,6 +3,7 @@ package io.tornadofaces.component.input;
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.StyleClass;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.*;
 import javax.faces.component.html.HtmlOutputLabel;
 import javax.faces.context.FacesContext;
@@ -11,6 +12,7 @@ import javax.faces.event.PostAddToViewEvent;
 import javax.faces.event.SystemEvent;
 import javax.faces.event.SystemEventListener;
 
+@ResourceDependency(library = "tornadofaces", name = "quickhelp.js")
 @FacesComponent(value = FormElement.COMPONENT_TYPE, createTag = true, tagName = "form-element", namespace = "http://tornadofaces.io/ui")
 public class FormElement extends UIPanel implements SystemEventListener {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.FormElement";
