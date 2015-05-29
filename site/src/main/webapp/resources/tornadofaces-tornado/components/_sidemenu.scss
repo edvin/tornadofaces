@@ -75,7 +75,7 @@ $sidemenu-popuot-background: #1e1e1e;
 
 .sidemenu-logo {
   text-align: center;
-  padding: 2.1rem 1rem 2rem 0; //todo: $logo-padding
+  padding: 2.3rem 1rem 1.5rem 0; //todo: $logo-padding
   > .logo-max {
     width: 194px; //todo: $logo-max-size
     height: auto;
@@ -149,7 +149,7 @@ $sidemenu-popuot-background: #1e1e1e;
 
   //applies to 1st level only
   > li {
-    font-size: 1.2rem; //todo: sidemenu-L1-font-size
+    font-size: 1.1rem; //todo: sidemenu-L1-font-size
     padding: 0;
     border-bottom: 0;
     transition: background 0.2s;
@@ -178,7 +178,7 @@ $sidemenu-popuot-background: #1e1e1e;
         }
       }
       i {
-        font-size: 1.7em;
+        font-size: 1.6em;
         position: absolute;
         line-height: 1;
         top: -0.1em;
