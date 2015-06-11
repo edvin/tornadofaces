@@ -66,7 +66,7 @@ public class ModalRenderer extends Renderer {
 			writer.endElement("div");
 
 		writer.startElement("div", modal);
-		StyleClass.of("grid-content").add(modal.getStyleClass()).write(writer);
+		StyleClass.of(modal.getStyleClass()).write(writer);
 	}
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {

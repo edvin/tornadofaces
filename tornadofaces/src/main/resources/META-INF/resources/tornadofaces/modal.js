@@ -15,7 +15,7 @@ TornadoFaces.declareWidget('Modal', function() {
         widget.elem.find('.close').click(widget.hide);
 
         // Clicks inside the dialog should not bleed outside
-        widget.elem.find('aside').click(function() {
+        widget.elem.find('aside').click(function(event) {
             event.stopPropagation();
         });
 

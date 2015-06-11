@@ -32,16 +32,16 @@ public class DataRenderer extends Renderer {
 				if (data.getJson()) {
 					if (value instanceof Collection) {
 						JSONArray array = new JSONArray();
-						((Collection) value).stream().map(JSONObject::new).forEach(array::put);
+						((Collection) value).stream().map(v -> new JSONObject(v, true)).forEach(array::put);
 						value = array;
 					} else if (value instanceof Object[]) {
 						JSONArray array = new JSONArray();
 						Object[] values = (Object[]) value;
 						for (Object v : values)
-							array.put(new JSONObject(v));
+							array.put(new JSONObject(v, true));
 						value = array;
 					} else {
-						value = new JSONObject(value);
+						value = new JSONObject(value, true);
 					}
 				}
 
