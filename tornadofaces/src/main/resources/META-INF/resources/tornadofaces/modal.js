@@ -20,7 +20,12 @@ TornadoFaces.declareWidget('Modal', function() {
         });
 
         // Clicks on the modal overlay closes the dialog
-        widget.elem.click(widget.hide);
+        if (widget.conf.closeOnOverlayClick !== false) {
+            widget.elem.mousedown(function(event) {
+                if (event.toElement == widget.elem[0])
+                    widget.hide();
+            });
+        }
     };
 
     this.show = function() {

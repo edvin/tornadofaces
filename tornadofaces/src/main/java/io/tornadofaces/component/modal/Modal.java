@@ -32,6 +32,8 @@ public class Modal extends UIPanel implements Widget {
 	public void setStyle(String style) { getStateHelper().put("style", style); }
 	public Boolean getOpen() { return (Boolean) getStateHelper().eval("open", false); }
 	public void setOpen(Boolean open) { getStateHelper().put("open", open); }
+	public Boolean getCloseOnOverlayClick() { return (Boolean) getStateHelper().eval("closeOnOverlayClick", true); }
+	public void setCloseOnOverlayClick(Boolean closeOnOverlayClick) { getStateHelper().put("closeOnOverlayClick", closeOnOverlayClick); }
 	public void setColor(Color color) { this.getStateHelper().put("color", color); }
 	public Color getColor() { return (Color) this.getStateHelper().eval("color", Color.primary); }
 }

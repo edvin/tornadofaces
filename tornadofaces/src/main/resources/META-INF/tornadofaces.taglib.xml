@@ -2040,6 +2040,12 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Close modal when click on the overlay. Default to true.</description>
+            <name>closeOnOverlayClick</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Color of the modal. Valid values are "primary", "dark" and none. Default "primary".
             </description>
             <name>color</name>

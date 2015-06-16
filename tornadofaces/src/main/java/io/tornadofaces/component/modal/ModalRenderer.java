@@ -81,6 +81,7 @@ public class ModalRenderer extends Renderer {
 		new WidgetBuilder(context, modal)
 			.init()
 			.attr("open", modal.getOpen())
+			.attr("closeOnOverlayClick", modal.getCloseOnOverlayClick())
 			.finish();
 	}
 }

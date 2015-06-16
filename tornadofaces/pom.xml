@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>TornadoFaces</name>
-    <description>Modern JSF Component Library</description>
+    <description>Modern JSF Component Library - Dette er en test!</description>
     <url>http://www.tornadofaces.io/</url>
 
     <parent>
