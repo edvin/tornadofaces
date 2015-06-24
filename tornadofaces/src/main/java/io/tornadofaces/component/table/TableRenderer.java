@@ -176,6 +176,10 @@ public class TableRenderer extends CoreRenderer {
 				if (child instanceof Column) {
 					Column column = (Column) child;
 					writer.startElement("td", column);
+
+					if (column.getStyle() != null)
+						writer.writeAttribute("style", column.getStyle(), null);
+
 					StyleClass.of(column.getStyleClass())
 						.add("cell-reflow--block", Table.ReflowMode.block.equals(column.getReflowMode()))
 						.add("row-toggle-container", column.containsRowToggler())

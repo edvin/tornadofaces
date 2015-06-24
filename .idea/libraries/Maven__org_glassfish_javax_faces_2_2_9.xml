@@ -8,7 +8,6 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/javax.faces/2.2.9/javax.faces-2.2.9-sources.jar!/" />
-      <root url="jar://$USER_HOME$/Documents/javax.faces-2.2.9-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

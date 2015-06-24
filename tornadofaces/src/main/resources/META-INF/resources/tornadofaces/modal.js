@@ -11,11 +11,12 @@ TornadoFaces.declareWidget('Modal', function() {
     };
 
     this.bindEvents = function() {
-        // Buttons and anchors with class close will hide the dialog
-        widget.elem.find('.close').click(widget.hide);
-
         // Clicks inside the dialog should not bleed outside
+        // Buttons and anchors with class close will hide the dialog
         widget.elem.find('aside').click(function(event) {
+            if ($(event.target).hasClass('close'))
+                widget.hide();
+
             event.stopPropagation();
         });
 
