@@ -2189,6 +2189,12 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Boolean indicating the button is disabled. Defaults to false.</description>
+            <name>disabled</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>The action listener to call when the button is clicked</description>
             <name>actionListener</name>
             <required>false</required>
@@ -2333,6 +2339,12 @@
         <attribute>
             <description>Show false will add the class 'is-hidden' to the element so it can be hidden with CSS. Defaults to true.</description>
             <name>show</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Boolean indicating the button is disabled. Defaults to false.</description>
+            <name>disabled</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>

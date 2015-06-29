@@ -37,11 +37,11 @@ TornadoFaces.declareWidget('Table', function() {
                     item.unhighlight();
 
                 if (filterFn(item, query, idx)) {
-                    item.show();
+                    item.removeClass('is-hidden');
                     if (doHighlight)
                         item.highlight(query);
                 } else {
-                    item.hide();
+                    item.addClass('is-hidden');
                 }
             }
         }
