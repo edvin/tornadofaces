@@ -1,9 +1,21 @@
 <h:panelGroup xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui"
-              xmlns:h="http://xmlns.jcp.org/jsf/html">
+              xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:form>
+        <h4>AJAX Header Update</h4>
+
+        <t:slider binding="#{s}" min="0" max="100" step="5" throttle="200" lower="#{docsController.lower}">
+            <t:slider-header id="header" min="Min #{s.min}" value="AJAX Value: #{docsController.lower}" max="Max #{s.max}"/>
+            <f:ajax render="header"/>
+        </t:slider>
+
+        <h4>Client Side Custom Header Formatter</h4>
+
         <script>
             var mySliderFormatter = function(type, label, value, widget) {
+                if (type == 'max' &amp;&amp; value == 100)
+                    label.html('Lots');
+
                 if (type == 'value')
                     label.html(value + ' units');
                 else if (type == 'min' &amp;&amp; value == 0)
@@ -13,6 +25,9 @@
         </script>
         <t:slider id="myslider" widgetVar="myslider" labelFormatter="mySliderFormatter" header="true" min="0" max="100" step="1" lower="#{docsController.lower}" connect="lower"/>
 
+        <h4>Lower and Upper Bounds</h4>
+
         <t:slider header="true" min="0" max="100" step="10" lower="20" upper="80" connect="true"/>
+
     </h:form>
 </h:panelGroup>

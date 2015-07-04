@@ -22,9 +22,31 @@
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="list.xhtml">
 <t:source>
-&lt;t:slider min="0" max="100" step="1" lower="#{docsController.expr('controller.numberValue')}" connect="lower" />
+&lt;h4>AJAX Header Update&lt;/h4>
 
-&lt;t:slider min="0" max="100" step="10" lower="#{docsController.expr('controller.min')}" upper="#{docsController.expr('controller.max')}" connect="true" /></t:source>
+&lt;t:slider binding="#{docsController.expr('s')}" min="0" max="100" step="5" throttle="200" lower="#{docsController.expr('controller.value')}">
+    &lt;t:slider-header id="header" min="Min #{docsController.expr('s.min')}" value="AJAX Value: #{docsController.expr('controller.value')}" max="Max #{docsController.expr('s.max')}"/>
+    &lt;f:ajax render="header"/>
+&lt;/t:slider>
+
+&lt;h4>Client Side Custom Header Formatter&lt;/h4>
+
+&lt;script>
+    var mySliderFormatter = function(type, label, value, widget) {
+        if (type == 'value')
+            label.html(value + ' units');
+        else if (type == 'min')
+            label.html('Zip');
+        else if (type == 'max')
+            label.html('Lots');
+    }
+&lt;/script>
+&lt;t:slider id="myslider" widgetVar="myslider" labelFormatter="mySliderFormatter" header="true" min="0" max="100" step="1" lower="#{docsController.lower}" connect="lower"/>
+
+&lt;h4>Lower and Upper Bounds&lt;/h4>
+
+&lt;t:slider header="true" min="0" max="100" step="10" lower="20" upper="80" connect="true"/>
+                </t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">
                 <ui:include src="../tag-documentation.xhtml"/>

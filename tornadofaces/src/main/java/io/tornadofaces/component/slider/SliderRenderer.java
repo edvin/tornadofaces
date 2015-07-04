@@ -20,6 +20,16 @@ import static io.tornadofaces.component.util.ComponentUtils.findComponent;
 public class SliderRenderer extends Renderer {
 	public static final String RENDERER_TYPE = "io.tornadofaces.component.SliderRenderer";
 
+	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
+		for (UIComponent child : component.getChildren())
+			if (!(child instanceof SliderHeader))
+				child.encodeAll(context);
+	}
+
+	public boolean getRendersChildren() {
+		return true;
+	}
+
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		Slider slider = (Slider) component;
@@ -46,6 +56,11 @@ public class SliderRenderer extends Renderer {
 		if (upperValue != null)
 			writer.writeAttribute("value", upperValue.toString(), "upper");
 		writer.endElement("input");
+
+		// Support rendering of dynamic SliderHeader
+		for (UIComponent child : component.getChildren())
+			if (child instanceof SliderHeader)
+				child.encodeAll(context);
 
 		if (slider.getHeader()) {
 			writer.startElement("div", slider);
@@ -91,6 +106,7 @@ public class SliderRenderer extends Renderer {
 			.attr("lowerId", slider.getLowerClientId(context))
 			.attr("upperId", slider.getUpperClientId(context))
 			.attr("throttle", slider.getThrottle())
+			.attr("header", slider.getHeader())
 			.nativeAttr("settings", slider.getSettings().toString())
 			.nativeAttr("onSlide", slider.getOnSlide())
 			.nativeAttr("labelFormatter", slider.getLabelFormatter());

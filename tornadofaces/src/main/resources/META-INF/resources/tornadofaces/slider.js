@@ -5,6 +5,10 @@ TornadoFaces.declareWidget('Slider', function() {
     };
 
     function update() {
+        // Only update header if slider-header element is absent
+        if (!widget.conf.header)
+            return;
+
         var lowerVal = widget.lowerElem.val();
         var upperVal = widget.upperElem.val();
 
@@ -86,8 +90,10 @@ TornadoFaces.declareWidget('Slider', function() {
         var hasOnSlide = widget.conf.onSlide != undefined;
 
         $(function() {
-            widget.formatLabel('min', minLabel, widget.conf.settings.range.min);
-            widget.formatLabel('max', maxLabel, widget.conf.settings.range.max);
+            if (widget.conf.header) {
+                widget.formatLabel('min', minLabel, widget.conf.settings.range.min);
+                widget.formatLabel('max', maxLabel, widget.conf.settings.range.max);
+            }
             update();
         });
 
