@@ -122,10 +122,10 @@ TornadoFaces.declareWidget('Table', function() {
                 };
 
                 if (onevent)
-                    props.onevent = new Function('event', onevent);
+                    props.onevent = new Function('data', onevent);
 
                 if (onerror)
-                    props.onerror = new Function('event', onerror);
+                    props.onerror = new Function('data', onerror);
 
                 var id = widget.elem.attr('id');
 
