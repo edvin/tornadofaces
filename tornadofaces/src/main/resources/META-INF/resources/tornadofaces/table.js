@@ -101,7 +101,7 @@ TornadoFaces.declareWidget('Table', function() {
 
             if (widget.conf.behaviors && widget.conf.behaviors.rowSelect) {
                 var behaviors = widget.conf.behaviors.rowSelect;
-                var render = "", execute = "";
+                var render = "", execute = "", onevent, onerror;
 
                 for (var i = 0; i < behaviors.length; i++) {
                     var b = behaviors[i];
@@ -109,6 +109,10 @@ TornadoFaces.declareWidget('Table', function() {
                         render = (render + " " + b.render).trim();
                     if (b.execute)
                         execute = (execute + " " + b.execute).trim();
+                    if (b.onevent)
+                        onevent = b.onevent;
+                    if (b.onerror)
+                        onerror = b.onerror;
                 }
 
                 var props = {
@@ -116,6 +120,12 @@ TornadoFaces.declareWidget('Table', function() {
                     render: render,
                     execute: execute
                 };
+
+                if (onevent)
+                    props.onevent = new Function('event', onevent);
+
+                if (onerror)
+                    props.onerror = new Function('event', onerror);
 
                 var id = widget.elem.attr('id');
 

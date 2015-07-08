@@ -20,10 +20,13 @@
         </t:table>
     </h:form>
 
+    <h:form>
     <h5>Compact, bordered, title no reflow</h5>
     <t:table id="moviesCompact" value="#{docsController.movies}" var="movie" compact="true" bordered="true" selectionMode="single">
+        <f:ajax event="rowSelect" onevent="alert('test');" render="@form"/>
         <t:column headerText="ID" text="#{movie.id}"/>
         <t:column headerText="Title" text="#{movie.title}" reflow="none"/>
     </t:table>
+    </h:form>
 
 </h:panelGroup>

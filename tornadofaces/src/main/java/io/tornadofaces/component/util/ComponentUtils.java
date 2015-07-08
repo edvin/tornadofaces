@@ -113,6 +113,12 @@ public class ComponentUtils {
 					if (delay != null)
 						o.put("delay", delay);
 
+					if (ab.getOnevent() != null)
+						o.put("onevent", ab.getOnevent());
+
+					if (ab.getOnerror() != null)
+						o.put("onerror", ab.getOnerror());
+
 					array.put(o);
 				}
 			}
