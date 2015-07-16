@@ -17,6 +17,7 @@
   max-height: 100%;
   overflow: hidden;
   padding: $global-padding;
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
 
   @include breakpoint(medium) {
     height: auto;
