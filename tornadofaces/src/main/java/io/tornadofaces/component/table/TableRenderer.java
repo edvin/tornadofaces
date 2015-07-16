@@ -62,6 +62,9 @@ public class TableRenderer extends CoreRenderer {
 	}
 
 	private void renderHead(FacesContext context, ResponseWriter writer, Table table) throws IOException {
+		if (table.isEmpty())
+			return;
+
 		writer.startElement("thead", table);
 		writer.startElement("tr", table);
 
@@ -89,6 +92,9 @@ public class TableRenderer extends CoreRenderer {
 	}
 
 	private void renderFooter(FacesContext context, ResponseWriter writer, Table table) throws IOException {
+		if (table.isEmpty())
+			return;
+
 		long footCount = table.getChildren().stream().filter(c -> c instanceof Column).map(c -> (Column) c).filter(c -> c.getFootertext() != null).count();
 		if (footCount == 0)
 			return;
@@ -142,8 +148,15 @@ public class TableRenderer extends CoreRenderer {
 	}
 
 	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
-		ResponseWriter writer = context.getResponseWriter();
 		Table table = (Table) component;
+		ResponseWriter writer = context.getResponseWriter();
+
+		if (table.isEmpty()) {
+			writer.startElement("caption", table);
+			writer.write(table.getEmptyText());
+			writer.endElement("caption");
+			return;
+		}
 
 		int rowCount = table.getRowCount();
 

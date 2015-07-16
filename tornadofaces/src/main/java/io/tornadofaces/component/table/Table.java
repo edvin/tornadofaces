@@ -36,6 +36,21 @@ public class Table extends HtmlDataTable implements Widget {
 		return getChildren().stream().filter(c -> c instanceof Column).count();
 	}
 
+	public boolean isEmpty() {
+		Object list = getValue();
+
+		if (list == null)
+			return true;
+
+		if (list instanceof List)
+			return ((List) list).isEmpty();
+
+		if (list instanceof Object[])
+			return ((Object[])list).length == 0;
+
+		return false;
+	}
+
 	public enum ReflowAtSize { small, medium, large, reflow, none }
 	public enum ReflowMode { block, span }
 	public enum RowSelectionMode { single, multi }
@@ -62,6 +77,8 @@ public class Table extends HtmlDataTable implements Widget {
 
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
+	public String getEmptyText() { return (String) getStateHelper().eval("emptyText", "No data"); }
+	public void setEmptyText(String emptyText) { getStateHelper().put("emptyText", emptyText); }
 	public Object getRowKey() { return getStateHelper().eval("rowKey"); }
 	public void setRowKey(Object rowKey) { getStateHelper().put("rowKey", rowKey); }
 	public RowSelectionMode getSelectionMode() { return (RowSelectionMode) getStateHelper().eval("selectionMode"); }

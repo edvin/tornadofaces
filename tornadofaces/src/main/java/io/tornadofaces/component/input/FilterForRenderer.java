@@ -14,6 +14,9 @@ public class FilterForRenderer extends CoreRenderer {
 	public static final String RENDERER_TYPE = "io.tornadofaces.component.FilterForRenderer";
 
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
+		if (!component.isRendered())
+			return;
+
 		FilterFor ff = (FilterFor) component;
 
 		String targetName = ff.getTarget();
