@@ -190,7 +190,7 @@ public class TableRenderer extends CoreRenderer {
 					Column column = (Column) child;
 					writer.startElement("td", column);
 
-					if (column.getStyle() != null)
+					if (!ComponentUtils.isEmpty(column.getStyle()))
 						writer.writeAttribute("style", column.getStyle(), null);
 
 					StyleClass.of(column.getStyleClass())

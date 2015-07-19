@@ -11,6 +11,7 @@ import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
 import javax.faces.render.Renderer;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static io.tornadofaces.component.input.FormElement.LabelPosition.left;
@@ -102,21 +103,23 @@ public class FormElementRenderer extends Renderer {
         if (elem.shouldRenderInlineLabelSpan())
             writer.endElement("span");
 
+        // Gather input messages for FormElement plus first child
+        List<FacesMessage> messages = new ArrayList<>();
+        messages.addAll(context.getMessageList(elem.getClientId(context)));
         UIInput input = ComponentUtils.getFirstInputChild(component);
+        if (input != null)
+            messages.addAll(context.getMessageList(input.getClientId(context)));
 
-        if (input != null) {
-            List<FacesMessage> messages = context.getMessageList(input.getClientId(context));
-            if (!messages.isEmpty()) {
-                for (FacesMessage m : messages) {
-                    writer.startElement("span", component);
-                    String type = m.getSeverity().toString().toLowerCase();
-                    if (type.contains(" "))
-                        type = type.substring(0, type.indexOf(" "));
+        if (!messages.isEmpty()) {
+            for (FacesMessage m : messages) {
+                writer.startElement("span", component);
+                String type = m.getSeverity().toString().toLowerCase();
+                if (type.contains(" "))
+                    type = type.substring(0, type.indexOf(" "));
 
-                    writer.writeAttribute("class", "field-" + type + "-message", null);
-                    writer.write(m.getSummary());
-                    writer.endElement("span");
-                }
+                writer.writeAttribute("class", "field-" + type + "-message", null);
+                writer.write(m.getSummary());
+                writer.endElement("span");
             }
         }
 
