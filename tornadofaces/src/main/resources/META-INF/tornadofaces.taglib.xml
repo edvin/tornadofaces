@@ -2234,7 +2234,7 @@
         </attribute>
         <attribute>
             <description>Invoke the action in the Apply Request Values phase. Defaults to false.</description>
-            <name>immedate</name>
+            <name>immediate</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>
@@ -2388,7 +2388,7 @@
         </attribute>
         <attribute>
             <description>Invoke the action in the Apply Request Values phase. Defaults to false.</description>
-            <name>immedate</name>
+            <name>immediate</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>
@@ -2546,7 +2546,7 @@
         </attribute>
         <attribute>
             <description>Invoke the action in the Apply Request Values phase. Defaults to false.</description>
-            <name>immedate</name>
+            <name>immediate</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>
