@@ -2,7 +2,7 @@
 $message-radius: $input-radius;
 
 $message-info-background: #fff;
-$message-info-color: #B8DFF7;
+$message-info-color: #4d9fff;
 
 $message-success-background: #fff;
 $message-success-color: #B3EDC1;
@@ -21,10 +21,7 @@ $message-alert-color: #fff;
 }
 
 .message {
-  padding: 1.3rem;
-  margin-bottom: 0.5rem;
-  box-shadow: $default-box-shadow;
-  border: $default-border;
+  padding-bottom: 0.5rem;
   font-size: .9rem;
   border-radius: $message-radius;
   .close-button {color: inherit;}
@@ -32,8 +29,10 @@ $message-alert-color: #fff;
   &:before {
     content: '';
     display: block;
-    width: 1.4rem;
-    margin-right: $global-padding/2;
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.2rem;
+    margin-right: 0.6rem;
     border-radius: 2px;
   }
 }
