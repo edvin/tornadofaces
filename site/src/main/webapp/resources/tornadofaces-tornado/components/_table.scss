@@ -7,6 +7,7 @@ $default-table-border-dotted: $default-dotted-border; //todo: make global defaul
 
 $table-zebra-background: #f3f3f3;
 $table-selected-row-background: #C4EAFF;
+$table-hover-row-background: #e2f3ff;
 
 $table-compact-padding: 0.5rem;
 $table-compact-font-size: 0.95rem;
@@ -42,6 +43,11 @@ tr {
 // Selection
 tbody tr.selected {
   background-color: $table-selected-row-background;
+}
+
+// Hover
+table.table-hover tbody tr:hover {
+  background-color: $table-hover-row-background;
 }
 
 .table-rowselect-single tbody tr, .table-rowselect-multiple tbody tr {

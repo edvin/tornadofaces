@@ -41,6 +41,7 @@ public class TableRenderer extends CoreRenderer {
 		StyleClass tableClass = StyleClass.of(table.getStyleClass())
 			.add(reflow + "-table-reflow", !Table.ReflowAtSize.none.equals(reflow))
 			.add("table-zebra", table.getZebra())
+			.add("table-hover", table.getHover())
 			.add("table-compact", table.getCompact())
 			.add("table-bordered", table.getBordered())
 			.add("table-reflow--block", Table.ReflowMode.block.equals(table.getReflowMode()));

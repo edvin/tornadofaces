@@ -93,6 +93,8 @@ public class Table extends HtmlDataTable implements Widget {
 	public void setBordered(Boolean bordered) { getStateHelper().put("bordered", bordered); }
 	public Boolean getZebra() { return (Boolean) getStateHelper().eval("zebra"); }
 	public void setZebra(Boolean zebra) { getStateHelper().put("zebra", zebra); }
+	public Boolean getHover() { return (Boolean) getStateHelper().eval("hover"); }
+	public void setHover(Boolean hover) { getStateHelper().put("hover", hover); }
 	public Boolean getCompact() { return (Boolean) getStateHelper().eval("compact"); }
 	public void setCompact(Boolean compact) { getStateHelper().put("compact", compact); }
 	public String getWidgetVar() { return (String) getStateHelper().eval("widgetVar"); }

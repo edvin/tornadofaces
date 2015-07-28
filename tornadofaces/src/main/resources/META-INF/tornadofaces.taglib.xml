@@ -1360,6 +1360,12 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Change background color on row hover. Defaults to false.</description>
+            <name>hover</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Compact table styling. Defaults to false.</description>
             <name>compact</name>
             <required>false</required>
