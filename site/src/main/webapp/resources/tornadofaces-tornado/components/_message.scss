@@ -10,8 +10,8 @@ $message-success-color: #B3EDC1;
 $message-warning-background: #fff;
 $message-warning-color: #FFB4A3;
 
-$message-alert-background: #FF4040;
-$message-alert-color: #fff;
+$message-alert-background: #fff;
+$message-alert-color: #FF4040;
 
 .messages {
   .close-button {
@@ -50,7 +50,6 @@ $message-alert-color: #fff;
   &:before {background: $message-warning-color;}
 }
 .message--alert {
-  &:before {background: $message-alert-color;}
   background: $message-alert-background;
-  color: #fff;
+  &:before {background: $message-alert-color;}
 }
