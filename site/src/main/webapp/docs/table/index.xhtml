@@ -80,6 +80,64 @@
                 <h5>Client Side API</h5>
 
                 <p>Widget: <code>TornadoFaces.widget.Table</code></p>
+
+                <table class="api-info">
+                    <tr>
+                        <th>Method</th>
+                        <th>Params</th>
+                        <th>Return type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>getSelectedRowKeys()</td>
+                        <td></td>
+                        <td>array</td>
+                        <td>Get a list of the currently selected rowKeys</td>
+                    </tr>
+                    <tr>
+                        <td>unselectAllRows()</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Unselect all rows in the table</td>
+                    </tr>
+                    <tr>
+                        <td>selectPreviousRow()</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Select the previous row</td>
+                    </tr>
+                    <tr>
+                        <td>selectNextRow()</td>
+                        <td></td>
+                        <td>void</td>
+                        <td>Select the next row</td>
+                    </tr>
+                    <tr>
+                        <td>selectRow()</td>
+                        <td>tr</td>
+                        <td>jquery tr</td>
+                        <td>Select the supplied jquery object containing an html tr element</td>
+                    </tr>
+                    <tr>
+                        <td>expandRow()</td>
+                        <td>tr</td>
+                        <td>jquery tr</td>
+                        <td>Expand the supplied jquery object containing an html tr element. Requires a RowExpansion element to be present.</td>
+                    </tr>
+                    <tr>
+                        <td>filter()</td>
+                        <td>query</td>
+                        <td>string</td>
+                        <td>Filter rows by searching for the supplied text. You can supply a custom filter function via <code>setFilterFn</code></td>
+                    </tr>
+                    <tr>
+                        <td>setFilterFn()</td>
+                        <td>fn</td>
+                        <td>function</td>
+                        <td>Set a new filter function to use when filter() is called.</td>
+                    </tr>
+                </table>
+
             </t:tab>
         </t:tabView>
 

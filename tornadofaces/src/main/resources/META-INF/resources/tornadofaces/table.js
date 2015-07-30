@@ -4,6 +4,7 @@ TornadoFaces.declareWidget('Table', function() {
     this.init = function() {
         widget = this;
         items = widget.elem.find('tbody tr').not('.table-expand-row');
+        widget.conf.clickFirstLinkOnEnter = true;
         widget.bindEvents();
     };
 
@@ -177,6 +178,17 @@ TornadoFaces.declareWidget('Table', function() {
                     case 40:
                         widget.selectNextRow();
                         e.preventDefault();
+                        return false;
+                    case 13:
+                        var selected = items.filter('.selected:first');
+                        if (widget.conf.clickFirstLinkOnEnter) {
+                            var a = selected.find('a:first');
+                            if (a.length == 1)
+                                a[0].click();
+                            e.preventDefault();
+                        } else if (widget.conf.onEnterPressed) {
+                            widget.conf.onEnterPressed(selected, e);
+                        }
                         return false;
                 }
             });

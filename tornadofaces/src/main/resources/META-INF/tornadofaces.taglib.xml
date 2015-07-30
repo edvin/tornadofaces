@@ -1360,6 +1360,18 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
+            <description>Click first link in the selected table row when the user presses enter. Requires rowSelect="single". Will override onEnter if present. Defaults to true.</description>
+            <name>clickFirstLinkOnEnter</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript function to call when user presses enter on a selected row. Will be passed the the selected row as a JQuery object and the key event. Requires rowSelect="single". If present, clickFirstLinkOnEnter will take precedence over this.</description>
+            <name>onEnterPressed</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Change background color on row hover. Defaults to false.</description>
             <name>hover</name>
             <required>false</required>

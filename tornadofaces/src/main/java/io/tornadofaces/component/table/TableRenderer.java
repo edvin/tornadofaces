@@ -251,6 +251,8 @@ public class TableRenderer extends CoreRenderer {
 			.init()
 			.attr("filterFn", table.getFilterFn())
 			.attr("highlightFilter", table.getHighlightFilter())
+			.attr("clickFirstLinkOnEnter", table.getClickFirstLinkOnEnter())
+			.nativeAttr("onEnterPressed", table.getOnEnterPressed())
 			.attr("selectionMode", selectionMode != null ? selectionMode.toString() : null);
 
 		JSONArray rowSelectBehaviors = encodeAjaxBehaviors(context, "rowSelect", table);

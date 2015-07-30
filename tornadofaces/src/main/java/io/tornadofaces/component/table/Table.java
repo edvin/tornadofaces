@@ -103,6 +103,10 @@ public class Table extends HtmlDataTable implements Widget {
 	public void setFilterFn(String filterFn) { getStateHelper().put("filterFn", filterFn); }
 	public Boolean getHighlightFilter() { return (Boolean) getStateHelper().eval("highlightFilter", true); }
 	public void setHighlightFilter(Boolean highlightFilter) { getStateHelper().put("highlightFilter", highlightFilter); }
+	public Boolean getClickFirstLinkOnEnter() { return (Boolean) getStateHelper().eval("clickFirstLinkOnEnter", true); }
+	public void setClickFirstLinkOnEnter(Boolean clickFirstLinkOnEnter) { getStateHelper().put("clickFirstLinkOnEnter", clickFirstLinkOnEnter); }
+	public String getOnEnterPressed() { return (String) getStateHelper().eval("onEnterPressed"); }
+	public void setOnEnterPressed(String onEnter) { getStateHelper().put("onEnterPressed", onEnter); }
 
 	/**
 	 * Check if the current rowIndex represents a selected row
