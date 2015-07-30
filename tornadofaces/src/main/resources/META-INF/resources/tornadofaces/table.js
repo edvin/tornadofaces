@@ -4,7 +4,6 @@ TornadoFaces.declareWidget('Table', function() {
     this.init = function() {
         widget = this;
         items = widget.elem.find('tbody tr').not('.table-expand-row');
-        widget.conf.clickFirstLinkOnEnter = true;
         widget.bindEvents();
     };
 
@@ -151,13 +150,41 @@ TornadoFaces.declareWidget('Table', function() {
     this.selectPreviousRow = function() {
         var selected = items.filter('.selected:first');
         var prev = selected.prev('tr');
-        this.selectRow(prev.length == 1 ? prev : items.last());
+
+        if (prev.length == 1) {
+            this.selectRow(prev);
+        } else {
+            var prevTable = TornadoFaces.previousWidget(widget, widget.type);
+            if (prevTable)
+                prevTable.selectLastRow();
+            else
+                this.selectRow(items.last());
+        }
+    };
+
+    this.selectFirstRow = function() {
+        this.selectRow(items.first());
+    };
+
+    this.selectLastRow = function() {
+        this.selectRow(items.last());
     };
 
     this.selectNextRow = function() {
         var selected = items.filter('.selected:first');
         var next = selected.next('tr');
-        this.selectRow(next.length == 1 ? next : items.first());
+
+        if (next.length == 1) {
+            this.selectRow(next);
+        } else {
+            var nextTable = TornadoFaces.nextWidget(widget, widget.type);
+            if (nextTable)
+                nextTable.selectFirstRow();
+            else
+                this.selectRow(items.first());
+        }
+
+        //this.selectRow(next.length == 1 ? next : items.first());
     };
 
     this.bindEvents = function() {
@@ -181,7 +208,7 @@ TornadoFaces.declareWidget('Table', function() {
                         return false;
                     case 13:
                         var selected = items.filter('.selected:first');
-                        if (widget.conf.clickFirstLinkOnEnter) {
+                        if (widget.conf.clickFirstLinkOnEnter === true) {
                             var a = selected.find('a:first');
                             if (a.length == 1)
                                 a[0].click();

@@ -5,7 +5,7 @@
     <t:table id="moviesSelection" value="#{docsController.movies}" var="movie" selectionMode="single" rowKey="#{movie.id}">
         <f:ajax event="rowSelect" listener="#{docsController.onSelectMovie}" render="notification"/>
         <t:column headerText="ID" text="#{movie.id}"/>
-        <t:column headerText="Title" text="#{movie.title}" link="http://www.vg.no/#{movie.id}" />
+        <t:column headerText="Title" text="#{movie.title}" />
     </t:table>
 
     <h5>Expand rows for detail view</h5>

@@ -19,13 +19,45 @@ TornadoFaces = {
         if (TornadoFaces.widget[widgetName]) {
             if (TornadoFaces.widgets[conf.widgetVar])
                 TornadoFaces.widgets[conf.widgetVar].refresh(conf);
-            else
+            else {
                 TornadoFaces.widgets[conf.widgetVar] = new TornadoFaces.widget[widgetName](conf);
+                TornadoFaces.widgets[conf.widgetVar].type = widgetName;
+            }
 
             return TornadoFaces.widgets[conf.widgetVar];
         } else {
             throw('No TornadoFaces Widget available named ' + widgetName);
         }
+    },
+
+    // Return the next widget in relation to the given widget matching the targetType
+    nextWidget: function(currentWidget, targetType) {
+        var passedThis = false;
+        var length = TornadoFaces.widgets.length;
+        for (var i = 0; i < length; i++) {
+            var w = TornadoFaces.widgets[i];
+            if (!passedThis)
+                passedThis = w.conf.id == currentWidget.conf.id;
+            if (passedThis && w.type == targetType)
+                return w;
+        }
+
+        return null;
+    },
+
+    // Return the previous widget in relation to the given widget matching the targetType
+    previousWidget: function(currentWidget, targetType) {
+        var passedThis = false;
+        var length = TornadoFaces.widgets.length;
+        for (var i = length; i > 0; i--) {
+            var w = TornadoFaces.widgets[i];
+            if (!passedThis)
+                passedThis = w.conf.id == currentWidget.conf.id;
+            if (passedThis && w.type == targetType)
+                return w;
+        }
+
+        return null;
     },
 
     declareWidget: function(widgetName, widget) {
