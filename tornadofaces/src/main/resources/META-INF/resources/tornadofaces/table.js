@@ -90,6 +90,10 @@ TornadoFaces.declareWidget('Table', function() {
         this.selectRow(tr);
     };
 
+    this.ensureRowInView = function(tr) {
+        tr[0].scrollIntoViewIfNeeded();
+    };
+
     this.selectRow = function(tr) {
         var doSelect = !tr.hasClass('selected');
 
@@ -98,6 +102,7 @@ TornadoFaces.declareWidget('Table', function() {
                 this.unselectAllRows();
 
             tr.addClass('selected');
+            widget.ensureRowInView(tr);
 
             if (widget.conf.behaviors && widget.conf.behaviors.rowSelect) {
                 var behaviors = widget.conf.behaviors.rowSelect;
@@ -148,18 +153,32 @@ TornadoFaces.declareWidget('Table', function() {
     };
 
     this.selectPreviousRow = function() {
+        console.log('selectprevrow in table' + widget.conf.id);
         var selected = items.filter('.selected:first');
         var prev = selected.prev('tr');
 
         if (prev.length == 1) {
             this.selectRow(prev);
         } else {
-            var prevTable = TornadoFaces.previousWidget(widget, widget.type);
-            if (prevTable)
+            var prevTable = TornadoFaces.previousWidget(widget, function(w) {
+                return w.type == widget.type && w.conf.selectionMode == 'single';
+            });
+            if (prevTable) {
+                this.unselectAllRows();
                 prevTable.selectLastRow();
-            else
+                prevTable.focus();
+            } else {
                 this.selectRow(items.last());
+            }
         }
+    };
+
+    this.focus = function() {
+        this.elem.focus();
+    };
+
+    this.isVisible = function() {
+        return widget.elem.css('visibility') == 'visible';
     };
 
     this.selectFirstRow = function() {
@@ -171,20 +190,25 @@ TornadoFaces.declareWidget('Table', function() {
     };
 
     this.selectNextRow = function() {
+        console.log('selectnextrow in table' + widget.conf.id);
         var selected = items.filter('.selected:first');
         var next = selected.next('tr');
 
         if (next.length == 1) {
             this.selectRow(next);
         } else {
-            var nextTable = TornadoFaces.nextWidget(widget, widget.type);
-            if (nextTable)
-                nextTable.selectFirstRow();
-            else
-                this.selectRow(items.first());
-        }
+            var nextTable = TornadoFaces.nextWidget(widget, function(w) {
+                return w.type == widget.type && w.conf.selectionMode == 'single' && w.isVisible();
+            });
 
-        //this.selectRow(next.length == 1 ? next : items.first());
+            if (nextTable) {
+                this.unselectAllRows();
+                nextTable.selectFirstRow();
+                nextTable.focus();
+            } else {
+                this.selectRow(items.first());
+            }
+        }
     };
 
     this.bindEvents = function() {

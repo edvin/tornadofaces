@@ -8,6 +8,13 @@
         <t:column headerText="Title" text="#{movie.title}" />
     </t:table>
 
+    <h5>Test</h5>
+    <t:table id="mxoviesSelection" value="#{docsController.movies}" var="movie" selectionMode="single" rowKey="#{movie.id}">
+        <f:ajax event="rowSelect" listener="#{docsController.onSelectMovie}" render="notification"/>
+        <t:column headerText="ID" text="#{movie.id}"/>
+        <t:column headerText="Title" text="#{movie.title}" />
+    </t:table>
+
     <h5>Expand rows for detail view</h5>
     <h:form id="f">
         <t:table id="movies" value="#{docsController.movies}" var="movie" rowKey="#{movie.id}">
