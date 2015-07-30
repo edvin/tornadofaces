@@ -44,6 +44,7 @@ public class TableRenderer extends CoreRenderer {
 			.add("table-hover", table.getHover())
 			.add("table-compact", table.getCompact())
 			.add("table-bordered", table.getBordered())
+			.add("is-empty", table.isEmpty())
 			.add("table-reflow--block", Table.ReflowMode.block.equals(table.getReflowMode()));
 
 		Table.RowSelectionMode selectionMode = table.getSelectionMode();

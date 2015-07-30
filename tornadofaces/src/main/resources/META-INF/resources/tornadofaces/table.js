@@ -95,6 +95,9 @@ TornadoFaces.declareWidget('Table', function() {
     };
 
     this.selectRow = function(tr) {
+        if (tr.length == 0)
+            return;
+
         var doSelect = !tr.hasClass('selected');
 
         if (doSelect) {
@@ -153,7 +156,6 @@ TornadoFaces.declareWidget('Table', function() {
     };
 
     this.selectPreviousRow = function() {
-        console.log('selectprevrow in table' + widget.conf.id);
         var selected = items.filter('.selected:first');
         var prev = selected.prev('tr');
 
@@ -161,7 +163,7 @@ TornadoFaces.declareWidget('Table', function() {
             this.selectRow(prev);
         } else {
             var prevTable = TornadoFaces.previousWidget(widget, function(w) {
-                return w.type == widget.type && w.conf.selectionMode == 'single';
+                return w.type == 'Table' && w.conf.selectionMode == 'single' && !w.isEmpty() && w.isVisible();
             });
             if (prevTable) {
                 this.unselectAllRows();
@@ -181,6 +183,10 @@ TornadoFaces.declareWidget('Table', function() {
         return widget.elem.css('visibility') == 'visible';
     };
 
+    this.isEmpty = function() {
+        return items.length == 0;
+    };
+
     this.selectFirstRow = function() {
         this.selectRow(items.first());
     };
@@ -190,7 +196,6 @@ TornadoFaces.declareWidget('Table', function() {
     };
 
     this.selectNextRow = function() {
-        console.log('selectnextrow in table' + widget.conf.id);
         var selected = items.filter('.selected:first');
         var next = selected.next('tr');
 
@@ -198,7 +203,7 @@ TornadoFaces.declareWidget('Table', function() {
             this.selectRow(next);
         } else {
             var nextTable = TornadoFaces.nextWidget(widget, function(w) {
-                return w.type == widget.type && w.conf.selectionMode == 'single' && w.isVisible();
+                return w.type == 'Table' && w.conf.selectionMode == 'single' && !w.isEmpty() && w.isVisible();
             });
 
             if (nextTable) {
