@@ -31,6 +31,13 @@
   .close-button, [fa-close] {
     z-index: $modal-zindex + 1;
   }
+
+  a.close-cross {
+    margin-top: -27px;
+    margin-right: -20px;
+    font-size: 2.5rem;
+    color: rgba(0,0,0,.4);
+  }
 }
 
 @mixin modal-dialog() {

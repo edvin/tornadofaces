@@ -254,3 +254,17 @@ TornadoFaces.declareWidget('Table', function() {
         items.find('.row-toggler').click(this.onExpandRow);
     };
 });
+
+TornadoFaces.Table = {
+    getFirstNonEmpty: function() {
+        return TornadoFaces.widgetById($('table').not('.is-empty').attr('id'));
+    },
+
+    focusFirstNonEmpty: function() {
+        var t = TornadoFaces.Table.getFirstNonEmpty();
+        if (t) {
+            t.selectFirstRow();
+            t.elem[0].focus();
+        }
+    }
+};

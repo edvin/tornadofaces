@@ -2090,7 +2090,13 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
-            <description>Close modal when click on the overlay. Default to true.</description>
+            <description>Render a default close button in the right upper corner. Defaults to true.</description>
+            <name>closeButton</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Close modal when click on the overlay. Defaults to true.</description>
             <name>closeOnOverlayClick</name>
             <required>false</required>
             <type>Boolean</type>

@@ -114,6 +114,16 @@ TornadoFaces = {
         return null;
     },
 
+    focusOnEscape: function(id) {
+        var focusFn = function() { $(id).focus(); }
+        $(document).keydown(function(e) {
+            if (e.which == 27)
+                focusFn();
+        });
+
+        focusFn();
+    },
+
     declareWidget: function(widgetName, widget) {
         TornadoFaces.widget[widgetName] = TornadoFaces.widget.BaseWidget.extend(widget);
     },
@@ -268,7 +278,7 @@ TornadoFaces.widget.BaseWidget = Class.extend(function() {
 
     this.hasBehaviors = function() {
         return this.conf.behaviors;
-    }
+    };
 });
 
 TW = function(widgetName) {

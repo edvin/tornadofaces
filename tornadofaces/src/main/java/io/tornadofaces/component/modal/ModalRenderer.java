@@ -28,12 +28,21 @@ public class ModalRenderer extends Renderer {
 
 		writer.startElement("aside", modal);
 		writer.writeAttribute("class", "modal", null);
+
+		Boolean closeButton = modal.getCloseButton();
+		if (closeButton) {
+			writer.startElement("a", modal);
+			writer.writeAttribute("class", "close icon-cross-fill float-right close-cross", null);
+			writer.endElement("a");
+		}
+
 		writer.startElement("div", modal);
 		writer.writeAttribute("class", "grid-block vertical clearfix", null);
 
 		UIComponent left = modal.getFacet("left");
 		UIComponent right = modal.getFacet("right");
 		String title = modal.getTitle();
+
 		Boolean renderTitleBar = left != null || right != null || title != null;
 
 		if (renderTitleBar) {
