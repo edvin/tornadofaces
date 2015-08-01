@@ -44,6 +44,7 @@ public class GridComponentRenderer extends CoreRenderer {
 		if (gridComponent instanceof GridBlock) {
 			GridBlock gridblock = (GridBlock) gridComponent;
 			sc.add(gridblock.getOrientation());
+			sc.add("gutters", gridblock.getGutters());
 		}
 		
 		sc.write(writer);

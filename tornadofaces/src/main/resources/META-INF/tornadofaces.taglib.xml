@@ -132,6 +132,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>Add gutters class for spacing between elements. Defaults to false.</description>
+            <name>gutters</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Should this component be rendered?</description>
             <name>rendered</name>
             <required>false</required>

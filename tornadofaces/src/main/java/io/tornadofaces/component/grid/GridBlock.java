@@ -13,4 +13,7 @@ public class GridBlock extends GridComponent {
 
 	public Orientation getOrientation() { return (Orientation) this.getStateHelper().eval("orientation", null); }
 	public void setOrientation(Orientation orientation) { this.getStateHelper().put("orientation", orientation); }
+	public Boolean getGutters() { return (Boolean) getStateHelper().eval("gutters"); }
+	public void setGutters(Boolean gutters) { getStateHelper().put("gutters", gutters); }
+
 }
