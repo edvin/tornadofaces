@@ -2281,6 +2281,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>CSS Styles applied to the link element</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Icon for the button, rendered as i tag with icon class</description>
             <name>icon</name>
             <required>false</required>
@@ -2429,8 +2435,14 @@
             <type>String</type>
         </attribute>
         <attribute>
-            <description>Styles to apply to the button.</description>
+            <description>Styles to apply to the button</description>
             <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the button element.</description>
+            <name>style</name>
             <required>false</required>
             <type>String</type>
         </attribute>

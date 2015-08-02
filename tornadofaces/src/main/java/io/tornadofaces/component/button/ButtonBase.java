@@ -55,6 +55,9 @@ public abstract class ButtonBase extends UICommand implements Widget, ClientBeha
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 
+	public String getStyle() { return (String) getStateHelper().eval("style"); }
+	public void setStyle(String style) { getStateHelper().put("style", style); }
+
 	public String getRender() {
 		return (String) getStateHelper().eval("render", "@form");
 	}

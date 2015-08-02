@@ -29,6 +29,10 @@ public class ButtonRenderer extends CoreRenderer {
 		else if (button instanceof CommandLink)
 			writer.writeAttribute("href", "#", null);
 
+		String style = button.getStyle();
+		if (style != null)
+			writer.writeAttribute("style", style, null);
+
 		String title = button.getTitle();
 		if (title != null)
 			writer.writeAttribute("title", title, null);
