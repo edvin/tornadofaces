@@ -10,7 +10,7 @@
 				Return the first non-<code>empty</code> string from the given objects
 			]]>
         </description>
-        <function-name>coalesceEmptyString</function-name>
+        <function-name>coalesceString</function-name>
         <function-class>io.tornadofaces.util.Coalesce</function-class>
         <function-signature>java.lang.String coalesceString(java.lang.Object...)</function-signature>
     </function>
