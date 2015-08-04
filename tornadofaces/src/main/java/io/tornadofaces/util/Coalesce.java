@@ -7,4 +7,11 @@ public class Coalesce {
 				return v;
 		return null;
 	}
+
+	public static String coalesceString(Object... values) {
+		for (Object v : values)
+			if (v != null && !"".equals(v.toString()))
+				return v.toString();
+		return null;
+	}
 }

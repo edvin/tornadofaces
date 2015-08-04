@@ -3,6 +3,18 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
     <namespace>http://tornadofaces.io/ui</namespace>
+
+    <function>
+        <description>
+            <![CDATA[
+				Return the first non-<code>empty</code> string from the given objects
+			]]>
+        </description>
+        <function-name>coalesceEmptyString</function-name>
+        <function-class>io.tornadofaces.util.Coalesce</function-class>
+        <function-signature>java.lang.String coalesceString(java.lang.Object...)</function-signature>
+    </function>
+
     <tag>
         <description>Grid Container</description>
         <tag-name>grid-container</tag-name>
