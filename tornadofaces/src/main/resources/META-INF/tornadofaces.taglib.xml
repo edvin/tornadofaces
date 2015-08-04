@@ -12,7 +12,7 @@
         </description>
         <function-name>coalesceString</function-name>
         <function-class>io.tornadofaces.util.Coalesce</function-class>
-        <function-signature>java.lang.String coalesceString(java.lang.Object...)</function-signature>
+        <function-signature>java.lang.String coalesceString(java.lang.Object, java.lang.Object)</function-signature>
     </function>
 
     <tag>
