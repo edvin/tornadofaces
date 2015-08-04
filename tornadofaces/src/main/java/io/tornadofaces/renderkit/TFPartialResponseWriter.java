@@ -20,10 +20,13 @@ public class TFPartialResponseWriter extends PartialResponseWriter {
 	}
 
 	public void endDocument() throws IOException {
-		if (!"true".equals(ComponentUtils.getRequestScopeParam(FacesContext.getCurrentInstance(), "TornadoFaces.SkipExtensions"))) {
+		Object skipExtensions = ComponentUtils.getRequestScopeParam(FacesContext.getCurrentInstance(), "TornadoFaces.SkipExtensions");
+		Object extensionsWritten = ComponentUtils.getRequestScopeParam(FacesContext.getCurrentInstance(), "TornadoFaces.ExtensionsWritten");
+		if (!"true".equals(skipExtensions) && extensionsWritten == null) {
 			startExtension(extensionMap);
 			write("{\"validationFailed\": " + FacesContext.getCurrentInstance().isValidationFailed() + "}");
 			endExtension();
+			ComponentUtils.setRequestScopeParam(FacesContext.getCurrentInstance(), "TornadoFaces.ExtensionsWritten", true);
 		}
 		super.endDocument();
 	}

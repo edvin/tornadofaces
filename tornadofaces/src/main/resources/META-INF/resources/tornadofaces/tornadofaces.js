@@ -43,6 +43,10 @@ TornadoFaces = {
         return "#" + id.replace(/:/g, "\\:");
     },
 
+    render: function(clientId) {
+        jsf.ajax.request(clientId, null, { render: clientId });
+    },
+
     debug: function(message) {
         if (console)
             console.debug(message);
