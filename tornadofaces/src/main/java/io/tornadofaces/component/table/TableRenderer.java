@@ -6,6 +6,7 @@ import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.StyleClass;
 import io.tornadofaces.json.JSONArray;
 import io.tornadofaces.json.JSONObject;
+import io.tornadofaces.util.Coalesce;
 import io.tornadofaces.util.WidgetBuilder;
 
 import javax.faces.application.ResourceDependency;
@@ -142,7 +143,7 @@ public class TableRenderer extends CoreRenderer {
 				Integer colno = colcount.addAndGet(1);
 				if (Boolean.TRUE.equals(column.getReflow()))
 					styles.append(format("%s tbody tr td:nth-child(%s):before { content: '%s'; }\n",
-						tableId, colno, column.getHeaderText()));
+						tableId, colno, Coalesce.coalesce(column.getHeaderText(), "")));
 			});
 
 		writer.write(styles.toString());
