@@ -176,7 +176,6 @@ public class TableRenderer extends CoreRenderer {
 		for (int i = 0; i < rowCount; i++) {
 			table.setRowIndex(i);
 			writer.startElement("tr", table);
-			writer.writeAttribute("data-idx", i, null);
 
 			StyleClass rowStyleClasses = StyleClass.of("selected", table.isRowSelected());
 
