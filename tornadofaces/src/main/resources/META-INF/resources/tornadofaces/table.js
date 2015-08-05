@@ -155,26 +155,6 @@ TornadoFaces.declareWidget('Table', function() {
         items.removeClass('selected');
     };
 
-    this.selectPreviousRow = function() {
-        var selected = items.filter('.selected:first');
-        var prev = selected.prev('tr');
-
-        if (prev.length == 1) {
-            this.selectRow(prev);
-        } else {
-            var prevTable = TornadoFaces.previousWidget(widget, function(w) {
-                return w.type == 'Table' && w.conf.selectionMode == 'single' && !w.isEmpty() && w.isVisible();
-            });
-            if (prevTable) {
-                this.unselectAllRows();
-                prevTable.selectLastRow();
-                prevTable.focus();
-            } else {
-                this.selectRow(items.last());
-            }
-        }
-    };
-
     this.focus = function() {
         this.elem.focus();
     };
@@ -188,16 +168,18 @@ TornadoFaces.declareWidget('Table', function() {
     };
 
     this.selectFirstRow = function() {
-        this.selectRow(items.first());
+        this.selectRow(items.not('.is-hidden').first());
     };
 
     this.selectLastRow = function() {
-        this.selectRow(items.last());
+        this.selectRow(items.not('.is-hidden').last());
     };
 
     this.selectNextRow = function() {
         var selected = items.filter('.selected:first');
         var next = selected.next('tr');
+        while (next.length == 1 && next.hasClass('is-hidden'))
+            next = next.next('tr');
 
         if (next.length == 1) {
             this.selectRow(next);
@@ -211,7 +193,29 @@ TornadoFaces.declareWidget('Table', function() {
                 nextTable.selectFirstRow();
                 nextTable.focus();
             } else {
-                this.selectRow(items.first());
+                this.selectFirstRow();
+            }
+        }
+    };
+
+    this.selectPreviousRow = function() {
+        var selected = items.filter('.selected:first');
+        var prev = selected.prev('tr');
+        while (prev.length == 1 && prev.hasClass('is-hidden'))
+            prev = prev.prev('tr');
+
+        if (prev.length == 1) {
+            this.selectRow(prev);
+        } else {
+            var prevTable = TornadoFaces.previousWidget(widget, function(w) {
+                return w.type == 'Table' && w.conf.selectionMode == 'single' && !w.isEmpty() && w.isVisible();
+            });
+            if (prevTable) {
+                this.unselectAllRows();
+                prevTable.selectLastRow();
+                prevTable.focus();
+            } else {
+                this.selectLastRow();
             }
         }
     };

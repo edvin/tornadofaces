@@ -1378,7 +1378,7 @@
             <type>Boolean</type>
         </attribute>
         <attribute>
-            <description>Click first link in the selected table row when the user presses enter. Requires rowSelect="single". Will override onEnter if present. Defaults to true.</description>
+            <description>Click first link in the selected table row when the user presses enter. Requires selectionMode="single". Will override onEnter if present. Defaults to true.</description>
             <name>clickFirstLinkOnEnter</name>
             <required>false</required>
             <type>Boolean</type>
