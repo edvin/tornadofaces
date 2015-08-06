@@ -1556,6 +1556,27 @@
         </attribute>
     </tag>
     <tag>
+        <description>Will focus the target component on DOM ready.
+        </description>
+        <tag-name>focus</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Focus</component-type>
+            <renderer-type>io.tornadofaces.component.FocusRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>The target component id</description>
+            <name>target</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Remove the script tag after render. Removing means you would have to render the parent element to make it execute again. Defaults to true.</description>
+            <name>remove</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>Unordered List is a standard ul element that can have it's own id, determine rendered state and optionally be laid out horizontally. App authors should add their own styles to this component.</description>
         <tag-name>ul</tag-name>
         <component>
