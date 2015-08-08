@@ -119,13 +119,24 @@ TornadoFaces = {
     },
 
     focusOnEscape: function(id) {
-        var focusFn = function() { $(id).focus(); }
+        var input = $(id);
+
+        var focusFn = function() { input.focus(); }
         $(document).keydown(function(e) {
             if (e.which == 27)
                 focusFn();
         });
 
         focusFn();
+    },
+
+    submitOnArrowDown: function(id) {
+        var input = $(id);
+
+        input.keydown(function(e) {
+            if (e.which == 40)
+                input.parents('form').submit();
+        });
     },
 
     declareWidget: function(widgetName, widget) {

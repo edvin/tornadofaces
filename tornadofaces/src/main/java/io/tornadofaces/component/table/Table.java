@@ -79,6 +79,8 @@ public class Table extends HtmlDataTable implements Widget {
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 	public String getEmptyText() { return (String) getStateHelper().eval("emptyText", "No data"); }
 	public void setEmptyText(String emptyText) { getStateHelper().put("emptyText", emptyText); }
+	public String getRowClass() { return (String) getStateHelper().eval("rowClass"); }
+	public void setRowClass(String rowClass) { getStateHelper().put("rowClass", rowClass); }
 	public Object getRowKey() { return getStateHelper().eval("rowKey"); }
 	public void setRowKey(Object rowKey) { getStateHelper().put("rowKey", rowKey); }
 	public RowSelectionMode getSelectionMode() { return (RowSelectionMode) getStateHelper().eval("selectionMode"); }

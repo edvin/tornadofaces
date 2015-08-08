@@ -182,6 +182,8 @@ public class TableRenderer extends CoreRenderer {
 			if (rowClasses != null)
 				rowStyleClasses.add(rowClasses.get(i % rowClassCount));
 
+			rowStyleClasses.add(table.getRowClass());
+
 			rowStyleClasses.write(writer);
 
 			Object rowKey = table.getRowKey();

@@ -15,6 +15,13 @@
         <function-signature>java.lang.String coalesceString(java.lang.Object, java.lang.Object)</function-signature>
     </function>
 
+    <function>
+        <description>Convert an iterator to a List</description>
+        <function-name>iteratorToList</function-name>
+        <function-class>io.tornadofaces.util.Functions</function-class>
+        <function-signature>java.util.List iteratorToList(java.util.Iterator)</function-signature>
+    </function>
+
     <tag>
         <description>Grid Container</description>
         <tag-name>grid-container</tag-name>
@@ -1330,6 +1337,12 @@
         <attribute>
             <description>Styles to apply to the table element.</description>
             <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the current tr. A more dynamic alternative to the rowClasses attribute</description>
+            <name>rowClass</name>
             <required>false</required>
             <type>String</type>
         </attribute>
