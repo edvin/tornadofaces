@@ -73,6 +73,8 @@ public abstract class ButtonBase extends UICommand implements Widget, ClientBeha
 
 	public String getOnsuccess() { return (String) getStateHelper().eval("onsuccess"); }
 	public void setOnsuccess(String onsuccess) { getStateHelper().put("onsuccess", onsuccess); }
+	public String getOnerror() { return (String) getStateHelper().eval("onerror"); }
+	public void setOnerror(String onerror) { getStateHelper().put("onerror", onerror); }
 	public String getIcon() { return (String) getStateHelper().eval("icon"); }
 	public void setIcon(String icon) { getStateHelper().put("icon", icon); }
 	public String getOncomplete() { return (String) getStateHelper().eval("oncomplete"); }

@@ -34,7 +34,18 @@ public class UlRenderer extends Renderer {
 			.add(ul.getColor())
 			.add(ul.getOrientation())
 			.add(ul.getIconPosition())
+			.add("is-hidden", !ul.isShow())
 			.write(writer);
+	}
+
+	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
+		Ul ul = (Ul) component;
+		if (ul.isRendered() && ul.isShow())
+			super.encodeChildren(context, component);
+	}
+
+	public boolean getRendersChildren() {
+		return true;
 	}
 
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {

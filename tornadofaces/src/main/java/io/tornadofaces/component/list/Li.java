@@ -33,7 +33,9 @@ public class Li extends UIColumn implements ValueHolder {
 	public void setIcon(String icon) { getStateHelper().put("icon", icon); }
 	public String getActiveClass() { return (String) getStateHelper().eval("activeClass", "is-active"); }
 	public void setActiveClass(String activeClass) { getStateHelper().put("activeClass", activeClass); }
-	
+	public boolean isShow() { return (boolean) getStateHelper().eval("show", true); }
+	public void setShow(boolean show) { getStateHelper().put("show", show); }
+
 	public Boolean getActive() {
 		Boolean active = (Boolean) getStateHelper().eval("active");
 		if (active == null) {

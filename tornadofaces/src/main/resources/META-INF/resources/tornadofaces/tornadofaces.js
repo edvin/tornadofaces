@@ -47,6 +47,10 @@ TornadoFaces = {
         jsf.ajax.request(clientId, null, { render: clientId });
     },
 
+    execute: function(clientId, options) {
+        jsf.ajax.request(clientId, null, options);
+    },
+
     debug: function(message) {
         if (console)
             console.debug(message);

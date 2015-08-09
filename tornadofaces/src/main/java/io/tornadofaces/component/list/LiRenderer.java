@@ -25,7 +25,11 @@ public class LiRenderer extends Renderer {
 		StyleClass.of("with-chevron", li.isChevron())
 			.add("title", li.isTitle())
 			.add(li.getActiveClass(), li.getActive())
+			.add("is-hidden", !li.isShow())
 			.add(li.getStyleClass()).write(writer);
+
+		if (!li.isShow())
+			return;
 
 		String link = li.getLink();
 		if (link != null) {
@@ -42,7 +46,11 @@ public class LiRenderer extends Renderer {
 	}
 
 	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
-		Object value = ((Li) component).getValue();
+		Li li = (Li) component;
+		if (!li.isRendered() || !li.isShow())
+			return;
+
+		Object value = li.getValue();
 		if (value != null)
 			context.getResponseWriter().writeText(value, component, "value");
 		

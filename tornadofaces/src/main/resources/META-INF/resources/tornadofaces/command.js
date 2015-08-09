@@ -13,7 +13,7 @@ TornadoFaces.declareWidget('Command', function() {
         }
     };
 
-    this.run = function() {
+    this.run = function(params) {
         if (widget.conf.beforebegin)
             eval(widget.conf.beforebegin);
 
@@ -21,6 +21,13 @@ TornadoFaces.declareWidget('Command', function() {
             execute: widget.conf.execute,
             render: widget.conf.render
         };
+
+        if (params) {
+            for (var k in params) {
+                if (params.hasOwnProperty(k))
+                    options[k] = params[k];
+            }
+        }
 
         options.onevent = function(event) {
             if (event.status == 'begin') {

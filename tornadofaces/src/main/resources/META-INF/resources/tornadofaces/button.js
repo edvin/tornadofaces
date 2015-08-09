@@ -54,6 +54,9 @@ TornadoFaces.declareWidget('Button', function() {
                 render: widget.conf.render
             };
 
+            if (widget.conf.onerror)
+                options.onerror = widget.conf.onerror;
+
             if (widget.laddaInitialized) {
                 widget.ladda = Ladda.create(widget.elem[0]);
                 widget.ladda.start();

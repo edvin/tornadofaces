@@ -34,6 +34,8 @@ public class Ul extends UIPanel {
 	public Color getColor() { return (Color) this.getStateHelper().eval("color", null); }
 	public boolean isMenuBar() { return (boolean) getStateHelper().eval("menuBar", false); }
 	public void setMenuBar(boolean menuBar) { getStateHelper().put("menuBar", menuBar); }
+	public boolean isShow() { return (boolean) getStateHelper().eval("show", true); }
+	public void setShow(boolean show) { getStateHelper().put("show", show); }
 	public boolean isBreadcrumb() { return (boolean) getStateHelper().eval("breadcrumb", false); }
 	public void setBreadcrumb(boolean breadcrumb) { getStateHelper().put("breadcrumb", breadcrumb); }
 }

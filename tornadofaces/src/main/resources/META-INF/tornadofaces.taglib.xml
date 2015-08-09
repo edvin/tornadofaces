@@ -1605,6 +1605,12 @@
             <type>io.tornadofaces.component.common.Orientation</type>
         </attribute>
         <attribute>
+            <description>Show this component normally, or render an empty placeholder element. Defaults to true.</description>
+            <name>show</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Icons, if added, are by default positioned above the text. However, this can be changed by
                 setting this property to left, right or bottom. Default top.
             </description>
@@ -1900,6 +1906,12 @@
         <attribute>
             <description>Should this component be rendered?</description>
             <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Show this component normally, or render an empty placeholder element. Defaults to true.</description>
+            <name>show</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>
@@ -2416,6 +2428,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>JavaScript callback triggered on AJAX error</description>
+            <name>onerror</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>JavaScript callback triggered after DOM update based on AJAX request</description>
             <name>onsuccess</name>
             <required>false</required>
@@ -2585,6 +2603,12 @@
         <attribute>
             <description>JavaScript callback triggered after DOM update based on AJAX request</description>
             <name>onsuccess</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript callback triggered on AJAX error</description>
+            <name>onerror</name>
             <required>false</required>
             <type>String</type>
         </attribute>
