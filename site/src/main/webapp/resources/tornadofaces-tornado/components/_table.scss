@@ -60,7 +60,7 @@ tbody tr.table-expand-row {
 
 // Row expansion
 .row-toggler:before {
-  font-family: 'icomoon';
+  font-family: 'tornadofaces';
   content: "\e625";
   font-size: 2rem;
   line-height: 1.1;
@@ -69,7 +69,7 @@ tbody tr.table-expand-row {
 }
 
 .row-toggler.open:before {
-  font-family: 'icomoon';
+  font-family: 'tornadofaces';
   transform: rotate(90deg);
 }
 
