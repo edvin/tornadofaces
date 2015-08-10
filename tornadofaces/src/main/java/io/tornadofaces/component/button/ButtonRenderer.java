@@ -93,7 +93,7 @@ public class ButtonRenderer extends CoreRenderer {
 			.attr("execute", ComponentUtils.resolveIds(context, button, Arrays.asList(button.getExecute().split(" "))))
 			.attr("onsuccess", button.getOnsuccess())
 			.attr("oncomplete", button.getOncomplete())
-			.attr("onerror", button.getOnerror())
+			.nativeAttr("onerror", button.getOnerror())
 			.attr("onbegin", button.getOnbegin())
 			.attr("beforebegin", button.getBeforebegin());
 
