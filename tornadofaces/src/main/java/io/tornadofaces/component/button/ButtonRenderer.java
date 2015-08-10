@@ -3,6 +3,7 @@ package io.tornadofaces.component.button;
 import io.tornadofaces.component.CoreRenderer;
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.StyleClass;
+import io.tornadofaces.util.Coalesce;
 import io.tornadofaces.util.WidgetBuilder;
 
 import javax.faces.component.UIComponent;
@@ -61,21 +62,20 @@ public class ButtonRenderer extends CoreRenderer {
 
 		Object value = button.getValue();
 
-		if (value != null) {
-			if (button instanceof CommandButton && ((CommandButton) button).isInput()) {
-				writer.writeAttribute("value", value, null);
-			} else {
-				String icon = button.getIcon();
+		if (value != null && button instanceof CommandButton && ((CommandButton) button).isInput()) {
+			writer.writeAttribute("value", value, null);
+		} else {
+			String icon = button.getIcon();
 
-				if (icon != null) {
-					writer.startElement("i", button);
-					writer.writeAttribute("class", icon, null);
-					writer.endElement("i");
-					writer.write(" ");
-				}
-
-				writer.writeText(value, "value");
+			if (icon != null) {
+				writer.startElement("i", button);
+				writer.writeAttribute("class", icon, null);
+				writer.endElement("i");
+				writer.write(" ");
 			}
+
+			if (value != null)
+				writer.writeText(value, "value");
 		}
 
 		super.encodeChildren(context, component);
