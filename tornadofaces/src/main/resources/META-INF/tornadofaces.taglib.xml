@@ -2639,6 +2639,18 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>Number of milliseconds delay before the command is executed when called.</description>
+            <name>delay</name>
+            <required>false</required>
+            <type>Integer</type>
+        </attribute>
+        <attribute>
+            <description>Repeat the command if onload is true and the component is rendered multiple times.</description>
+            <name>repeatOnReload</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
             <description>Execute the action on DOM load. Defaults to false.</description>
             <name>onload</name>
             <required>false</required>

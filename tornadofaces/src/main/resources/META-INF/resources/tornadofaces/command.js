@@ -5,7 +5,7 @@ TornadoFaces.declareWidget('Command', function() {
         widget = this;
         window[widget.conf.name] = widget.run;
 
-        if (widget.conf.onload && !widget.onloadPerformed) {
+        if (widget.conf.onload && (!widget.onloadPerformed || widget.conf.repeatOnReload === true)) {
             widget.onloadPerformed = true;
             $(function() {
                 widget.run();
@@ -14,6 +14,16 @@ TornadoFaces.declareWidget('Command', function() {
     };
 
     this.run = function(params) {
+        if (widget.conf.delay) {
+            setTimeout(function() {
+                widget.runInternal(params);
+            }, widget.conf.delay);
+        } else {
+            widget.runInternal(params);
+        }
+    };
+
+    this.runInternal = function(params) {
         if (widget.conf.beforebegin)
             eval(widget.conf.beforebegin);
 

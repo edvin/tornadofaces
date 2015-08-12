@@ -22,7 +22,6 @@ TornadoFaces.declareWidget('Poll', function() {
         var first = true;
 
         var runner = function() {
-            console.log('Running, but checking stop requested: ' + stopRequested);
             if (stopRequested) {
                 running = false;
             } else {

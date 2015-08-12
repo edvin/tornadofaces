@@ -32,6 +32,7 @@ public class CommandRenderer extends CoreRenderer {
 			.attr("onsuccess", command.getOnsuccess())
 			.attr("oncomplete", command.getOncomplete())
 			.attr("onbegin", command.getOnbegin())
+			.attr("delay", command.getDelay())
 			.attr("beforebegin", command.getBeforebegin());
 
 		String render = command.getRender();
@@ -42,8 +43,10 @@ public class CommandRenderer extends CoreRenderer {
 		if (execute != null)
 			builder.attr("execute", ComponentUtils.resolveIds(context, command, Arrays.asList(execute.split(" "))));
 
-		builder.nativeAttr("onload", command.getOnload().toString())
-			.finish();
+		builder.nativeAttr("onload", command.getOnload().toString());
+		builder.nativeAttr("repeatOnReload", command.getRepeatOnReload().toString());
+
+		builder.finish();
 	}
 
 	public void decode(FacesContext context, UIComponent component) {

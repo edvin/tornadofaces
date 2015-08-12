@@ -17,8 +17,6 @@ public class Poll extends Command {
 
 	public void setInterval(Integer interval) { getStateHelper().put("interval", interval); }
 	public Integer getInterval() { return (Integer) getStateHelper().eval("interval"); }
-	public void setDelay(Integer delay) { getStateHelper().put("delay", delay); }
-	public Integer getDelay() { return (Integer) getStateHelper().eval("delay"); }
 	public Boolean getOnload() { return (Boolean) getStateHelper().eval("onload", true); }
 	public void setOnload(Boolean onload) { getStateHelper().put("onload", onload); }
 

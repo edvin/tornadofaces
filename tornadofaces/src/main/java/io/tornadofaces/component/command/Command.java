@@ -23,8 +23,12 @@ public class Command extends UICommand implements Widget, ClientBehaviorHolder {
 
 	public Boolean getOnload() { return (Boolean) getStateHelper().eval("onload", false); }
 	public void setOnload(Boolean onload) { getStateHelper().put("onload", onload); }
+	public Boolean getRepeatOnReload() { return (Boolean) getStateHelper().eval("repeatOnReload", false); }
+	public void setRepeatOnReload(Boolean repeatOnReload) { getStateHelper().put("repeatOnReload", repeatOnReload); }
 	public String getName() { return (String) getStateHelper().eval("name"); }
 	public void setName(String name) { getStateHelper().put("name", name); }
+	public Integer getDelay() { return (Integer) getStateHelper().eval("delay"); }
+	public void setDelay(Integer delay) { getStateHelper().put("delay", delay); }
 
 	public String getOnsuccess() { return (String) getStateHelper().eval("onsuccess"); }
 	public void setOnsuccess(String onsuccess) { getStateHelper().put("onsuccess", onsuccess); }
