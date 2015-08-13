@@ -22,7 +22,7 @@ public class Modal extends UIPanel implements Widget {
 		return ComponentUtils.COMPONENT_FAMILY;
 	}
 
-	public String getWidgetVar() { return (String) getStateHelper().eval("widgetVar"); }
+	public String getWidgetVar() { return (String) getStateHelper().eval("widgetVar", getId()); }
 	public void setWidgetVar(String widgetVar) { getStateHelper().put("widgetVar", widgetVar); }
 	public String getTitle() { return (String) getStateHelper().eval("title"); }
 	public void setTitle(String title) { getStateHelper().put("title", title); }
