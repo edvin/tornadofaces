@@ -171,13 +171,13 @@
 ) {
   // Chevrons are a pseudo-element
   &::after {
-    content: '\203A';
+    content: '\e625';
+    font-family: tornadofaces;
     display: block;
     position: absolute;
     right: get-side($padding, right);
     top: 50%;
     transform: translateY(-50%);
-    font-weight: $font-weight-bold;
     color: $color;
     font-size: 2em;
   }

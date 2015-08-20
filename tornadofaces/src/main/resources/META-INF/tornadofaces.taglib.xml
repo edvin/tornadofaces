@@ -2843,4 +2843,109 @@
             <renderer-type>io.tornadofaces.component.ScriptRenderer</renderer-type>
         </component>
     </tag>
+    <tag>
+        <description>Line chart</description>
+        <tag-name>line-chart</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.LineChart</component-type>
+            <renderer-type>io.tornadofaces.component.LineChartRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Label for the X-axis</description>
+            <name>xLabel</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Label for the Y-axis</description>
+            <name>yLabel</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Tick format for the X-axis. Will be passed to d3.format(). Defaults to ',r'</description>
+            <name>xTickFormat</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Tick format for the Y-axis. Will be passed to d3.format(). Defaults to '.02f'</description>
+            <name>yTickFormat</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Serie of data for a Line Chart</description>
+        <tag-name>serie</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Serie</component-type>
+        </component>
+        <attribute>
+            <description>The name/key of the series</description>
+            <name>name</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The color of the series, example '#ff7f0e'</description>
+            <name>color</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Turn the serie into a filled area. Defaults to false.</description>
+            <name>area</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>The list data</description>
+            <name>value</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Variable name used when resolving x and y values</description>
+            <name>var</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Value expression representing the x value for the current row</description>
+            <name>x</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Value expression representing the y value for the current row</description>
+            <name>y</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
 </facelet-taglib>
