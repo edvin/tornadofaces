@@ -2844,7 +2844,7 @@
         </component>
     </tag>
     <tag>
-        <description>Line chart</description>
+        <description>Line chart from NV3D. Make sure you set &lt;code&gt;f:view contentType="text/html"&lt;/code&gt; because NV3D doesn't render correctly without it.</description>
         <tag-name>line-chart</tag-name>
         <component>
             <component-type>io.tornadofaces.component.LineChart</component-type>
@@ -2863,13 +2863,13 @@
             <type>String</type>
         </attribute>
         <attribute>
-            <description>Tick format for the X-axis. Will be passed to d3.format(). Defaults to ',r'</description>
+            <description>Tick format function for the X-axis. Defaults to d3.format(',r').</description>
             <name>xTickFormat</name>
             <required>false</required>
             <type>String</type>
         </attribute>
         <attribute>
-            <description>Tick format for the Y-axis. Will be passed to d3.format(). Defaults to '.02f'</description>
+            <description>Tick format for the Y-axis. Defaults to d3.format(',r').</description>
             <name>yTickFormat</name>
             <required>false</required>
             <type>String</type>

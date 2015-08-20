@@ -24,7 +24,7 @@ public class LineChartRenderer extends CoreRenderer {
 		writer.startElement("div", chart);
 		writer.writeAttribute("id", component.getClientId(context), null);
 
-		StyleClass.of("line-chart").add(chart.getStyleClass()).write(writer);
+		StyleClass.of(chart.getStyleClass()).write(writer);
 
 		writer.startElement("svg", chart);
 		String style = chart.getStyle();
@@ -40,6 +40,10 @@ public class LineChartRenderer extends CoreRenderer {
 		LineChart chart = (LineChart) component;
 
 		WidgetBuilder builder = new WidgetBuilder(context, chart).init();
+		builder.attr("xLabel", chart.getxLabel());
+		builder.nativeAttr("xTickFormat", chart.getxTickFormat());
+		builder.attr("yLabel", chart.getyLabel());
+		builder.nativeAttr("yTickFormat", chart.getyTickFormat());
 
 		JSONArray series = new JSONArray();
 
@@ -50,7 +54,7 @@ public class LineChartRenderer extends CoreRenderer {
 					continue;
 
 				JSONObject jserie = new JSONObject();
-				jserie.put("name", serie.getName());
+				jserie.put("key", serie.getName());
 
 				String color = serie.getColor();
 				if (color != null)

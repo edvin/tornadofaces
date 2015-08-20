@@ -104,14 +104,14 @@ public class DocsController {
 
 	public List<BankStatementEntry> getBankStatement() {
 		return Arrays.asList(
-			new BankStatementEntry(10, LocalDate.of(2015, 1, 1), 450L),
-			new BankStatementEntry(20, LocalDate.of(2015, 2, 1), 550L),
-			new BankStatementEntry(30, LocalDate.of(2015, 3, 1), 850L),
-			new BankStatementEntry(40, LocalDate.of(2015, 4, 1), 1450L),
-			new BankStatementEntry(50, LocalDate.of(2015, 5, 1), 1850L),
-			new BankStatementEntry(60, LocalDate.of(2015, 6, 1), 1200L),
-			new BankStatementEntry(70, LocalDate.of(2015, 7, 1), 800L),
-			new BankStatementEntry(80, LocalDate.of(2015, 8, 1), 300L)
+			new BankStatementEntry(10, LocalDate.of(2015, 1, 1), 450),
+			new BankStatementEntry(20, LocalDate.of(2015, 2, 1), 550),
+			new BankStatementEntry(30, LocalDate.of(2015, 3, 1), 850),
+			new BankStatementEntry(40, LocalDate.of(2015, 4, 1), 1450),
+			new BankStatementEntry(50, LocalDate.of(2015, 5, 1), 1850),
+			new BankStatementEntry(60, LocalDate.of(2015, 6, 1), 1200),
+			new BankStatementEntry(70, LocalDate.of(2015, 7, 1), 800),
+			new BankStatementEntry(80, LocalDate.of(2015, 8, 1), 300)
 		);
 	}
 
@@ -121,6 +121,6 @@ public class DocsController {
 	public static class BankStatementEntry {
 		private Integer id;
 		private LocalDate date;
-		private Long balance;
+		private Integer balance;
 	}
 }

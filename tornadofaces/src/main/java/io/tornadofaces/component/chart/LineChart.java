@@ -16,7 +16,6 @@ import javax.faces.component.UIPanel;
 })
 @FacesComponent(value = "io.tornadofaces.component.LineChart", createTag = true, tagName = "line-chart", namespace = "http://tornadofaces.io/ui")
 public class LineChart extends UIPanel implements Widget {
-	
 	public LineChart() {
 		super();
 		setRendererType(LineChartRenderer.RENDERER_TYPE);
@@ -31,11 +30,11 @@ public class LineChart extends UIPanel implements Widget {
 
 	public String getxLabel() { return (String) getStateHelper().eval("xLabel"); }
 	public void setxLabel(String xLabel) { getStateHelper().put("xLabel", xLabel); }
-	public String getxTickFormat() { return (String) getStateHelper().eval("xTickFormat", ",r"); }
+	public String getxTickFormat() { return (String) getStateHelper().eval("xTickFormat", "d3.format(',r')"); }
 	public void setxTickFormat(String xTickFormat) { getStateHelper().put("xTickFormat", xTickFormat); }
 	public String getyLabel() { return (String) getStateHelper().eval("yLabel"); }
 	public void setyLabel(String yLabel) { getStateHelper().put("yLabel", yLabel); }
-	public String getyTickFormat() { return (String) getStateHelper().eval("yTickFormat", ".02f"); }
+	public String getyTickFormat() { return (String) getStateHelper().eval("yTickFormat", "d3.format(',r')"); }
 	public void setyTickFormat(String yTickFormat) { getStateHelper().put("yTickFormat", yTickFormat); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
