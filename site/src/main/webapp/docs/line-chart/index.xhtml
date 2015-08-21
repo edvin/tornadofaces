@@ -32,22 +32,23 @@
                  yTickFormat="moneyFormatter"
                  beforeConfig="beforeConfig">
 
-    &lt;t:serie name="My balance"
-             color="#8833bb"
-             value="#{docsController.expr('controller.bankStatement')}"
-             var="k"
-             area="true"
-             x="#{docsController.expr('k.dateEpoch')}"
-             y="#{docsController.expr('k.balance')}"/>
-
     &lt;t:serie name="Wife's balance"
-             color="#4444ff"
-             value="#{docsController.expr('controller.bankStatement')}"
-             var="k"
-             area="true"
-            x="#{docsController.expr('k.dateEpoch')}"
-            y="#{docsController.expr('k.randomBalance')}"/>
-&lt;/t:line-chart>
+                color="#4444ff"
+                value="#{docsController.expr('controller.bankStatement')}"
+                var="k"
+                area="true"
+                x="#{docsController.expr('k.dateEpoch')}"
+                y="#{docsController.expr('k.randomBalance')}"/>
+
+    &lt;t:serie name="My balance"
+                color="#8833bb"
+                value="#{docsController.expr('controller.bankStatement')}"
+                var="k"
+                area="true"
+                x="#{docsController.expr('k.dateEpoch')}"
+                y="#{docsController.expr('k.balance')}"/>
+
+    &lt;/t:line-chart>
 
 &lt;script>
     var dateformat = d3.time.format("%d.%m.%Y");

@@ -22,13 +22,6 @@
 
     <t:line-chart id="chart" xLabel="Date" yLabel="Balance" style="height: 400px"
                   xTickFormat="dateFormatter" yTickFormat="moneyFormatter" beforeConfig="beforeConfig">
-        <t:serie name="My balance"
-                 color="#8833bb"
-                 value="#{docsController.bankStatement}"
-                 var="k"
-                 area="true"
-                 x="#{k.dateEpoch}"
-                 y="#{k.balance}"/>
 
         <t:serie name="Wife's balance"
                  color="#4444ff"
@@ -37,6 +30,15 @@
                  area="true"
                  x="#{k.dateEpoch}"
                  y="#{k.randomBalance}"/>
+
+        <t:serie name="My balance"
+                 color="#8833bb"
+                 value="#{docsController.bankStatement}"
+                 var="k"
+                 area="true"
+                 x="#{k.dateEpoch}"
+                 y="#{k.balance}"/>
+
     </t:line-chart>
 
 </h:panelGroup>

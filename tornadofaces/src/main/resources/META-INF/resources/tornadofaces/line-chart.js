@@ -10,7 +10,6 @@ TornadoFaces.declareWidget('LineChart', function() {
     this.render = function() {
         nv.addGraph(function() {
             var chart = nv.models.lineChart()
-                    .margin({left: 100})
                     .useInteractiveGuideline(true)
                     .duration(350)
                     .showLegend(true)
