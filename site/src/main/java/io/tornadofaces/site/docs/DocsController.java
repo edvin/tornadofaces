@@ -8,6 +8,7 @@ import io.tornadofaces.event.SelectionEvent;
 import io.tornadofaces.event.SwitchEvent;
 import io.tornadofaces.event.TabChangeEvent;
 import io.tornadofaces.site.taglib.Tag;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +20,8 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -98,5 +101,35 @@ public class DocsController {
 
 	public String getNow() {
 		return new Date().toString();
+	}
+
+	public List<BankStatementEntry> getBankStatement() {
+		return Arrays.asList(
+			new BankStatementEntry(10, LocalDate.of(2015, 1, 1), 450),
+			new BankStatementEntry(20, LocalDate.of(2015, 2, 1), 550),
+			new BankStatementEntry(30, LocalDate.of(2015, 3, 1), 850),
+			new BankStatementEntry(40, LocalDate.of(2015, 4, 1), 1450),
+			new BankStatementEntry(50, LocalDate.of(2015, 5, 1), 1850),
+			new BankStatementEntry(60, LocalDate.of(2015, 6, 1), 1200),
+			new BankStatementEntry(70, LocalDate.of(2015, 7, 1), 800),
+			new BankStatementEntry(80, LocalDate.of(2015, 8, 1), 300)
+		);
+	}
+
+	@Getter
+	@Setter
+	@AllArgsConstructor
+	public static class BankStatementEntry {
+		private Integer id;
+		private LocalDate date;
+		private Integer balance;
+
+		public Long getDateEpoch() {
+			return date.atStartOfDay().toEpochSecond(ZoneOffset.UTC) * 1000;
+		}
+
+		public Integer getRandomBalance() {
+			return new Double(balance + Math.random() * balance).intValue();
+		}
 	}
 }

@@ -22,6 +22,20 @@
         <function-signature>java.util.List iteratorToList(java.util.Iterator)</function-signature>
     </function>
 
+    <function>
+        <description>Convert LocalDate to milliseconds since epoch</description>
+        <function-name>localDateToMillis</function-name>
+        <function-class>io.tornadofaces.util.Functions</function-class>
+        <function-signature>java.lang.Long localDateToMillis(java.time.LocalDate)</function-signature>
+    </function>
+
+    <function>
+        <description>Convert LocalDateTime to milliseconds since epoch</description>
+        <function-name>localDateTimeToMillis</function-name>
+        <function-class>io.tornadofaces.util.Functions</function-class>
+        <function-signature>java.lang.Long localDateTimeToMillis(java.time.LocalDateTime)</function-signature>
+    </function>
+
     <tag>
         <description>Grid Container</description>
         <tag-name>grid-container</tag-name>
@@ -2842,5 +2856,116 @@
             <component-type>io.tornadofaces.component.Script</component-type>
             <renderer-type>io.tornadofaces.component.ScriptRenderer</renderer-type>
         </component>
+    </tag>
+    <tag>
+        <description>Line chart from NV3D. Make sure you set &lt;code&gt;f:view contentType="text/html"&lt;/code&gt; because NV3D doesn't render correctly without it.</description>
+        <tag-name>line-chart</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.LineChart</component-type>
+            <renderer-type>io.tornadofaces.component.LineChartRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Label for the X-axis</description>
+            <name>xLabel</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Label for the Y-axis</description>
+            <name>yLabel</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Tick format function for the X-axis. Defaults to d3.format(',r').</description>
+            <name>xTickFormat</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Tick format for the Y-axis. Defaults to d3.format(',r').</description>
+            <name>yTickFormat</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>JavaScript function that will be called with (widget, chart) before the chart is rendered.</description>
+            <name>beforeConfig</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Styles to apply to the element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Serie of data for a Line Chart</description>
+        <tag-name>serie</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Serie</component-type>
+        </component>
+        <attribute>
+            <description>The name/key of the series</description>
+            <name>name</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The color of the series, example '#ff7f0e'</description>
+            <name>color</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Turn the serie into a filled area. Defaults to false.</description>
+            <name>area</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>The list data</description>
+            <name>value</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Variable name used when resolving x and y values</description>
+            <name>var</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Value expression representing the x value for the current row</description>
+            <name>x</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Value expression representing the y value for the current row</description>
+            <name>y</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
     </tag>
 </facelet-taglib>
