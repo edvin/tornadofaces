@@ -40,4 +40,7 @@ public class LineChart extends UIPanel implements Widget {
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 	public String getStyle() { return (String) getStateHelper().eval("style"); }
 	public void setStyle(String style) { getStateHelper().put("style", style); }
+	public String getBeforeConfig() { return (String) getStateHelper().eval("beforeConfig"); }
+	public void setBeforeConfig(String beforeConfig) { getStateHelper().put("beforeConfig", beforeConfig); }
+	
 }

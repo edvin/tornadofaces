@@ -1,13 +1,42 @@
 <h:panelGroup xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tornadofaces.io/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-    <t:line-chart id="chart" xLabel="Date" yLabel="Balance" style="height: 400px" xTickFormat="function (d) { return d3.time.format(new Date(d)); }">
-        <t:serie name="Balance"
+    <script>
+        var dateformat = d3.time.format("%d.%m.%Y");
+
+        var dateFormatter = function(d) {
+            return dateformat(new Date(d));
+        };
+
+        var moneyFormatter = function(v) {
+            return "$ " + v;
+        };
+
+        var beforeConfig = function(widget, chart) {
+            // Modify and further configure the chart or the rendered data series via widget.conf.datum
+            // You could even load data via AJAX and populate here instead of adding
+            // t:serie objects to the line-chart
+        }
+    </script>
+
+    <h3>Bank statement</h3>
+
+    <t:line-chart id="chart" xLabel="Date" yLabel="Balance" style="height: 400px"
+                  xTickFormat="dateFormatter" yTickFormat="moneyFormatter" beforeConfig="beforeConfig">
+        <t:serie name="My balance"
                  color="#8833bb"
                  value="#{docsController.bankStatement}"
                  var="k"
                  area="true"
-                 x="#{k.id}"
+                 x="#{k.dateEpoch}"
                  y="#{k.balance}"/>
+
+        <t:serie name="Wife's balance"
+                 color="#4444ff"
+                 value="#{docsController.bankStatement}"
+                 var="k"
+                 area="true"
+                 x="#{k.dateEpoch}"
+                 y="#{k.randomBalance}"/>
     </t:line-chart>
 
 </h:panelGroup>

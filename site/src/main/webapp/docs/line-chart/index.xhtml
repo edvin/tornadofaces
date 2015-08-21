@@ -13,14 +13,59 @@
 
     <ui:define name="content">
         <h1 class="subheader">Line Chart</h1>
-        <p><h:outputText value="#{docsController.tag.description}" escape="false"/></p>
+        <p>
+            <h:outputText value="#{docsController.tag.description}" escape="false"/>
+        </p>
+
+        <p>See the <a href="/docs/serie">Chart Serie</a> object for data series configuration options.</p>
 
         <ui:include src="line-chart.xhtml"/>
 
         <t:tabView styleClass="documentation" contentsStyleClass="documentation-contents box">
             <t:tab title="Example">
 <t:source>
+&lt;t:line-chart id="chart"
+                 xLabel="Date"
+                 yLabel="Balance"
+                 style="height: 400px"
+                 xTickFormat="dateFormatter"
+                 yTickFormat="moneyFormatter"
+                 beforeConfig="beforeConfig">
 
+    &lt;t:serie name="My balance"
+             color="#8833bb"
+             value="#{docsController.expr('controller.bankStatement')}"
+             var="k"
+             area="true"
+             x="#{docsController.expr('k.dateEpoch')}"
+             y="#{docsController.expr('k.balance')}"/>
+
+    &lt;t:serie name="Wife's balance"
+             color="#4444ff"
+             value="#{docsController.expr('controller.bankStatement')}"
+             var="k"
+             area="true"
+            x="#{docsController.expr('k.dateEpoch')}"
+            y="#{docsController.expr('k.randomBalance')}"/>
+&lt;/t:line-chart>
+
+&lt;script>
+    var dateformat = d3.time.format("%d.%m.%Y");
+
+    var dateFormatter = function(d) {
+        return dateformat(new Date(d));
+    };
+
+    var moneyFormatter = function(v) {
+        return "$ " + v;
+    };
+
+    var beforeConfig = function(widget, chart) {
+        // Modify and further configure the chart or the rendered data series via widget.conf.datum
+        // You could even load data via AJAX and populate here instead of adding
+        // t:serie objects to the line-chart.
+    }
+&lt;/script>
 </t:source>
             </t:tab>
             <t:tab title="Documentation" styleClass="doctab">

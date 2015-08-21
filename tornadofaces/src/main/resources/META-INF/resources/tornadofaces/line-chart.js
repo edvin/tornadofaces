@@ -26,9 +26,10 @@ TornadoFaces.declareWidget('LineChart', function() {
                 .axisLabel(widget.conf.yLabel)
                 .tickFormat(widget.conf.yTickFormat);
 
-            d3.select(widget.elem.find('svg')[0])
-                .datum(widget.conf.datum)
-                .call(chart);
+            if (widget.conf.beforeConfig)
+                widget.conf.beforeConfig(widget, chart);
+
+            d3.select(widget.elem.find('svg')[0]).datum(widget.conf.datum).call(chart);
 
             nv.utils.windowResize(chart.update);
             return chart;

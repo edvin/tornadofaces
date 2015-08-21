@@ -82,6 +82,7 @@ public class LineChartRenderer extends CoreRenderer {
 		}
 
 		builder.nativeAttr("datum", series.toString());
+		builder.nativeAttr("beforeConfig", chart.getBeforeConfig());
 
 		builder.finish();
 	}

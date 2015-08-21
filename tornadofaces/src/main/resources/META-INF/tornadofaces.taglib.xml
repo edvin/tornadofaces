@@ -2875,6 +2875,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>JavaScript function that will be called with (widget, chart) before the chart is rendered.</description>
+            <name>beforeConfig</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Styles to apply to the element.</description>
             <name>styleClass</name>
             <required>false</required>

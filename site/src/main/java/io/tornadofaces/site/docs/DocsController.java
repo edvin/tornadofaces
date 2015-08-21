@@ -21,6 +21,7 @@ import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -122,5 +123,13 @@ public class DocsController {
 		private Integer id;
 		private LocalDate date;
 		private Integer balance;
+
+		public Long getDateEpoch() {
+			return date.atStartOfDay().toEpochSecond(ZoneOffset.UTC) * 1000;
+		}
+
+		public Integer getRandomBalance() {
+			return new Double(balance + Math.random() * balance).intValue();
+		}
 	}
 }
