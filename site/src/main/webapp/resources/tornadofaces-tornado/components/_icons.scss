@@ -10,7 +10,7 @@
   font-style: normal;
 }
 
-[class^="icon-"]:before, [class*=" icon-"]:before {
+%icon-style {
   font-family: 'tornadofaces';
   speak: none;
   font-style: normal;
@@ -24,6 +24,10 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  @extend %icon-style;
 }
 
 .icon-cart-checkout:before {
