@@ -94,6 +94,18 @@ public class FormElementRenderer extends Renderer {
 		}
 	}
 
+	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
+		FormElement elem = (FormElement) component;
+		if (!elem.isShow())
+			return;
+
+		super.encodeChildren(context, component);
+	}
+
+	public boolean getRendersChildren() {
+		return true;
+	}
+
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		FormElement elem = (FormElement) component;
 		ResponseWriter writer = context.getResponseWriter();
