@@ -23,4 +23,8 @@ public class Functions {
 	public static Long localDateTimeToMillis(LocalDateTime date) {
 		return date.toEpochSecond(ZoneOffset.UTC) * 1000;
 	}
+
+	public static Long localDateTimeToMillisAtStartOfDay(LocalDateTime date) {
+		return localDateToMillis(date.toLocalDate());
+	}
 }

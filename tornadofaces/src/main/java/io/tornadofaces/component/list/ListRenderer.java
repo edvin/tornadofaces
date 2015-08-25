@@ -43,8 +43,10 @@ public class ListRenderer extends Renderer {
 		List list = (List) component;
 		int rowCount = list.getRowCount();
 
+
 		for (int i = 0; i < rowCount; i++) {
 			list.setRowIndex(i);
+
 			for (UIComponent child : component.getChildren())
 				child.encodeAll(context);
 		}

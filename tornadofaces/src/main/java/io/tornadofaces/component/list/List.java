@@ -28,6 +28,8 @@ public class List extends HtmlDataTable implements Widget {
 
 	public String getTitle() { return (String) getStateHelper().eval("title"); }
 	public void setTitle(String title) { getStateHelper().put("title", title); }
+	public String getVarStatus() { return (String) getStateHelper().eval("varStatus"); }
+	public void setVarStatus(String varStatus) { getStateHelper().put("varStatus", varStatus); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 	public String getWidgetVar() { return (String) getStateHelper().eval("widgetVar"); }
@@ -36,7 +38,6 @@ public class List extends HtmlDataTable implements Widget {
 	public void setFilterFn(String filterFn) { getStateHelper().put("filterFn", filterFn); }
 	public Boolean getHighlightFilter() { return (Boolean) getStateHelper().eval("highlightFilter", true); }
 	public void setHighlightFilter(Boolean highlightFilter) { getStateHelper().put("highlightFilter", highlightFilter); }
-
     public Boolean getHideEmpty() { return (Boolean) getStateHelper().eval("hideEmpty", false); }
 	public void setHideEmpty(Boolean hideEmpty) { getStateHelper().put("hideEmpty", hideEmpty); }
 

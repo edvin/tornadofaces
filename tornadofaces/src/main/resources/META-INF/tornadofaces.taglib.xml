@@ -36,6 +36,13 @@
         <function-signature>java.lang.Long localDateTimeToMillis(java.time.LocalDateTime)</function-signature>
     </function>
 
+    <function>
+        <description>Convert LocalDateTime to milliseconds since epoch</description>
+        <function-name>localDateTimeToMillisAtStartOfDay</function-name>
+        <function-class>io.tornadofaces.util.Functions</function-class>
+        <function-signature>java.lang.Long localDateTimeToMillisAtStartOfDay(java.time.LocalDateTime)</function-signature>
+    </function>
+
     <tag>
         <description>Grid Container</description>
         <tag-name>grid-container</tag-name>
@@ -472,6 +479,12 @@
         <attribute>
             <description>Should this component be rendered?</description>
             <name>render</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Show this component normally, or render an empty placeholder element. Defaults to true.</description>
+            <name>show</name>
             <required>false</required>
             <type>Boolean</type>
         </attribute>
