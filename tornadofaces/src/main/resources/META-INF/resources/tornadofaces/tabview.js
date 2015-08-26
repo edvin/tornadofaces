@@ -1,5 +1,5 @@
 TornadoFaces.declareWidget('TabView', function() {
-    var widget, tabsElem, stateholderId;
+    var widget, tabsElem;
 
     this.init = function() {
         widget = this;
@@ -7,7 +7,6 @@ TornadoFaces.declareWidget('TabView', function() {
         tabsElem = widget.elem.find('.tabs');
         widget.items = tabsElem.children('.tab-item');
         widget.contentElem = widget.elem.find('.tab-contents');
-        stateholderId = widget.elem.find('form').attr('id');
 
         if (widget.isDynamic() && widget.isCache())
             widget.cachedContent = widget.getActiveIndexes();
@@ -117,7 +116,7 @@ TornadoFaces.declareWidget('TabView', function() {
                     props['javax.faces.behavior.event'] = 'tabChange';
                 }
 
-                props[widget.elem.attr('id') + '_active'] = itemIndex;
+                props[tabViewId + '_active'] = itemIndex;
 
                 props.onevent = function(event) {
                     if (event.status == 'complete') {
@@ -129,7 +128,7 @@ TornadoFaces.declareWidget('TabView', function() {
                         widget.setActiveState(item);
                 };
 
-                jsf.ajax.request(stateholderId, null, props);
+                jsf.ajax.request(tabViewId, null, props);
             }
         } else {
             // Element already rendered with pageload, just show

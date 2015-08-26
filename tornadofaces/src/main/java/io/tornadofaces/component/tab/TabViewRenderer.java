@@ -78,12 +78,12 @@ public class TabViewRenderer extends TabParentRenderer {
 			.init()
 			.attr("dynamic", tabView.isDynamic())
 			.attr("cache", tabView.isCache())
-			.attr("autoOpen", tabView.isAutoOpen());
+			.attr("autoOpen", tabView.isAutoOpen())
+			.nativeAttr("onItemChange", tabView.getOnItemChange());
 
 		addBehaviors(builder);
-		
-		builder.callback("onItemChange", "function(item)", tabView.getOnItemChange())
-			.finish();
+
+		builder.finish();
 	}
 
 	public boolean getRendersChildren() {
