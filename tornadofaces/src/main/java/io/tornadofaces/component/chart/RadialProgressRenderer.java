@@ -23,6 +23,13 @@ public class RadialProgressRenderer extends CoreRenderer {
 
 		writer.startElement("div", progress);
 		writer.writeAttribute("id", component.getClientId(context), null);
+
+		StyleClass.of(progress.getStyleClass()).write(writer);
+
+		String style = progress.getStyle();
+		if (style != null)
+			writer.writeAttribute("style", style, null);
+
 		writer.endElement("div");
 	}
 

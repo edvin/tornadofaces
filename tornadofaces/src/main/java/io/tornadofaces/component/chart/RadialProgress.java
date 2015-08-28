@@ -41,5 +41,9 @@ public class RadialProgress extends UIPanel implements Widget {
 	public void setMax(Integer max) { getStateHelper().put("max", max); }
 	public Integer getValue() { return (Integer) getStateHelper().eval("value"); }
 	public void setValue(Integer value) { getStateHelper().put("value", value); }
+	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
+	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
+	public String getStyle() { return (String) getStateHelper().eval("style"); }
+	public void setStyle(String style) { getStateHelper().put("style", style); }
 
 }

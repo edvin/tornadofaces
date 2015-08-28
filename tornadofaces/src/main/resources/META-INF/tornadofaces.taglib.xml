@@ -3000,7 +3000,18 @@
             <required>false</required>
             <type>String</type>
         </attribute>
-
+        <attribute>
+            <description>Styles to apply to the element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
     </tag>
     <tag>
         <description>Serie of data for a Line Chart</description>
