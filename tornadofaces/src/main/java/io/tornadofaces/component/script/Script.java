@@ -5,9 +5,10 @@ import io.tornadofaces.component.util.ComponentUtils;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
 
-@FacesComponent(createTag = true, tagName = "script", namespace = "http://tornadofaces.io/ui")
+@FacesComponent(value = Script.COMPONENT_TYPE, createTag = true, tagName = "script", namespace = "http://tornadofaces.io/ui")
 public class Script extends UIComponentBase {
-	
+	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Script";
+
 	public Script() {
 		super();
 		setRendererType(ScriptRenderer.RENDERER_TYPE);

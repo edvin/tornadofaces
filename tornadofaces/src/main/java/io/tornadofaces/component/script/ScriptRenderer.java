@@ -19,7 +19,30 @@ public class ScriptRenderer extends Renderer {
 
 		writer.startElement("script", script);
 		writer.writeAttribute("id", script.getClientId(), null);
-		writer.write(script.getValue());
+	}
+
+	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
+		Script script = (Script) component;
+		ResponseWriter writer = context.getResponseWriter();
+
+		String value = script.getValue();
+
+		if (value != null && !"".equals(value)) {
+			writer.write(value);
+		} else {
+			for (UIComponent child : component.getChildren())
+				child.encodeAll(context);
+		}
+
+		writer.endElement("script");
+	}
+
+	public boolean getRendersChildren() {
+		return true;
+	}
+
+	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
+		ResponseWriter writer = context.getResponseWriter();
 		writer.endElement("script");
 	}
 }
