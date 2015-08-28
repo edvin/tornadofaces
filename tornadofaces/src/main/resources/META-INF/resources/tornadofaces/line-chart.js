@@ -1,5 +1,5 @@
 TornadoFaces.declareWidget('LineChart', function() {
-    var widget;
+    var widget, chart;
 
     this.init = function() {
         widget = this;
@@ -9,7 +9,7 @@ TornadoFaces.declareWidget('LineChart', function() {
 
     this.render = function() {
         nv.addGraph(function() {
-            var chart = nv.models.lineChart()
+            chart = nv.models.lineChart()
                     .useInteractiveGuideline(true)
                     .duration(350)
                     .showLegend(true)
@@ -33,5 +33,13 @@ TornadoFaces.declareWidget('LineChart', function() {
             nv.utils.windowResize(chart.update);
             return chart;
         });
-    }
+    };
+
+    this.getChart = function() {
+        return chart;
+    };
+
+    this.rerender = function() {
+        // steinar!!
+    };
 });
