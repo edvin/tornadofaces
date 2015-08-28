@@ -3,19 +3,18 @@ TornadoFaces.declareWidget('LineChart', function() {
 
     this.init = function() {
         widget = this;
-
         widget.render();
     };
 
     this.render = function() {
-        nv.addGraph(function() {
+        nv.addGraph(function () {
             chart = nv.models.lineChart()
-                    .useInteractiveGuideline(true)
-                    .duration(350)
-                    .showLegend(true)
-                    .showYAxis(true)
-                    .showXAxis(true)
-                ;
+                .useInteractiveGuideline(true)
+                .duration(350)
+                .showLegend(true)
+                .showYAxis(true)
+                .showXAxis(true)
+            ;
 
             chart.xAxis
                 .axisLabel(widget.conf.xLabel)
@@ -28,18 +27,23 @@ TornadoFaces.declareWidget('LineChart', function() {
             if (widget.conf.beforeConfig)
                 widget.conf.beforeConfig(widget, chart);
 
-            d3.select(widget.elem.find('svg')[0]).datum(widget.conf.datum).call(chart);
+            widget.rerender();
 
             nv.utils.windowResize(chart.update);
+
             return chart;
         });
     };
 
+
     this.getChart = function() {
+
         return chart;
     };
 
     this.rerender = function() {
-        // steinar!!
+        d3.select(widget.elem.find('svg')[0])
+            .datum(widget.conf.datum)
+            .call(chart);
     };
 });
