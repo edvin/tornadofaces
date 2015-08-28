@@ -1,3 +1,24 @@
+TornadoFaces.declareWidget('RadialProgress', function() {
+    var widget, chart;
+
+    this.init = function() {
+        widget = this;
+        widget.render();
+    };
+
+    this.render = function() {
+        radialProgress(widget.elem[0])
+            .label(widget.conf.label)
+            .onClick(widget.conf.onClick)
+            .diameter(widget.conf.diameter)
+            .minValue(widget.conf.min)
+            .maxValue(widget.conf.max)
+            .value(widget.conf.value)
+            .render();
+    };
+
+});
+
 /**
  Copyright (c) 2014 BrightPoint Consulting, Inc.
 

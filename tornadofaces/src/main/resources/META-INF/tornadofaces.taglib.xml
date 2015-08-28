@@ -2927,6 +2927,82 @@
         </attribute>
     </tag>
     <tag>
+        <description>Radial Progress chart from NV3D. Make sure you set &lt;code&gt;f:view contentType="text/html"&lt;/code&gt; because NV3D doesn't render correctly without it.</description>
+        <tag-name>radial-progress</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.RadialProgress</component-type>
+            <renderer-type>io.tornadofaces.component.RadialProgressRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>Styles to apply to the element.</description>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>CSS Styles applied to the element.</description>
+            <name>style</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Should this component be rendered?</description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Min value</description>
+            <name>min</name>
+            <required>false</required>
+            <type>Number</type>
+        </attribute>
+        <attribute>
+            <description>Max value</description>
+            <name>max</name>
+            <required>false</required>
+            <type>Number</type>
+        </attribute>
+        <attribute>
+            <description>Value</description>
+            <name>value</name>
+            <required>true</required>
+            <type>Number</type>
+        </attribute>
+        <attribute>
+            <description>Diameter</description>
+            <name>diameter</name>
+            <required>false</required>
+            <type>Number</type>
+        </attribute>
+        <attribute>
+            <description>Label</description>
+            <name>label</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>onClick client side callback</description>
+            <name>onClick</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>
+                <![CDATA[Widget variable name, accessible via TW('widgetVar') and TornadoFaces.widgets.widgetVar. Use this to <code>load()</code> the data or get the data via <code>val()</code>. Note that the Data component must be wrapped in a Form for the load() function to work.]]></description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+
+    </tag>
+    <tag>
         <description>Serie of data for a Line Chart</description>
         <tag-name>serie</tag-name>
         <component>
