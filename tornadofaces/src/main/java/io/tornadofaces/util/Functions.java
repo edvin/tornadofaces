@@ -2,6 +2,7 @@ package io.tornadofaces.util;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,7 +22,7 @@ public class Functions {
 	}
 
 	public static Long localDateTimeToMillis(LocalDateTime date) {
-		return date.toEpochSecond(ZoneOffset.UTC) * 1000;
+		return date.atZone(ZoneId.systemDefault()).toEpochSecond() * 1000;
 	}
 
 	public static Long localDateTimeToMillisAtStartOfDay(LocalDateTime date) {
