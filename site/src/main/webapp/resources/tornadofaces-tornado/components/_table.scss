@@ -30,6 +30,21 @@ thead {
 
   }
 }
+
+thead tr th.sortable {
+  cursor: pointer;
+}
+
+thead tr th.headerSortDown:after {
+  font-family: tornadofaces;
+  content: "\e62e";
+}
+
+thead tr th.headerSortUp:after {
+  font-family: tornadofaces;
+  content: "\e62d"
+}
+
 tbody {
 
 }

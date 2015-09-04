@@ -20,10 +20,10 @@
 }
 
 // Placeholder
-::-webkit-input-placeholder { color: $input-placeholder-color; line-height: 1.4; }
-:-moz-placeholder { color: $input-placeholder-color; line-height: 1.4; }
-::-moz-placeholder { color: $input-placeholder-color; line-height: 1.4; }
-:-ms-input-placeholder { color: $input-placeholder-color; line-height: 1.4; }
+::-webkit-input-placeholder { color: $input-placeholder-color; line-height: 1rem; }
+:-moz-placeholder { color: $input-placeholder-color; line-height: 1rem; }
+::-moz-placeholder { color: $input-placeholder-color; line-height: 1rem; }
+:-ms-input-placeholder { color: $input-placeholder-color; line-height: 1rem; }
 
 // Form Element
 // - -
@@ -191,7 +191,7 @@ select {
   color: $select-color;
   border-radius: $input-radius;
   border: $input-border;
-  line-height: 1;
+  line-height: 1rem;
 //  transition: $input-transition-base;
 
   @if $select-arrow {

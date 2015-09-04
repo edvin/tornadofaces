@@ -30,7 +30,6 @@ import static io.tornadofaces.component.util.ComponentUtils.isRequestSource;
 @FacesComponent(value = Table.COMPONENT_TYPE, createTag = true, tagName = "table", namespace = "http://tornadofaces.io/ui")
 public class Table extends HtmlDataTable implements Widget {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Table";
-	private String rowIndexForRowKey;
 
 	public long getColumnCount() {
 		return getChildren().stream().filter(c -> c instanceof Column).count();
