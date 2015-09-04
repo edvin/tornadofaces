@@ -88,6 +88,8 @@ TornadoFaces.declareWidget('Table', function() {
     this.onSelectRow = function(event) {
         var tr = $(event.target).closest('tr');
         this.selectRow(tr);
+        if (widget.conf.onSelectRow)
+            widget.conf.onSelectRow(widget, tr);
     };
 
     this.ensureRowInView = function(tr) {
@@ -241,14 +243,14 @@ TornadoFaces.declareWidget('Table', function() {
                         return false;
                     case 13:
                         var selected = items.filter('.selected:first');
+
                         if (widget.conf.clickFirstLinkOnEnter === true) {
-                            var a = selected.find('a:first');
-                            if (a.length == 1)
-                                a[0].click();
+                            widget.clickFirstLinkInRow(selected);
                             e.preventDefault();
                         } else if (widget.conf.onEnterPressed) {
                             widget.conf.onEnterPressed(selected, e);
                         }
+
                         return false;
                 }
             });
@@ -257,6 +259,12 @@ TornadoFaces.declareWidget('Table', function() {
         // hook row-toggler action
         items.find('.row-toggler').click(this.onExpandRow);
     };
+
+    this.clickFirstLinkInRow = function(tr) {
+        var a = tr.find('a:first');
+        if (a.length == 1)
+            a[0].click();
+    }
 });
 
 TornadoFaces.Table = {

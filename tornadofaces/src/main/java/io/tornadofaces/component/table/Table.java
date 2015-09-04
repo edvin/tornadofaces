@@ -109,6 +109,8 @@ public class Table extends HtmlDataTable implements Widget {
 	public void setClickFirstLinkOnEnter(Boolean clickFirstLinkOnEnter) { getStateHelper().put("clickFirstLinkOnEnter", clickFirstLinkOnEnter); }
 	public String getOnEnterPressed() { return (String) getStateHelper().eval("onEnterPressed"); }
 	public void setOnEnterPressed(String onEnter) { getStateHelper().put("onEnterPressed", onEnter); }
+	public String getOnSelectRow() { return (String) getStateHelper().eval("onSelectRow"); }
+	public void setOnSelectRow(String onEnter) { getStateHelper().put("onSelectRow", onEnter); }
 
 	/**
 	 * Check if the current rowIndex represents a selected row

@@ -25,6 +25,8 @@ public class Column extends UIColumn {
 
 	public String getLink() { return (String) getStateHelper().eval("link"); }
 	public void setLink(String link) { getStateHelper().put("link", link); }
+	public String getLinkTarget() { return (String) getStateHelper().eval("linkTarget"); }
+	public void setLinkTarget(String linkTarget) { getStateHelper().put("linkTarget", linkTarget); }
 	public String getStyleClass() { return (String) getStateHelper().eval("styleClass"); }
 	public void setStyleClass(String styleClass) { getStateHelper().put("styleClass", styleClass); }
 	public String getHeaderClass() { return (String) getStateHelper().eval("headerClass"); }

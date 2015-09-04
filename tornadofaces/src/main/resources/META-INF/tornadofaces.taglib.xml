@@ -1430,6 +1430,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>JavaScript function to call when user selects a row. Requires rowSelect="single".</description>
+            <name>onSelectRow</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Change background color on row hover. Defaults to false.</description>
             <name>hover</name>
             <required>false</required>
@@ -1507,6 +1513,12 @@
         </attribute>
         <attribute>
             <description>Wrap the column content in an anchor with the the href set to the link property</description>
+            <name>link</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The target attribute of the href created by the link attribute</description>
             <name>link</name>
             <required>false</required>
             <type>String</type>
