@@ -80,7 +80,8 @@ TornadoFaces.declareWidget('Message', function() {
         widget.elem.append(e);
         TornadoFaces.animate(e, true, 'fadeIn', 'fadeOut');
 
-        var timeout = widget.getTimeout();
+        var timeout = message.timeout === undefined ? widget.getTimeout() : message.timeout;
+
         if (timeout > 0) {
             setTimeout(function() {
                 widget.destroyNotification(e);

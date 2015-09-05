@@ -60,6 +60,9 @@ public class MessageRenderer extends Renderer {
 					if (nmsg.getClosable() != null)
 						m.put("closable", nmsg.getClosable());
 
+					if (nmsg.getTimeout() != null)
+						m.put("timeout", nmsg.getTimeout());
+
 				}
 			} catch (JSONException ex) {
 				throw new IOException(ex);
