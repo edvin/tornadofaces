@@ -5,6 +5,7 @@ TornadoFaces.declareWidget('Value', function() {
         widget = this;
 
         var basename = widget.conf.name.charAt(0).toUpperCase() + widget.conf.name.slice(1);
+
         var getter = "get" + basename;
         var setter = "set" + basename;
 

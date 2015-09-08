@@ -41,8 +41,8 @@ public class Table extends HtmlDataTable implements Widget {
 		if (list == null)
 			return true;
 
-		if (list instanceof List)
-			return ((List) list).isEmpty();
+		if (list instanceof Collection)
+			return ((Collection) list).isEmpty();
 
 		if (list instanceof Object[])
 			return ((Object[])list).length == 0;
@@ -145,8 +145,8 @@ public class Table extends HtmlDataTable implements Widget {
 			String var = getVar();
 			Map<String, Object> requestMap = getFacesContext().getExternalContext().getRequestMap();
 
-			if (selection instanceof List) {
-				for (Object selected : (List) selection) {
+			if (selection instanceof Collection) {
+				for (Object selected : (Collection) selection) {
 					requestMap.put(var, selected);
 					selectedRowKeys.add(getRowKey());
 				}
@@ -165,7 +165,7 @@ public class Table extends HtmlDataTable implements Widget {
 	 */
 	public void updateSelection(String selectionString) {
 		List<String> requestSelectedRowKeys = Arrays.asList(selectionString.split(","));
-		List values = (List) getValue();
+		Collection values = (Collection) getValue();
 		List<Object> newSelection = new ArrayList<>();
 		if (values != null) {
 			String var = getVar();
@@ -234,7 +234,7 @@ public class Table extends HtmlDataTable implements Widget {
 	public Object getRowData(String rowKey) {
 		String var = getVar();
 		Map<String, Object> requestMap = getFacesContext().getExternalContext().getRequestMap();
-		for (Object value : (List) getValue()) {
+		for (Object value : (Collection) getValue()) {
 			requestMap.put(var, value);
 			if (rowKey.equals(String.valueOf(getRowKey())))
 				return value;
@@ -251,7 +251,7 @@ public class Table extends HtmlDataTable implements Widget {
 		String var = getVar();
 		Map<String, Object> requestMap = getFacesContext().getExternalContext().getRequestMap();
 		int rowIndex = 0;
-		for (Object value : (List) getValue()) {
+		for (Object value : (Collection) getValue()) {
 			requestMap.put(var, value);
 			if (rowKey.equals(String.valueOf(getRowKey()))) {
 				setRowIndex(rowIndex);
