@@ -1499,6 +1499,39 @@
         </attribute>
     </tag>
     <tag>
+        <description>Synchronize value between client and server with getter/setter methods and support for onchange event. Renders an input type=hidden and provides getName() and setName() methods.</description>
+        <tag-name>value</tag-name>
+        <component>
+            <component-type>io.tornadofaces.component.Value</component-type>
+            <renderer-type>io.tornadofaces.component.ValueRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>The id of the component</description>
+            <name>id</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The value</description>
+            <name>value</name>
+            <required>true</required>
+            <type>Object</type>
+        </attribute>
+        <attribute>
+            <description>The base name of the getters and setters. For example, if name is "age", getter will be getAge() and setter will be setAge(). If not supplied, id is used instead.</description>
+            <name>name</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>The widgetVar. Defaults to the name attribute. You can call TW('widgetVar').get and .set instead of using getters and setters if you like.
+            </description>
+            <name>widgetVar</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+    </tag>
+    <tag>
         <description>Column is used to build Table columns.</description>
         <tag-name>column</tag-name>
         <component>

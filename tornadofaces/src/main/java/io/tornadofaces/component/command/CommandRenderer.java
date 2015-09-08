@@ -50,10 +50,9 @@ public class CommandRenderer extends CoreRenderer {
 	}
 
 	public void decode(FacesContext context, UIComponent component) {
-		String clientId = component.getClientId();
 		String source = context.getExternalContext().getRequestParameterMap().get("javax.faces.source");
 
-		if (clientId.equals(source))
+		if (component.getClientId().equals(source))
 			component.queueEvent(new ActionEvent(component));
 
 		super.decode(context, component);

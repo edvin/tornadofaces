@@ -1,5 +1,6 @@
 package io.tornadofaces.component.input;
 
+import io.tornadofaces.component.CoreRenderer;
 import io.tornadofaces.component.util.ComponentUtils;
 import io.tornadofaces.component.util.StyleClass;
 
@@ -17,7 +18,7 @@ import java.util.List;
 import static io.tornadofaces.component.input.FormElement.LabelPosition.left;
 
 @FacesRenderer(rendererType = FormElementRenderer.RENDERER_TYPE, componentFamily = ComponentUtils.COMPONENT_FAMILY)
-public class FormElementRenderer extends Renderer {
+public class FormElementRenderer extends CoreRenderer {
 	public static final String RENDERER_TYPE = "io.tornadofaces.component.FormElementRenderer";
 
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {

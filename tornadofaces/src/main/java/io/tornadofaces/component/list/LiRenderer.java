@@ -32,7 +32,7 @@ public class LiRenderer extends Renderer {
 			return;
 
 		String link = li.getLink();
-		if (link != null) {
+		if (link != null && !"".equals(link)) {
 			writer.startElement("a", li);
 			writer.writeAttribute("href", link, null);
 		}
