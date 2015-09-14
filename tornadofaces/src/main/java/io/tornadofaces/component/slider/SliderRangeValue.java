@@ -2,20 +2,20 @@ package io.tornadofaces.component.slider;
 
 import java.util.Objects;
 
-public class SliderRangeValue<T extends Number> {
+public class SliderRangeValue {
 	private Integer pct;
-	private T value;
-	private T increment;
+	private Integer value;
+	private Integer increment;
 
 	public SliderRangeValue() {
 	}
 
-	public SliderRangeValue(Integer pct, T value) {
+	public SliderRangeValue(Integer pct, Integer value) {
 		this.pct = pct;
 		this.value = value;
 	}
 
-	public SliderRangeValue(Integer pct, T value, T increment) {
+	public SliderRangeValue(Integer pct, Integer value, Integer increment) {
 		this.pct = pct;
 		this.value = value;
 		this.increment = increment;
@@ -33,7 +33,7 @@ public class SliderRangeValue<T extends Number> {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		SliderRangeValue<?> that = (SliderRangeValue<?>) o;
+		SliderRangeValue that = (SliderRangeValue) o;
 		return Objects.equals(pct, that.pct);
 	}
 
@@ -49,19 +49,19 @@ public class SliderRangeValue<T extends Number> {
 		this.pct = pct;
 	}
 
-	public T getValue() {
+	public Integer getValue() {
 		return value;
 	}
 
-	public void setValue(T value) {
+	public void setValue(Integer value) {
 		this.value = value;
 	}
 
-	public T getIncrement() {
+	public Integer getIncrement() {
 		return increment;
 	}
 
-	public void setIncrement(T increment) {
+	public void setIncrement(Integer increment) {
 		this.increment = increment;
 	}
 }

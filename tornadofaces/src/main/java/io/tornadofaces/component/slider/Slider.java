@@ -26,7 +26,7 @@ import java.util.Map;
 	@ResourceDependency(library = "tornadofaces", name = "slider.js")
 })
 @FacesComponent(value = Slider.COMPONENT_TYPE, createTag = true, tagName = "slider", namespace = "http://tornadofaces.io/ui")
-public class Slider<T extends Integer> extends UIPanel implements Widget, NamingContainer, ClientBehaviorHolder {
+public class Slider extends UIPanel implements Widget, NamingContainer, ClientBehaviorHolder {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Slider";
 
 	public Slider() {
@@ -81,51 +81,51 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 		getStateHelper().put("data", data);
 	}
 
-	public T getValue() {
+	public Integer getValue() {
 		return getLower();
 	}
 
-	public void setValue(T value) {
+	public void setValue(Integer value) {
 		setLower(value);
 	}
 
-	public List<SliderRangeValue<T>> getRange() {
-		return (List<SliderRangeValue<T>>) getStateHelper().eval("range");
+	public List<SliderRangeValue> getRange() {
+		return (List<SliderRangeValue>) getStateHelper().eval("range");
 	}
 
-	public void setRange(List<SliderRangeValue<T>> range) {
+	public void setRange(List<SliderRangeValue> range) {
 		getStateHelper().put("range", range);
 	}
 
-	public T getMargin() {
-		return (T) getStateHelper().eval("margin");
+	public Integer getMargin() {
+		return (Integer) getStateHelper().eval("margin");
 	}
 
-	public void setMargin(T margin) {
+	public void setMargin(Integer margin) {
 		getStateHelper().put("margin", margin);
 	}
 
-	public T getLimit() {
-		return (T) getStateHelper().eval("limit");
+	public Integer getLimit() {
+		return (Integer) getStateHelper().eval("limit");
 	}
 
-	public void setLimit(T limit) {
+	public void setLimit(Integer limit) {
 		getStateHelper().put("limit", limit);
 	}
 
-	public T getMin() {
-		return (T) getStateHelper().eval("min");
+	public Integer getMin() {
+		return (Integer) getStateHelper().eval("min");
 	}
 
-	public void setMin(T min) {
+	public void setMin(Integer min) {
 		getStateHelper().put("min", min);
 	}
 
-	public T getMax() {
-		return (T) getStateHelper().eval("max");
+	public Integer getMax() {
+		return (Integer) getStateHelper().eval("max");
 	}
 
-	public void setMax(T max) {
+	public void setMax(Integer max) {
 		getStateHelper().put("max", max);
 	}
 
@@ -137,27 +137,27 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 		getStateHelper().put("connect", connect);
 	}
 
-	public T getLower() {
-		return (T) getStateHelper().eval("lower");
+	public Integer getLower() {
+		return (Integer) getStateHelper().eval("lower");
 	}
 
-	public void setLower(T lower) {
+	public void setLower(Integer lower) {
 		getStateHelper().put("lower", lower);
 	}
 
-	public T getUpper() {
-		return (T) getStateHelper().eval("upper");
+	public Integer getUpper() {
+		return (Integer) getStateHelper().eval("upper");
 	}
 
-	public void setUpper(T upper) {
+	public void setUpper(Integer upper) {
 		getStateHelper().put("upper", upper);
 	}
 
-	public T getStep() {
-		return (T) getStateHelper().eval("step");
+	public Integer getStep() {
+		return (Integer) getStateHelper().eval("step");
 	}
 
-	public void setStep(T step) {
+	public void setStep(Integer step) {
 		getStateHelper().put("step", step);
 	}
 
@@ -264,7 +264,7 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 		// start
 		JSONArray start = new JSONArray();
 		start.put(getLower());
-		T upper = getUpper();
+		Integer upper = getUpper();
 		if (upper != null)
 			start.put(upper);
 		settings.put("start", start);
@@ -279,7 +279,7 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 		}
 
 		// range
-		List<SliderRangeValue<T>> range = getRange();
+		List<SliderRangeValue> range = getRange();
 		if (range == null)
 			range = Collections.emptyList();
 
@@ -288,7 +288,7 @@ public class Slider<T extends Integer> extends UIPanel implements Widget, Naming
 		rangeObject.put("min", getMin());
 
 		if (!range.isEmpty()) {
-			for (SliderRangeValue<T> r : range) {
+			for (SliderRangeValue r : range) {
 				if (r.getIncrement() == null)
 					rangeObject.put(r.getPct() + "%", r.getValue());
 				else {
