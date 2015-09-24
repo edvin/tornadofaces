@@ -64,11 +64,11 @@
                 <ui:include src="../tag-documentation.xhtml"/>
                 <h5>Client Side Callbacks</h5>
 
-                <p><code>onTabChange</code> is called as a tab is activated and the content is loaded.
+                <p><code>onItemChange</code> is called as a tab is activated and the content is loaded.
                     The callback receives the item element representing the activated item.
                 </p>
-                <t:source language="javascript">function itemChanged(item) {
-    // item is the new active element
+                <t:source language="javascript">function itemChange(item, accordion) {
+    // item is the new active element, accordion is the widget
 }</t:source>
 
                 <h5>Ajax Behavior Events</h5>

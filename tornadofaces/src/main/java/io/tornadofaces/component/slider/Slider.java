@@ -41,7 +41,7 @@ public class Slider extends UIPanel implements Widget, NamingContainer, ClientBe
 	public String getUpperClientId(FacesContext context) {
 		return getClientId(context) + "_upper";
 	}
-	
+
 	public void decode(FacesContext context) {
 		Map<String, String> params = context.getExternalContext().getRequestParameterMap();
 

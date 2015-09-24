@@ -1010,6 +1010,12 @@
             <type>Number</type>
         </attribute>
         <attribute>
+            <description>Validator for the lower attribute</description>
+            <name>lowerValidator</name>
+            <required>false</required>
+            <type>Validator</type>
+        </attribute>
+        <attribute>
             <description>The position of the upper (the optional, second) slider</description>
             <name>upper</name>
             <required>false</required>
@@ -1220,7 +1226,7 @@
             <type>Integer or String</type>
         </attribute>
         <attribute>
-            <description>JavaScript callback to be executed when a user opens an item. The function will be called with the selected item as the only argument.</description>
+            <description>JavaScript callback to be executed when a user opens an item. The function will be called with the selected item and the accordion.</description>
             <name>onItemChange</name>
             <required>false</required>
             <type>String</type>

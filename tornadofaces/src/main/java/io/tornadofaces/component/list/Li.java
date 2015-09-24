@@ -7,7 +7,7 @@ import javax.faces.component.UIColumn;
 import javax.faces.component.ValueHolder;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.render.Renderer;
+import javax.servlet.ServletContext;
 
 @FacesComponent(value = Li.COMPONENT_TYPE, createTag = true, tagName = "li", namespace = "http://tornadofaces.io/ui")
 public class Li extends UIColumn implements ValueHolder {
@@ -40,7 +40,15 @@ public class Li extends UIColumn implements ValueHolder {
 		Boolean active = (Boolean) getStateHelper().eval("active");
 		if (active == null) {
 			String link = getLink();
-			active = link != null && FacesContext.getCurrentInstance().getViewRoot().getViewId().startsWith(link);
+			if (link != null) {
+				FacesContext context = FacesContext.getCurrentInstance();
+				ServletContext servletContext = (ServletContext) context.getExternalContext().getContext();
+				String contextPath = servletContext.getContextPath();
+				if (link.startsWith(contextPath))
+					link = link.substring(contextPath.length());
+
+				active = context.getViewRoot().getViewId().startsWith(link);
+			}
 		}
 		return active;
 	}

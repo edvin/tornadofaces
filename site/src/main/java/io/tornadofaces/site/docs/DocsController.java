@@ -15,9 +15,11 @@ import lombok.Setter;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -131,5 +133,11 @@ public class DocsController {
 		public Integer getRandomBalance() {
 			return new Double(balance + Math.random() * balance).intValue();
 		}
+	}
+
+
+	public void validateSliderValue(FacesContext context, UIComponent component, Object value) throws ValidatorException {
+		if (Integer.valueOf(42).equals(value))
+			throw new ValidatorException(new NotificationMessage("42 is not the answer"));
 	}
 }

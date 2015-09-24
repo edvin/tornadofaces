@@ -23,11 +23,13 @@
 
             }
         </script>
-        <t:slider id="myslider" widgetVar="myslider" labelFormatter="mySliderFormatter" header="true" min="0" max="100" step="1" lower="#{docsController.lower}" connect="lower"/>
+        <t:slider id="myslider" widgetVar="myslider" labelFormatter="mySliderFormatter" header="true" min="0" max="100" step="1" lower="#{docsController.lower}" connect="lower" lowerValidator="#{docsController.validateSliderValue}"/>
 
         <h4>Lower and Upper Bounds</h4>
 
         <t:slider header="true" min="0" max="100" step="10" lower="20" upper="80" connect="true"/>
 
+        t<t:message/>
+        <t:commandButton value="Save" />
     </h:form>
 </h:panelGroup>

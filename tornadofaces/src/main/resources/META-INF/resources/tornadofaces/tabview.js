@@ -52,7 +52,7 @@ TornadoFaces.declareWidget('TabView', function() {
 
         // Call change listener
         if (widget.conf.onItemChange)
-            widget.conf.onItemChange(item);
+            widget.conf.onItemChange(item, widget);
     };
 
     this.bindEvents = function() {
