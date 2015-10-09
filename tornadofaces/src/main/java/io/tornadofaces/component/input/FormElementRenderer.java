@@ -72,7 +72,7 @@ public class FormElementRenderer extends CoreRenderer {
 
 			if (!quickHelp.isEmpty()) {
 				writer.startElement("a", component);
-				writer.writeAttribute("class", "icon-help label-help", null);
+				writer.writeAttribute("class", "icon-question-fill-circle label-help", null);
 				writer.writeAttribute("onclick", "Quickhelp.show(this, '" + quickHelp + "')", null);
 				writer.endElement("a");
 			}
