@@ -12,9 +12,7 @@ pre[class*="language-"] {
   font-family: Consolas, Monaco, 'Andale Mono', monospace;
   direction: ltr;
   text-align: left;
-  white-space: pre;
   word-spacing: normal;
-  word-break: normal;
   line-height: 1.5;
 
   -moz-tab-size: 4;
@@ -25,6 +23,10 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+
+  /* Edit ss@ */
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
