@@ -1558,7 +1558,7 @@
         </attribute>
         <attribute>
             <description>The target attribute of the href created by the link attribute</description>
-            <name>link</name>
+            <name>targetLink</name>
             <required>false</required>
             <type>String</type>
         </attribute>
