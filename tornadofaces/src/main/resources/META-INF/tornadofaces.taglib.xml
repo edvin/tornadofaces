@@ -2226,6 +2226,18 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>Input element to focus when modal is shown</description>
+            <name>autofocus</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
+            <description>Input element to select all text in when modal is shown.</description>
+            <name>autoselect</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Set open true if you want the modal to open immediately.</description>
             <name>open</name>
             <required>false</required>

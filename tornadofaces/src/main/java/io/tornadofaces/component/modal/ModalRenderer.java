@@ -87,10 +87,28 @@ public class ModalRenderer extends Renderer {
 
 		Modal modal = (Modal) component;
 
-		new WidgetBuilder(context, modal)
+		WidgetBuilder builder = new WidgetBuilder(context, modal)
 			.init()
 			.attr("open", modal.getOpen())
-			.attr("closeOnOverlayClick", modal.getCloseOnOverlayClick())
-			.finish();
+			.attr("closeOnOverlayClick", modal.getCloseOnOverlayClick());
+
+
+		String autofocus = modal.getAutofocus();
+		
+		if (autofocus != null) {
+			UIComponent autofocusComponent = modal.findComponent(autofocus);
+			if (autofocusComponent != null)
+				builder.attr("autofocus", autofocusComponent.getClientId());
+		}
+		
+		String autoselect = modal.getAutoselect();
+		
+		if (autoselect != null) {
+			UIComponent autoselectComponent = modal.findComponent(autoselect);
+			if (autoselectComponent != null)
+				builder.attr("autoselect", autoselectComponent.getClientId());
+		}
+		
+		builder.finish();
 	}
 }

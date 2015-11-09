@@ -32,6 +32,12 @@ TornadoFaces.declareWidget('Modal', function() {
     this.show = function() {
         TornadoFaces.animate(widget.elem, true, 'fadeIn', 'fadeOut');
         TornadoFaces.animate(widget.modalContent, true, 'fadeIn', 'fadeOut');
+
+        if (widget.conf.autofocus)
+            $(TornadoFaces.escapeClientId(widget.conf.autofocus)).focus();
+
+        if (widget.conf.autoselect)
+            $(TornadoFaces.escapeClientId(widget.conf.autoselect)).select();
     };
 
     this.hide = function() {
