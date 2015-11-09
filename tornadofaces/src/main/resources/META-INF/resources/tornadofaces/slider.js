@@ -80,8 +80,8 @@ TornadoFaces.declareWidget('Slider', function() {
 
         if (settings.format == 'int') {
             settings.format = {
-                to: function(value) { return parseInt(value) },
-                from: function(value) { return parseInt(value) }
+                to: function(value) { return Math.round(value) },
+                from: function(value) { return Math.round(value) }
             }
         }
 
