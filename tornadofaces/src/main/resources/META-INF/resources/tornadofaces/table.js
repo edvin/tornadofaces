@@ -93,10 +93,9 @@ TornadoFaces.declareWidget('Table', function () {
     };
 
     this.ensureRowInView = function (tr) {
-        // TODO: Make cross browser
-        var fn = tr[0].scrollIntoViewIfNeeded;
-        if (fn)
-            fn();
+        if(tr && tr[0] && tr[0].scrollIntoView){
+            tr[0].scrollIntoView();
+        }
     };
 
     this.selectRow = function (tr) {
