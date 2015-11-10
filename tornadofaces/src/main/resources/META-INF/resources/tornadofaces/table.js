@@ -1,16 +1,16 @@
-TornadoFaces.declareWidget('Table', function() {
+TornadoFaces.declareWidget('Table', function () {
     var widget, items;
 
-    this.init = function() {
+    this.init = function () {
         widget = this;
         items = widget.elem.find('tbody tr').not('.table-expand-row');
         widget.bindEvents();
     };
 
-    this.getFilterFn = function() {
+    this.getFilterFn = function () {
         var filterFn = widget.conf.filterFn;
         if (!filterFn) {
-            filterFn = function(item, query) {
+            filterFn = function (item, query) {
                 return item.text().toUpperCase().indexOf(query.toUpperCase()) > -1;
             };
             widget.conf.filterFn = filterFn;
@@ -18,14 +18,14 @@ TornadoFaces.declareWidget('Table', function() {
         return filterFn;
     };
 
-    this.setFilterFn = function(filterFn) {
+    this.setFilterFn = function (filterFn) {
         widget.conf.filterFn = filterFn;
     };
 
-    this.filter = function(query) {
+    this.filter = function (query) {
         var doHighlight = widget.conf.highlightFilter;
 
-        if (!query || query.length == 0 || query === '') {
+        if (!query || query.length == 0 || query === '') {
             items.show();
             if (doHighlight)
                 items.unhighlight();
@@ -47,14 +47,14 @@ TornadoFaces.declareWidget('Table', function() {
         }
     };
 
-    this.onExpandRow = function(event) {
+    this.onExpandRow = function (event) {
         var tr = $(event.target).closest('tr');
         this.expandRow(tr);
         event.preventDefault();
         return false;
     };
 
-    this.expandRow = function(tr) {
+    this.expandRow = function (tr) {
         var toggle = tr.find('.row-toggler:first');
         var rowKey = tr.data('rk');
 
@@ -73,7 +73,7 @@ TornadoFaces.declareWidget('Table', function() {
                 'javax.faces.behavior.event': 'rowToggle',
                 execute: tableId,
                 render: expandId,
-                onevent: function(e) {
+                onevent: function (e) {
                     if (e.status == 'success')
                         widget.elem.find('tbody.expand tr:first').detach().insertAfter(tr);
                 }
@@ -85,18 +85,21 @@ TornadoFaces.declareWidget('Table', function() {
         }
     };
 
-    this.onSelectRow = function(event) {
+    this.onSelectRow = function (event) {
         var tr = $(event.target).closest('tr');
         this.selectRow(tr);
         if (widget.conf.onSelectRow)
             widget.conf.onSelectRow(widget, tr);
     };
 
-    this.ensureRowInView = function(tr) {
-        tr[0].scrollIntoViewIfNeeded();
+    this.ensureRowInView = function (tr) {
+        // TODO: Make cross browser
+        var fn = tr[0].scrollIntoViewIfNeeded;
+        if (fn)
+            fn();
     };
 
-    this.selectRow = function(tr) {
+    this.selectRow = function (tr) {
         if (tr.length == 0)
             return;
 
@@ -149,35 +152,37 @@ TornadoFaces.declareWidget('Table', function() {
         }
     };
 
-    this.getSelectedRowKeys = function() {
-        return items.filter('.selected').map(function(){return $(this).data('rk');}).get();
+    this.getSelectedRowKeys = function () {
+        return items.filter('.selected').map(function () {
+            return $(this).data('rk');
+        }).get();
     };
 
-    this.unselectAllRows = function() {
+    this.unselectAllRows = function () {
         items.removeClass('selected');
     };
 
-    this.focus = function() {
+    this.focus = function () {
         this.elem.focus();
     };
 
-    this.isVisible = function() {
+    this.isVisible = function () {
         return widget.elem.css('visibility') == 'visible';
     };
 
-    this.isEmpty = function() {
+    this.isEmpty = function () {
         return items.length == 0;
     };
 
-    this.selectFirstRow = function() {
+    this.selectFirstRow = function () {
         this.selectRow(items.not('.is-hidden').first());
     };
 
-    this.selectLastRow = function() {
+    this.selectLastRow = function () {
         this.selectRow(items.not('.is-hidden').last());
     };
 
-    this.selectNextRow = function() {
+    this.selectNextRow = function () {
         var selected = items.filter('.selected:first');
         var next = selected.next('tr');
         while (next.length == 1 && next.hasClass('is-hidden'))
@@ -186,7 +191,7 @@ TornadoFaces.declareWidget('Table', function() {
         if (next.length == 1) {
             this.selectRow(next);
         } else {
-            var nextTable = TornadoFaces.nextWidget(widget, function(w) {
+            var nextTable = TornadoFaces.nextWidget(widget, function (w) {
                 return w.type == 'Table' && w.conf.selectionMode == 'single' && !w.isEmpty() && w.isVisible();
             });
 
@@ -200,7 +205,7 @@ TornadoFaces.declareWidget('Table', function() {
         }
     };
 
-    this.selectPreviousRow = function() {
+    this.selectPreviousRow = function () {
         var selected = items.filter('.selected:first');
         var prev = selected.prev('tr');
         while (prev.length == 1 && prev.hasClass('is-hidden'))
@@ -209,7 +214,7 @@ TornadoFaces.declareWidget('Table', function() {
         if (prev.length == 1) {
             this.selectRow(prev);
         } else {
-            var prevTable = TornadoFaces.previousWidget(widget, function(w) {
+            var prevTable = TornadoFaces.previousWidget(widget, function (w) {
                 return w.type == 'Table' && w.conf.selectionMode == 'single' && !w.isEmpty() && w.isVisible();
             });
             if (prevTable) {
@@ -222,7 +227,7 @@ TornadoFaces.declareWidget('Table', function() {
         }
     };
 
-    this.bindEvents = function() {
+    this.bindEvents = function () {
         if (widget.conf.selectionMode) {
             // click to select row
             items.click(this.onSelectRow);
@@ -231,7 +236,7 @@ TornadoFaces.declareWidget('Table', function() {
                 widget.elem.attr('tabindex', 0);
 
             // keyboard navigation
-            widget.elem.on('keydown', function(e) {
+            widget.elem.on('keydown', function (e) {
                 switch (e.keyCode) {
                     case 38:
                         widget.selectPreviousRow();
@@ -260,7 +265,7 @@ TornadoFaces.declareWidget('Table', function() {
         items.find('.row-toggler').click(this.onExpandRow);
     };
 
-    this.clickFirstLinkInRow = function(tr) {
+    this.clickFirstLinkInRow = function (tr) {
         var a = tr.find('a:first');
         if (a.length == 1)
             a[0].click();
@@ -268,11 +273,11 @@ TornadoFaces.declareWidget('Table', function() {
 });
 
 TornadoFaces.Table = {
-    getFirstNonEmpty: function() {
+    getFirstNonEmpty: function () {
         return TornadoFaces.widgetById($('table').not('.is-empty').attr('id'));
     },
 
-    focusFirstNonEmpty: function() {
+    focusFirstNonEmpty: function () {
         var t = TornadoFaces.Table.getFirstNonEmpty();
         if (t) {
             t.selectFirstRow();
