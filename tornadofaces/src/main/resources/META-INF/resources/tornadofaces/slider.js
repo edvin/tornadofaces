@@ -4,6 +4,26 @@ TornadoFaces.declareWidget('Slider', function() {
         last: false
     };
 
+    this.incLower = function() {
+        var targetVal = parseInt(widget.lowerElem.val()) + 1;
+        if (targetVal <= widget.conf.settings.range.max) {
+            widget.slider.noUiSlider.set(targetVal);
+            widget.lowerElem.val(targetVal);
+            update();
+            widget.slider.trigger('slide');
+        }
+    };
+
+    this.decLower = function() {
+        var targetVal = parseInt(widget.lowerElem.val()) - 1;
+        if (targetVal >= widget.conf.settings.range.min) {
+            widget.slider.noUiSlider.set(targetVal);
+            widget.lowerElem.val(targetVal);
+            update();
+            widget.slider.trigger('slide');
+        }
+    };
+
     function update() {
         // Only update header if slider-header element is absent
         if (!widget.conf.header)
