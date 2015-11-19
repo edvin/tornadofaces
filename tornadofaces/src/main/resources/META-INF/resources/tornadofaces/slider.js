@@ -5,23 +5,23 @@ TornadoFaces.declareWidget('Slider', function() {
     };
 
     this.incLower = function() {
-        var targetVal = parseInt(widget.lowerElem.val()) + 1;
+        var targetVal = parseInt(widget.sliderElem.val()) + 1;
         if (targetVal <= widget.conf.settings.range.max) {
-            widget.slider.noUiSlider.set(targetVal);
-            widget.lowerElem.val(targetVal);
-            update();
-            widget.slider.trigger('slide');
+            widget.setSliderValue(targetVal);
         }
     };
 
     this.decLower = function() {
         var targetVal = parseInt(widget.lowerElem.val()) - 1;
         if (targetVal >= widget.conf.settings.range.min) {
-            widget.slider.noUiSlider.set(targetVal);
-            widget.lowerElem.val(targetVal);
-            update();
-            widget.slider.trigger('slide');
+            widget.setSliderValue(targetVal);
         }
+    };
+
+    // This has no boundary-checks whatsoever, use with caution.
+    this.setSliderValue = function(v){
+        widget.sliderElem.val(v);
+        widget.onSlideUpdate();
     };
 
     function update() {
@@ -139,7 +139,7 @@ TornadoFaces.declareWidget('Slider', function() {
             }
         };
 
-        widget.sliderElem.on('slide', function() {
+        widget.onSlideUpdate = function() {
             var val = widget.sliderElem.val(), elapsed,now;
 
             if ($.isArray(val)) {
@@ -174,6 +174,8 @@ TornadoFaces.declareWidget('Slider', function() {
             }
 
             runBehaviours();
-        });
+        };
+
+        widget.sliderElem.on('slide', widget.onSlideUpdate);
     };
 });
