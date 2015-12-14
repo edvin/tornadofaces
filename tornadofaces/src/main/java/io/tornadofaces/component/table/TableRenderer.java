@@ -74,6 +74,10 @@ public class TableRenderer extends CoreRenderer {
 		for (UIComponent child : table.getChildren()) {
 			if (child instanceof Column) {
 				Column column = (Column) child;
+
+                if (!column.isRendered())
+                    continue;
+
 				writer.startElement("th", table);
 				StyleClass.of(column.getHeaderClass()).write(writer);
 
@@ -108,7 +112,11 @@ public class TableRenderer extends CoreRenderer {
 		for (UIComponent child : table.getChildren()) {
 			if (child instanceof Column) {
 				Column column = (Column) child;
-				writer.startElement("td", table);
+
+                if (!column.isRendered())
+                    continue;
+
+                writer.startElement("td", table);
 				StyleClass.of(column.getFooterClass()).write(writer);
 				String footerText = column.getFootertext();
 				if (footerText != null) {
@@ -141,7 +149,7 @@ public class TableRenderer extends CoreRenderer {
 			.map(c -> (Column) c)
 			.forEach(column -> {
 				Integer colno = colcount.addAndGet(1);
-				if (Boolean.TRUE.equals(column.getReflow()))
+				if (Boolean.TRUE.equals(column.getReflow()) && column.isRendered())
 					styles.append(format("%s tbody tr td:nth-child(%s):before { content: '%s'; }\n",
 						tableId, colno, Coalesce.coalesce(column.getHeaderText(), "")));
 			});
@@ -193,7 +201,11 @@ public class TableRenderer extends CoreRenderer {
 			for (UIComponent child : component.getChildren()) {
 				if (child instanceof Column) {
 					Column column = (Column) child;
-					writer.startElement("td", column);
+
+                    if (!column.isRendered())
+                        continue;
+
+                    writer.startElement("td", column);
 
 					if (!ComponentUtils.isEmpty(column.getStyle()))
 						writer.writeAttribute("style", column.getStyle(), null);
