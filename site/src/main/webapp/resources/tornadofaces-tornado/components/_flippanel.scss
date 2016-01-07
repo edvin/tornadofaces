@@ -18,8 +18,7 @@
 
   .front, .back {
     padding: 1rem;
-    border: none; //todo: var
-    box-shadow: $default-box-shadow; //todo: var
+    border: 1px solid #cecece;
     border-radius: 4px;
   }
 
