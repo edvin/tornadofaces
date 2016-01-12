@@ -31,7 +31,9 @@ TornadoFaces.declareWidget('Table', function () {
                 items.unhighlight();
         } else {
             var filterFn = widget.getFilterFn();
-            for (var idx = 0; idx < items.length; idx++) {
+            var length = items.length;
+
+            for (var idx = 0; idx < length; idx++) {
                 var item = $(items[idx]);
                 if (doHighlight)
                     item.unhighlight();

@@ -24,7 +24,7 @@
   @output The flex-basis, flex-grow, and flex-shrink properties.
 */
 
-.is-hidden {display: none;}
+.is-hidden {display: none !important;}
 
 @mixin grid-size($size: expand) {
   @if (type-of($size) == 'number') {

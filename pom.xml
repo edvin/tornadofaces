@@ -12,7 +12,6 @@
 	<modules>
 		<module>tornadofaces</module>
 		<module>site</module>
-        <module>theme</module>
     </modules>
 
     <properties>
