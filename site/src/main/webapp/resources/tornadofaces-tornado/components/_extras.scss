@@ -9,8 +9,8 @@
 
   position: absolute;
   color: $closebutton-color;
-  #{$x}: $global-padding;
-  #{$y}: $global-padding;
+  #{$x}: 1rem;
+  #{$y}: 1rem;
   font-size: $closebutton-size;
   line-height: $closebutton-lineheight;
   cursor: pointer;

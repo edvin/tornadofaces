@@ -95,7 +95,7 @@ TornadoFaces.declareWidget('Table', function () {
     };
 
     this.ensureRowInView = function (tr) {
-        if(tr && tr[0] && tr[0].scrollIntoView){
+        if (tr && tr[0] && tr[0].scrollIntoView) {
             tr[0].scrollIntoView();
         }
     };
