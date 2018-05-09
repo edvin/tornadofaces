@@ -64,6 +64,7 @@ public class FormElementRenderer extends CoreRenderer {
 		if (label != null) {
 			writer.startElement("label", component);
 			StyleClass.of(elem.getLabelClass()).write(writer);
+
 			UIInput input = ComponentUtils.getFirstInputChild(component);
 			if (input != null)
 				writer.writeAttribute("for", input.getClientId(), null);
@@ -127,9 +128,9 @@ public class FormElementRenderer extends CoreRenderer {
 			// Gather input messages for FormElement plus first child
 			List<FacesMessage> messages = new ArrayList<>();
 			messages.addAll(context.getMessageList(elem.getClientId(context)));
-			UIInput input = ComponentUtils.getFirstInputChild(component);
-			if (input != null)
+			component.getChildren().stream().filter(c -> c instanceof UIInput).forEach(input -> {
 				messages.addAll(context.getMessageList(input.getClientId(context)));
+			});
 
 			if (!messages.isEmpty()) {
 				for (FacesMessage m : messages) {
