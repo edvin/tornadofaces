@@ -60,8 +60,8 @@ tbody tr.selected {
   background-color: $table-selected-row-background;
 }
 
-// Hover
-table.table-hover tbody tr:hover {
+// Hover (Edvin edit 2018-07-31): Fjernet behovet for at tables skal ha .table-hover for at denne skal slå inn)
+table tbody tr:hover {
   background-color: $table-hover-row-background;
 }
 
