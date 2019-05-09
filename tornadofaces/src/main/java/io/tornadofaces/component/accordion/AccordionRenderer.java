@@ -12,6 +12,7 @@ import javax.faces.context.ResponseWriter;
 import javax.faces.render.FacesRenderer;
 import java.io.IOException;
 
+@SuppressWarnings("Duplicates")
 @FacesRenderer(rendererType = AccordionRenderer.RENDERER_TYPE, componentFamily = "io.tornadofaces.component")
 public class AccordionRenderer extends TabParentRenderer {
 	public static final String RENDERER_TYPE = "io.tornadofaces.component.AccordionRenderer";
@@ -46,7 +47,7 @@ public class AccordionRenderer extends TabParentRenderer {
 		ResponseWriter writer = context.getResponseWriter();
 
 		writer.startElement("div", child);
-		StyleClass.of("accordion-item").add("is-active", tab.isActive()).write(writer);
+		StyleClass.of("accordion-item").add("is-active", tab.isActive()).add(tab.getItemStyleClass()).write(writer);
 
 		writer.startElement("div", child);
 		writer.writeAttribute("class", "accordion-title", null);

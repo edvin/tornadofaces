@@ -330,6 +330,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>Styles to apply to the wrapper (accordion-item) div.</description>
+            <name>itemStyleClass</name>
+            <required>false</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Icon will be added as an i with the supplied icon value as a class attribute</description>
             <name>icon</name>
             <required>false</required>

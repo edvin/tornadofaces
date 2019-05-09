@@ -19,7 +19,7 @@ import java.util.List;
 public class Tab extends UIPanel implements ClientBehaviorHolder {
 	public static final String COMPONENT_TYPE = "io.tornadofaces.component.Tab";
 
-	public enum PropertyKeys { styleClass, title, loaded }
+	public enum PropertyKeys { itemStyleClass, styleClass, title, loaded }
 
 	public String getFamily() {
 		return ComponentUtils.COMPONENT_FAMILY;
@@ -61,6 +61,8 @@ public class Tab extends UIPanel implements ClientBehaviorHolder {
 
 	public String getStyleClass() { return (String) getStateHelper().eval(PropertyKeys.styleClass); }
 	public void setStyleClass(String styleClass) { getStateHelper().put(PropertyKeys.styleClass, styleClass); }
+	public String getItemStyleClass() { return (String) getStateHelper().eval(PropertyKeys.itemStyleClass); }
+	public void setItemStyleClass(String itemStyleClass) { getStateHelper().put(PropertyKeys.itemStyleClass, itemStyleClass); }
 	public String getTitle() { return (String) getStateHelper().eval(PropertyKeys.title); }
 	public void setTitle(String title) { getStateHelper().put(PropertyKeys.title, title); }
 	public String getIcon() { return (String) getStateHelper().eval("icon"); }
