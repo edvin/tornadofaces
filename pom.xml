@@ -5,7 +5,7 @@
     <groupId>io.tornadofaces</groupId>
     <artifactId>tornadofaces-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1</version>
     <url>http://maven.apache.org</url>
     <name>TornadoFaces Parent</name>
 
@@ -13,6 +13,14 @@
 		<module>tornadofaces</module>
 		<module>site</module>
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>syse-nexus</id>
+            <name>Syse Nexus Snapshots</name>
+            <url>https://nexus.syse.no/repository/maven-releases</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
