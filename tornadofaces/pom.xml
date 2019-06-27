@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>tornadofaces</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>TornadoFaces</name>
     <description>Modern JSF Component Library - Dette er en test!</description>
     <url>http://www.tornadofaces.io/</url>
@@ -16,15 +16,10 @@
     </parent>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>tornado-nexus-snapshots</id>
-            <name>Tornado Nexus Snapshots</name>
-            <url>http://tornado.no:1080/nexus/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>syse-nexus</id>
+            <name>Syse Nexus Snapshots</name>
+            <url>https://nexus.syse.no/repository/maven-releases</url>
         </repository>
     </distributionManagement>
 

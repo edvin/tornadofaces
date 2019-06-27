@@ -50,6 +50,7 @@ public class AccordionRenderer extends TabParentRenderer {
 		StyleClass.of("accordion-item").add("is-active", tab.isActive()).add(tab.getItemStyleClass()).write(writer);
 
 		writer.startElement("div", child);
+
 		writer.writeAttribute("class", "accordion-title", null);
 
 		String icon = tab.getIcon();
