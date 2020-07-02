@@ -24,27 +24,22 @@ TornadoFaces.declareWidget('Table', function () {
 
     this.filter = function (query) {
         var doHighlight = widget.conf.highlightFilter;
+        var filterFn = widget.getFilterFn();
+        var length = items.length;
 
-        if (!query || query.length == 0 || query === '') {
-            items.show();
+        for (var idx = 0; idx < length; idx++) {
+            var item = $(items[idx]);
             if (doHighlight)
-                items.unhighlight();
-        } else {
-            var filterFn = widget.getFilterFn();
-            var length = items.length;
+                item.unhighlight();
 
-            for (var idx = 0; idx < length; idx++) {
-                var item = $(items[idx]);
+            var skipFilter = query === undefined || query.length === 0 || query === '';
+
+            if (skipFilter || filterFn(item, query, idx)) {
+                item.removeClass('is-hidden');
                 if (doHighlight)
-                    item.unhighlight();
-
-                if (filterFn(item, query, idx)) {
-                    item.removeClass('is-hidden');
-                    if (doHighlight)
-                        item.highlight(query);
-                } else {
-                    item.addClass('is-hidden');
-                }
+                    item.highlight(query);
+            } else {
+                item.addClass('is-hidden');
             }
         }
     };
