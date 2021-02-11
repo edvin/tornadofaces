@@ -38,10 +38,15 @@ TornadoFaces.declareWidget('Modal', function() {
 
         if (widget.conf.autoselect)
             $(TornadoFaces.escapeClientId(widget.conf.autoselect)).select();
+
+        TornadoFaces.CurrentModal = this;
     };
 
     this.hide = function() {
         widget.elem.removeClass('is-active');
         widget.modalContent.removeClass('is-active');
+
+        if (TornadoFaces.CurrentModal === this)
+            TornadoFaces.CurrentModal = null;
     }
 });

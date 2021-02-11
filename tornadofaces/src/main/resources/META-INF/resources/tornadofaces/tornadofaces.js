@@ -261,7 +261,13 @@ TornadoFaces = {
         }
 
     }
+};
 
+TornadoFaces.closeModalsOnEscape = function() {
+    document.addEventListener('keydown', function(event) {
+        if ((event.key === "Escape" || event.key === "Esc") && TornadoFaces.CurrentModal)
+            TornadoFaces.CurrentModal.hide();
+    });
 };
 
 TornadoFaces.widget.BaseWidget = Class.extend(function() {

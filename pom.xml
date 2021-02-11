@@ -5,7 +5,7 @@
     <groupId>io.tornadofaces</groupId>
     <artifactId>tornadofaces-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2</version>
+    <version>1.0.6</version>
     <url>http://maven.apache.org</url>
     <name>TornadoFaces Parent</name>
 
