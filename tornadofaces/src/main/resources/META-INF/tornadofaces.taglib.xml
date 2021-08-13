@@ -324,6 +324,12 @@
             <type>String</type>
         </attribute>
         <attribute>
+            <description>The id of the component</description>
+            <name>id</name>
+            <required>true</required>
+            <type>String</type>
+        </attribute>
+        <attribute>
             <description>Styles to apply to the tab div.</description>
             <name>styleClass</name>
             <required>false</required>

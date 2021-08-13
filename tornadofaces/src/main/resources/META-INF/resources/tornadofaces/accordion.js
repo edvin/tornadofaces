@@ -68,6 +68,13 @@ TornadoFaces.declareWidget('Accordion', function() {
     };
 
     this.select = function(itemIndex) {
+        if (isNaN(itemIndex)) {
+            widget.items.each(function(index, item) {
+                if ($(item).find('.accordion-content').attr('id') === itemIndex) {
+                    itemIndex = index;
+                }
+            });
+        }
         var item = $(widget.items[itemIndex]);
         var activation = !item.hasClass('is-active');
 
